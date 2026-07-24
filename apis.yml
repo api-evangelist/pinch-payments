@@ -2,21 +2,18 @@ aid: pinch-payments
 url: https://raw.githubusercontent.com/api-evangelist/pinch-payments/refs/heads/main/apis.yml
 name: Pinch Payments
 kind: company
-description: >-
-  Pinch Payments is an Australian, Brisbane-based payment orchestration and
-  payment-facilitator platform that automates invoice collection and receivables for
-  service businesses, bookkeepers, and software platforms across Australia and New Zealand.
-  Marketing itself as "Aussie-Made Payments Infrastructure," Pinch lets merchants accept
-  direct debit (bank account) and card payments (Visa, Mastercard, American Express),
-  build payment plans and subscriptions, tokenise payment sources client-side with its
-  CaptureJS library, and reconcile settlements back into Xero, QuickBooks, and MYOB. Its
-  Glassbox / Managed Merchants offering is a Payfac-as-a-Service seam with KYC, compliance,
-  and sub-merchant onboarding for platforms acting as aggregators or marketplaces. Pinch
-  is genuinely API-first: it ships a fully documented REST API (JSON, OAuth2 client-credentials
-  auth), a ReadMe-hosted developer portal with a live API explorer, per-product OpenAPI 3.1
-  definitions, a published Postman collection, an official .NET SDK, Zapier/n8n/viaSocket
-  no-code connectors, webhooks for real-time events, and an llms.txt + docs MCP server for
-  AI-assisted integration.
+description: 'Pinch Payments is an Australian, Brisbane-based payment orchestration and payment-facilitator
+  platform that automates invoice collection and receivables for service businesses, bookkeepers, and
+  software platforms across Australia and New Zealand. Marketing itself as "Aussie-Made Payments Infrastructure,"
+  Pinch lets merchants accept direct debit (bank account) and card payments (Visa, Mastercard, American
+  Express), build payment plans and subscriptions, tokenise payment sources client-side with its CaptureJS
+  library, and reconcile settlements back into Xero, QuickBooks, and MYOB. Its Glassbox / Managed Merchants
+  offering is a Payfac-as-a-Service seam with KYC, compliance, and sub-merchant onboarding for platforms
+  acting as aggregators or marketplaces. Pinch is genuinely API-first: it ships a fully documented REST
+  API (JSON, OAuth2 client-credentials auth), a ReadMe-hosted developer portal with a live API explorer,
+  per-product OpenAPI 3.1 definitions, a published Postman collection, an official .NET SDK, Zapier/n8n/viaSocket
+  no-code connectors, webhooks for real-time events, and an llms.txt + docs MCP server for AI-assisted
+  integration.'
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Payments
@@ -36,9 +33,9 @@ specificationVersion: '0.19'
 apis:
 - aid: pinch-payments:pinch-payments-core
   name: Pinch Core API
-  description: Core Pinch REST API covering scheduled and realtime payments, plans and
-    subscriptions, refunds, fees, events, and health — 14 paths / 19 operations. Assembled
-    verbatim from Pinch's published per-endpoint OpenAPI 3.1 definitions.
+  description: Core Pinch REST API covering scheduled and realtime payments, plans and subscriptions,
+    refunds, fees, events, and health — 14 paths / 19 operations. Assembled verbatim from Pinch's published
+    per-endpoint OpenAPI 3.1 definitions.
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
@@ -54,9 +51,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/things-to-know
 - aid: pinch-payments:pinch-payments-payments
   name: Pinch Payments API
-  description: Payments product surface — create/update scheduled payments, take realtime
-    card payments, retrieve and list payments, check payment nonces, and delete payments;
-    7 paths / 8 operations.
+  description: Payments product surface — create/update scheduled payments, take realtime card payments,
+    retrieve and list payments, check payment nonces, and delete payments; 7 paths / 8 operations.
   humanURL: https://docs.getpinch.com.au/reference/save-payment
   baseURL: https://api.getpinch.com.au
   tags:
@@ -72,9 +68,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/realtime-payment
 - aid: pinch-payments:pinch-payments-payers
   name: Pinch Payers API
-  description: Manage payer records and their payment sources (bank account or credit card)
-    plus client-side tokenisation — create/update, retrieve, list, and delete payers and
-    payment sources; 4 paths / 6 operations.
+  description: Manage payer records and their payment sources (bank account or credit card) plus client-side
+    tokenisation — create/update, retrieve, list, and delete payers and payment sources; 4 paths / 6 operations.
   humanURL: https://docs.getpinch.com.au/reference/save-payer
   baseURL: https://api.getpinch.com.au
   tags:
@@ -90,9 +85,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/save-payer
 - aid: pinch-payments:pinch-payments-payment-links
   name: Pinch Payment Links API
-  description: Generate hosted payment pages (payment links) and share them via email, SMS,
-    or chat with no frontend work — create, retrieve, list by payer, and delete payment
-    links; 3 paths / 5 operations.
+  description: Generate hosted payment pages (payment links) and share them via email, SMS, or chat with
+    no frontend work — create, retrieve, list by payer, and delete payment links; 3 paths / 5 operations.
   humanURL: https://docs.getpinch.com.au/reference/create-payment-link
   baseURL: https://api.getpinch.com.au
   tags:
@@ -107,9 +101,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/create-payment-link
 - aid: pinch-payments:pinch-payments-merchants
   name: Pinch Merchants API
-  description: Payfac-as-a-Service / Managed Merchants — create sub-merchant accounts under
-    your own credentials, update merchant details, list managed merchants, and upload
-    compliance documents; 3 paths / 4 operations.
+  description: Payfac-as-a-Service / Managed Merchants — create sub-merchant accounts under your own credentials,
+    update merchant details, list managed merchants, and upload compliance documents; 3 paths / 4 operations.
   humanURL: https://docs.getpinch.com.au/reference/create-managed-merchant
   baseURL: https://api.getpinch.com.au
   tags:
@@ -125,9 +118,9 @@ apis:
     url: https://docs.getpinch.com.au/reference/create-managed-merchant
 - aid: pinch-payments:pinch-payments-webhooks
   name: Pinch Webhooks API
-  description: Configure webhooks to receive real-time notifications about Pinch events
-    (payer created, payment success/failure, bank results, subscription lifecycle) —
-    create/update, list, retrieve, and delete webhooks; 2 paths / 4 operations.
+  description: Configure webhooks to receive real-time notifications about Pinch events (payer created,
+    payment success/failure, bank results, subscription lifecycle) — create/update, list, retrieve, and
+    delete webhooks; 2 paths / 4 operations.
   humanURL: https://docs.getpinch.com.au/reference/create-or-update-webhook
   baseURL: https://api.getpinch.com.au
   tags:
@@ -142,9 +135,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/create-or-update-webhook
 - aid: pinch-payments:pinch-payments-contacts
   name: Pinch Contacts API
-  description: Manage contact records for the authenticated merchant — create/update,
-    retrieve a single contact, list contacts (paginated), and delete contacts; 2 paths /
-    4 operations.
+  description: Manage contact records for the authenticated merchant — create/update, retrieve a single
+    contact, list contacts (paginated), and delete contacts; 2 paths / 4 operations.
   humanURL: https://docs.getpinch.com.au/reference/save-contact
   baseURL: https://api.getpinch.com.au
   tags:
@@ -158,9 +150,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/save-contact
 - aid: pinch-payments:pinch-payments-transfers
   name: Pinch Transfers API
-  description: Reconcile settlements — list all transfers of settled funds to your bank
-    account, retrieve a transfer, and list its line items back to the underlying payments;
-    3 paths / 3 operations.
+  description: Reconcile settlements — list all transfers of settled funds to your bank account, retrieve
+    a transfer, and list its line items back to the underlying payments; 3 paths / 3 operations.
   humanURL: https://docs.getpinch.com.au/reference/list-all-transfers
   baseURL: https://api.getpinch.com.au
   tags:
@@ -176,8 +167,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/list-all-transfers
 - aid: pinch-payments:pinch-payments-merchant-financial-data
   name: Pinch Merchant Financial Data API
-  description: Retrieve the current merchant financial data record and create/update
-    merchant financial data used in compliance and onboarding; 2 paths / 2 operations.
+  description: Retrieve the current merchant financial data record and create/update merchant financial
+    data used in compliance and onboarding; 2 paths / 2 operations.
   humanURL: https://docs.getpinch.com.au/reference/getcurrentmerchantfinancialdata
   baseURL: https://api.getpinch.com.au
   tags:
@@ -192,9 +183,9 @@ apis:
     url: https://docs.getpinch.com.au/reference/getcurrentmerchantfinancialdata
 - aid: pinch-payments:pinch-payments-authentication
   name: Pinch Authentication API
-  description: OAuth2 client-credentials token endpoint — POST /connect/token with HTTP
-    Basic (merchant ID + secret key) and scope api1 to obtain a short-lived Bearer JWT
-    used against the Pinch API; served from auth.getpinch.com.au.
+  description: OAuth2 client-credentials token endpoint — POST /connect/token with HTTP Basic (merchant
+    ID + secret key) and scope api1 to obtain a short-lived Bearer JWT used against the Pinch API; served
+    from auth.getpinch.com.au.
   humanURL: https://docs.getpinch.com.au/reference/tokens
   baseURL: https://auth.getpinch.com.au
   tags:
@@ -208,6 +199,14 @@ apis:
   - type: APIReference
     url: https://docs.getpinch.com.au/reference/tokens
 common:
+- type: OAuthScopes
+  url: scopes/pinch-payments-scopes.yml
+- type: AgenticAccess
+  url: agentic-access/pinch-payments-agentic-access.yml
+- type: DomainSecurity
+  url: security/pinch-payments-domain-security.yml
+- type: Authentication
+  url: authentication/pinch-payments-authentication.yml
 - type: Website
   url: https://getpinch.com.au/
 - type: DeveloperPortal
@@ -236,6 +235,46 @@ common:
   url: https://getpinch.com.au/Legal/Terms/
 - type: PrivacyPolicy
   url: https://getpinch.com.au/Legal/Privacy/
+- type: Packages
+  url: packages/pinch-payments-packages.yml
+- type: SDKs
+  url: packages/pinch-payments-packages.yml
+  name: Pinch .NET SDK (NuGet)
+- type: MCPServer
+  url: mcp/pinch-payments-mcp.yml
+  name: Pinch API Docs MCP
+- type: ToolCrosswalk
+  url: mcp/pinch-payments-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/pinch-payments-llms.txt
+- type: Overlay
+  url: overlays/pinch-payments-core-overlay.yaml
+- type: Conformance
+  url: conformance/pinch-payments-conformance.yml
+- type: ErrorCatalog
+  url: errors/pinch-payments-problem-types.yml
+- type: DeclineCodes
+  url: errors/pinch-payments-decline-codes.yml
+- type: Lifecycle
+  url: lifecycle/pinch-payments-lifecycle.yml
+- type: Deprecation
+  url: https://docs.getpinch.com.au/docs/versioning
+- type: Sandbox
+  url: sandbox/pinch-payments-sandbox.yml
+- type: Conventions
+  url: conventions/pinch-payments-conventions.yml
+- type: Idempotency
+  url: conventions/pinch-payments-conventions.yml
+- type: ChangeLog
+  url: changelog/pinch-payments-changelog.yml
+- type: Components
+  url: components/pinch-payments-components.yml
+- type: DataModel
+  url: data-model/pinch-payments-data-model.yml
+- type: Webhooks
+  url: asyncapi/pinch-payments-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,65 @@
+generated: '2026-07-24'
+method: derived
+source: mcp/pinch-payments-mcp.yml (tools/list) + openapi/*.yml
+summary: >-
+  Pinch's MCP server is documentation-native (ReadMe): its six tools operate OVER the
+  OpenAPI specs (navigate/search/inspect) plus one generic live-request passthrough,
+  rather than exposing one MCP tool per REST operation. There is therefore no 1:1
+  tool->operationId binding to draw. Every MCP tool is recorded as mcp_only (a meta-tool),
+  and all 56 REST operations are rest_only (reachable only via the generic execute-request
+  passthrough, not a dedicated tool). This is an honest map of a spec-navigation MCP, not a
+  gap to paper over.
+surfaces:
+  openapi: openapi/*.yml (10 product specs, 56 operations)
+  mcp:
+    url: https://docs.getpinch.com.au/mcp
+    gated: false
+    kind: docs-native (spec navigation + generic execute-request)
+  graphql: null
+crosswalk: []
+mcp_only:
+- tool: list-endpoints
+  reason: OpenAPI-navigation meta-tool; lists paths/methods for a spec, not bound to one operation.
+- tool: get-endpoint
+  reason: OpenAPI-navigation meta-tool; inspects one path+method's schema/security, not an executable binding.
+- tool: search-endpoints
+  reason: OpenAPI-navigation meta-tool; keyword search across paths/params.
+- tool: list-specs
+  reason: OpenAPI-navigation meta-tool; enumerates the available product specs.
+- tool: get-server-variables
+  reason: OpenAPI-navigation meta-tool; returns server variables for a spec.
+- tool: execute-request
+  reason: >-
+    Generic HAR-request passthrough to the live API; can invoke ANY of the 56 operations
+    given a hand-built request, so it is not bound to a single operationId. Caller supplies
+    their own OAuth Bearer token.
+rest_only:
+- capability: payments
+  operations: [save-payment, realtime-payment, get-payment, delete-payment, check-payment-nonce, list-payments-for-payer, list-processed-payments, list-scheduled-payments]
+- capability: payers-and-sources
+  operations: [save-payer, get-payer, list-payers, delete-payer, create-payment-source, delete-payment-source, tokenise]
+- capability: plans-and-subscriptions
+  operations: [save-plan, get-plan, list-plans, delete-plan, get_plans-planid-calculated-payments, create-subscription, get-subscription, cancel-subscription, list-subscriptions]
+- capability: refunds-and-fees
+  operations: [create-a-refund, get-refund, list-refunds, check-refund-nonce, calculate-fees, get-fees]
+- capability: payment-links
+  operations: [create-payment-link, get-payment-link, get-payment-links, get-payment-links-by-payer, delete-payment-link]
+- capability: managed-merchants
+  operations: [create-managed-merchant, update-merchant, list-managed-merchants, upload-document, getCurrentMerchantFinancialData, saveMerchantFinancialData]
+- capability: transfers-and-settlement
+  operations: [list-all-transfers, get-transfer, list-transfer-line-items]
+- capability: webhooks-and-events
+  operations: [create-or-update-webhook, get-webhook, list-webhooks, delete-webhook, get-event, list-all-events]
+- capability: contacts
+  operations: [save-contact, get-contact, get-contacts, delete-contact]
+- capability: auth-and-health
+  operations: [tokens, health]
+coverage:
+  mcp_tools_named: 6
+  mcp_tools_bound_to_rest: 0
+  mcp_only: 6
+  rest_operations_total: 56
+  rest_operations_with_dedicated_tool: 0
+  note: >-
+    0 dedicated bindings is expected and correct for a spec-navigation MCP; the execute-request
+    tool provides generic reach to all 56 operations.

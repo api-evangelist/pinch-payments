@@ -1,0 +1,78 @@
+generated: '2026-07-24'
+method: searched
+source: >-
+  https://docs.getpinch.com.au/docs/pinch-payments-api-core-concepts,
+  /docs/versioning, /docs/metadata, /docs/errors, /docs/idempotent-payment-nonce,
+  and openapi/*.yml
+authentication:
+  style: OAuth 2.0 client-credentials Bearer JWT
+  header: 'Authorization: Bearer <token>'
+  token_url: https://auth.getpinch.com.au/connect/token
+  token_ttl_seconds: 3600
+  detail: See authentication/pinch-payments-authentication.yml and scopes/pinch-payments-scopes.yml.
+idempotency:
+  supported: true
+  mechanism: nonce
+  detail: >-
+    Payments and refunds accept an optional `nonce` — a one-time-use reference that
+    represents a unique payment. Reusing a nonce prevents a double submission: the API
+    detects the replay and returns the original result (isNonceReplay=true) instead of
+    creating a second charge. If the nonce is left empty every submission is treated as
+    unique. This is Pinch's idempotency contract; it is a body field, not a header.
+  fields: [nonce]
+  replay_signal: isNonceReplay
+  check_operations: [check-payment-nonce, check-refund-nonce]
+  reference: https://docs.getpinch.com.au/docs/idempotent-payment-nonce
+pagination:
+  style: page-number
+  request_params:
+    page: The current page (default 1)
+    pageSize: Items per page (default 50, maximum 500)
+  response_fields: [page, pageSize, totalPages, totalItems, data]
+  detail: List endpoints return a paginated envelope with the items under `data`.
+versioning:
+  style: header
+  header: pinch-version
+  current: '2020.1'
+  detail: >-
+    Always send `pinch-version: 2020.1`. Without it requests route to the latest version,
+    which may introduce breaking changes. See lifecycle/pinch-payments-lifecycle.yml.
+metadata:
+  supported: true
+  field: metadata
+  detail: >-
+    Store custom JSON data against Payers, Payments, Plans, and Subscriptions using the
+    `metadata` field for your own reconciliation/reference.
+  reference: https://docs.getpinch.com.au/docs/metadata
+amounts:
+  unit: minor-units (cents)
+  currency: [AUD, NZD]
+  detail: Monetary amounts are integers in the smallest currency unit (e.g. 5000 = $50.00 AUD).
+identifiers:
+  style: prefixed
+  detail: Resource IDs carry type prefixes (see data-model/pinch-payments-data-model.yml).
+  prefixes:
+    payer: pyr_
+    source: src_
+    payment: pmt_
+    attempt: att_
+    plan: pln_
+    subscription: sub_
+    refund: ref_
+    event: evt_
+    merchant: mch_
+    token: tkn_
+error_envelope:
+  detail: >-
+    4xx validation errors return a JSON body. The documented shape is
+    {"errors":[{"message":"...","field":"..."}]}; some operations return a legacy array
+    of FluentValidation objects ({propertyName,errorMessage,severity,...}) or an object
+    with {errorMessages:[...],successful:false}. See errors/pinch-payments-problem-types.yml.
+  format: custom (not RFC 9457 problem+json)
+rate_limiting:
+  documented: false
+  detail: Pinch does not publish rate-limit headers or a quota policy in its docs or specs.
+webhooks:
+  signature_header: pinch-signature
+  scheme: HMAC-SHA256 over '{timestamp}.{body}' with the webhook secret (whsec_...)
+  reference: asyncapi/pinch-payments-webhooks.yml

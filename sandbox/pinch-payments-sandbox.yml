@@ -1,0 +1,80 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/test-and-live-mode + https://docs.getpinch.com.au/docs/dishonour-codes
+summary: >-
+  Pinch runs test mode inside its production system — no separate sandbox account or
+  login. The same Application/Merchant credentials work in both environments; the base
+  URL path segment (/test/ vs /live/) selects the mode. Test mode performs every action
+  without touching the bank, supports Time Travel to simulate scheduled/overnight
+  processing instantly, and lets you deterministically trigger failure codes.
+mode_separation:
+  mechanism: base-url-path
+  test_base: https://api.getpinch.com.au/test/
+  live_base: https://api.getpinch.com.au/live/
+  credentials: >-
+    Same Application ID + Secret Key (or Merchant ID + Secret Key) in both modes; the
+    base URL determines test vs live. CaptureJS uses a pk_test_... publishable key in test.
+time_simulation:
+  header: Time-Travel
+  example: 'Time-Travel: 2026-08-01T09:45:59Z'
+  behaviour: >-
+    Treats the request as if it arrived at the given date/time, triggering scheduled
+    payments, overnight direct-debit processing, and settlement/transfer logic that
+    would otherwise take days. Ignored in live mode.
+test_cards:
+- number: '4242424242424242'
+  scheme: Visa
+  country: Australia
+- number: '4000000360000006'
+  scheme: Visa
+  country: Australia
+- number: '4012888888881881'
+  scheme: Visa
+  country: Australia
+- number: '378282246310005'
+  scheme: AMEX
+  country: Australia
+- number: '4111111111111111'
+  scheme: Visa
+  country: New Zealand
+- number: '5105105105105100'
+  scheme: Mastercard
+  country: New Zealand
+- number: '4000005540000008'
+  scheme: Mastercard
+  country: New Zealand
+- number: '371449635398431'
+  scheme: AMEX
+  country: New Zealand
+- number: '4000056655665556'
+  scheme: Visa
+  country: USA
+- number: '5200828282828210'
+  scheme: Mastercard
+  country: USA
+- number: '5555555555554444'
+  scheme: Mastercard
+  country: USA
+test_cards_note: Use any future expiry date and any CVC value with these numbers in test mode.
+test_bank_accounts:
+- bsb: '000-000'
+  account_number: '0000000000'
+  description: Generic test bank account
+- bsb: '000-001'
+  account_number: '1234567890'
+  description: Alternate test bank account
+test_bank_accounts_note: >-
+  Any BSB / account number combination is accepted in test mode; use realistic-looking
+  values (6-digit BSB, 5-9 digit account) to exercise your own UI validation.
+failure_triggers:
+  mechanism: >-
+    Add a dishonour code prefixed with '#' anywhere in a payment `description` field or a
+    payer `firstName` to force that specific failure in test mode.
+  example: 'description: "Monthly membership #insufficient-funds"'
+  codes: [insufficient-funds, temporary-problem, blocked-by-bank, invalid-card, invalid-account, unsupported-card, technical-error]
+  reference: errors/pinch-payments-decline-codes.yml
+end_to_end_direct_debit:
+- Create a payer with a test bank account
+- Schedule a payment for today
+- Send a Time-Travel header set past the processing window to process it and fire a bank-results event
+- Advance the date further to trigger settlement and a transfer event

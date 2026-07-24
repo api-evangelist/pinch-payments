@@ -1,0 +1,24 @@
+generated: '2026-07-24'
+method: generated
+source: openapi/*.yml operationIds + conventions/ + errors/ + sandbox/
+skills:
+- file: pinch-payments-take-card-payment.md
+  name: Take a realtime card payment
+  api: openapi/pinch-payments-payments.yml
+  operations: [realtime-payment, get-payment]
+- file: pinch-payments-direct-debit-and-reconcile.md
+  name: Set up a direct debit and reconcile settlement
+  api: openapi/pinch-payments-payments.yml
+  operations: [save-payer, create-payment-source, save-payment, list-all-transfers, list-transfer-line-items]
+- file: pinch-payments-plan-and-subscription.md
+  name: Create a plan and subscribe a payer
+  api: openapi/pinch-payments-core.yml
+  operations: [save-plan, get_plans-planid-calculated-payments, create-subscription, get-subscription, cancel-subscription]
+- file: pinch-payments-refund-with-nonce.md
+  name: Issue an idempotent refund
+  api: openapi/pinch-payments-core.yml
+  operations: [check-refund-nonce, create-a-refund, get-refund]
+- file: pinch-payments-managed-merchant-onboarding.md
+  name: Onboard a managed (sub-) merchant
+  api: openapi/pinch-payments-merchants.yml
+  operations: [create-managed-merchant, saveMerchantFinancialData, upload-document, list-managed-merchants]

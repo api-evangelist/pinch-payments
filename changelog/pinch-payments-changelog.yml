@@ -1,0 +1,35 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/versioning
+scheme: named-versions (date-style, pinch-version header)
+current_version: '2020.1'
+detail: >-
+  Pinch does not publish a dated running changelog; its version history is the change
+  record, exposed through the pinch-version header and the API Versions doc. Recent
+  documentation-level additions (AI surface, guides) are not individually dated by Pinch.
+entries:
+- version: '2020.1'
+  status: latest
+  breaking: true
+  highlights:
+  - Introduced nonce-based replay protection on payments and refunds (idempotency contract).
+- version: '2019.1'
+  status: supported
+  breaking: true
+  highlights:
+  - Updated Merchant endpoints to add/retrieve company and primary-contact information.
+  - Brought Merchants and Managed Merchants into line with the same properties.
+- version: '2017.2'
+  status: obsolete
+  breaking: true
+  highlights:
+  - Added credit-card endpoints and the concept of payment sources.
+- version: '2017.1'
+  status: obsolete
+  breaking: false
+  highlights:
+  - Initial public release of the Pinch API.
+notes: >-
+  Non-versioned platform notes observed in docs: authentication via Application ID/Secret
+  (Merchant ID as client_id deprecated); AI-ready surface (llms.txt + docs MCP server);
+  no-code connectors (Zapier, n8n, viaSocket).

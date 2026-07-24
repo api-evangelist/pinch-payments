@@ -1,0 +1,93 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/*.yml ($ref/id-reference fields) + https://docs.getpinch.com.au/docs/pinch-payments-api-core-concepts
+note: >-
+  Entity graph derived from the id-reference fields (payerId, planId, sourceId, paymentId,
+  transferId, ...) and prefixed identifiers across the ten product specs. Amounts are integer
+  minor units; identifiers carry type prefixes.
+entities:
+- name: Payer
+  id_prefix: pyr_
+  detail: A customer who can be charged; owns payment sources and subscriptions.
+- name: PaymentSource
+  id_prefix: src_
+  detail: A tokenised bank account or credit card belonging to a payer.
+- name: Payment
+  id_prefix: pmt_
+  detail: A scheduled or realtime charge against a payer/source; has attempts and a status.
+- name: PaymentAttempt
+  id_prefix: att_
+  detail: An individual processing attempt of a payment.
+- name: Plan
+  id_prefix: pln_
+  detail: A template of fixed + recurring payments used to create subscriptions.
+- name: Subscription
+  id_prefix: sub_
+  detail: A payer enrolled on a plan; generates payments over time.
+- name: Refund
+  id_prefix: ref_
+  detail: A full or partial return of a settled/approved payment.
+- name: Transfer
+  id_prefix: tfr_
+  detail: A settlement batch of funds to the merchant bank account, with line items back to payments.
+- name: Event
+  id_prefix: evt_
+  detail: A system event; delivered via webhooks.
+- name: Webhook
+  detail: A merchant-registered HTTPS endpoint subscribing to events.
+- name: Merchant
+  id_prefix: mch_
+  detail: A (managed/sub-) merchant account, with financial data and compliance documents.
+- name: Contact
+  detail: A contact record for the authenticated merchant.
+- name: PaymentLink
+  detail: A hosted payment page addressed to a payer.
+relationships:
+- from: PaymentSource
+  type: belongs_to
+  to: Payer
+  via: payerId
+- from: Payment
+  type: belongs_to
+  to: Payer
+  via: payerId
+- from: Payment
+  type: has_one
+  to: PaymentSource
+  via: sourceId
+- from: Payment
+  type: has_many
+  to: PaymentAttempt
+  via: attemptId
+- from: Subscription
+  type: belongs_to
+  to: Payer
+  via: payerId
+- from: Subscription
+  type: has_one
+  to: Plan
+  via: planId
+- from: Subscription
+  type: has_many
+  to: Payment
+  via: subscriptionId
+- from: Refund
+  type: belongs_to
+  to: Payment
+  via: paymentId
+- from: Transfer
+  type: has_many
+  to: Payment
+  via: line-items (list-transfer-line-items)
+- from: PaymentLink
+  type: belongs_to
+  to: Payer
+  via: payerId
+- from: Merchant
+  type: has_one
+  to: MerchantFinancialData
+  via: merchantId
+- from: Event
+  type: references
+  to: Payment/Payer/Refund/Subscription/Transfer/Merchant
+  via: Data payload

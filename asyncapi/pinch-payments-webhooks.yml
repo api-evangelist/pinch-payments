@@ -1,0 +1,56 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/webhooks + https://docs.getpinch.com.au/docs/events
+spec_type: Webhooks
+asyncapi_published: false
+note: >-
+  Pinch documents a full webhook surface but publishes no AsyncAPI document. Webhooks are
+  configured via the Webhooks API (openapi/pinch-payments-webhooks.yml) and deliver events
+  as HTTP POSTs to a merchant-registered HTTPS URL.
+delivery:
+  transport: https-post
+  envelope: '{ Id, Type, EventDate, Metadata, Data }'
+  formats: [PascalCase (default), camelCase]
+  event_id_prefix: evt_
+signature:
+  header: pinch-signature
+  format: 't=<unix-ts>,v2=<hmac>'
+  scheme: HMAC-SHA256 of '{timestamp}.{raw body}' using the webhook secret (whsec_...)
+  replay_window: 5 minutes (as used by the .NET SDK)
+  verification: api.Webhooks.VerifyWebhook(...) in Pinch.SDK, or verify manually per docs
+operations:
+  reference: openapi/pinch-payments-webhooks.yml
+  crud: [create-or-update-webhook, get-webhook, list-webhooks, delete-webhook]
+event_types:
+- name: bank-results
+  summary: Results of the overnight bank/direct-debit processing run, including dishonours.
+- name: scheduled-process
+  summary: A scheduled payment processing run has occurred.
+- name: transfer
+  summary: A settlement transfer of funds to the merchant bank account.
+- name: realtime-payment
+  summary: A realtime (card) payment result.
+- name: payment-created
+  summary: A payment record was created.
+- name: payer-created
+  summary: A payer record was created.
+- name: payer-updated
+  summary: A payer record was updated.
+- name: refund-created
+  summary: A refund was created.
+- name: refund-updated
+  summary: A refund status changed.
+- name: compliance-updated
+  summary: A merchant compliance/onboarding status changed.
+- name: dispute-created
+  summary: A dispute/chargeback was opened.
+- name: dispute-updated
+  summary: A dispute status changed.
+- name: merchant-updated
+  summary: A (managed) merchant record was updated.
+- name: subscription-created
+  summary: A subscription was created.
+- name: subscription-cancelled
+  summary: A subscription was cancelled.
+- name: subscription-complete
+  summary: A subscription completed its schedule.

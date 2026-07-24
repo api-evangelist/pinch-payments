@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Pinch pinch-api-payments
+  version: 1.0.0
+extends: openapi/pinch-payments-payments.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: pinch-payments
+    x-apievangelist-conventions: conventions/pinch-payments-conventions.yml
+    x-apievangelist-authentication: authentication/pinch-payments-authentication.yml
+    x-apievangelist-errors: errors/pinch-payments-problem-types.yml
+    x-apievangelist-idempotency:
+      mechanism: nonce
+      note: Optional nonce field on payments/refunds; replay returns the original result (isNonceReplay).
+    x-apievangelist-versioning:
+      header: pinch-version
+      current: '2020.1'
+- target: $.servers
+  update:
+    x-apievangelist-mode-separation: base-url path segment /test/ vs /live/

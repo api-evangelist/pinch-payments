@@ -1,0 +1,27 @@
+generated: '2026-07-24'
+method: searched
+source: openapi/pinch-payments-authentication.yml
+docs: https://docs.getpinch.com.au/docs/application-authentication
+summary: >-
+  The Pinch API uses OAuth 2.0 client-credentials. A single coarse scope, "api1",
+  grants access to the whole Pinch REST API; Pinch does not publish a fine-grained
+  per-resource scope surface. Tokens are obtained from the auth.getpinch.com.au
+  token endpoint using an Application ID + Secret Key (Merchant ID as client_id is
+  deprecated) and are short-lived (3600s Bearer JWT). Applications can be
+  "restricted to specific permissions" per the docs, but the named permission set
+  is not published in the machine-readable spec.
+schemes:
+- name: OAuth2 (client-credentials)
+  source: openapi/pinch-payments-authentication.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.getpinch.com.au/connect/token
+    scopes:
+      api1: Full access to the Pinch REST API (v2020.1)
+scopes:
+- scope: api1
+  description: >-
+    The single documented scope. Requested as scope=api1 in the client-credentials
+    grant; grants access to the Pinch API surface. Must be set to "api1".
+  flows: [clientCredentials]
+  sources: [openapi/pinch-payments-authentication.yml]

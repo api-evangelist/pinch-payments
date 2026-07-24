@@ -1,0 +1,51 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/sdk + registry lookups (NuGet, npm)
+packages:
+- language: csharp
+  registry: nuget
+  name: Pinch.SDK
+  url: https://www.nuget.org/packages/Pinch.SDK
+  install: dotnet add package Pinch.SDK
+  source: https://github.com/PinchPayments/Pinch.SDK
+  version: 0.25.0
+  downloads: 73047
+  official: true
+  note: >-
+    First-party .NET client. Handles OAuth token acquisition, pagination, and
+    webhook signature verification (WebhookClient.cs).
+- language: javascript
+  registry: npm
+  name: n8n-nodes-pinch
+  url: https://www.npmjs.com/package/n8n-nodes-pinch
+  install: npm install n8n-nodes-pinch
+  source: https://github.com/PinchPayments/n8n-nodes-pinch
+  version: 0.2.10
+  official: true
+  note: First-party n8n community nodes for the Pinch API (workflow automation, not a general SDK).
+- language: javascript
+  registry: cdn
+  name: Pinch CaptureJS
+  url: https://cdn.getpinch.com.au/capturejs/pinch.capture.v2.js
+  install: '<script src="https://cdn.getpinch.com.au/capturejs/pinch.capture.v2.js" integrity="sha384-..." crossorigin="anonymous"></script>'
+  official: true
+  note: >-
+    Client-side browser library for PCI-scope-reducing tokenisation of card and bank
+    account details. Distributed via Pinch CDN, not a package registry. See also
+    components/pinch-payments-components.yml.
+collections:
+- kind: postman
+  name: Pinch API v2020.1
+  url: https://github.com/PinchPayments/postman-pinch-api
+  official: true
+  note: Public Postman collection (schema v2.1.0, 12 folders); view request samples in multiple languages.
+no_code:
+- name: Zapier
+  url: https://github.com/PinchPayments/zapier-pinch-api
+  official: true
+- name: viaSocket
+  url: https://docs.getpinch.com.au/docs/getting-started-with-pinch-viasocket-integration
+  official: true
+notes: >-
+  No first-party SDK was found on PyPI, Maven Central, RubyGems, Packagist, crates.io,
+  Go modules, or npm beyond the n8n nodes. Pinch invites community SDK contributions.

@@ -1,0 +1,46 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/*.yml + https://docs.getpinch.com.au/docs/application-authentication + /docs/errors + /docs/idempotent-payment-nonce
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 client-credentials grant; token endpoint /connect/token, scope api1, Bearer JWT.
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: grant_type=client_credentials with Application ID/Secret via HTTP Basic or body params.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery; /.well-known/openid-configuration returns 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom {errors:[{message,field}]} / FluentValidation envelope, not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: Version obsolescence is documented but no Sunset/Deprecation response headers are advertised.
+- id: idempotency
+  conforms: true
+  evidence: Optional `nonce` replay-protection field on payments and refunds (isNonceReplay signal).
+- id: pagination
+  conforms: true
+  evidence: page/pageSize request params with page/pageSize/totalPages/totalItems/data response envelope.
+- id: pci-dss
+  conforms: partial
+  evidence: >-
+    CaptureJS performs client-side tokenisation to keep merchant infrastructure out of PCI
+    scope; Pinch operates as a payment facilitator handling card data. Pinch does not publish
+    a PCI DSS certificate/attestation in a machine-verifiable location, so this is not asserted
+    as a published certification.
+- id: fapi
+  conforms: false
+  evidence: Application-level OAuth only; no FAPI security profile, mTLS, or PAR documented.
+- id: iso20022
+  conforms: false
+  evidence: Consumes Australian direct-debit and card rails as a facilitator; no ISO 20022 message specs published.
+- id: json
+  conforms: true
+  evidence: REST/JSON over HTTPS; requests/responses are application/json (token endpoint uses form-urlencoded).
+notes: >-
+  No independently published certifications (SOC 2 / ISO 27001 / PCI AoC / HIPAA / FedRAMP)
+  were found on a trust or compliance page, so no `Compliance` pointer is emitted. The
+  /docs/compliance-process page concerns merchant KYC document requirements, not Pinch's own
+  certifications.

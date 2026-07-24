@@ -1,0 +1,28 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/capturejs-tokenisation + https://docs.getpinch.com.au/docs/payment-links
+families:
+- family: Client-side tokenisation
+  name: Pinch CaptureJS
+  kind: browser-js-library
+  loader: 'https://cdn.getpinch.com.au/capturejs/pinch.capture.v2.js'
+  integrity: sha384 (SRI, crossorigin=anonymous)
+  key: Merchant Publishable key (pk_test_... / pk_live_...)
+  detail: >-
+    Tokenises credit card and bank account details directly in the user's browser so
+    sensitive data never touches the merchant server, removing merchant infrastructure
+    from PCI scope. Pinch.Capture({publishableKey}).createToken({...}) returns a short-lived
+    token to send server-side into save-payment / realtime-payment / create-payment-source.
+  entry: Pinch.Capture(...).createToken(...)
+  source_types: [credit-card, bank-account]
+- family: Hosted checkout
+  name: Payment Links
+  kind: hosted-page
+  detail: >-
+    Server-generated hosted payment pages shareable via email, SMS, or chat with no
+    frontend work — a prebuilt payment surface rather than an embeddable widget. Created
+    through the Payment Links API (create-payment-link).
+  reference: openapi/pinch-payments-payment-links.yml
+notes: >-
+  Distinct from server-side SDKs (see packages/pinch-payments-packages.yml). CaptureJS is
+  the primary client-side component; Payment Links is a hosted (not embedded) surface.

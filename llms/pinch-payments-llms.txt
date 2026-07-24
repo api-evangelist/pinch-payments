@@ -1,0 +1,105 @@
+# Pinch Payments Developer API Docs Documentation
+
+> Pinch Payments is a simple and secure way to accept online payments from your customers. With our API, you can integrate Pinch Payments into your website or app and start accepting payments in minutes.
+
+## Guides
+- [Getting started with the Pinch API](https://docs.getpinch.com.au/docs/get-started-with-the-pinch-api.md): The starting point for your Pinch API integration
+- [API Core Concepts](https://docs.getpinch.com.au/docs/pinch-payments-api-core-concepts.md): This document introduces the core entities and concepts of the Pinch Payments API. It's designed to give you a mental model of how everything fits together before you start on the detailed guides and API reference.
+- [Application Authentication](https://docs.getpinch.com.au/docs/application-authentication.md): How to authenticate with the Pinch API
+- [Credit Card Payments](https://docs.getpinch.com.au/docs/credit-card-payments.md): A basic workflow for taking Credit Card payments using Pinch
+- [Direct Debit Payments](https://docs.getpinch.com.au/docs/direct-debit-payments.md): A basic workflow for taking Direct Debit payments using Pinch
+- [Tokenisation with CaptureJs](https://docs.getpinch.com.au/docs/capturejs-tokenisation.md): Securely tokenise credit card and bank account details client-side using the Pinch CaptureJS library, keeping PCI scope off your servers.
+- [Test and Live Mode](https://docs.getpinch.com.au/docs/test-and-live-mode.md): Get to know your environment
+- [API Versions](https://docs.getpinch.com.au/docs/versioning.md): How API versioning works in Pinch and how to specify the version in your requests.
+- [Plans and Subscriptions](https://docs.getpinch.com.au/docs/plans-and-subscriptions.md): This guide explains the Plans and Subscriptions feature in the Pinch API and its capabilities.
+- [Payment Links](https://docs.getpinch.com.au/docs/payment-links.md): Generate hosted payment pages and share them via email, SMS, or chat — no frontend work required.
+- [Transfers in Pinch Payments](https://docs.getpinch.com.au/docs/transfers-in-pinch-payments.md): How settled funds are batched and transferred to your bank account, including how to reconcile line items.
+- [Refunds](https://docs.getpinch.com.au/docs/refunds.md): How to issue full and partial refunds, understand fee behaviour, and track refund status through webhooks.
+- [Metadata](https://docs.getpinch.com.au/docs/metadata.md): Store custom JSON data against Payers, Payments, Plans, and Subscriptions using the metadata field.
+- [Webhooks](https://docs.getpinch.com.au/docs/webhooks.md): Receive real-time notifications about Pinch events by configuring webhooks in your application.
+- [Surcharging Fees in Pinch](https://docs.getpinch.com.au/docs/surcharging-fees-in-pinch.md): How to pass processing fees on to your customers using the surcharge feature.
+- [Managed Merchants Guide](https://docs.getpinch.com.au/docs/managed-merchants.md): Create and control Pinch merchant accounts under your own credentials using the Managed Merchants feature.
+- [Pinch Payments Compliance Guide](https://docs.getpinch.com.au/docs/compliance-process.md): To ensure secure and compliant payment processing, Pinch Payments requires specific documentation from businesses and individuals integrating with our platform. This guide outlines what you need to provide and why it matters.
+- [Managed Merchants Payments Guide](https://docs.getpinch.com.au/docs/managed-merchants-payments-guide.md): This guide outlines the typical process for taking Payments using Managed Merchants.
+- [Getting started with Pinch Zapier integration](https://docs.getpinch.com.au/docs/getting-started-with-pinch-zapier-integration.md): Connect Pinch to hundreds of apps using the Zapier no-code integration platform.
+- [Zapier Triggers](https://docs.getpinch.com.au/docs/zapier-triggers.md): Available Zapier Triggers that fire when Pinch events occur.
+- [Zapier Actions](https://docs.getpinch.com.au/docs/zapier-actions.md): Available Zapier Actions for automating Pinch payment workflows.
+- [Zapier examples using Pinch](https://docs.getpinch.com.au/docs/pinch-in-zapier-examples.md): Example use cases of the Pinch Zapier integration to help get you started.
+- [Getting started with Pinch n8n integration](https://docs.getpinch.com.au/docs/getting-started-with-pinch-n8n.md): This guide will walk you through setting up and using the Pinch Payments nodes in your n8n workflows.
+- [Getting started with Pinch viaSocket integration](https://docs.getpinch.com.au/docs/getting-started-with-pinch-viasocket-integration.md): Connect Pinch Payments to hundreds of apps using viaSocket's no-code workflow automation platform.
+- [Xero invoice automation guide](https://docs.getpinch.com.au/docs/xero-invoice-automation.md): How to use the Pinch API to automate payment collection from Xero invoices.
+- [Low-Touch Integration Guide for SAAS Platforms](https://docs.getpinch.com.au/docs/low-touch-accounting-integration.md): Surface Pinch payment links in your SaaS platform without a direct API integration, using pre-generated URLs from Xero, QuickBooks, or MYOB.
+- [Preview Payment Fees Before Charging](https://docs.getpinch.com.au/docs/preview-fees-before-charging.md): Show customers an accurate fee breakdown before submitting a charge.
+- [Vault a Payment Source for Future Billing](https://docs.getpinch.com.au/docs/vault-payment-source.md): Tokenise and store a customer's card or bank account now, charge them later.
+- [Handle a Dishonoured Direct Debit and Retry](https://docs.getpinch.com.au/docs/handle-dishonoured-direct-debit.md): Detect bank-results events, classify the failure, and safely retry where appropriate.
+- [Full Subscription Lifecycle with Failure Recovery](https://docs.getpinch.com.au/docs/full-subscription-lifecycle.md): Create a plan, preview the schedule, subscribe a payer, handle failures, and cancel cleanly.
+- [Managed Merchant Onboarding to First Payment](https://docs.getpinch.com.au/docs/managed-merchant-onboarding.md): Create a sub-merchant, submit compliance documents, and take payments on their behalf.
+- [Transfer Reconciliation](https://docs.getpinch.com.au/docs/transfer-reconciliation.md): Match each settlement transfer back to the payments in your own system.
+- [Idempotent Payment Submission with Nonce](https://docs.getpinch.com.au/docs/idempotent-payment-nonce.md): Safely retry failed payment requests without risk of double-charging.
+- [Get an SDK](https://docs.getpinch.com.au/docs/sdk.md): Available SDKs and code libraries for integrating with the Pinch API.
+- [Build on Pinch with AI](https://docs.getpinch.com.au/docs/build-on-pinch-with-ai.md): Use llms.txt and the Pinch API docs MCP server to build with the Pinch API using AI tools.
+- [Get Support](https://docs.getpinch.com.au/docs/support.md): Get in touch with the Pinch team for integration help or technical support.
+- [Payment Statuses](https://docs.getpinch.com.au/docs/payment-statuses.md): Reference of all payment status codes returned by the Pinch API.
+- [Refund Statuses](https://docs.getpinch.com.au/docs/refund-statuses.md): Reference for all refund status codes returned by the Pinch API.
+- [API Error Responses](https://docs.getpinch.com.au/docs/errors.md): HTTP status codes and error response format returned by the Pinch API.
+- [Dishonour Codes](https://docs.getpinch.com.au/docs/dishonour-codes.md): When a payment fails, these codes tell you why and how to handle each failure type.
+- [Events](https://docs.getpinch.com.au/docs/events.md): This document outlines all the different event types that occur within the Pinch system and what they are for.
+
+## API Reference
+- [Things to know](https://docs.getpinch.com.au/reference/things-to-know.md)
+- [Authentication](https://docs.getpinch.com.au/reference/tokens.md)
+- [Health](https://docs.getpinch.com.au/reference/health.md): Endpoint to check the health of an auth token
+- [Create or Update Payer](https://docs.getpinch.com.au/reference/save-payer.md): Create or update a Payer record to use for creating Payments.
+- [Get Payer](https://docs.getpinch.com.au/reference/get-payer.md)
+- [List Payers](https://docs.getpinch.com.au/reference/list-payers.md)
+- [Delete Payer](https://docs.getpinch.com.au/reference/delete-payer.md)
+- [Create Payment Source](https://docs.getpinch.com.au/reference/create-payment-source.md): Payments sources are currently either a bank account or credit card
+- [Delete Payment Source](https://docs.getpinch.com.au/reference/delete-payment-source.md)
+- [Create or Update Payment](https://docs.getpinch.com.au/reference/save-payment.md): Create or Update a Scheduled Payment
+- [Create Realtime Payment](https://docs.getpinch.com.au/reference/realtime-payment.md): Take credit card payments with a realtime response.
+- [Get Payment](https://docs.getpinch.com.au/reference/get-payment.md): Get a payment details by id.
+- [List Payments - Scheduled](https://docs.getpinch.com.au/reference/list-scheduled-payments.md): Paged list of all Payments that are currently scheduled.
+- [List Payments - Processed](https://docs.getpinch.com.au/reference/list-processed-payments.md): Paged list of Payments that have been processed.
+- [List Payments for Payer](https://docs.getpinch.com.au/reference/list-payments-for-payer.md): Get all payments for a specific Payer.
+- [Delete payment](https://docs.getpinch.com.au/reference/delete-payment.md): Delete a Payment record.
+- [Check Payment Nonce](https://docs.getpinch.com.au/reference/check-payment-nonce.md)
+- [Create Payment Link](https://docs.getpinch.com.au/reference/create-payment-link.md)
+- [Get Payment Link](https://docs.getpinch.com.au/reference/get-payment-link.md)
+- [Get Payment Links](https://docs.getpinch.com.au/reference/get-payment-links.md)
+- [Get Payment Links by Payer](https://docs.getpinch.com.au/reference/get-payment-links-by-payer.md)
+- [Delete Payment Link](https://docs.getpinch.com.au/reference/delete-payment-link.md)
+- [Update Merchant](https://docs.getpinch.com.au/reference/update-merchant.md)
+- [Create Managed Merchant](https://docs.getpinch.com.au/reference/create-managed-merchant.md)
+- [List Managed Merchants](https://docs.getpinch.com.au/reference/list-managed-merchants.md)
+- [Upload Document](https://docs.getpinch.com.au/reference/upload-document.md): Upload a document for merchant compliance
+- [Create or Update Plan](https://docs.getpinch.com.au/reference/save-plan.md)
+- [Get Plan](https://docs.getpinch.com.au/reference/get-plan.md)
+- [List Plans](https://docs.getpinch.com.au/reference/list-plans.md)
+- [Delete Plan](https://docs.getpinch.com.au/reference/delete-plan.md)
+- [Create Subscription](https://docs.getpinch.com.au/reference/create-subscription.md)
+- [List Subscriptions](https://docs.getpinch.com.au/reference/list-subscriptions.md)
+- [Get Subscription](https://docs.getpinch.com.au/reference/get-subscription.md)
+- [Cancel Subscription](https://docs.getpinch.com.au/reference/cancel-subscription.md)
+- [Calculate Plan Payments](https://docs.getpinch.com.au/reference/calculate-plan-payments.md): Preview the Scheduled Payments for a Plan before creating a subscription.
+- [List all events](https://docs.getpinch.com.au/reference/list-all-events.md)
+- [Get Event](https://docs.getpinch.com.au/reference/get-event.md)
+- [List all transfers](https://docs.getpinch.com.au/reference/list-all-transfers.md)
+- [Get Transfer](https://docs.getpinch.com.au/reference/get-transfer.md)
+- [List transfer line items](https://docs.getpinch.com.au/reference/list-transfer-line-items.md)
+- [Get Fees](https://docs.getpinch.com.au/reference/get-fees.md): Get the current fee schedule for a merchant.
+- [Calculate Fees](https://docs.getpinch.com.au/reference/calculate-fees.md)
+- [Create or Update Webhook](https://docs.getpinch.com.au/reference/create-or-update-webhook.md)
+- [List Webhooks](https://docs.getpinch.com.au/reference/list-webhooks.md)
+- [Get Webhook](https://docs.getpinch.com.au/reference/get-webhook.md)
+- [Delete Webhook](https://docs.getpinch.com.au/reference/delete-webhook.md)
+- [Tokenise Payment Source](https://docs.getpinch.com.au/reference/tokenise.md): Safely submit credit card or bank account details to our servers in exchange for a token that can be used in future.
+- [Create a Refund](https://docs.getpinch.com.au/reference/create-a-refund.md)
+- [List Refunds](https://docs.getpinch.com.au/reference/list-refunds.md)
+- [Get Refund](https://docs.getpinch.com.au/reference/get-refund.md)
+- [Check Refund Nonce](https://docs.getpinch.com.au/reference/check-refund-nonce.md): Check if a Nonce has already been added
+- [Get Contact](https://docs.getpinch.com.au/reference/get-contact.md): Retrieves a single contact by ID.
+- [List Contacts](https://docs.getpinch.com.au/reference/get-contacts.md): Retrieves a paginated list of contacts for the authenticated merchant.
+- [Create or Update Contact](https://docs.getpinch.com.au/reference/save-contact.md): Creates a new contact or updates an existing one. If an `id` is provided in the request body, the contact will be updated; otherwise a new contact will be created.
+- [Delete Contact](https://docs.getpinch.com.au/reference/delete-contact.md): Deletes a contact by ID.
+- [Get Current Merchant Financial Data](https://docs.getpinch.com.au/reference/getcurrentmerchantfinancialdata.md): Returns the current (most recent) merchant financial data record
+- [Save Merchant Financial Data](https://docs.getpinch.com.au/reference/savemerchantfinancialdata.md): Creates or updates merchant financial data

@@ -1,0 +1,37 @@
+generated: '2026-07-24'
+method: searched
+status: published
+source: https://docs.getpinch.com.au/mcp (tools/list, HTTP 200) + https://docs.getpinch.com.au/docs/build-on-pinch-with-ai
+server:
+  name: Pinch API Docs MCP
+  transport: http
+  url: https://docs.getpinch.com.au/mcp
+  auth: none (anonymous; tools/list returns full schemas)
+  kind: docs-native
+  note: >-
+    A ReadMe-hosted, documentation-native MCP server. Its tools navigate and execute
+    against Pinch's OpenAPI specifications rather than exposing one tool per REST
+    operation. `execute-request` is a generic HAR-request passthrough that will call
+    the live Pinch API (destructive/openWorld), so the caller still supplies their own
+    OAuth Bearer token in the HAR headers. See mcp/pinch-payments-tool-crosswalk.yml.
+tools:
+- name: list-endpoints
+  description: Lists all API paths and their HTTP methods with summaries, organized by path, for a given spec title.
+  read_only: true
+- name: get-endpoint
+  description: Gets detailed information about a specific endpoint (path + method + spec title), including security schemes and servers.
+  read_only: true
+- name: search-endpoints
+  description: Deep search through paths, operations, and parameters to discover relevant endpoints by keyword pattern.
+  read_only: true
+- name: list-specs
+  description: Lists all available OpenAPI specs; use the returned title to select a spec.
+  read_only: true
+- name: get-server-variables
+  description: Gets the server variables for each server within a specific OpenAPI spec.
+  read_only: true
+- name: execute-request
+  description: Executes an API request from a given HAR request object against the live API.
+  read_only: false
+  destructive: true
+  note: Generic passthrough; caller supplies method/url/headers/body and their own Authorization Bearer token.

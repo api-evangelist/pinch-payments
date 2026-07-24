@@ -1,0 +1,40 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/versioning + https://docs.getpinch.com.au/docs/application-authentication + https://status.getpinch.com.au/
+versioning:
+  scheme: header
+  header: pinch-version
+  current: '2020.1'
+  docs: https://docs.getpinch.com.au/docs/versioning
+  detail: >-
+    Named date-style versions requested via the pinch-version header. Omitting it routes
+    to the latest version and risks breaking changes, so integrators should always pin it.
+  versions:
+  - version: '2020.1'
+    status: latest
+    notes: Stable, long-running version. Uses nonce for replay protection on payments and refunds.
+  - version: '2019.1'
+    status: supported
+    notes: Added company/primary-contact data to Merchant endpoints; aligned Merchants and Managed Merchants.
+  - version: '2017.2'
+    status: obsolete
+    notes: Added credit-card endpoints and the payment-sources concept.
+  - version: '2017.1'
+    status: obsolete
+    notes: Initial public release of the Pinch API.
+deprecation:
+  policy_url: https://docs.getpinch.com.au/docs/versioning
+  sunset_header: false
+  detail: >-
+    Pinch marks older API versions "obsolete" (2017.1, 2017.2) and has deprecated
+    authenticating with a Merchant ID as client_id in favour of Applications. No RFC 8594
+    Sunset/Deprecation response headers are documented.
+  deprecated_features:
+  - Merchant ID as OAuth client_id (use an Application instead)
+  - API versions 2017.1 and 2017.2 (obsolete)
+status_page: https://status.getpinch.com.au/
+sla:
+  url: null
+  detail: No published uptime SLA target found; Pinch operates a public status page.
+support: integrations@getpinch.com.au
+deprecated_operations: []

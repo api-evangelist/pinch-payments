@@ -1,0 +1,49 @@
+generated: '2026-07-24'
+method: searched
+source: openapi/pinch-payments-authentication.yml + https://docs.getpinch.com.au/docs/application-authentication
+docs: https://docs.getpinch.com.au/docs/application-authentication
+summary:
+  types:
+  - oauth2
+  - http
+  model: OAuth 2.0 client-credentials
+  detail: >-
+    Every Pinch API request requires a Bearer JWT. Obtain one by POSTing to the
+    token endpoint (auth.getpinch.com.au/connect/token) with grant_type=client_credentials
+    and scope=api1, authenticating with your Application ID + Secret Key via HTTP
+    Basic (base64(client_id:client_secret)) or as client_id/client_secret in the
+    x-www-form-urlencoded body. The response is a Bearer token that expires in 3600s;
+    cache and reuse it. Send it as `Authorization: Bearer <token>` on every request.
+    Authenticating with a Merchant ID as client_id is DEPRECATED — new integrations
+    must use an Application. Client-side card/bank tokenisation (CaptureJS) uses a
+    separate Merchant Publishable key (pk_test_.../pk_live_...).
+  oauth2_flows: [clientCredentials]
+  token_url: https://auth.getpinch.com.au/connect/token
+  token_ttl_seconds: 3600
+  scopes: [api1]
+schemes:
+- name: OAuth2 client-credentials
+  type: oauth2
+  flows:
+    clientCredentials:
+      tokenUrl: https://auth.getpinch.com.au/connect/token
+      scopes:
+        api1: Full access to the Pinch REST API
+  sources:
+  - openapi/pinch-payments-contacts.yml
+  - openapi/pinch-payments-core.yml
+  - openapi/pinch-payments-merchant-financial-data.yml
+  - openapi/pinch-payments-merchants.yml
+  - openapi/pinch-payments-payers.yml
+  - openapi/pinch-payments-payment-links.yml
+  - openapi/pinch-payments-payments.yml
+  - openapi/pinch-payments-transfers.yml
+  - openapi/pinch-payments-webhooks.yml
+- name: HTTP Basic (token endpoint only)
+  type: http
+  scheme: basic
+  note: >-
+    Used only at the /connect/token endpoint to present the Application ID + Secret
+    Key when exchanging for a Bearer token; not used against the resource API.
+  sources:
+  - openapi/pinch-payments-authentication.yml

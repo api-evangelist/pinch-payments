@@ -1,0 +1,36 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/errors + derived from openapi/*.yml 4xx/5xx responses
+format: custom
+envelope: >-
+  Pinch does NOT use RFC 9457 application/problem+json. The documented 400 shape is
+  {"errors":[{"message":"...","field":"..."}]} where `field` names the invalid request
+  parameter (absent for non-field errors). Some operations return a legacy FluentValidation
+  array [{propertyName,errorMessage,attemptedValue,severity,errorCode,...}] or an object
+  {"errorMessages":[...],"successful":false}. Payment failures are surfaced separately as
+  dishonour codes — see errors/pinch-payments-decline-codes.yml.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: The request was rejected because of an invalid or missing field in the request body.
+  remediation: Inspect the `field`/`errorMessage` in the response body and correct the offending parameter.
+  observed_operations: [calculate-fees, create-a-refund, create-subscription, get-plan, get-subscription, delete-plan, save-payer, save-payment]
+- status: 403
+  title: Forbidden
+  meaning: >-
+    Authentication failed — check the Authorization Bearer token and ensure it has not
+    expired. Also returned on a nonce replay for refunds (isNonceReplay=true) with the
+    original resource echoed under `data`.
+  remediation: Re-fetch a token from /connect/token; verify the nonce if intentionally retrying.
+- status: 404
+  title: Not Found
+  meaning: The requested resource does not exist or has been deleted.
+  remediation: Verify the resource id (correct type prefix) and that it was not previously deleted.
+- status: 500
+  title: Internal Server Error
+  meaning: Something went wrong on Pinch's side.
+  remediation: Retry after a short delay; if it persists, contact integrations@getpinch.com.au.
+support_contact: integrations@getpinch.com.au
+notes: >-
+  HTTP status usage is standard (2xx success, 4xx caller error, 5xx server error). The
+  spec fragments harvested from ReadMe encode 200/201/400/403 examples per operation.

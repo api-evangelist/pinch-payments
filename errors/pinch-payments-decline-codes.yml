@@ -1,0 +1,49 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.getpinch.com.au/docs/dishonour-codes
+envelope_field: >-
+  Dishonour codes arrive on the `bank-results` event (batched, after the overnight run)
+  for direct-debit/bank-account payments, and synchronously in the API response for
+  realtime credit-card payments. Ordered below by how commonly they occur.
+masked_to_buyer: >-
+  Not applicable — these are merchant-facing failure codes on scheduled/direct-debit and
+  realtime card payments; Pinch does not publish a separate buyer-masked code set.
+decline_codes:
+- code: insufficient-funds
+  meaning: The payer did not have enough funds at the time of the transaction.
+  retryable: true
+  action: >-
+    Wait at least 24 hours (ideally the next business day), notify the payer, then retry
+    with a new transactionDate via save-payment. Pause automatic collection after 3
+    consecutive failures.
+- code: temporary-problem
+  meaning: >-
+    Transient bank refusal — transactions out of the ordinary, too close together, or
+    other velocity reasons. Retry allowed, usually after an hour or the next day.
+  retryable: true
+  action: Wait ~1 hour (preferably next business day) and retry without contacting the payer first.
+- code: blocked-by-bank
+  meaning: >-
+    The bank determined the transaction suspicious (potential fraud, lost/stolen card,
+    frozen account, or too risky) and will reject all future attempts.
+  retryable: false
+  action: Do not retry; notify the payer and request a different payment method.
+- code: invalid-card
+  meaning: The provided credit card information is invalid.
+  retryable: false
+  action: Do not retry; have the payer re-enter card details via CaptureJS and create a new source.
+- code: invalid-account
+  meaning: The provided bank account is invalid.
+  retryable: false
+  action: Do not retry; re-confirm bank details with the payer and create a new agreement/source.
+- code: unsupported-card
+  meaning: The card scheme (e.g. Diners Club, UnionPay) is not supported.
+  retryable: false
+  action: Do not retry; ask the payer to use Visa or Mastercard.
+- code: technical-error
+  meaning: Something went wrong on Pinch's infrastructure. Rare.
+  retryable: true
+  action: Retry once after ~30 minutes; if it fails again, contact integrations@getpinch.com.au with the payment ID.
+testing: >-
+  In sandbox, add the code prefixed with '#' anywhere in the payment `description` or the
+  payer `firstName` to force that dishonour (e.g. "#invalid-card"). See sandbox/pinch-payments-sandbox.yml.
