@@ -1,0 +1,295 @@
+openapi: 3.1.0
+info:
+  title: pinch-api-webhooks
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /webhooks:
+    post:
+      summary: Create or Update Webhook
+      description: ''
+      operationId: create-or-update-webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Webhook Id in wbk_XXXXXXXXXXXXXX format
+                uri:
+                  type: string
+                  description: Callback URI
+                webhookFormat:
+                  type: string
+                  description: The JSON casing format applied to the payload when sending the webhook
+                  default: pascal-case
+                  enum:
+                  - pascal-case
+                  - camel-case
+                eventTypes:
+                  type: array
+                  description: List of event types to subscribe to. Leave empty to subscribe to all events.
+                    See [Events](https://docs.getpinch.com.au/docs/events) page for list of available
+                    event types.
+                  items:
+                    type: string
+                includeManagedMerchants:
+                  type: boolean
+                  description: When enabled, this webhook will receive events for all managed merchants
+                    under this account in addition to events for this account.
+                  default: 'false'
+              required:
+              - uri
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"wbk_XXXXXXXXXXXXXX\",\n    \"uri\": \"https://webhook.site/Guid\"\
+                    ,\n    \"secret\": \"whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"eventTypes\"\
+                    :[\n      \"payment-created\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: wbk_XXXXXXXXXXXXXX
+                  uri:
+                    type: string
+                    example: https://webhook.site/Guid
+                  secret:
+                    type: string
+                    example: whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                  eventTypes:
+                    type: array
+                    items:
+                      type: string
+                      example: payment-created
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"wbk_XXXXXXXXXXXXXX\",\n    \"uri\": \"https://webhook.site/guid\"\
+                    ,\n    \"secret\": \"whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: wbk_XXXXXXXXXXXXXX
+                  uri:
+                    type: string
+                    example: https://webhook.site/guid
+                  secret:
+                    type: string
+                    example: whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"Uri\",\n        \"errorMessage\": \"'Uri'\
+                    \ must not be empty.\",\n        \"attemptedValue\": \"\",\n        \"customState\"\
+                    : null,\n        \"severity\": 0,\n        \"errorCode\": \"NotEmptyValidator\",\n\
+                    \        \"formattedMessageArguments\": [],\n        \"formattedMessagePlaceholderValues\"\
+                    : {\n            \"PropertyName\": \"Uri\",\n            \"PropertyValue\": \"\"\n\
+                    \        },\n        \"resourceName\": \"NotEmptyValidator\"\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: Uri
+                    errorMessage:
+                      type: string
+                      example: '''Uri'' must not be empty.'
+                    attemptedValue:
+                      type: string
+                      example: ''
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode:
+                      type: string
+                      example: NotEmptyValidator
+                    formattedMessageArguments:
+                      type: array
+                    formattedMessagePlaceholderValues:
+                      type: object
+                      properties:
+                        PropertyName:
+                          type: string
+                          example: Uri
+                        PropertyValue:
+                          type: string
+                          example: ''
+                    resourceName:
+                      type: string
+                      example: NotEmptyValidator
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: "var webhookResult = await api.Webhook.Save(new WebhookSaveOptions()\n{\n  Uri = \"https://webhook.site\"\
+            ,\n  EventTypes = new List<string>\n  {\n    \"payment-created\"\n  }\n});"
+        samples-languages:
+        - csharp
+    get:
+      summary: List Webhooks
+      description: ''
+      operationId: list-webhooks
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"id\": \"wbk_XXXXXXXXXXXXXX\",\n        \"uri\": \"https://example.com/callback\"\
+                    ,\n        \"secret\": \"whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\"\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: wbk_XXXXXXXXXXXXXX
+                    uri:
+                      type: string
+                      example: https://example.com/callback
+                    secret:
+                      type: string
+                      example: whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /webhooks/{id}:
+    delete:
+      summary: Delete Webhook
+      description: ''
+      operationId: delete-webhook
+      parameters:
+      - name: id
+        in: path
+        description: Webhook Id in wbk_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"webhookId\",\n        \"errorMessage\"\
+                    : \"Webhook with id: wbk_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\":\
+                    \ null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: webhookId
+                    errorMessage:
+                      type: string
+                      example: 'Webhook with id: wbk_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+    get:
+      summary: Get Webhook
+      description: ''
+      operationId: get-webhook
+      parameters:
+      - name: id
+        in: path
+        description: Webhook Id in wbk_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"wbk_XXXXXXXXXXXXXX\",\n    \"uri\": \"https://example.com/callback\"\
+                    ,\n    \"secret\": \"whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: wbk_XXXXXXXXXXXXXX
+                  uri:
+                    type: string
+                    example: https://example.com/callback
+                  secret:
+                    type: string
+                    example: whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

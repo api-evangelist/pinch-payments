@@ -1,0 +1,638 @@
+openapi: 3.1.0
+info:
+  title: pinch-api-contacts
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /contacts/{id}:
+    delete:
+      summary: Delete Contact
+      description: Deletes a contact by ID.
+      operationId: delete-contact
+      parameters:
+      - name: id
+        in: path
+        description: The contact identifier
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"contactId\",\n        \"errorMessage\"\
+                    : \"Contact with id: con_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\":\
+                    \ null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: contactId
+                    errorMessage:
+                      type: string
+                      example: 'Contact with id: con_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+    get:
+      summary: Get Contact
+      description: Retrieves a single contact by ID.
+      operationId: get-contact
+      parameters:
+      - name: id
+        in: path
+        description: The contact identifier (string identifier starting with `con_`)
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"con_XXXXXXXXXXXXXX\",\n    \"isPrimaryContact\": true,\n  \
+                    \  \"isUbo\": true,\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n\
+                    \    \"fullName\": \"John Smith\",\n    \"email\": \"john.smith@example.com\",\n \
+                    \   \"phone\": \"0412345678\",\n    \"streetAddress\": \"123 Business St\",\n    \"\
+                    suburb\": \"Sydney\",\n    \"postcode\": \"2000\",\n    \"state\": \"NSW\",\n    \"\
+                    country\": \"Australia\",\n    \"dob\": \"1980-05-15\",\n    \"governmentNumberSupplied\"\
+                    : false,\n    \"driversLicenseSupplied\": true,\n    \"passportNumberSupplied\": false,\n\
+                    \    \"contactType\": \"owner\",\n    \"ownership\": 50.0,\n    \"jobTitle\": \"CEO\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: con_XXXXXXXXXXXXXX
+                  isPrimaryContact:
+                    type: boolean
+                    example: true
+                  isUbo:
+                    type: boolean
+                    example: true
+                  firstName:
+                    type: string
+                    example: John
+                  lastName:
+                    type: string
+                    example: Smith
+                  fullName:
+                    type: string
+                    example: John Smith
+                  email:
+                    type: string
+                    example: john.smith@example.com
+                  phone:
+                    type: string
+                    example: 0412345678
+                  streetAddress:
+                    type: string
+                    example: 123 Business St
+                  suburb:
+                    type: string
+                    example: Sydney
+                  postcode:
+                    type: string
+                    example: '2000'
+                  state:
+                    type: string
+                    example: NSW
+                  country:
+                    type: string
+                    example: Australia
+                  dob:
+                    type: string
+                    example: '1980-05-15'
+                  governmentNumberSupplied:
+                    type: boolean
+                    example: false
+                  driversLicenseSupplied:
+                    type: boolean
+                    example: true
+                  passportNumberSupplied:
+                    type: boolean
+                    example: false
+                  contactType:
+                    type: string
+                    example: owner
+                    enum:
+                    - owner
+                    - director
+                    - shareholder
+                    - executive
+                  ownership:
+                    type: number
+                    format: double
+                    example: 50
+                    nullable: true
+                  jobTitle:
+                    type: string
+                    example: CEO
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"id\",\n        \"errorMessage\": \"Contact\
+                    \ with id: con_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n  \
+                    \      \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n\
+                    \        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: id
+                    errorMessage:
+                      type: string
+                      example: 'Contact with id: con_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+  /contacts:
+    get:
+      summary: Get Contacts
+      description: Retrieves a paginated list of contacts for the authenticated merchant.
+      operationId: get-contacts
+      parameters:
+      - name: page
+        in: query
+        description: Page number for pagination
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: Number of items per page (max 500)
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: filter
+        in: query
+        description: Search filter
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 2,\n    \"data\": [\n        {\n            \"id\": \"con_XXXXXXXXXXXXXX\",\n  \
+                    \          \"isPrimaryContact\": true,\n            \"isUbo\": true,\n           \
+                    \ \"firstName\": \"John\",\n            \"lastName\": \"Smith\",\n            \"fullName\"\
+                    : \"John Smith\",\n            \"email\": \"john.smith@example.com\",\n          \
+                    \  \"phone\": \"0412345678\",\n            \"streetAddress\": \"123 Business St\"\
+                    ,\n            \"suburb\": \"Sydney\",\n            \"postcode\": \"2000\",\n    \
+                    \        \"state\": \"NSW\",\n            \"country\": \"Australia\",\n          \
+                    \  \"dob\": \"1980-05-15\",\n            \"governmentNumberSupplied\": false,\n  \
+                    \          \"driversLicenseSupplied\": true,\n            \"passportNumberSupplied\"\
+                    : false,\n            \"contactType\": \"owner\",\n            \"ownership\": 50.0,\n\
+                    \            \"jobTitle\": \"CEO\"\n        },\n        {\n            \"id\": \"\
+                    con_XXXXXXXXXXXXXX\",\n            \"isPrimaryContact\": false,\n            \"isUbo\"\
+                    : false,\n            \"firstName\": \"Jane\",\n            \"lastName\": \"Doe\"\
+                    ,\n            \"fullName\": \"Jane Doe\",\n            \"email\": \"jane.doe@example.com\"\
+                    ,\n            \"phone\": \"0412345679\",\n            \"streetAddress\": \"456 Corporate\
+                    \ Ave\",\n            \"suburb\": \"Melbourne\",\n            \"postcode\": \"3000\"\
+                    ,\n            \"state\": \"VIC\",\n            \"country\": \"Australia\",\n    \
+                    \        \"dob\": \"1985-08-20\",\n            \"governmentNumberSupplied\": false,\n\
+                    \            \"driversLicenseSupplied\": true,\n            \"passportNumberSupplied\"\
+                    : false,\n            \"contactType\": \"director\",\n            \"ownership\": null,\n\
+                    \            \"jobTitle\": \"CFO\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                  pageSize:
+                    type: integer
+                    example: 50
+                  totalPages:
+                    type: integer
+                    example: 1
+                  totalItems:
+                    type: integer
+                    example: 2
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: con_XXXXXXXXXXXXXX
+                        isPrimaryContact:
+                          type: boolean
+                          example: true
+                        isUbo:
+                          type: boolean
+                          example: true
+                        firstName:
+                          type: string
+                          example: John
+                        lastName:
+                          type: string
+                          example: Smith
+                        fullName:
+                          type: string
+                          example: John Smith
+                        email:
+                          type: string
+                          example: john.smith@example.com
+                        phone:
+                          type: string
+                          example: 0412345678
+                        streetAddress:
+                          type: string
+                          example: 123 Business St
+                        suburb:
+                          type: string
+                          example: Sydney
+                        postcode:
+                          type: string
+                          example: '2000'
+                        state:
+                          type: string
+                          example: NSW
+                        country:
+                          type: string
+                          example: Australia
+                        dob:
+                          type: string
+                          example: '1980-05-15'
+                        governmentNumberSupplied:
+                          type: boolean
+                          example: false
+                        driversLicenseSupplied:
+                          type: boolean
+                          example: true
+                        passportNumberSupplied:
+                          type: boolean
+                          example: false
+                        contactType:
+                          type: string
+                          example: owner
+                          enum:
+                          - owner
+                          - director
+                          - shareholder
+                          - executive
+                        ownership:
+                          type: number
+                          format: double
+                          example: 50
+                          nullable: true
+                        jobTitle:
+                          type: string
+                          example: CEO
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"page\",\n        \"errorMessage\": \"\
+                    Page must be greater than 0.\",\n        \"attemptedValue\": \"0\",\n        \"customState\"\
+                    : null,\n        \"severity\": 0,\n        \"errorCode\": \"GreaterThanValidator\"\
+                    ,\n        \"formattedMessageArguments\": [],\n        \"formattedMessagePlaceholderValues\"\
+                    : {\n            \"PropertyName\": \"page\",\n            \"PropertyValue\": \"0\"\
+                    \n        },\n        \"resourceName\": \"GreaterThanValidator\"\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: page
+                    errorMessage:
+                      type: string
+                      example: Page must be greater than 0.
+                    attemptedValue:
+                      type: string
+                      example: '0'
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode:
+                      type: string
+                      example: GreaterThanValidator
+                    formattedMessageArguments:
+                      type: array
+                    formattedMessagePlaceholderValues:
+                      type: object
+                      properties:
+                        PropertyName:
+                          type: string
+                          example: page
+                        PropertyValue:
+                          type: string
+                          example: '0'
+                    resourceName:
+                      type: string
+                      example: GreaterThanValidator
+      deprecated: false
+    post:
+      summary: Create or Update Contact
+      description: Creates a new contact or updates an existing one. If an `id` is provided in the request
+        body, the contact will be updated; otherwise a new contact will be created.
+      operationId: save-contact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - contactType
+              properties:
+                id:
+                  type: string
+                  description: If provided, updates existing contact
+                isPrimaryContact:
+                  type: boolean
+                  description: Whether this is the primary contact
+                firstName:
+                  type: string
+                  description: First name
+                lastName:
+                  type: string
+                  description: Last name
+                email:
+                  type: string
+                  description: Email address
+                phone:
+                  type: string
+                  description: Phone number
+                streetAddress:
+                  type: string
+                  description: Street address
+                suburb:
+                  type: string
+                  description: Suburb
+                postcode:
+                  type: string
+                  description: Postcode
+                state:
+                  type: string
+                  description: State
+                country:
+                  type: string
+                  description: Country
+                dob:
+                  type: string
+                  format: date
+                  description: Date of birth in yyyy-MM-dd format
+                governmentNumber:
+                  type: string
+                  description: Use passportNumber or driversLicenseNumber instead
+                  deprecated: true
+                passportNumber:
+                  type: string
+                  description: Passport number
+                passportCountryCode:
+                  type: string
+                  description: Passport country code
+                driversLicenseNumber:
+                  type: string
+                  description: Driver's license number
+                driversLicenseState:
+                  type: string
+                  description: Driver's license state
+                driversLicenseCountryCode:
+                  type: string
+                  description: Driver's license country code
+                driversLicenseCardNumber:
+                  type: string
+                  description: Driver's license card number
+                driversLicenseExpiryDate:
+                  type: string
+                  format: date
+                  description: Driver's license expiry date
+                contactType:
+                  type: string
+                  description: The type of contact. Owner = a major shareholder and director; Director
+                    = any director; Shareholder = any shareholder; Executive = Any decision maker.
+                  enum:
+                  - owner
+                  - director
+                  - shareholder
+                  - executive
+                ownership:
+                  type: number
+                  format: double
+                  description: Ownership percentage
+                  nullable: true
+                jobTitle:
+                  type: string
+                  description: Job title
+            examples:
+              Request Example:
+                value:
+                  firstName: John
+                  lastName: Smith
+                  email: john.smith@example.com
+                  phone: 0412345678
+                  streetAddress: 123 Business St
+                  suburb: Sydney
+                  postcode: '2000'
+                  state: NSW
+                  country: Australia
+                  dob: '1980-05-15'
+                  isPrimaryContact: true
+                  contactType: owner
+                  ownership: 50
+                  jobTitle: CEO
+                  driversLicenseNumber: '12345678'
+                  driversLicenseState: NSW
+                  driversLicenseCountryCode: AU
+                  driversLicenseExpiryDate: '2025-12-31'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"con_XXXXXXXXXXXXXX\",\n    \"isPrimaryContact\": true,\n  \
+                    \  \"isUbo\": true,\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n\
+                    \    \"fullName\": \"John Smith\",\n    \"email\": \"john.smith@example.com\",\n \
+                    \   \"phone\": \"0412345678\",\n    \"streetAddress\": \"123 Business St\",\n    \"\
+                    suburb\": \"Sydney\",\n    \"postcode\": \"2000\",\n    \"state\": \"NSW\",\n    \"\
+                    country\": \"Australia\",\n    \"dob\": \"1980-05-15\",\n    \"governmentNumberSupplied\"\
+                    : false,\n    \"driversLicenseSupplied\": true,\n    \"passportNumberSupplied\": false,\n\
+                    \    \"contactType\": \"owner\",\n    \"ownership\": 50.0,\n    \"jobTitle\": \"CEO\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: con_XXXXXXXXXXXXXX
+                  isPrimaryContact:
+                    type: boolean
+                    example: true
+                  isUbo:
+                    type: boolean
+                    example: true
+                  firstName:
+                    type: string
+                    example: John
+                  lastName:
+                    type: string
+                    example: Smith
+                  fullName:
+                    type: string
+                    example: John Smith
+                  email:
+                    type: string
+                    example: john.smith@example.com
+                  phone:
+                    type: string
+                    example: 0412345678
+                  streetAddress:
+                    type: string
+                    example: 123 Business St
+                  suburb:
+                    type: string
+                    example: Sydney
+                  postcode:
+                    type: string
+                    example: '2000'
+                  state:
+                    type: string
+                    example: NSW
+                  country:
+                    type: string
+                    example: Australia
+                  dob:
+                    type: string
+                    example: '1980-05-15'
+                  governmentNumberSupplied:
+                    type: boolean
+                    example: false
+                  driversLicenseSupplied:
+                    type: boolean
+                    example: true
+                  passportNumberSupplied:
+                    type: boolean
+                    example: false
+                  contactType:
+                    type: string
+                    example: owner
+                    enum:
+                    - owner
+                    - director
+                    - shareholder
+                    - executive
+                  ownership:
+                    type: number
+                    format: double
+                    example: 50
+                    nullable: true
+                  jobTitle:
+                    type: string
+                    example: CEO
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"ContactType\",\n        \"errorMessage\"\
+                    : \"'Contact Type' must not be empty.\",\n        \"attemptedValue\": null,\n    \
+                    \    \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": \"NotEmptyValidator\"\
+                    ,\n        \"formattedMessageArguments\": [],\n        \"formattedMessagePlaceholderValues\"\
+                    : {\n            \"PropertyName\": \"Contact Type\",\n            \"PropertyValue\"\
+                    : null\n        },\n        \"resourceName\": \"NotEmptyValidator\"\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ContactType
+                    errorMessage:
+                      type: string
+                      example: '''Contact Type'' must not be empty.'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode:
+                      type: string
+                      example: NotEmptyValidator
+                    formattedMessageArguments:
+                      type: array
+                    formattedMessagePlaceholderValues:
+                      type: object
+                      properties:
+                        PropertyName:
+                          type: string
+                          example: Contact Type
+                        PropertyValue: {}
+                    resourceName:
+                      type: string
+                      example: NotEmptyValidator
+      deprecated: false
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

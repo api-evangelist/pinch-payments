@@ -1,0 +1,897 @@
+openapi: 3.1.0
+info:
+  title: pinch-api-payers
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /payers/{id}/sources:
+    post:
+      summary: Create Payment Source
+      description: Payments sources are currently either a bank account or credit card
+      operationId: create-payment-source
+      parameters:
+      - name: id
+        in: path
+        description: Payer Id in pyr_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceType:
+                  type: string
+                  description: Currently either 'bank-account' or 'credit-card'
+                bankAccountNumber:
+                  type: string
+                  description: The bank account number for the payer's bank account
+                bankAccountBsb:
+                  type: string
+                  description: The BSB for the payer's bank account
+                bankAccountName:
+                  type: string
+                  description: The name for the payer's bank account
+                token:
+                  type: string
+                  description: The token created by the capture script (credit card or bank account token).
+                    See the Guide for more info.
+                ipAddress:
+                  type: string
+            examples:
+              Request Example:
+                value:
+                  sourceType: bank-account
+                  bankAccountName: Ben Hotdog
+                  bankAccountBsb: 012-001
+                  bankAccountNumber: '987654321'
+                  creditCardToken: null
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"src_XXXXXXXXXXXXXX \",\n    \"sourceType\": \"bank-account\"\
+                    ,\n    \"bankAccountNumber\": \"000000000\",\n    \"bankAccountBsb\": \"000000\",\n\
+                    \    \"bankAccountName\": \"Example Name\",\n    \"creditCardToken\": null,\n    \"\
+                    cardHolderName\": null,\n    \"expiryDate\": null,\n    \"displayCardNumber\": null,\n\
+                    \    \"cardScheme\": null,\n    \"origin\": \"AU\",\n    \"funding\": null\n}\n"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 'src_XXXXXXXXXXXXXX '
+                  sourceType:
+                    type: string
+                    example: bank-account
+                  bankAccountNumber:
+                    type: string
+                    example: '000000000'
+                  bankAccountBsb:
+                    type: string
+                    example: '000000'
+                  bankAccountName:
+                    type: string
+                    example: Example Name
+                  creditCardToken: {}
+                  cardHolderName: {}
+                  expiryDate: {}
+                  displayCardNumber: {}
+                  cardScheme: {}
+                  origin:
+                    type: string
+                    example: AU
+                  funding: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Payer\
+                    \ with id: pyr_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n  \
+                    \      \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n\
+                    \        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Payer with id: pyr_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: "// Save a Bank Account\nvar result = await api.Payer.SaveSource(\"pyr_ETkAferq7vtWGN\"\
+            , new SourceSaveOptions() \n{            \n    SourceType = \"bank-account\",\n    BankAccountName\
+            \ = \"Ben Hotdog\",\n    BankAccountBsb = \"012001\",\n    BankAccountNumber = \"134975486\"\
+            ,\n    CreditCardToken = null\n});\n\n// Save a Credit Card\nvar result = await api.Payer.SaveSource(\"\
+            pyr_ETkAferq7vtWGN\", new SourceSaveOptions() \n{            \n    SourceType = \"credit-card\"\
+            ,\n    BankAccountName = null,\n    BankAccountBsb = null,\n    BankAccountNumber = null,\n\
+            \    CreditCardToken = \"tkn_dk9GpnBk2vIlSbxsOZ8Vk0FwCQBVeABk\"\n});\n"
+        samples-languages:
+        - csharp
+  /payers/{id}:
+    delete:
+      summary: Delete Payer
+      description: ''
+      operationId: delete-payer
+      parameters:
+      - name: id
+        in: path
+        description: Payer Id in pyr_XXXXXXXXXXXXXX format
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: You will get a 200 OK without any body.
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"payerId\",\n        \"errorMessage\":\
+                    \ \"Payer with id: pyr_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n\
+                    \        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\":\
+                    \ null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: payerId
+                    errorMessage:
+                      type: string
+                      example: 'Payer with id: pyr_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var response = await api.Payer.Delete(id);
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payers/{id} \\\n -H \"Authorization: Bearer ...\"\
+            \ \\\n -X DELETE"
+        samples-languages:
+        - csharp
+        - curl
+    get:
+      summary: Get Payer
+      description: ''
+      operationId: get-payer
+      parameters:
+      - name: id
+        in: path
+        description: Payer Id in pyr_XXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": \"pyr_XXXXXXXXXXXXXX\",\n  \"firstName\": \"Fred\",\n  \"lastName\"\
+                    : \"Hamburger\",\n  \"emailAddress\": \"fred@mailinator.com\",\n  \"mobileNumber\"\
+                    : \"0400000000\",\n  \"streetAddress\": \"123 Main St\",\n  \"suburb\": \"Brisbane\"\
+                    ,\n  \"postcode\": \"4000\",\n  \"state\": \"QLD\",\n  \"country\": \"Australia\"\
+                    ,\n  \"companyName\": \"Fred Incorporated\",\n  \"companyRegistrationNumber\": \"\
+                    64123456789\",\n  \"metadata\": null,\n  \"sources\": [\n    {\n      \"id\": \"src_XXXXXXXXXXXXXX\"\
+                    ,\n      \"sourceType\": \"bank-account\",\n      \"bankAccountNumber\": \"654654\"\
+                    ,\n      \"bankAccountBsb\": \"123456\",\n      \"bankAccountName\": \"Fred Hamburger\"\
+                    ,\n      \"token\": \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"cardHolderName\"\
+                    : null,\n      \"expiryDate\": null,\n      \"displayCardNumber\": \"4654\",\n   \
+                    \   \"cardScheme\": null,\n      \"origin\": \"AU\",\n      \"funding\": null,\n \
+                    \     \"isAuthorised\": true,\n      \"supportsRealtime\": false\n    }\n  ],\n  \"\
+                    agreements\": [\n    {\n      \"id\": \"agr_XXXXXXXXXXXXXX\",\n      \"anonymousViewToken\"\
+                    : \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"agreementDateUtc\"\
+                    : \"2017-04-18T10:01:53.0440599\",\n      \"confirmedDateUtc\": null\n    }\n  ]\n\
+                    }"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pyr_XXXXXXXXXXXXXX
+                  firstName:
+                    type: string
+                    example: Fred
+                  lastName:
+                    type: string
+                    example: Hamburger
+                  emailAddress:
+                    type: string
+                    example: fred@mailinator.com
+                  mobileNumber:
+                    type: string
+                    example: '0400000000'
+                  streetAddress:
+                    type: string
+                    example: 123 Main St
+                  suburb:
+                    type: string
+                    example: Brisbane
+                  postcode:
+                    type: string
+                    example: '4000'
+                  state:
+                    type: string
+                    example: QLD
+                  country:
+                    type: string
+                    example: Australia
+                  companyName:
+                    type: string
+                    example: Fred Incorporated
+                  companyRegistrationNumber:
+                    type: string
+                    example: '64123456789'
+                  metadata: {}
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: src_XXXXXXXXXXXXXX
+                        sourceType:
+                          type: string
+                          example: bank-account
+                        bankAccountNumber:
+                          type: string
+                          example: '654654'
+                        bankAccountBsb:
+                          type: string
+                          example: '123456'
+                        bankAccountName:
+                          type: string
+                          example: Fred Hamburger
+                        token:
+                          type: string
+                          example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        cardHolderName: {}
+                        expiryDate: {}
+                        displayCardNumber:
+                          type: string
+                          example: '4654'
+                        cardScheme: {}
+                        origin:
+                          type: string
+                          example: AU
+                        funding: {}
+                        isAuthorised:
+                          type: boolean
+                          example: true
+                          default: true
+                        supportsRealtime:
+                          type: boolean
+                          example: false
+                          default: true
+                  agreements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: agr_XXXXXXXXXXXXXX
+                        anonymousViewToken:
+                          type: string
+                          example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        agreementDateUtc:
+                          type: string
+                          example: '2017-04-18T10:01:53.0440599'
+                        confirmedDateUtc: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var payer = await api.Payer.Get(id);
+        samples-languages:
+        - csharp
+  /payers/{id}/sources/{sourceId}:
+    delete:
+      summary: Delete Payment Source
+      description: ''
+      operationId: delete-payment-source
+      parameters:
+      - name: id
+        in: path
+        description: Payer Id in pyr_XXXXXXXXXXXXXX format
+        required: true
+        schema:
+          type: string
+      - name: sourceId
+        in: path
+        description: Source Id in src_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: You will get a 200 OK without any body.
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"sourceId\",\n        \"errorMessage\"\
+                    : \"Source with id: src_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n\
+                    \        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\":\
+                    \ null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: sourceId
+                    errorMessage:
+                      type: string
+                      example: 'Source with id: src_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var response = await api.Payer.DeleteSource(id);
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payers/{id}/sources/{sourceid} \\\n -H \"Authorization:\
+            \ Bearer ...\" \\\n -X DELETE"
+        samples-languages:
+        - csharp
+        - curl
+  /payers:
+    get:
+      summary: List Payers
+      description: ''
+      operationId: list-payers
+      parameters:
+      - name: page
+        in: query
+        description: The current page.
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: filter
+        in: query
+        description: Optional string filter to search for payers by Name or Email address
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"page\": 1,\n  \"pageSize\": 50,\n  \"totalPages\": 1,\n  \"totalItems\"\
+                    : 3,\n  \"data\": [\n    {\n      \"id\": \"pyr_4xdOSXNYZPCtSp\",\n      \"firstName\"\
+                    : \"Ben\",\n      \"lastName\": \"Test 7\",\n      \"emailAddress\": \"bentest7@mailinator.com\"\
+                    ,\n      \"mobileNumber\": null\n    },\n    {\n      \"id\": \"pyr_k9lFmPe5WZ2KxE\"\
+                    ,\n      \"firstName\": \"Ben\",\n      \"lastName\": \"Test 4\",\n      \"emailAddress\"\
+                    : \"bentest4@mailinator.com\",\n      \"mobileNumber\": null\n    },\n    {\n    \
+                    \  \"id\": \"pyr_d4gecz4zpa2dJa\",\n      \"firstName\": \"Ben\",\n      \"lastName\"\
+                    : \"Test 6\",\n      \"emailAddress\": \"bentest6@mailinator.com\",\n      \"mobileNumber\"\
+                    : null\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 3
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pyr_4xdOSXNYZPCtSp
+                        firstName:
+                          type: string
+                          example: Ben
+                        lastName:
+                          type: string
+                          example: Test 7
+                        emailAddress:
+                          type: string
+                          example: bentest7@mailinator.com
+                        mobileNumber: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var payers = await api.Payer.GetPayers();
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payers \n -H \"Authorization: Bearer ...\""
+        samples-languages:
+        - csharp
+        - curl
+    post:
+      summary: Create or Update Payer
+      description: ''
+      operationId: save-payer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - firstName
+              - emailAddress
+              properties:
+                id:
+                  type: string
+                  description: If you include an ID this endpoint will update, otherwise it create a new
+                    payer
+                fullName:
+                  type: string
+                firstName:
+                  type: string
+                  description: First Name
+                lastName:
+                  type: string
+                  description: Last Name
+                emailAddress:
+                  type: string
+                  description: Email Address
+                mobileNumber:
+                  type: string
+                  description: Mobile Number
+                source:
+                  type: object
+                  description: Optionally add a payment source along with the Payer
+                  required:
+                  - sourceType
+                  - token
+                  properties:
+                    sourceType:
+                      type: string
+                      description: Currently either 'bank-account' or 'credit-card'
+                      enum:
+                      - bank-account
+                      - credit-card
+                    token:
+                      type: string
+                      description: The credit card token created by the capture script. See the Guide
+                        for more info.
+                    ipAddress:
+                      type: string
+                companyName:
+                  type: string
+                companyRegistrationNumber:
+                  type: string
+                streetAddress:
+                  type: string
+                suburb:
+                  type: string
+                state:
+                  type: string
+                postcode:
+                  type: string
+                country:
+                  type: string
+                metadata:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pyr_XXXXXXXXXXXXXX\",\n    \"firstName\": \"Test\",\n    \"\
+                    lastName\": \"WebSample3\",\n    \"emailAddress\": \"testwebsample@mailinator.com\"\
+                    ,\n    \"mobileNumber\": \"0400000000\",\n    \"streetAddress\": \"123 Fake st\",\n\
+                    \    \"suburb\": \"Teneriffe\",\n    \"postcode\": \"4005\",\n    \"state\": \"QLD\"\
+                    ,\n    \"country\": \"Australia\",\n    \"companyName\": \"Test Company\",\n    \"\
+                    companyRegistrationNumber\": \"111111\",\n    \"metadata\": null,\n    \"sources\"\
+                    : [\n        {\n            \"id\": \"src_XXXXXXXXXXXXXX\",\n            \"sourceType\"\
+                    : \"credit-card\",\n            \"bankAccountNumber\": null,\n            \"bankAccountBsb\"\
+                    : null,\n            \"bankAccountName\": null,\n            \"creditCardToken\":\
+                    \ \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n            \"cardHolderName\": \"Ben Hotdog\"\
+                    ,\n            \"expiryDate\": \"2022-12-01T00:00:00\",\n            \"displayCardNumber\"\
+                    : \"4242\",\n            \"cardScheme\": \"visa\",\n            \"origin\": \"AU\"\
+                    ,\n            \"funding\": \"credit\"\n        },\n        {\n            \"id\"\
+                    : \"src_XXXXXXXXXXXXXX\",\n            \"sourceType\": \"bank-account\",\n       \
+                    \     \"bankAccountNumber\": \"000000000\",\n            \"bankAccountBsb\": \"000000\"\
+                    ,\n            \"bankAccountName\": \"Example Name\",\n            \"creditCardToken\"\
+                    : null,\n            \"cardHolderName\": null,\n            \"expiryDate\": null,\n\
+                    \            \"displayCardNumber\": null,\n            \"cardScheme\": null,\n   \
+                    \         \"origin\": \"AU\",\n            \"funding\": null\n        }\n    ],\n\
+                    \    \"agreements\": [\n        {\n            \"id\": \"agr_XXXXXXXXXXXXXX\",\n \
+                    \           \"anonymousViewToken\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\"\
+                    ,\n            \"agreementDateUtc\": \"2021-04-29T05:30:44.0094217Z\",\n         \
+                    \   \"confirmedDateUtc\": \"2021-04-29T05:30:44.076392Z\",\n            \"status\"\
+                    : \"active\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pyr_XXXXXXXXXXXXXX
+                  firstName:
+                    type: string
+                    example: Test
+                  lastName:
+                    type: string
+                    example: WebSample3
+                  emailAddress:
+                    type: string
+                    example: testwebsample@mailinator.com
+                  mobileNumber:
+                    type: string
+                    example: '0400000000'
+                  streetAddress:
+                    type: string
+                    example: 123 Fake st
+                  suburb:
+                    type: string
+                    example: Teneriffe
+                  postcode:
+                    type: string
+                    example: '4005'
+                  state:
+                    type: string
+                    example: QLD
+                  country:
+                    type: string
+                    example: Australia
+                  companyName:
+                    type: string
+                    example: Test Company
+                  companyRegistrationNumber:
+                    type: string
+                    example: '111111'
+                  metadata: {}
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: src_XXXXXXXXXXXXXX
+                        sourceType:
+                          type: string
+                          example: credit-card
+                        bankAccountNumber: {}
+                        bankAccountBsb: {}
+                        bankAccountName: {}
+                        creditCardToken:
+                          type: string
+                          example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        cardHolderName:
+                          type: string
+                          example: Ben Hotdog
+                        expiryDate:
+                          type: string
+                          example: '2022-12-01T00:00:00'
+                        displayCardNumber:
+                          type: string
+                          example: '4242'
+                        cardScheme:
+                          type: string
+                          example: visa
+                        origin:
+                          type: string
+                          example: AU
+                        funding:
+                          type: string
+                          example: credit
+                  agreements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: agr_XXXXXXXXXXXXXX
+                        anonymousViewToken:
+                          type: string
+                          example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        agreementDateUtc:
+                          type: string
+                          example: '2021-04-29T05:30:44.0094217Z'
+                        confirmedDateUtc:
+                          type: string
+                          example: '2021-04-29T05:30:44.076392Z'
+                        status:
+                          type: string
+                          example: active
+        '201':
+          description: '201'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pyr_XXXXXXXXXXXXXX\",\n    \"firstName\": \"Test\",\n    \"\
+                    lastName\": \"WebSample3\",\n    \"emailAddress\": \"testwebsample@mailinator.com\"\
+                    ,\n    \"mobileNumber\": \"0400000000\",\n    \"streetAddress\": \"123 Fake st\",\n\
+                    \    \"suburb\": \"Teneriffe\",\n    \"postcode\": \"4005\",\n    \"state\": \"QLD\"\
+                    ,\n    \"country\": \"Australia\",\n    \"companyName\": \"Test Company\",\n    \"\
+                    companyRegistrationNumber\": \"112233\",\n    \"metadata\": null,\n    \"sources\"\
+                    : [\n        {\n            \"id\": \"src_XXXXXXXXXXXXXX\",\n            \"sourceType\"\
+                    : \"bank-account\",\n            \"bankAccountNumber\": \"000000000\",\n         \
+                    \   \"bankAccountBsb\": \"000000\",\n            \"bankAccountName\": \"Example Name\"\
+                    ,\n            \"creditCardToken\": null,\n            \"cardHolderName\": null,\n\
+                    \            \"expiryDate\": null,\n            \"displayCardNumber\": null,\n   \
+                    \         \"cardScheme\": null,\n            \"origin\": \"AU\"\n        }\n    ],\n\
+                    \    \"agreements\": [\n        {\n            \"id\": \"agr_XXXXXXXXXXXXXX\",\n \
+                    \           \"anonymousViewToken\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n   \
+                    \         \"agreementDateUtc\": \"2021-04-16T04:28:04.2957723Z\",\n            \"\
+                    confirmedDateUtc\": \"2021-04-16T04:28:04.3152653Z\",\n            \"status\": \"\
+                    active\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pyr_XXXXXXXXXXXXXX
+                  firstName:
+                    type: string
+                    example: Test
+                  lastName:
+                    type: string
+                    example: WebSample3
+                  emailAddress:
+                    type: string
+                    example: testwebsample@mailinator.com
+                  mobileNumber:
+                    type: string
+                    example: '0400000000'
+                  streetAddress:
+                    type: string
+                    example: 123 Fake st
+                  suburb:
+                    type: string
+                    example: Teneriffe
+                  postcode:
+                    type: string
+                    example: '4005'
+                  state:
+                    type: string
+                    example: QLD
+                  country:
+                    type: string
+                    example: Australia
+                  companyName:
+                    type: string
+                    example: Test Company
+                  companyRegistrationNumber:
+                    type: string
+                    example: '112233'
+                  metadata: {}
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: src_XXXXXXXXXXXXXX
+                        sourceType:
+                          type: string
+                          example: bank-account
+                        bankAccountNumber:
+                          type: string
+                          example: '000000000'
+                        bankAccountBsb:
+                          type: string
+                          example: '000000'
+                        bankAccountName:
+                          type: string
+                          example: Example Name
+                        creditCardToken: {}
+                        cardHolderName: {}
+                        expiryDate: {}
+                        displayCardNumber: {}
+                        cardScheme: {}
+                        origin:
+                          type: string
+                          example: AU
+                  agreements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: agr_XXXXXXXXXXXXXX
+                        anonymousViewToken:
+                          type: string
+                          example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        agreementDateUtc:
+                          type: string
+                          example: '2021-04-16T04:28:04.2957723Z'
+                        confirmedDateUtc:
+                          type: string
+                          example: '2021-04-16T04:28:04.3152653Z'
+                        status:
+                          type: string
+                          example: active
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"MobileNumber\",\n        \"errorMessage\"\
+                    : \"Mobile number must be a valid Australian number without international codes.\"\
+                    ,\n        \"attemptedValue\": \"0000000000\",\n        \"customState\": null,\n \
+                    \       \"severity\": 0,\n        \"errorCode\": \"MobileNumberValidator\",\n    \
+                    \    \"formattedMessageArguments\": [],\n        \"formattedMessagePlaceholderValues\"\
+                    : {\n            \"PropertyName\": \"Mobile Number\",\n            \"PropertyValue\"\
+                    : \"0000000000\"\n        },\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: MobileNumber
+                    errorMessage:
+                      type: string
+                      example: Mobile number must be a valid Australian number without international codes.
+                    attemptedValue:
+                      type: string
+                      example: '0000000000'
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode:
+                      type: string
+                      example: MobileNumberValidator
+                    formattedMessageArguments:
+                      type: array
+                    formattedMessagePlaceholderValues:
+                      type: object
+                      properties:
+                        PropertyName:
+                          type: string
+                          example: Mobile Number
+                        PropertyValue:
+                          type: string
+                          example: '0000000000'
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: "// Payer with Bank Account\nvar resultBank = await api.Payer.Save(new PayerSaveOptions()\n\
+            {\n  FirstName = \"Fred\",\n  LastName = \"Hamburger\",\n  EmailAddress = \"fred_hamburger@mailinator.com\"\
+            ,\n  MobileNumber = \"0400123456\",\n  Source = new SourceSaveOptions()\n  {\n    SourceType\
+            \ = \"bank-account\",\n    BankAccountName = \"Fred Q Hamburger\",\n    BankAccountBsb = \"\
+            012-001\",\n    BankAccountNumber = \"12345678\"\n  }\n});\n\nvar payerBank = resultBank.Data;\n\
+            \n\n// Payer with Credit Card\nvar resultCredit = await api.Payer.Save(new PayerSaveOptions()\n\
+            {\n  FirstName = \"Fred\",\n  LastName = \"Hamburger\",\n  EmailAddress = \"fred_hamburger@mailinator.com\"\
+            ,\n  MobileNumber = \"0400123456\",\n  Source = new SourceSaveOptions()\n  {\n    SourceType\
+            \ = \"credit-card\",\n    CreditCardToken = \"tkn_n82sc5341anvmh7j98nugvdzaxdsuyte\"\n  }\n\
+            });\n\nvar payerCredit = resultCredit.Data;"
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payers \n -H \"Authorization: Bearer ...\" \n -H\
+            \ \"Content-Type: application/json\" \n -d \"{\n        'firstName': 'Test', \n        'lastName':\
+            \ 'WebSample3',  \n        'emailAddress': 'testwebsample@mailinator.com',  \n        'mobileNumber':\
+            \ '0400123456',\n     }\""
+        samples-languages:
+        - csharp
+        - curl
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

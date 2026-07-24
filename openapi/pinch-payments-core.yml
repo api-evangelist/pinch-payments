@@ -1,0 +1,3752 @@
+openapi: 3.1.0
+info:
+  title: pinch-api
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /fees/calculate:
+    post:
+      summary: Calculate Fees
+      description: ''
+      operationId: calculate-fees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token in tkn_XXXXXXXXXXXXXXXXXXXXXX format
+                sourceId:
+                  type: string
+                  description: Source Id in src_XXXXXXXXXXXXXX format
+                sourceType:
+                  type: string
+                amount:
+                  type: integer
+                  format: int64
+                applicationFee:
+                  type: integer
+                  format: int64
+                currency:
+                  type: string
+                surcharge:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"amount\": 100,\n    \"currency\": \"AUD\",\n    \"netAmount\": 67,\n\
+                    \    \"isSurcharged\": false,\n    \"convertedAmount\": null,\n    \"convertedCurrency\"\
+                    : null,\n    \"convertedNetAmount\": null,\n    \"fees\": {\n        \"transactionFee\"\
+                    : 33,\n        \"applicationFee\": 0,\n        \"totalFee\": 33,\n        \"currency\"\
+                    : \"AUD\",\n        \"taxRate\": 0.1,\n        \"convertedTransactionFee\": null,\n\
+                    \        \"convertedApplicationFee\": null,\n        \"convertedTotalFee\": null,\n\
+                    \        \"convertedCurrency\": null,\n        \"conversionRate\": null\n    },\n\
+                    \    \"source\": {\n        \"id\": null,\n        \"sourceType\": \"credit-card\"\
+                    ,\n        \"bankAccountNumber\": null,\n        \"bankAccountBsb\": null,\n     \
+                    \   \"bankAccountName\": null,\n        \"creditCardToken\": \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\"\
+                    ,\n        \"cardHolderName\": \"Ben Hotdog\",\n        \"expiryDate\": \"2022-12-01T00:00:00\"\
+                    ,\n        \"displayCardNumber\": \"4242\",\n        \"cardScheme\": \"visa\",\n \
+                    \       \"origin\": \"AU\",\n        \"funding\": \"credit\"\n    },\n    \"feeSchedule\"\
+                    : {\n        \"destinationZone\": \"AU\",\n        \"originZone\": \"AU\",\n     \
+                    \   \"feeScheme\": \"visa-master\",\n        \"percentageFee\": 0.025,\n        \"\
+                    fixedFee\": 30,\n        \"cap\": 0,\n        \"dishonourFee\": 0,\n        \"disputeFee\"\
+                    : 3500\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  amount:
+                    type: integer
+                    example: 100
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  netAmount:
+                    type: integer
+                    example: 67
+                    default: 0
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                    default: true
+                  convertedAmount: {}
+                  convertedCurrency: {}
+                  convertedNetAmount: {}
+                  fees:
+                    type: object
+                    properties:
+                      transactionFee:
+                        type: integer
+                        example: 33
+                        default: 0
+                      applicationFee:
+                        type: integer
+                        example: 0
+                        default: 0
+                      totalFee:
+                        type: integer
+                        example: 33
+                        default: 0
+                      currency:
+                        type: string
+                        example: AUD
+                      taxRate:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      convertedTransactionFee: {}
+                      convertedApplicationFee: {}
+                      convertedTotalFee: {}
+                      convertedCurrency: {}
+                      conversionRate: {}
+                  source:
+                    type: object
+                    properties:
+                      id: {}
+                      sourceType:
+                        type: string
+                        example: credit-card
+                      bankAccountNumber: {}
+                      bankAccountBsb: {}
+                      bankAccountName: {}
+                      creditCardToken:
+                        type: string
+                        example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                      cardHolderName:
+                        type: string
+                        example: Ben Hotdog
+                      expiryDate:
+                        type: string
+                        example: '2022-12-01T00:00:00'
+                      displayCardNumber:
+                        type: string
+                        example: '4242'
+                      cardScheme:
+                        type: string
+                        example: visa
+                      origin:
+                        type: string
+                        example: AU
+                      funding:
+                        type: string
+                        example: credit
+                  feeSchedule:
+                    type: object
+                    properties:
+                      destinationZone:
+                        type: string
+                        example: AU
+                      originZone:
+                        type: string
+                        example: AU
+                      feeScheme:
+                        type: string
+                        example: visa-master
+                      percentageFee:
+                        type: number
+                        example: 0.025
+                        default: 0
+                      fixedFee:
+                        type: integer
+                        example: 30
+                        default: 0
+                      cap:
+                        type: integer
+                        example: 0
+                        default: 0
+                      dishonourFee:
+                        type: integer
+                        example: 0
+                        default: 0
+                      disputeFee:
+                        type: integer
+                        example: 3500
+                        default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"You must\
+                    \ supply one of either: Token, SourceId, SourceType\",\n        \"attemptedValue\"\
+                    : null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'You must supply one of either: Token, SourceId, SourceType'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+  /plans/{planId}/calculated-payments:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: ''
+      parameters:
+      - in: path
+        name: planId
+        schema:
+          type: string
+        required: true
+        description: Plan Id to calculate Payments for (string identifier starting with *pln_*)
+      - in: query
+        name: startDate
+        schema:
+          type: string
+          format: date-time
+        required: true
+      - in: query
+        name: totalAmount
+        schema:
+          type: number
+      operationId: get_plans-planid-calculated-payments
+  /subscriptions/{id}:
+    delete:
+      summary: Cancel Subscription
+      description: ''
+      operationId: cancel-subscription
+      parameters:
+      - name: id
+        in: path
+        description: Subscription Id in sub_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[no body]'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errorMessages\": [\n        {\n            \"propertyName\": \"\",\n\
+                    \            \"errorMessage\": \"Could not find subscription with id: sub_XXXXXXXXXXXXXX\"\
+                    ,\n            \"attemptedValue\": null,\n            \"customState\": null,\n   \
+                    \         \"severity\": 0,\n            \"errorCode\": null,\n            \"formattedMessageArguments\"\
+                    : null,\n            \"formattedMessagePlaceholderValues\": null,\n            \"\
+                    resourceName\": null\n        }\n    ],\n    \"successful\": false\n}"
+              schema:
+                type: object
+                properties:
+                  errorMessages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        propertyName:
+                          type: string
+                          example: ''
+                        errorMessage:
+                          type: string
+                          example: 'Could not find subscription with id: sub_XXXXXXXXXXXXXX'
+                        attemptedValue: {}
+                        customState: {}
+                        severity:
+                          type: integer
+                          example: 0
+                          default: 0
+                        errorCode: {}
+                        formattedMessageArguments: {}
+                        formattedMessagePlaceholderValues: {}
+                        resourceName: {}
+                  successful:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+    get:
+      summary: Get Subscription
+      description: ''
+      operationId: get-subscription
+      parameters:
+      - name: id
+        in: path
+        description: Subscription Id in sub_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"sub_XXXXXXXXXXXXXX\",\n    \"payer\": {\n        \"id\": \"\
+                    pyr_XXXXXXXXXXXXXX\",\n        \"firstName\": \"Ben\",\n        \"lastName\": \"Hotdog\"\
+                    ,\n        \"emailAddress\": \"ben.hotdog@mailinator.com\",\n        \"mobileNumber\"\
+                    : null,\n        \"streetAddress\": null,\n        \"suburb\": null,\n        \"postcode\"\
+                    : null,\n        \"state\": null,\n        \"country\": null,\n        \"companyName\"\
+                    : null,\n        \"companyRegistrationNumber\": null,\n        \"metadata\": null\n\
+                    \    },\n    \"planId\": \"pln_XXXXXXXXXXXXXX\",\n    \"planName\": \"25% Deposit\
+                    \ with 10% Monthly\",\n    \"status\": \"active\",\n    \"startDate\": \"2021-05-21T14:00:00.0000000Z\"\
+                    ,\n    \"freePeriods\": [\n        {\n            \"startDate\": \"2021-05-21T14:00:00.0000000Z\"\
+                    ,\n            \"durationOffset\": 1,\n            \"durationInterval\": \"months\"\
+                    ,\n            \"metadata\": \"\"\n        }\n    ],\n    \"fixedPayments\": [\n \
+                    \       {\n            \"amount\": 25000,\n            \"description\": \"Upfront\
+                    \ deposit\",\n            \"cancelPlanOnFailure\": true,\n            \"metadata\"\
+                    : null,\n            \"transactionDate\": \"2021-05-21T14:00:00.0000000Z\"\n     \
+                    \   }\n    ],\n    \"recurringPayment\": {\n        \"amount\": 10000,\n        \"\
+                    endAfterNumberOfPayments\": null,\n        \"endAfterTotalAmount\": null,\n      \
+                    \  \"frequencyInterval\": \"months\",\n        \"frequencyOffset\": 1,\n        \"\
+                    description\": \"Monthly Repayment\",\n        \"cancelPlanOnFailure\": false,\n \
+                    \       \"metadata\": null,\n        \"endAfterDate\": null,\n        \"startDate\"\
+                    : \"2021-06-21T14:00:00.0000000Z\"\n    },\n    \"totalAmount\": 100000,\n    \"metadata\"\
+                    : \"\",\n    \"surcharge\": [\n        \"bank-account\",\n        \"credit-card\"\n\
+                    \    ]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: sub_XXXXXXXXXXXXXX
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Ben
+                      lastName:
+                        type: string
+                        example: Hotdog
+                      emailAddress:
+                        type: string
+                        example: ben.hotdog@mailinator.com
+                      mobileNumber: {}
+                      streetAddress: {}
+                      suburb: {}
+                      postcode: {}
+                      state: {}
+                      country: {}
+                      companyName: {}
+                      companyRegistrationNumber: {}
+                      metadata: {}
+                  planId:
+                    type: string
+                    example: pln_XXXXXXXXXXXXXX
+                  planName:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  status:
+                    type: string
+                    example: active
+                  startDate:
+                    type: string
+                    example: '2021-05-21T14:00:00.0000000Z'
+                  freePeriods:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        startDate:
+                          type: string
+                          example: '2021-05-21T14:00:00.0000000Z'
+                        durationOffset:
+                          type: integer
+                          example: 1
+                          default: 0
+                        durationInterval:
+                          type: string
+                          example: months
+                        metadata:
+                          type: string
+                          example: ''
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amount:
+                          type: integer
+                          example: 25000
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                        transactionDate:
+                          type: string
+                          example: '2021-05-21T14:00:00.0000000Z'
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amount:
+                        type: integer
+                        example: 10000
+                        default: 0
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                      endAfterDate: {}
+                      startDate:
+                        type: string
+                        example: '2021-06-21T14:00:00.0000000Z'
+                  totalAmount:
+                    type: integer
+                    example: 100000
+                    default: 0
+                  metadata:
+                    type: string
+                    example: ''
+                  surcharge:
+                    type: array
+                    items:
+                      type: string
+                      example: bank-account
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"SubscriptionId\",\n        \"errorMessage\"\
+                    : \"Subscription Id sub_XXXXXXXXXXXXXX not found.\",\n        \"attemptedValue\":\
+                    \ null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: SubscriptionId
+                    errorMessage:
+                      type: string
+                      example: Subscription Id sub_XXXXXXXXXXXXXX not found.
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+  /refunds/nonce:
+    post:
+      summary: Check Refund Nonce
+      description: Check if a Nonce has already been added
+      operationId: check-refund-nonce
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - nonce
+              properties:
+                nonce:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Nonce Exists:
+                  value: "{\n    \"isNonceReplay\": true,\n    \"nonce\": \"test1234\",\n    \"data\"\
+                    : {\n        \"id\": \"ref_XGPRRXNZ\",\n        \"amount\": 100,\n        \"currency\"\
+                    : \"AUD\",\n        \"refundFeeCharged\": 0,\n        \"requestedDate\": \"2021-05-11T02:29:56.6079210Z\"\
+                    ,\n        \"submittedDate\": null,\n        \"completedDate\": null,\n        \"\
+                    reasonForRefund\": \"Requested by Payer\",\n        \"notes\": null,\n        \"convertedAmount\"\
+                    : null,\n        \"conversionRate\": null,\n        \"convertedCurrency\": null,\n\
+                    \        \"isGross\": false,\n        \"status\": \"requested\",\n        \"paymentId\"\
+                    : null,\n        \"transferId\": null,\n        \"refundedFees\": null,\n        \"\
+                    nonce\": \"test1234\"\n    }\n}"
+                Nonce Doesn't Exist:
+                  value: "{\n    \"isNonceReplay\": false,\n    \"nonce\": \"test12345\"\n}"
+              schema:
+                oneOf:
+                - title: Nonce Exists
+                  type: object
+                  properties:
+                    isNonceReplay:
+                      type: boolean
+                      example: true
+                      default: true
+                    nonce:
+                      type: string
+                      example: test1234
+                    data:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: ref_XGPRRXNZ
+                        amount:
+                          type: integer
+                          example: 100
+                          default: 0
+                        currency:
+                          type: string
+                          example: AUD
+                        refundFeeCharged:
+                          type: integer
+                          example: 0
+                          default: 0
+                        requestedDate:
+                          type: string
+                          example: '2021-05-11T02:29:56.6079210Z'
+                        submittedDate: {}
+                        completedDate: {}
+                        reasonForRefund:
+                          type: string
+                          example: Requested by Payer
+                        notes: {}
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        isGross:
+                          type: boolean
+                          example: false
+                          default: true
+                        status:
+                          type: string
+                          example: requested
+                        paymentId: {}
+                        transferId: {}
+                        refundedFees: {}
+                        nonce:
+                          type: string
+                          example: test1234
+                - title: Nonce Doesn't Exist
+                  type: object
+                  properties:
+                    isNonceReplay:
+                      type: boolean
+                      example: false
+                      default: true
+                    nonce:
+                      type: string
+                      example: test12345
+      deprecated: false
+  /refunds:
+    post:
+      summary: Create a Refund
+      description: ''
+      operationId: create-a-refund
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - paymentId
+              - amount
+              - reason
+              properties:
+                paymentId:
+                  type: string
+                  description: Payment Id in pmt_XXXXXXXXXXXXXX format
+                amount:
+                  type: integer
+                  format: int32
+                reason:
+                  type: string
+                nonce:
+                  type: string
+                  description: Optional. A nonce is a one-time-use reference that represents a unique
+                    payment. Used to prevent double submissions of payments. If left empty all submissions
+                    will be treated as unique.
+            examples:
+              Request Example:
+                value:
+                  paymentId: pmt_XXXXXXXXXXXXXX
+                  amount: 1000
+                  reason: Requested by Payer
+                  nonce: unique-string
+      responses:
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"ref_995DGQ38\",\n    \"amount\": 100,\n    \"currency\": \"\
+                    AUD\",\n    \"refundFeeCharged\": 0,\n    \"requestedDate\": \"2021-05-14T00:08:11.7803470Z\"\
+                    ,\n    \"submittedDate\": null,\n    \"completedDate\": null,\n    \"reasonForRefund\"\
+                    : \"Requested by Payer\",\n    \"notes\": null,\n    \"convertedAmount\": null,\n\
+                    \    \"conversionRate\": null,\n    \"convertedCurrency\": null,\n    \"isGross\"\
+                    : false,\n    \"status\": \"requested\",\n    \"paymentId\": null,\n    \"transferId\"\
+                    : null,\n    \"refundedFees\": null,\n    \"nonce\": \"5781b2f0-9a09-4579-bbb8-eea734633b13\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: ref_995DGQ38
+                  amount:
+                    type: integer
+                    example: 100
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  refundFeeCharged:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requestedDate:
+                    type: string
+                    example: '2021-05-14T00:08:11.7803470Z'
+                  submittedDate: {}
+                  completedDate: {}
+                  reasonForRefund:
+                    type: string
+                    example: Requested by Payer
+                  notes: {}
+                  convertedAmount: {}
+                  conversionRate: {}
+                  convertedCurrency: {}
+                  isGross:
+                    type: boolean
+                    example: false
+                    default: true
+                  status:
+                    type: string
+                    example: requested
+                  paymentId: {}
+                  transferId: {}
+                  refundedFees: {}
+                  nonce:
+                    type: string
+                    example: 5781b2f0-9a09-4579-bbb8-eea734633b13
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Could\
+                    \ not find a payment with ID: pmt_XXXXXXXXXXXXXX\",\n        \"attemptedValue\": null,\n\
+                    \        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\":\
+                    \ null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a payment with ID: pmt_XXXXXXXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                403 Nonce Replay:
+                  value: "{\n    \"isNonceReplay\": true,\n    \"nonce\": \"5781b2f0-9a09-4579-bbb8-eea734633b13\"\
+                    ,\n    \"data\": {\n        \"id\": \"ref_995DGQ38\",\n        \"amount\": 100,\n\
+                    \        \"currency\": \"AUD\",\n        \"refundFeeCharged\": 0,\n        \"requestedDate\"\
+                    : \"2021-05-14T00:08:11.7803470Z\",\n        \"submittedDate\": null,\n        \"\
+                    completedDate\": null,\n        \"reasonForRefund\": \"Requested by Payer\",\n   \
+                    \     \"notes\": null,\n        \"convertedAmount\": null,\n        \"conversionRate\"\
+                    : null,\n        \"convertedCurrency\": null,\n        \"isGross\": false,\n     \
+                    \   \"status\": \"requested\",\n        \"paymentId\": null,\n        \"transferId\"\
+                    : null,\n        \"refundedFees\": null,\n        \"nonce\": \"5781b2f0-9a09-4579-bbb8-eea734633b13\"\
+                    \n    }\n}"
+              schema:
+                type: object
+                properties:
+                  isNonceReplay:
+                    type: boolean
+                    example: true
+                    default: true
+                  nonce:
+                    type: string
+                    example: 5781b2f0-9a09-4579-bbb8-eea734633b13
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: ref_995DGQ38
+                      amount:
+                        type: integer
+                        example: 100
+                        default: 0
+                      currency:
+                        type: string
+                        example: AUD
+                      refundFeeCharged:
+                        type: integer
+                        example: 0
+                        default: 0
+                      requestedDate:
+                        type: string
+                        example: '2021-05-14T00:08:11.7803470Z'
+                      submittedDate: {}
+                      completedDate: {}
+                      reasonForRefund:
+                        type: string
+                        example: Requested by Payer
+                      notes: {}
+                      convertedAmount: {}
+                      conversionRate: {}
+                      convertedCurrency: {}
+                      isGross:
+                        type: boolean
+                        example: false
+                        default: true
+                      status:
+                        type: string
+                        example: requested
+                      paymentId: {}
+                      transferId: {}
+                      refundedFees: {}
+                      nonce:
+                        type: string
+                        example: 5781b2f0-9a09-4579-bbb8-eea734633b13
+      deprecated: false
+    get:
+      summary: List Refunds
+      description: ''
+      operationId: list-refunds
+      parameters:
+      - name: page
+        in: query
+        description: The current page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: startDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 6,\n    \"data\": [\n        {\n            \"id\": \"ref_XXXXXXXX\",\n        \
+                    \    \"amount\": 1245,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\"\
+                    : 0,\n            \"requestedDate\": \"2021-05-14T05:22:00.0980330Z\",\n         \
+                    \   \"completedDate\": null,\n            \"reasonForRefund\": \"duplicate transaction\"\
+                    ,\n            \"notes\": null,\n            \"convertedAmount\": null,\n        \
+                    \    \"conversionRate\": null,\n            \"convertedCurrency\": null,\n       \
+                    \     \"isGross\": false,\n            \"status\": \"requested\",\n            \"\
+                    transferId\": null,\n            \"refundedFees\": null,\n            \"nonce\": null\n\
+                    \        },\n        {\n            \"id\": \"ref_XXXXXXXX\",\n            \"amount\"\
+                    : 100,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\": 0,\n\
+                    \            \"requestedDate\": \"2021-05-11T02:29:56.6079210Z\",\n            \"\
+                    completedDate\": null,\n            \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \            \"notes\": null,\n            \"convertedAmount\": null,\n          \
+                    \  \"conversionRate\": null,\n            \"convertedCurrency\": null,\n         \
+                    \   \"isGross\": false,\n            \"status\": \"requested\",\n            \"transferId\"\
+                    : null,\n            \"refundedFees\": null,\n            \"nonce\": \"test1234\"\n\
+                    \        },\n        {\n            \"id\": \"ref_XXXXXXXX\",\n            \"amount\"\
+                    : 100,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\": 0,\n\
+                    \            \"requestedDate\": \"2021-05-11T01:08:37.2754508Z\",\n            \"\
+                    completedDate\": null,\n            \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \            \"notes\": null,\n            \"convertedAmount\": null,\n          \
+                    \  \"conversionRate\": null,\n            \"convertedCurrency\": null,\n         \
+                    \   \"isGross\": false,\n            \"status\": \"requested\",\n            \"transferId\"\
+                    : null,\n            \"refundedFees\": null,\n            \"nonce\": \"test123\"\n\
+                    \        },\n        {\n            \"id\": \"ref_XXXXXXXX\",\n            \"amount\"\
+                    : 100,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\": 0,\n\
+                    \            \"requestedDate\": \"2021-05-11T01:08:34.2568023Z\",\n            \"\
+                    completedDate\": null,\n            \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \            \"notes\": null,\n            \"convertedAmount\": null,\n          \
+                    \  \"conversionRate\": null,\n            \"convertedCurrency\": null,\n         \
+                    \   \"isGross\": false,\n            \"status\": \"requested\",\n            \"transferId\"\
+                    : null,\n            \"refundedFees\": null,\n            \"nonce\": \"test123\"\n\
+                    \        },\n        {\n            \"id\": \"ref_XXXXXXXX\",\n            \"amount\"\
+                    : 1000,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\": 0,\n\
+                    \            \"requestedDate\": \"2021-05-11T01:07:58.5216275Z\",\n            \"\
+                    completedDate\": null,\n            \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \            \"notes\": null,\n            \"convertedAmount\": null,\n          \
+                    \  \"conversionRate\": null,\n            \"convertedCurrency\": null,\n         \
+                    \   \"isGross\": false,\n            \"status\": \"requested\",\n            \"transferId\"\
+                    : null,\n            \"refundedFees\": null,\n            \"nonce\": \"test123\"\n\
+                    \        },\n        {\n            \"id\": \"ref_XXXXXXXX\",\n            \"amount\"\
+                    : 1000,\n            \"currency\": \"AUD\",\n            \"refundFeeCharged\": 0,\n\
+                    \            \"requestedDate\": \"2021-05-11T00:00:41.6762465Z\",\n            \"\
+                    completedDate\": null,\n            \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \            \"notes\": null,\n            \"convertedAmount\": null,\n          \
+                    \  \"conversionRate\": null,\n            \"convertedCurrency\": null,\n         \
+                    \   \"isGross\": false,\n            \"status\": \"requested\",\n            \"transferId\"\
+                    : null,\n            \"refundedFees\": null,\n            \"nonce\": \"0e44d18b-8b69-4b9f-8736-bdd86a9e4aea\"\
+                    \n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 6
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: ref_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                          default: 0
+                        currency:
+                          type: string
+                          example: AUD
+                        refundFeeCharged:
+                          type: integer
+                          example: 0
+                          default: 0
+                        requestedDate:
+                          type: string
+                          example: '2021-05-14T05:22:00.0980330Z'
+                        completedDate: {}
+                        reasonForRefund:
+                          type: string
+                          example: duplicate transaction
+                        notes: {}
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        isGross:
+                          type: boolean
+                          example: false
+                          default: true
+                        status:
+                          type: string
+                          example: requested
+                        transferId: {}
+                        refundedFees: {}
+                        nonce: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /subscriptions:
+    post:
+      summary: Create Subscription
+      description: ''
+      operationId: create-subscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - planId
+              - payerId
+              properties:
+                planId:
+                  type: string
+                  description: Plan Id in pln_XXXXXXXXXXXXXX format
+                payerId:
+                  type: string
+                  description: Payer Id in pyr_XXXXXXXXXXXXXX format
+                totalAmount:
+                  type: integer
+                  description: If the plan needs a total amount (percentage based plans) you must supply
+                    it here in cents. This will override the end date settings on a recurring plan to
+                    end after this total amount is paid.
+                  format: int32
+                startDate:
+                  type: string
+                  description: When the subscription should start. Leave blank for immediately.
+                  format: date
+                surcharge:
+                  type: array
+                  description: If you wish to pass on the fees for certain payment methods, specify them
+                    here. Values can be "bank-account" and/or "credit-card".
+                  items:
+                    type: string
+                sourceId:
+                  type: string
+                  description: Source Id in src_XXXXXXXXX format. If you want to use a specific Source,
+                    otherwise a Source will be automatically selected. If the Source is removed the Subscription
+                    will no longer be able to complete.
+            examples:
+              Request Example:
+                value:
+                  planId: pln_ZW7iySHhEZwldh
+                  payerId: pyr_vliHRkOJIHvN6b
+                  totalAmount: 100000
+                  startDate: '2020-05-22'
+                  surcharge:
+                  - bank-account
+                  - credit-card
+      responses:
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": \"sub_ICbooeBtI7YE5I\",\n  \"payer\": {\n    \"id\": \"pyr_vliHRkOJIHvN6b\"\
+                    ,\n    \"firstName\": \"New\",\n    \"lastName\": \"Payer 3\",\n    \"emailAddress\"\
+                    : \"np3@mailinator.com\",\n    \"mobileNumber\": null\n  },\n  \"planId\": \"pln_ZW7iySHhEZwldh\"\
+                    ,\n  \"planName\": \"25% Deposit with 10% Monthly\",\n  \"status\": \"active\",\n\
+                    \  \"startDate\": \"2020-05-21T14:00:00.0000000Z\",\n  \"freePeriods\": [],\n  \"\
+                    fixedPayments\": [{\n    \"amount\": 25000,\n    \"description\": \"Upfront deposit\"\
+                    ,\n    \"cancelPlanOnFailure\": true,\n    \"metadata\": null,\n    \"transactionDate\"\
+                    : \"2020-05-21T14:00:00.0000000Z\"\n  }],\n  \"recurringPayment\": {\n    \"amount\"\
+                    : 10000,\n    \"endAfterNumberOfPayments\": null,\n    \"endAfterTotalAmount\": null,\n\
+                    \    \"frequencyInterval\": \"months\",\n    \"frequencyOffset\": 1,\n    \"description\"\
+                    : \"Monthly Repayment\",\n    \"cancelPlanOnFailure\": false,\n    \"metadata\": null,\n\
+                    \    \"endAfterDate\": null,\n    \"startDate\": \"2020-06-21T14:00:00.0000000Z\"\n\
+                    \  },\n  \"totalAmount\": 100000,\n  \"metadata\": null,\n  \"surcharge\": [\"bank-account\"\
+                    ,\"credit-card\"]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: sub_ICbooeBtI7YE5I
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_vliHRkOJIHvN6b
+                      firstName:
+                        type: string
+                        example: New
+                      lastName:
+                        type: string
+                        example: Payer 3
+                      emailAddress:
+                        type: string
+                        example: np3@mailinator.com
+                      mobileNumber: {}
+                  planId:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  planName:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  status:
+                    type: string
+                    example: active
+                  startDate:
+                    type: string
+                    example: '2020-05-21T14:00:00.0000000Z'
+                  freePeriods:
+                    type: array
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amount:
+                          type: integer
+                          example: 25000
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                        transactionDate:
+                          type: string
+                          example: '2020-05-21T14:00:00.0000000Z'
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amount:
+                        type: integer
+                        example: 10000
+                        default: 0
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                      endAfterDate: {}
+                      startDate:
+                        type: string
+                        example: '2020-06-21T14:00:00.0000000Z'
+                  totalAmount:
+                    type: integer
+                    example: 100000
+                    default: 0
+                  metadata: {}
+                  surcharge:
+                    type: array
+                    items:
+                      type: string
+                      example: bank-account
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Could\
+                    \ not find a plan with id: pln_XXXXXX\",\n        \"attemptedValue\": null,\n    \
+                    \    \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n\
+                    \        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a plan with id: pln_XXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+    get:
+      summary: List Subscriptions
+      description: ''
+      operationId: list-subscriptions
+      parameters:
+      - name: page
+        in: query
+        description: The current page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 1,\n    \"data\": [\n        {\n            \"id\": \"sub_\",\n            \"payer\"\
+                    : {\n                \"id\": \"pyr_\",\n                \"firstName\": \"Ben\",\n\
+                    \                \"lastName\": \"Hotdog\",\n                \"emailAddress\": \"ben.hotdog@mailinator.com\"\
+                    ,\n                \"mobileNumber\": null,\n                \"streetAddress\": null,\n\
+                    \                \"suburb\": null,\n                \"postcode\": null,\n        \
+                    \        \"state\": null,\n                \"country\": null,\n                \"\
+                    companyName\": null,\n                \"companyRegistrationNumber\": null,\n     \
+                    \           \"metadata\": null\n            },\n            \"planId\": \"pln_rp0JFLx6qYaPGS\"\
+                    ,\n            \"planName\": \"25% Deposit with 10% Monthly\",\n            \"status\"\
+                    : \"active\",\n            \"startDate\": \"2021-05-21T14:00:00.0000000Z\",\n    \
+                    \        \"freePeriods\": [\n                {\n                    \"startDate\"\
+                    : \"2021-05-21T14:00:00.0000000Z\",\n                    \"durationOffset\": 1,\n\
+                    \                    \"durationInterval\": \"months\",\n                    \"metadata\"\
+                    : \"\"\n                }\n            ],\n            \"fixedPayments\": [\n    \
+                    \            {\n                    \"amount\": 25000,\n                    \"description\"\
+                    : \"Upfront deposit\",\n                    \"cancelPlanOnFailure\": true,\n     \
+                    \               \"metadata\": null,\n                    \"transactionDate\": \"2021-05-21T14:00:00.0000000Z\"\
+                    \n                }\n            ],\n            \"recurringPayment\": {\n       \
+                    \         \"amount\": 10000,\n                \"endAfterNumberOfPayments\": null,\n\
+                    \                \"endAfterTotalAmount\": null,\n                \"frequencyInterval\"\
+                    : \"months\",\n                \"frequencyOffset\": 1,\n                \"description\"\
+                    : \"Monthly Repayment\",\n                \"cancelPlanOnFailure\": false,\n      \
+                    \          \"metadata\": null,\n                \"endAfterDate\": null,\n        \
+                    \        \"startDate\": \"2021-06-21T14:00:00.0000000Z\"\n            },\n       \
+                    \     \"totalAmount\": 100000,\n            \"metadata\": \"\",\n            \"surcharge\"\
+                    : [\n                \"bank-account\",\n                \"credit-card\"\n        \
+                    \    ]\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 1
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: sub_
+                        payer:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pyr_
+                            firstName:
+                              type: string
+                              example: Ben
+                            lastName:
+                              type: string
+                              example: Hotdog
+                            emailAddress:
+                              type: string
+                              example: ben.hotdog@mailinator.com
+                            mobileNumber: {}
+                            streetAddress: {}
+                            suburb: {}
+                            postcode: {}
+                            state: {}
+                            country: {}
+                            companyName: {}
+                            companyRegistrationNumber: {}
+                            metadata: {}
+                        planId:
+                          type: string
+                          example: pln_rp0JFLx6qYaPGS
+                        planName:
+                          type: string
+                          example: 25% Deposit with 10% Monthly
+                        status:
+                          type: string
+                          example: active
+                        startDate:
+                          type: string
+                          example: '2021-05-21T14:00:00.0000000Z'
+                        freePeriods:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startDate:
+                                type: string
+                                example: '2021-05-21T14:00:00.0000000Z'
+                              durationOffset:
+                                type: integer
+                                example: 1
+                                default: 0
+                              durationInterval:
+                                type: string
+                                example: months
+                              metadata:
+                                type: string
+                                example: ''
+                        fixedPayments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              amount:
+                                type: integer
+                                example: 25000
+                                default: 0
+                              description:
+                                type: string
+                                example: Upfront deposit
+                              cancelPlanOnFailure:
+                                type: boolean
+                                example: true
+                                default: true
+                              metadata: {}
+                              transactionDate:
+                                type: string
+                                example: '2021-05-21T14:00:00.0000000Z'
+                        recurringPayment:
+                          type: object
+                          properties:
+                            amount:
+                              type: integer
+                              example: 10000
+                              default: 0
+                            endAfterNumberOfPayments: {}
+                            endAfterTotalAmount: {}
+                            frequencyInterval:
+                              type: string
+                              example: months
+                            frequencyOffset:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: Monthly Repayment
+                            cancelPlanOnFailure:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata: {}
+                            endAfterDate: {}
+                            startDate:
+                              type: string
+                              example: '2021-06-21T14:00:00.0000000Z'
+                        totalAmount:
+                          type: integer
+                          example: 100000
+                          default: 0
+                        metadata:
+                          type: string
+                          example: ''
+                        surcharge:
+                          type: array
+                          items:
+                            type: string
+                            example: bank-account
+      deprecated: false
+  /plans/{id}:
+    delete:
+      summary: Delete Plan
+      description: ''
+      operationId: delete-plan
+      parameters:
+      - name: id
+        in: path
+        description: Plan Id in pln_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[no body]'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"id\",\n        \"errorMessage\": \"Plan\
+                    \ with id: pln_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n  \
+                    \      \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n\
+                    \        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: id
+                    errorMessage:
+                      type: string
+                      example: 'Plan with id: pln_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+    get:
+      summary: Get Plan
+      description: ''
+      operationId: get-plan
+      parameters:
+      - name: id
+        in: path
+        description: Plan Id in pln_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\"\
+                    ,\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\"\
+                    :0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\"\
+                    :0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n\
+                    \      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\"\
+                    :null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n\
+                    \    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\"\
+                    :1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\"\
+                    ,\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\"\
+                    :null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n  \
+                    \  \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n\
+                    \  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Could\
+                    \ not find a plan with id: pln_XXXXXXXXXXXXXX\",\n        \"attemptedValue\": null,\n\
+                    \        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\":\
+                    \ null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a plan with id: pln_XXXXXXXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+  /events/{id}:
+    get:
+      summary: Get Event
+      description: ''
+      operationId: get-event
+      parameters:
+      - name: id
+        in: path
+        description: Event Id in evt_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                realtime-payment:
+                  value: "{\n    \"id\": \"evt_XXXXXXXXXXXXXX\",\n    \"type\": \"realtime-payment\",\n\
+                    \    \"eventDate\": \"2021-04-26T07:15:53.0251702\",\n    \"metadata\": {\n      \
+                    \  \"status\": \"approved\",\n        \"amount\": 1000\n    },\n    \"data\": {\n\
+                    \        \"payment\": {\n            \"id\": \"pmt_XXXXXXXXXXXXXX\",\n           \
+                    \ \"attemptId\": \"att_XXXXXXXX\",\n            \"amount\": 1000,\n            \"\
+                    currency\": \"AUD\",\n            \"description\": \"test\",\n            \"applicationFee\"\
+                    : 0,\n            \"totalFee\": 55,\n            \"isSurcharged\": false,\n      \
+                    \      \"sourceType\": \"credit-card\",\n            \"transactionDate\": \"2021-04-26T07:15:52.8507613Z\"\
+                    ,\n            \"status\": \"approved\",\n            \"estimatedTransferDate\": \"\
+                    2021-04-29\",\n            \"actualTransferDate\": null,\n            \"payer\": {\n\
+                    \                \"id\": \"pyr_XXXXXXXXXXXXXX\",\n                \"firstName\": \"\
+                    Test\",\n                \"lastName\": \"Person\",\n                \"emailAddress\"\
+                    : \"test.person@mailinator.com\",\n                \"mobileNumber\": \"\",\n     \
+                    \           \"streetAddress\": null,\n                \"suburb\": null,\n        \
+                    \        \"postcode\": null,\n                \"state\": null,\n                \"\
+                    country\": null,\n                \"companyName\": null,\n                \"companyRegistrationNumber\"\
+                    : null,\n                \"metadata\": null\n            },\n            \"subscription\"\
+                    : null,\n            \"attempts\": [\n                {\n                    \"id\"\
+                    : \"att_XXXXXXXX\",\n                    \"amount\": 1000,\n                    \"\
+                    currency\": \"AUD\",\n                    \"convertedAmount\": null,\n           \
+                    \         \"conversionRate\": null,\n                    \"convertedCurrency\": null,\n\
+                    \                    \"estimatedSettlementDate\": \"2021-04-29T00:00:00\",\n     \
+                    \               \"isSurcharged\": false,\n                    \"transactionDate\"\
+                    : \"2021-04-26T07:15:52.8507613Z\",\n                    \"estimatedTransferDate\"\
+                    : \"2021-04-29\",\n                    \"actualTransferDate\": null,\n           \
+                    \         \"source\": {\n                        \"id\": \"src_M489Kvi8INwmRo\",\n\
+                    \                        \"sourceType\": \"credit-card\",\n                      \
+                    \  \"bankAccountNumber\": null,\n                        \"bankAccountBsb\": null,\n\
+                    \                        \"bankAccountName\": null,\n                        \"creditCardToken\"\
+                    : \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n                        \"cardHolderName\"\
+                    : \"Ben Hotdog\",\n                        \"expiryDate\": \"2022-12-01T00:00:00\"\
+                    ,\n                        \"displayCardNumber\": \"4242\",\n                    \
+                    \    \"cardScheme\": \"visa\",\n                        \"origin\": \"AU\",\n    \
+                    \                    \"funding\": \"credit\"\n                    },\n           \
+                    \         \"dishonour\": null,\n                    \"settlement\": null,\n      \
+                    \              \"fees\": {\n                        \"transactionFee\": 55,\n    \
+                    \                    \"applicationFee\": 0,\n                        \"totalFee\"\
+                    : 55,\n                        \"currency\": \"AUD\",\n                        \"\
+                    taxRate\": 0.1,\n                        \"convertedTransactionFee\": null,\n    \
+                    \                    \"convertedApplicationFee\": null,\n                        \"\
+                    convertedTotalFee\": null,\n                        \"convertedCurrency\": null,\n\
+                    \                        \"conversionRate\": null\n                    },\n      \
+                    \              \"status\": \"approved\"\n                }\n            ],\n     \
+                    \       \"metadata\": null\n        }\n    },\n    \"webhooks\": []\n}"
+                bank-results:
+                  value: "{\n  \"id\": \"evt_XXXXXXXXXXXXXX\",\n  \"type\": \"bank-results\",\n  \"eventDate\"\
+                    : \"2017-05-08T23:30:00.0989722\",\n  \"metadata\": {\n    \"dishonourCount\": 1,\n\
+                    \    \"dishonourAmount\": 1255\n  },\n  \"data\": {\n    \"dishonours\": [\n     \
+                    \ {\n        \"typeEnum\": 1,\n        \"type\": \"insufficient-funds\",\n       \
+                    \ \"date\": \"2017-05-09T00:00:00\",\n        \"fees\": 500,\n        \"transferId\"\
+                    : null,\n        \"payment\": {\n          \"id\": \"pmt_XXXXXXXXXXXXXX\",\n     \
+                    \     \"amount\": 1255,\n          \"transactionDate\": \"2017-05-08T00:00:00\",\n\
+                    \          \"description\": \"A new set of wheels 4\",\n          \"status\": \"dishonoured\"\
+                    ,\n          \"payer\": {\n            \"id\": \"pyr_XXXXXXXXXXXXXX\",\n         \
+                    \   \"firstName\": \"Ben\",\n            \"lastName\": \"Auto 1\",\n            \"\
+                    emailAddress\": \"benauto1@mailinator.cOM\",\n            \"mobileNumber\": \"0400000123\"\
+                    \n          }\n        }\n      }\n    ]\n  }\n}"
+                payer-created:
+                  value: "{\n    \"id\": \"evt_XXXXXXXXXXXXXX\",\n    \"type\": \"payer-created\",\n \
+                    \   \"eventDate\": \"2024-01-09T22:13:22.8959791\",\n    \"metadata\": {\n       \
+                    \ \"payerName\": \"John Smith\"\n    },\n    \"data\": {\n        \"payer\": {\n \
+                    \           \"id\": \"pyr_XXXXXXXXXXXXXX\",\n            \"firstName\": \"John\",\n\
+                    \            \"lastName\": \"Smith\",\n            \"emailAddress\": \"pinch@mailinator.com\"\
+                    ,\n            \"mobileNumber\": null,\n            \"streetAddress\": \"\",\n   \
+                    \         \"suburb\": \"\",\n            \"postcode\": \"\",\n            \"state\"\
+                    : \"\",\n            \"country\": \"\",\n            \"companyName\": \"\",\n    \
+                    \        \"companyRegistrationNumber\": null,\n            \"metadata\": null,\n \
+                    \           \"sources\": [\n                {\n                    \"id\": \"src_XXXXXXXXXXXXXX\"\
+                    ,\n                    \"sourceType\": \"bank-account\",\n                    \"bankAccountNumber\"\
+                    : null,\n                    \"bankAccountBsb\": null,\n                    \"bankAccountName\"\
+                    : null,\n                    \"token\": \"tkn_XXXXXXXXXXXXXX\",\n                \
+                    \    \"cardHolderName\": \"J Smith\",\n                    \"expiryDate\": null,\n\
+                    \                    \"displayCardNumber\": \"1234\",\n                    \"cardScheme\"\
+                    : null,\n                    \"origin\": \"AU\",\n                    \"funding\"\
+                    : null,\n                    \"isAuthorised\": false,\n                    \"supportsRealtime\"\
+                    : false\n                }\n            ],\n            \"agreements\": [\n      \
+                    \          {\n                    \"id\": \"agr_XXXXXXXXXXXXXX\",\n              \
+                    \      \"anonymousViewToken\": \"XXXXXXXXXXXXXX\",\n                    \"agreementDateUtc\"\
+                    : \"2024-01-09T22:13:22.8601567\",\n                    \"confirmedDateUtc\": \"2024-01-09T22:13:22.8792519\"\
+                    ,\n                    \"status\": \"active\",\n                    \"agreementType\"\
+                    : \"legacy-ddr\"\n                }\n            ]\n        }\n    }\n}"
+                subscription-created:
+                  value: "{\n    \"id\": \"evt_XXXXXXXXXXXXXX\",\n    \"type\": \"subscription-created\"\
+                    ,\n    \"eventDate\": \"2023-08-09T06:41:00.0252052\",\n    \"metadata\": {\n    \
+                    \    \"planName\": \"Weekly Plan #2\",\n        \"payerName\": \"Test Person\"\n \
+                    \   },\n    \"data\": {\n        \"subscription\": {\n            \"id\": \"sub_b3CagACGPihR0z\"\
+                    ,\n            \"payer\": {\n                \"id\": \"pyr_WLpo7r0suazIS9\",\n   \
+                    \             \"firstName\": \"Test\",\n                \"lastName\": \"Person\",\n\
+                    \                \"emailAddress\": \"test.person@mailinator.com\",\n             \
+                    \   \"mobileNumber\": null,\n                \"streetAddress\": \"\",\n          \
+                    \      \"suburb\": null,\n                \"postcode\": null,\n                \"\
+                    state\": null,\n                \"country\": null,\n                \"countryCode\"\
+                    : null,\n                \"companyName\": null,\n                \"companyRegistrationNumber\"\
+                    : null,\n                \"metadata\": \"\"\n            },\n            \"planId\"\
+                    : \"pln_XXXXXXXXXXXXXX\",\n            \"planName\": \"Weekly Plan #2\",\n       \
+                    \     \"status\": \"active\",\n            \"startDate\": \"2024-03-03T13:00:00.0000000Z\"\
+                    ,\n            \"freePeriods\": [],\n            \"fixedPayments\": [],\n        \
+                    \    \"recurringPayment\": {\n                \"amount\": 100000,\n              \
+                    \  \"endAfterNumberOfPayments\": null,\n                \"endAfterTotalAmount\": null,\n\
+                    \                \"frequencyInterval\": \"days\",\n                \"frequencyOffset\"\
+                    : 7,\n                \"description\": \"Weekly Payment\",\n                \"cancelPlanOnFailure\"\
+                    : false,\n                \"metadata\": null,\n                \"endAfterDate\": null,\n\
+                    \                \"startDate\": \"2024-03-03T13:00:00.0000000Z\"\n            },\n\
+                    \            \"totalAmount\": 10000000,\n            \"metadata\": null,\n       \
+                    \     \"surcharge\": [\n                \"credit-card\"\n            ]\n        },\n\
+                    \        \"eventId\": \"evt_XXXXXXXXXXXXXX\"\n    },\n    \"merchantId\": \"mch_XXXXXXXXXXXXXX\"\
+                    \n}"
+                scheduled-process:
+                  value: "{\n    \"id\": \"evt_XXXXXXXXXXXX\",\n    \"type\": \"scheduled-process\",\n\
+                    \    \"eventDate\": \"2024-06-09T22:55:45.2954757\",\n    \"metadata\": {\n      \
+                    \  \"count\": 1,\n        \"amount\": 1000\n    },\n    \"data\": {\n        \"payments\"\
+                    : [\n            {\n                \"id\": \"pmt_XXXXXXXXXXXX\",\n              \
+                    \  \"attemptId\": \"att_XXXXXXXXX\",\n                \"amount\": 1000,\n        \
+                    \        \"currency\": \"AUD\",\n                \"description\": \"Weekly payments\
+                    \ for subscription\",\n                \"applicationFee\": 0,\n                \"\
+                    totalFee\": 55,\n                \"isSurcharged\": true,\n                \"sourceType\"\
+                    : \"credit-card\",\n                \"transactionDate\": \"2024-06-09T14:00:00.0000000Z\"\
+                    ,\n                \"status\": \"settled\",\n                \"estimatedTransferDate\"\
+                    : \"2024-06-12T00:00:00\",\n                \"payer\": {\n                    \"id\"\
+                    : \"pyr_XXXXXXXXXXXX\",\n                    \"firstName\": \"Test\",\n          \
+                    \          \"lastName\": \"Person\",\n                    \"emailAddress\": \"test.person@mailinator.com\"\
+                    ,\n                    \"mobileNumber\": null,\n                    \"streetAddress\"\
+                    : \"123 Fake St\",\n                    \"suburb\": \"Brisbane\",\n              \
+                    \      \"postcode\": \"4000\",\n                    \"state\": \"QLD\",\n        \
+                    \            \"country\": null,\n                    \"countryCode\": null,\n    \
+                    \                \"companyName\": \"Test Co\",\n                    \"companyRegistrationNumber\"\
+                    : null,\n                    \"metadata\": null\n                },\n            \
+                    \    \"subscription\": {\n                    \"id\": \"sub_XXXXXXXXXXXX\",\n    \
+                    \                \"planId\": \"pln_XXXXXXXXXXXX\",\n                    \"planName\"\
+                    : \"Weekly payments for subscription\"\n                },\n                \"metadata\"\
+                    : \"\",\n                \"dishonourType\": null\n            }\n        ],\n    \
+                    \    \"eventId\": \"evt_XXXXXXXXXXXX\"\n    },\n    \"merchantId\": \"mch_XXXXXXXXXXXX\"\
+                    \n}"
+              schema:
+                oneOf:
+                - title: realtime-payment
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: evt_XXXXXXXXXXXXXX
+                    type:
+                      type: string
+                      example: realtime-payment
+                    eventDate:
+                      type: string
+                      example: '2021-04-26T07:15:53.0251702'
+                    metadata:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                          example: approved
+                        amount:
+                          type: integer
+                          example: 1000
+                          default: 0
+                    data:
+                      type: object
+                      properties:
+                        payment:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pmt_XXXXXXXXXXXXXX
+                            attemptId:
+                              type: string
+                              example: att_XXXXXXXX
+                            amount:
+                              type: integer
+                              example: 1000
+                              default: 0
+                            currency:
+                              type: string
+                              example: AUD
+                            description:
+                              type: string
+                              example: test
+                            applicationFee:
+                              type: integer
+                              example: 0
+                              default: 0
+                            totalFee:
+                              type: integer
+                              example: 55
+                              default: 0
+                            isSurcharged:
+                              type: boolean
+                              example: false
+                              default: true
+                            sourceType:
+                              type: string
+                              example: credit-card
+                            transactionDate:
+                              type: string
+                              example: '2021-04-26T07:15:52.8507613Z'
+                            status:
+                              type: string
+                              example: approved
+                            estimatedTransferDate:
+                              type: string
+                              example: '2021-04-29'
+                            actualTransferDate: {}
+                            payer:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  example: pyr_XXXXXXXXXXXXXX
+                                firstName:
+                                  type: string
+                                  example: Test
+                                lastName:
+                                  type: string
+                                  example: Person
+                                emailAddress:
+                                  type: string
+                                  example: test.person@mailinator.com
+                                mobileNumber:
+                                  type: string
+                                  example: ''
+                                streetAddress: {}
+                                suburb: {}
+                                postcode: {}
+                                state: {}
+                                country: {}
+                                companyName: {}
+                                companyRegistrationNumber: {}
+                                metadata: {}
+                            subscription: {}
+                            attempts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: att_XXXXXXXX
+                                  amount:
+                                    type: integer
+                                    example: 1000
+                                    default: 0
+                                  currency:
+                                    type: string
+                                    example: AUD
+                                  convertedAmount: {}
+                                  conversionRate: {}
+                                  convertedCurrency: {}
+                                  estimatedSettlementDate:
+                                    type: string
+                                    example: '2021-04-29T00:00:00'
+                                  isSurcharged:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  transactionDate:
+                                    type: string
+                                    example: '2021-04-26T07:15:52.8507613Z'
+                                  estimatedTransferDate:
+                                    type: string
+                                    example: '2021-04-29'
+                                  actualTransferDate: {}
+                                  source:
+                                    type: object
+                                    properties:
+                                      id:
+                                        type: string
+                                        example: src_M489Kvi8INwmRo
+                                      sourceType:
+                                        type: string
+                                        example: credit-card
+                                      bankAccountNumber: {}
+                                      bankAccountBsb: {}
+                                      bankAccountName: {}
+                                      creditCardToken:
+                                        type: string
+                                        example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                      cardHolderName:
+                                        type: string
+                                        example: Ben Hotdog
+                                      expiryDate:
+                                        type: string
+                                        example: '2022-12-01T00:00:00'
+                                      displayCardNumber:
+                                        type: string
+                                        example: '4242'
+                                      cardScheme:
+                                        type: string
+                                        example: visa
+                                      origin:
+                                        type: string
+                                        example: AU
+                                      funding:
+                                        type: string
+                                        example: credit
+                                  dishonour: {}
+                                  settlement: {}
+                                  fees:
+                                    type: object
+                                    properties:
+                                      transactionFee:
+                                        type: integer
+                                        example: 55
+                                        default: 0
+                                      applicationFee:
+                                        type: integer
+                                        example: 0
+                                        default: 0
+                                      totalFee:
+                                        type: integer
+                                        example: 55
+                                        default: 0
+                                      currency:
+                                        type: string
+                                        example: AUD
+                                      taxRate:
+                                        type: number
+                                        example: 0.1
+                                        default: 0
+                                      convertedTransactionFee: {}
+                                      convertedApplicationFee: {}
+                                      convertedTotalFee: {}
+                                      convertedCurrency: {}
+                                      conversionRate: {}
+                                  status:
+                                    type: string
+                                    example: approved
+                            metadata: {}
+                    webhooks:
+                      type: array
+                - title: bank-results
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: evt_XXXXXXXXXXXXXX
+                    type:
+                      type: string
+                      example: bank-results
+                    eventDate:
+                      type: string
+                      example: '2017-05-08T23:30:00.0989722'
+                    metadata:
+                      type: object
+                      properties:
+                        dishonourCount:
+                          type: integer
+                          example: 1
+                          default: 0
+                        dishonourAmount:
+                          type: integer
+                          example: 1255
+                          default: 0
+                    data:
+                      type: object
+                      properties:
+                        dishonours:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              typeEnum:
+                                type: integer
+                                example: 1
+                                default: 0
+                              type:
+                                type: string
+                                example: insufficient-funds
+                              date:
+                                type: string
+                                example: '2017-05-09T00:00:00'
+                              fees:
+                                type: integer
+                                example: 500
+                                default: 0
+                              transferId: {}
+                              payment:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: pmt_XXXXXXXXXXXXXX
+                                  amount:
+                                    type: integer
+                                    example: 1255
+                                    default: 0
+                                  transactionDate:
+                                    type: string
+                                    example: '2017-05-08T00:00:00'
+                                  description:
+                                    type: string
+                                    example: A new set of wheels 4
+                                  status:
+                                    type: string
+                                    example: dishonoured
+                                  payer:
+                                    type: object
+                                    properties:
+                                      id:
+                                        type: string
+                                        example: pyr_XXXXXXXXXXXXXX
+                                      firstName:
+                                        type: string
+                                        example: Ben
+                                      lastName:
+                                        type: string
+                                        example: Auto 1
+                                      emailAddress:
+                                        type: string
+                                        example: benauto1@mailinator.cOM
+                                      mobileNumber:
+                                        type: string
+                                        example: '0400000123'
+                - title: payer-created
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: evt_XXXXXXXXXXXXXX
+                    type:
+                      type: string
+                      example: payer-created
+                    eventDate:
+                      type: string
+                      example: '2024-01-09T22:13:22.8959791'
+                    metadata:
+                      type: object
+                      properties:
+                        payerName:
+                          type: string
+                          example: John Smith
+                    data:
+                      type: object
+                      properties:
+                        payer:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pyr_XXXXXXXXXXXXXX
+                            firstName:
+                              type: string
+                              example: John
+                            lastName:
+                              type: string
+                              example: Smith
+                            emailAddress:
+                              type: string
+                              example: pinch@mailinator.com
+                            mobileNumber: {}
+                            streetAddress:
+                              type: string
+                              example: ''
+                            suburb:
+                              type: string
+                              example: ''
+                            postcode:
+                              type: string
+                              example: ''
+                            state:
+                              type: string
+                              example: ''
+                            country:
+                              type: string
+                              example: ''
+                            companyName:
+                              type: string
+                              example: ''
+                            companyRegistrationNumber: {}
+                            metadata: {}
+                            sources:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: src_XXXXXXXXXXXXXX
+                                  sourceType:
+                                    type: string
+                                    example: bank-account
+                                  bankAccountNumber: {}
+                                  bankAccountBsb: {}
+                                  bankAccountName: {}
+                                  token:
+                                    type: string
+                                    example: tkn_XXXXXXXXXXXXXX
+                                  cardHolderName:
+                                    type: string
+                                    example: J Smith
+                                  expiryDate: {}
+                                  displayCardNumber:
+                                    type: string
+                                    example: '1234'
+                                  cardScheme: {}
+                                  origin:
+                                    type: string
+                                    example: AU
+                                  funding: {}
+                                  isAuthorised:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  supportsRealtime:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                            agreements:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: agr_XXXXXXXXXXXXXX
+                                  anonymousViewToken:
+                                    type: string
+                                    example: XXXXXXXXXXXXXX
+                                  agreementDateUtc:
+                                    type: string
+                                    example: '2024-01-09T22:13:22.8601567'
+                                  confirmedDateUtc:
+                                    type: string
+                                    example: '2024-01-09T22:13:22.8792519'
+                                  status:
+                                    type: string
+                                    example: active
+                                  agreementType:
+                                    type: string
+                                    example: legacy-ddr
+                - title: subscription-created
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: evt_XXXXXXXXXXXXXX
+                    type:
+                      type: string
+                      example: subscription-created
+                    eventDate:
+                      type: string
+                      example: '2023-08-09T06:41:00.0252052'
+                    metadata:
+                      type: object
+                      properties:
+                        planName:
+                          type: string
+                          example: 'Weekly Plan #2'
+                        payerName:
+                          type: string
+                          example: Test Person
+                    data:
+                      type: object
+                      properties:
+                        subscription:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: sub_b3CagACGPihR0z
+                            payer:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  example: pyr_WLpo7r0suazIS9
+                                firstName:
+                                  type: string
+                                  example: Test
+                                lastName:
+                                  type: string
+                                  example: Person
+                                emailAddress:
+                                  type: string
+                                  example: test.person@mailinator.com
+                                mobileNumber: {}
+                                streetAddress:
+                                  type: string
+                                  example: ''
+                                suburb: {}
+                                postcode: {}
+                                state: {}
+                                country: {}
+                                countryCode: {}
+                                companyName: {}
+                                companyRegistrationNumber: {}
+                                metadata:
+                                  type: string
+                                  example: ''
+                            planId:
+                              type: string
+                              example: pln_XXXXXXXXXXXXXX
+                            planName:
+                              type: string
+                              example: 'Weekly Plan #2'
+                            status:
+                              type: string
+                              example: active
+                            startDate:
+                              type: string
+                              example: '2024-03-03T13:00:00.0000000Z'
+                            freePeriods:
+                              type: array
+                            fixedPayments:
+                              type: array
+                            recurringPayment:
+                              type: object
+                              properties:
+                                amount:
+                                  type: integer
+                                  example: 100000
+                                  default: 0
+                                endAfterNumberOfPayments: {}
+                                endAfterTotalAmount: {}
+                                frequencyInterval:
+                                  type: string
+                                  example: days
+                                frequencyOffset:
+                                  type: integer
+                                  example: 7
+                                  default: 0
+                                description:
+                                  type: string
+                                  example: Weekly Payment
+                                cancelPlanOnFailure:
+                                  type: boolean
+                                  example: false
+                                  default: true
+                                metadata: {}
+                                endAfterDate: {}
+                                startDate:
+                                  type: string
+                                  example: '2024-03-03T13:00:00.0000000Z'
+                            totalAmount:
+                              type: integer
+                              example: 10000000
+                              default: 0
+                            metadata: {}
+                            surcharge:
+                              type: array
+                              items:
+                                type: string
+                                example: credit-card
+                        eventId:
+                          type: string
+                          example: evt_XXXXXXXXXXXXXX
+                    merchantId:
+                      type: string
+                      example: mch_XXXXXXXXXXXXXX
+                - title: scheduled-process
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: evt_XXXXXXXXXXXX
+                    type:
+                      type: string
+                      example: scheduled-process
+                    eventDate:
+                      type: string
+                      example: '2024-06-09T22:55:45.2954757'
+                    metadata:
+                      type: object
+                      properties:
+                        count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        amount:
+                          type: integer
+                          example: 1000
+                          default: 0
+                    data:
+                      type: object
+                      properties:
+                        payments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: pmt_XXXXXXXXXXXX
+                              attemptId:
+                                type: string
+                                example: att_XXXXXXXXX
+                              amount:
+                                type: integer
+                                example: 1000
+                                default: 0
+                              currency:
+                                type: string
+                                example: AUD
+                              description:
+                                type: string
+                                example: Weekly payments for subscription
+                              applicationFee:
+                                type: integer
+                                example: 0
+                                default: 0
+                              totalFee:
+                                type: integer
+                                example: 55
+                                default: 0
+                              isSurcharged:
+                                type: boolean
+                                example: true
+                                default: true
+                              sourceType:
+                                type: string
+                                example: credit-card
+                              transactionDate:
+                                type: string
+                                example: '2024-06-09T14:00:00.0000000Z'
+                              status:
+                                type: string
+                                example: settled
+                              estimatedTransferDate:
+                                type: string
+                                example: '2024-06-12T00:00:00'
+                              payer:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: pyr_XXXXXXXXXXXX
+                                  firstName:
+                                    type: string
+                                    example: Test
+                                  lastName:
+                                    type: string
+                                    example: Person
+                                  emailAddress:
+                                    type: string
+                                    example: test.person@mailinator.com
+                                  mobileNumber: {}
+                                  streetAddress:
+                                    type: string
+                                    example: 123 Fake St
+                                  suburb:
+                                    type: string
+                                    example: Brisbane
+                                  postcode:
+                                    type: string
+                                    example: '4000'
+                                  state:
+                                    type: string
+                                    example: QLD
+                                  country: {}
+                                  countryCode: {}
+                                  companyName:
+                                    type: string
+                                    example: Test Co
+                                  companyRegistrationNumber: {}
+                                  metadata: {}
+                              subscription:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    example: sub_XXXXXXXXXXXX
+                                  planId:
+                                    type: string
+                                    example: pln_XXXXXXXXXXXX
+                                  planName:
+                                    type: string
+                                    example: Weekly payments for subscription
+                              metadata:
+                                type: string
+                                example: ''
+                              dishonourType: {}
+                        eventId:
+                          type: string
+                          example: evt_XXXXXXXXXXXX
+                    merchantId:
+                      type: string
+                      example: mch_XXXXXXXXXXXX
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var event = await api.Event.Get(id);
+        samples-languages:
+        - csharp
+  /fees:
+    get:
+      summary: Get Fees
+      description: Get the current fee schedule for a merchant.
+      operationId: get-fees
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"effectiveDateUtc\": \"2024-11-11T02:19:02.7549843+00:00\",\n    \"\
+                    feeScheduleLines\": [\n        {\n            \"destinationZone\": \"AU\",\n     \
+                    \       \"originZone\": \"AU\",\n            \"feeScheme\": \"direct-debit\",\n  \
+                    \          \"percentageFee\": 0.0100,\n            \"fixedFee\": 30,\n           \
+                    \ \"cap\": 500,\n            \"dishonourFee\": 500,\n            \"disputeFee\": 2500,\n\
+                    \            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n     \
+                    \       \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n  \
+                    \      {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"\
+                    AU\",\n            \"feeScheme\": \"visa-master\",\n            \"percentageFee\"\
+                    : 0.0195,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"\
+                    dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\"\
+                    : 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n\
+                    \            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\"\
+                    : \"AU\",\n            \"originZone\": \"AU\",\n            \"feeScheme\": \"amex\"\
+                    ,\n            \"percentageFee\": 0.0250,\n            \"fixedFee\": 30,\n       \
+                    \     \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n\
+                    \            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n     \
+                    \       \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n  \
+                    \      {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"\
+                    INTL\",\n            \"feeScheme\": \"visa-master\",\n            \"percentageFee\"\
+                    : 0.0390,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"\
+                    dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\"\
+                    : 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n\
+                    \            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\"\
+                    : \"AU\",\n            \"originZone\": \"INTL\",\n            \"feeScheme\": \"amex\"\
+                    ,\n            \"percentageFee\": 0.0390,\n            \"fixedFee\": 30,\n       \
+                    \     \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n\
+                    \            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n     \
+                    \       \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        }\n   \
+                    \ ]\n}"
+              schema:
+                type: object
+                properties:
+                  effectiveDateUtc:
+                    type: string
+                    example: '2024-11-11T02:19:02.7549843+00:00'
+                  feeScheduleLines:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        destinationZone:
+                          type: string
+                          example: AU
+                        originZone:
+                          type: string
+                          example: AU
+                        feeScheme:
+                          type: string
+                          example: direct-debit
+                        percentageFee:
+                          type: number
+                          example: 0.01
+                          default: 0
+                        fixedFee:
+                          type: integer
+                          example: 30
+                          default: 0
+                        cap:
+                          type: integer
+                          example: 500
+                          default: 0
+                        dishonourFee:
+                          type: integer
+                          example: 500
+                          default: 0
+                        disputeFee:
+                          type: integer
+                          example: 2500
+                          default: 0
+                        refundFeeFixed:
+                          type: integer
+                          example: 0
+                          default: 0
+                        feePresence:
+                          type: string
+                          example: any
+                        feeFunding:
+                          type: string
+                          example: any
+                        taxRate:
+                          type: number
+                          example: 0.1
+                          default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /refund/{id}:
+    get:
+      summary: Get Refund
+      description: ''
+      operationId: get-refund
+      parameters:
+      - name: id
+        in: path
+        description: Refund Id in ref_XXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"paymentId\": \"pmt_XXXXXXXXXXXXXX\",\n    \"transfer\": null,\n   \
+                    \ \"id\": \"ref_XXXXXXXX\",\n    \"amount\": 1000,\n    \"currency\": \"AUD\",\n \
+                    \   \"refundFeeCharged\": 0,\n    \"requestedDate\": \"2021-05-13T07:25:38.2930268Z\"\
+                    ,\n    \"completedDate\": null,\n    \"reasonForRefund\": \"Requested by Payer\",\n\
+                    \    \"notes\": null,\n    \"convertedAmount\": null,\n    \"conversionRate\": null,\n\
+                    \    \"convertedCurrency\": null,\n    \"isGross\": false,\n    \"status\": \"requested\"\
+                    ,\n    \"transferId\": null,\n    \"refundedFees\": null,\n    \"nonce\": \"354c3c8e-ddd6-4bdc-8d27-ee5d2dacb9fe\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  paymentId:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  transfer: {}
+                  id:
+                    type: string
+                    example: ref_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1000
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  refundFeeCharged:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requestedDate:
+                    type: string
+                    example: '2021-05-13T07:25:38.2930268Z'
+                  completedDate: {}
+                  reasonForRefund:
+                    type: string
+                    example: Requested by Payer
+                  notes: {}
+                  convertedAmount: {}
+                  conversionRate: {}
+                  convertedCurrency: {}
+                  isGross:
+                    type: boolean
+                    example: false
+                    default: true
+                  status:
+                    type: string
+                    example: requested
+                  transferId: {}
+                  refundedFees: {}
+                  nonce:
+                    type: string
+                    example: 354c3c8e-ddd6-4bdc-8d27-ee5d2dacb9fe
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"refundId\",\n        \"errorMessage\"\
+                    : \"Could not find a Refund with Id: ref_XXXXXXXX\",\n        \"attemptedValue\":\
+                    \ null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: refundId
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a Refund with Id: ref_XXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+  /health/auth:
+    get:
+      summary: Health
+      description: Endpoint to check the health of an auth token
+      operationId: health
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /events:
+    get:
+      summary: List all events
+      description: ''
+      operationId: list-all-events
+      parameters:
+      - name: page
+        in: query
+        description: The current page.
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: startDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: eventType
+        in: query
+        description: If you wish to filter by a single event type, eg payment-created
+        schema:
+          type: string
+          enum:
+          - bank-results
+          - scheduled-process
+          - transfer
+          - realtime-payment
+          - payment-created
+          - subscription-complete
+          - payer-created
+          - payer-updated
+          - refund-created
+          - refund-updated
+          - compliance-updated
+          - dispute-created
+          - dispute-updated
+          - merchant-created
+          - merchant-updated
+          - merchant-compliance-updated
+          - subscription-created
+          - subscription-cancelled
+          - reportonly-payment
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 27,\n    \"data\": [\n        {\n            \"id\": \"evt_XXXX78\",\n         \
+                    \   \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-21T00:05:52.2322638\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 5158\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_XXXXZyCnCMGf\",\n            \"type\": \"payment-created\",\n        \
+                    \    \"eventDate\": \"2021-04-21T00:05:52.1636637\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 10287\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_9kDXXXXBKFVq7\",\n\
+                    \            \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-21T00:05:52.1097666\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 10287\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_E7XXXXppYM\",\n            \"type\": \"payment-created\",\n          \
+                    \  \"eventDate\": \"2021-04-21T00:05:52.0472423\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 10287\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_XXXXTgtYr\",\n   \
+                    \         \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-21T00:05:51.9966838\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 10287\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_zN0XXXXrrcQ\",\n            \"type\": \"payment-created\",\n         \
+                    \   \"eventDate\": \"2021-04-21T00:05:51.9504904\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 10287\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_YbvBXXXXWHxa\",\n\
+                    \            \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-21T00:05:51.8988614\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 10287\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_ZXXXXUzB\",\n            \"type\": \"payment-created\",\n            \"\
+                    eventDate\": \"2021-04-21T00:05:51.8491774\",\n            \"metadata\": {\n     \
+                    \           \"status\": \"scheduled\",\n                \"amount\": 10287\n      \
+                    \      }\n        },\n        {\n            \"id\": \"evt_DsXXXXJ3Q\",\n        \
+                    \    \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-21T00:05:51.7326694\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 25671\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_f2UXXXXvT8v\",\n            \"type\": \"payment-created\",\n         \
+                    \   \"eventDate\": \"2021-04-20T23:54:26.3388387\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 20543\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_wYXtXXXXKE\",\n  \
+                    \          \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-20T23:54:26.2838371\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 20543\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_8X4tXXXX4k\",\n            \"type\": \"payment-created\",\n          \
+                    \  \"eventDate\": \"2021-04-20T23:54:26.2278341\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 20543\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_pLqXXXX3be\",\n  \
+                    \          \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-20T23:54:26.0846335\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 20543\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_WmMWlXXXXCW\",\n            \"type\": \"payment-created\",\n         \
+                    \   \"eventDate\": \"2021-04-20T23:54:26.0220359\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 20543\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_VLe5XXXXzQu\",\n \
+                    \           \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-20T23:49:51.5979763\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 20543\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_inMXXXX7RW\",\n            \"type\": \"payment-created\",\n          \
+                    \  \"eventDate\": \"2021-04-20T23:49:51.5438939\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 20543\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_mXXXXdT\",\n     \
+                    \       \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-20T23:49:51.4902632\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 20543\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_Xc5XXXX00vA\",\n            \"type\": \"payment-created\",\n         \
+                    \   \"eventDate\": \"2021-04-20T23:49:51.4326831\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 20543\n \
+                    \           }\n        },\n        {\n            \"id\": \"evt_RXXXXtlG\",\n    \
+                    \        \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-20T23:49:51.31054\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 20543\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_YyRI7XXXXFA\",\n            \"type\": \"payment-created\",\n         \
+                    \   \"eventDate\": \"2021-04-19T07:14:14.7784695\",\n            \"metadata\": {\n\
+                    \                \"status\": \"scheduled\",\n                \"amount\": 1245\n  \
+                    \          }\n        },\n        {\n            \"id\": \"evt_6XXXXXXXN6E\",\n  \
+                    \          \"type\": \"payer-updated\",\n            \"eventDate\": \"2021-04-19T06:10:18.0038503\"\
+                    ,\n            \"metadata\": {\n                \"payerName\": \"Test Payer\"\n  \
+                    \          }\n        },\n        {\n            \"id\": \"evt_iFXXXXIS60\",\n   \
+                    \         \"type\": \"realtime-payment\",\n            \"eventDate\": \"2021-04-19T05:43:01.3059479\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"approved\",\n      \
+                    \          \"amount\": 1245\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_kWXXXXMRy\",\n            \"type\": \"realtime-payment\",\n          \
+                    \  \"eventDate\": \"2021-04-19T05:20:54.5339604\",\n            \"metadata\": {\n\
+                    \                \"status\": \"approved\",\n                \"amount\": 1245\n   \
+                    \         }\n        },\n        {\n            \"id\": \"evt_c2XXXXdB\",\n      \
+                    \      \"type\": \"payment-created\",\n            \"eventDate\": \"2021-04-19T04:19:00.1411315\"\
+                    ,\n            \"metadata\": {\n                \"status\": \"scheduled\",\n     \
+                    \           \"amount\": 1245\n            }\n        },\n        {\n            \"\
+                    id\": \"evt_OXXXXoF7i\",\n            \"type\": \"payer-created\",\n            \"\
+                    eventDate\": \"2021-04-16T04:28:04.3426884\",\n            \"metadata\": {\n     \
+                    \           \"payerName\": \"Test WebSample3\"\n            }\n        },\n      \
+                    \  {\n            \"id\": \"evt_7XXXXPD5R\",\n            \"type\": \"payer-created\"\
+                    ,\n            \"eventDate\": \"2021-04-16T02:56:38.7232261\",\n            \"metadata\"\
+                    : {\n                \"payerName\": \"Test WebSample3\"\n            }\n        },\n\
+                    \        {\n            \"id\": \"evt_fg5XXXXY77\",\n            \"type\": \"payer-created\"\
+                    ,\n            \"eventDate\": \"2021-04-16T02:25:54.2549967\",\n            \"metadata\"\
+                    : {\n                \"payerName\": \"Another Payer\"\n            }\n        }\n\
+                    \    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 27
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: evt_XXXX78
+                        type:
+                          type: string
+                          example: payment-created
+                        eventDate:
+                          type: string
+                          example: '2021-04-21T00:05:52.2322638'
+                        metadata:
+                          type: object
+                          properties:
+                            status:
+                              type: string
+                              example: scheduled
+                            amount:
+                              type: integer
+                              example: 5158
+                              default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var model = await api.Event.GetEventsAll();
+        samples-languages:
+        - csharp
+  /plans:
+    get:
+      summary: List Plans
+      description: ''
+      operationId: list-plans
+      parameters:
+      - name: page
+        in: query
+        description: The current page.
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 3,\n    \"data\": [\n        {\n            \"id\": \"pln_XXXXXX\",\n          \
+                    \  \"name\": \"20% Deposit with 20% Monthly\",\n            \"freePeriods\": [\n \
+                    \               {\n                    \"startDateOffset\": 1,\n                 \
+                    \   \"startDateInterval\": \"days\",\n                    \"durationOffset\": 1,\n\
+                    \                    \"durationInterval\": \"months\",\n                    \"metadata\"\
+                    : \"\"\n                }\n            ],\n            \"fixedPayments\": [\n    \
+                    \            {\n                    \"amountInCents\": null,\n                   \
+                    \ \"amountPercentage\": 0.2,\n                    \"description\": \"Upfront deposit\"\
+                    ,\n                    \"scheduledDateOffset\": 0,\n                    \"scheduledDateInterval\"\
+                    : \"days\",\n                    \"cancelPlanOnFailure\": true,\n                \
+                    \    \"metadata\": null\n                }\n            ],\n            \"recurringPayment\"\
+                    : {\n                \"amountInCents\": null,\n                \"amountPercentage\"\
+                    : 0.2,\n                \"description\": \"Monthly Repayment\",\n                \"\
+                    startDateOffset\": 1,\n                \"startDateInterval\": \"months\",\n      \
+                    \          \"frequencyOffset\": 1,\n                \"frequencyInterval\": \"months\"\
+                    ,\n                \"endType\": \"subscription-fully-paid\",\n                \"endDateOffset\"\
+                    : null,\n                \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\"\
+                    : null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\"\
+                    : false,\n                \"metadata\": null\n            },\n            \"subscriberCount\"\
+                    : 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n\
+                    \        },\n        {\n            \"id\": \"pln_XXXXXX2\",\n            \"name\"\
+                    : \"20% Deposit with 20% Monthly\",\n            \"freePeriods\": [\n            \
+                    \    {\n                    \"startDateOffset\": 1,\n                    \"startDateInterval\"\
+                    : \"days\",\n                    \"durationOffset\": 1,\n                    \"durationInterval\"\
+                    : \"months\",\n                    \"metadata\": \"\"\n                }\n       \
+                    \     ],\n            \"fixedPayments\": [\n                {\n                  \
+                    \  \"amountInCents\": null,\n                    \"amountPercentage\": 0.2,\n    \
+                    \                \"description\": \"Upfront deposit\",\n                    \"scheduledDateOffset\"\
+                    : 0,\n                    \"scheduledDateInterval\": \"days\",\n                 \
+                    \   \"cancelPlanOnFailure\": true,\n                    \"metadata\": null\n     \
+                    \           }\n            ],\n            \"recurringPayment\": {\n             \
+                    \   \"amountInCents\": null,\n                \"amountPercentage\": 0.2,\n       \
+                    \         \"description\": \"Monthly Repayment\",\n                \"startDateOffset\"\
+                    : 1,\n                \"startDateInterval\": \"months\",\n                \"frequencyOffset\"\
+                    : 1,\n                \"frequencyInterval\": \"months\",\n                \"endType\"\
+                    : \"subscription-fully-paid\",\n                \"endDateOffset\": null,\n       \
+                    \         \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\"\
+                    : null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\"\
+                    : false,\n                \"metadata\": null\n            },\n            \"subscriberCount\"\
+                    : 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n\
+                    \        },\n        {\n            \"id\": \"pln_XXXXXX3\",\n            \"name\"\
+                    : \"25% Deposit with 10% Monthly\",\n            \"freePeriods\": [\n            \
+                    \    {\n                    \"startDateOffset\": 1,\n                    \"startDateInterval\"\
+                    : \"days\",\n                    \"durationOffset\": 1,\n                    \"durationInterval\"\
+                    : \"months\",\n                    \"metadata\": \"\"\n                }\n       \
+                    \     ],\n            \"fixedPayments\": [\n                {\n                  \
+                    \  \"amountInCents\": null,\n                    \"amountPercentage\": 0.25,\n   \
+                    \                 \"description\": \"Upfront deposit\",\n                    \"scheduledDateOffset\"\
+                    : 0,\n                    \"scheduledDateInterval\": \"days\",\n                 \
+                    \   \"cancelPlanOnFailure\": true,\n                    \"metadata\": null\n     \
+                    \           }\n            ],\n            \"recurringPayment\": {\n             \
+                    \   \"amountInCents\": null,\n                \"amountPercentage\": 0.1,\n       \
+                    \         \"description\": \"Monthly Repayment\",\n                \"startDateOffset\"\
+                    : 1,\n                \"startDateInterval\": \"months\",\n                \"frequencyOffset\"\
+                    : 1,\n                \"frequencyInterval\": \"months\",\n                \"endType\"\
+                    : \"subscription-fully-paid\",\n                \"endDateOffset\": null,\n       \
+                    \         \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\"\
+                    : null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\"\
+                    : false,\n                \"metadata\": null\n            },\n            \"subscriberCount\"\
+                    : 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n\
+                    \        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 3
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pln_XXXXXX
+                        name:
+                          type: string
+                          example: 20% Deposit with 20% Monthly
+                        freePeriods:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startDateOffset:
+                                type: integer
+                                example: 1
+                                default: 0
+                              startDateInterval:
+                                type: string
+                                example: days
+                              durationOffset:
+                                type: integer
+                                example: 1
+                                default: 0
+                              durationInterval:
+                                type: string
+                                example: months
+                              metadata:
+                                type: string
+                                example: ''
+                        fixedPayments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              amountInCents: {}
+                              amountPercentage:
+                                type: number
+                                example: 0.2
+                                default: 0
+                              description:
+                                type: string
+                                example: Upfront deposit
+                              scheduledDateOffset:
+                                type: integer
+                                example: 0
+                                default: 0
+                              scheduledDateInterval:
+                                type: string
+                                example: days
+                              cancelPlanOnFailure:
+                                type: boolean
+                                example: true
+                                default: true
+                              metadata: {}
+                        recurringPayment:
+                          type: object
+                          properties:
+                            amountInCents: {}
+                            amountPercentage:
+                              type: number
+                              example: 0.2
+                              default: 0
+                            description:
+                              type: string
+                              example: Monthly Repayment
+                            startDateOffset:
+                              type: integer
+                              example: 1
+                              default: 0
+                            startDateInterval:
+                              type: string
+                              example: months
+                            frequencyOffset:
+                              type: integer
+                              example: 1
+                              default: 0
+                            frequencyInterval:
+                              type: string
+                              example: months
+                            endType:
+                              type: string
+                              example: subscription-fully-paid
+                            endDateOffset: {}
+                            endDateInterval: {}
+                            endAfterNumberOfPayments: {}
+                            endAfterTotalAmount: {}
+                            cancelPlanOnFailure:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata: {}
+                        subscriberCount:
+                          type: integer
+                          example: 0
+                          default: 0
+                        requiresTotalAmount:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata:
+                          type: string
+                          example: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    post:
+      summary: Create or Update Plan
+      description: ''
+      operationId: save-plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: A label for the plan
+                freePeriods:
+                  type: array
+                  description: Optional. Schedule periods of time where no payments will be generated.
+                  items:
+                    type: object
+                    properties:
+                      startDateOffset:
+                        type: integer
+                        format: int32
+                      startDateInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      durationOffset:
+                        type: integer
+                        format: int32
+                      durationInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      metadata:
+                        type: string
+                fixedPayments:
+                  type: array
+                  description: Schedule any number of fixed point-in-time payments
+                  items:
+                    properties:
+                      amountInCents:
+                        type: integer
+                        format: int64
+                      amountPercentage:
+                        type: number
+                        format: double
+                      description:
+                        type: string
+                      scheduledDateOffset:
+                        type: integer
+                        format: int32
+                      scheduledDateInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      cancelPlanOnFailure:
+                        type: boolean
+                      metadata:
+                        type: string
+                    type: object
+                recurringPayment:
+                  type: object
+                  description: Only one recurring payment can be created. Create multiple plans if you
+                    need more than one.
+                  properties:
+                    amountInCents:
+                      type: integer
+                      format: int64
+                    amountPercentage:
+                      type: number
+                      format: double
+                    description:
+                      type: string
+                    startDateOffset:
+                      type: integer
+                      default: 0
+                      format: int32
+                    startDateInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    frequencyOffset:
+                      type: integer
+                      format: int32
+                    frequencyInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    endType:
+                      type: string
+                      enum:
+                      - never
+                      - end-date
+                      - total-amount
+                      - number-of-payments
+                      - subscription-fully-paid
+                    endDateOffset:
+                      type: integer
+                      format: int32
+                    endDateInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    endAfterNumberOfPayments:
+                      type: integer
+                      format: int32
+                    endAfterTotalAmount:
+                      type: integer
+                      format: int64
+                    cancelPlanOnFailure:
+                      type: boolean
+                    metadata:
+                      type: string
+                metadata:
+                  type: string
+                  description: A free field (JSON preferred) that will be added to each payment that is
+                    generated from this plan.
+            examples:
+              Request Example:
+                value:
+                  name: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                  - amountInCents: null
+                    amountPercentage: 0.25
+                    description: Upfront deposit
+                    cancelPlanOnFailure: true
+                    scheduledDateInterval: days
+                    scheduledDateOffset: 0
+                  recurringPayment:
+                    amountInCents: null
+                    amountPercentage: 0.1
+                    description: Monthly Repayment
+                    cancelPlanOnFailure: false
+                    startDateInterval: months
+                    startDateOffset: 1
+                    endDateInterval: null
+                    endDateOffset: null
+                    frequencyInterval: months
+                    frequencyOffset: 1
+                    endAfterNumberOfPayments: null
+                    endAfterTotalAmount: null
+                    endType: subscription-fully-paid
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\"\
+                    ,\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\"\
+                    :0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\"\
+                    :0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n\
+                    \      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\"\
+                    :null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n\
+                    \    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\"\
+                    :1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\"\
+                    ,\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\"\
+                    :null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n  \
+                    \  \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n\
+                    \  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\"\
+                    ,\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\"\
+                    :0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\"\
+                    :0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n\
+                    \      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\"\
+                    :null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n\
+                    \    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\"\
+                    :1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\"\
+                    ,\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\"\
+                    :null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n  \
+                    \  \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n\
+                    \  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        {\n            \"propertyName\": \"ScheduledDateOffset\"\
+                    ,\n            \"errorMessage\": \"'Scheduled Date Offset' must be between 0 and 9999.\
+                    \ You entered -500.\",\n            \"attemptedValue\": -500,\n            \"customState\"\
+                    : null,\n            \"severity\": 0,\n            \"errorCode\": \"InclusiveBetweenValidator\"\
+                    ,\n            \"formattedMessageArguments\": [],\n            \"formattedMessagePlaceholderValues\"\
+                    : {\n                \"From\": 0,\n                \"To\": 9999,\n               \
+                    \ \"Value\": -500,\n                \"PropertyName\": \"Scheduled Date Offset\",\n\
+                    \                \"PropertyValue\": -500\n            },\n            \"resourceName\"\
+                    : \"InclusiveBetweenValidator\"\n        }\n    ],\n    \"inlineErrors\": {\n    \
+                    \    \"id\": \"\",\n        \"name\": \"20% Deposit with 20% Monthly\",\n        \"\
+                    metadata\": \"\",\n        \"freePeriods\": [],\n        \"fixedPayments\": [\n  \
+                    \          {\n                \"amountInCents\": null,\n                \"amountPercentage\"\
+                    : 0.2,\n                \"description\": \"Upfront deposit\",\n                \"\
+                    scheduledDateOffset\": -500,\n                \"scheduledDateInterval\": \"days\"\
+                    ,\n                \"cancelPlanOnFailure\": true,\n                \"metadata\": null,\n\
+                    \                \"errors\": [\n                    {\n                        \"\
+                    propertyName\": \"ScheduledDateOffset\",\n                        \"errorMessage\"\
+                    : \"'Scheduled Date Offset' must be between 0 and 9999. You entered -500.\",\n   \
+                    \                     \"attemptedValue\": -500,\n                        \"customState\"\
+                    : null,\n                        \"severity\": 0,\n                        \"errorCode\"\
+                    : \"InclusiveBetweenValidator\",\n                        \"formattedMessageArguments\"\
+                    : [],\n                        \"formattedMessagePlaceholderValues\": {\n        \
+                    \                    \"From\": 0,\n                            \"To\": 9999,\n   \
+                    \                         \"Value\": -500,\n                            \"PropertyName\"\
+                    : \"Scheduled Date Offset\",\n                            \"PropertyValue\": -500\n\
+                    \                        },\n                        \"resourceName\": \"InclusiveBetweenValidator\"\
+                    \n                    }\n                ]\n            }\n        ],\n        \"\
+                    recurringPayment\": {\n            \"amountInCents\": null,\n            \"amountPercentage\"\
+                    : 0.2,\n            \"description\": \"Monthly Repayment\",\n            \"startDateOffset\"\
+                    : 1,\n            \"startDateInterval\": \"months\",\n            \"frequencyOffset\"\
+                    : 1,\n            \"frequencyInterval\": \"months\",\n            \"endType\": \"\
+                    subscription-fully-paid\",\n            \"endDateOffset\": null,\n            \"endDateInterval\"\
+                    : null,\n            \"endAfterNumberOfPayments\": null,\n            \"endAfterTotalAmount\"\
+                    : null,\n            \"cancelPlanOnFailure\": false,\n            \"metadata\": null,\n\
+                    \            \"errors\": []\n        },\n        \"errors\": []\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        propertyName:
+                          type: string
+                          example: ScheduledDateOffset
+                        errorMessage:
+                          type: string
+                          example: '''Scheduled Date Offset'' must be between 0 and 9999. You entered
+                            -500.'
+                        attemptedValue:
+                          type: integer
+                          example: -500
+                          default: 0
+                        customState: {}
+                        severity:
+                          type: integer
+                          example: 0
+                          default: 0
+                        errorCode:
+                          type: string
+                          example: InclusiveBetweenValidator
+                        formattedMessageArguments:
+                          type: array
+                        formattedMessagePlaceholderValues:
+                          type: object
+                          properties:
+                            From:
+                              type: integer
+                              example: 0
+                              default: 0
+                            To:
+                              type: integer
+                              example: 9999
+                              default: 0
+                            Value:
+                              type: integer
+                              example: -500
+                              default: 0
+                            PropertyName:
+                              type: string
+                              example: Scheduled Date Offset
+                            PropertyValue:
+                              type: integer
+                              example: -500
+                              default: 0
+                        resourceName:
+                          type: string
+                          example: InclusiveBetweenValidator
+                  inlineErrors:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: ''
+                      name:
+                        type: string
+                        example: 20% Deposit with 20% Monthly
+                      metadata:
+                        type: string
+                        example: ''
+                      freePeriods:
+                        type: array
+                      fixedPayments:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            amountInCents: {}
+                            amountPercentage:
+                              type: number
+                              example: 0.2
+                              default: 0
+                            description:
+                              type: string
+                              example: Upfront deposit
+                            scheduledDateOffset:
+                              type: integer
+                              example: -500
+                              default: 0
+                            scheduledDateInterval:
+                              type: string
+                              example: days
+                            cancelPlanOnFailure:
+                              type: boolean
+                              example: true
+                              default: true
+                            metadata: {}
+                            errors:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  propertyName:
+                                    type: string
+                                    example: ScheduledDateOffset
+                                  errorMessage:
+                                    type: string
+                                    example: '''Scheduled Date Offset'' must be between 0 and 9999. You
+                                      entered -500.'
+                                  attemptedValue:
+                                    type: integer
+                                    example: -500
+                                    default: 0
+                                  customState: {}
+                                  severity:
+                                    type: integer
+                                    example: 0
+                                    default: 0
+                                  errorCode:
+                                    type: string
+                                    example: InclusiveBetweenValidator
+                                  formattedMessageArguments:
+                                    type: array
+                                  formattedMessagePlaceholderValues:
+                                    type: object
+                                    properties:
+                                      From:
+                                        type: integer
+                                        example: 0
+                                        default: 0
+                                      To:
+                                        type: integer
+                                        example: 9999
+                                        default: 0
+                                      Value:
+                                        type: integer
+                                        example: -500
+                                        default: 0
+                                      PropertyName:
+                                        type: string
+                                        example: Scheduled Date Offset
+                                      PropertyValue:
+                                        type: integer
+                                        example: -500
+                                        default: 0
+                                  resourceName:
+                                    type: string
+                                    example: InclusiveBetweenValidator
+                      recurringPayment:
+                        type: object
+                        properties:
+                          amountInCents: {}
+                          amountPercentage:
+                            type: number
+                            example: 0.2
+                            default: 0
+                          description:
+                            type: string
+                            example: Monthly Repayment
+                          startDateOffset:
+                            type: integer
+                            example: 1
+                            default: 0
+                          startDateInterval:
+                            type: string
+                            example: months
+                          frequencyOffset:
+                            type: integer
+                            example: 1
+                            default: 0
+                          frequencyInterval:
+                            type: string
+                            example: months
+                          endType:
+                            type: string
+                            example: subscription-fully-paid
+                          endDateOffset: {}
+                          endDateInterval: {}
+                          endAfterNumberOfPayments: {}
+                          endAfterTotalAmount: {}
+                          cancelPlanOnFailure:
+                            type: boolean
+                            example: false
+                            default: true
+                          metadata: {}
+                          errors:
+                            type: array
+                      errors:
+                        type: array
+      deprecated: false
+  /tokens:
+    post:
+      summary: Tokenise Payment Source
+      description: Safely submit credit card or bank account details to our servers in exchange for a
+        token that can be used in future.
+      operationId: tokenise
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - publishableKey
+              properties:
+                publishableKey:
+                  type: string
+                  description: The publishable key found in your API Keys settings
+                sourceType:
+                  type: string
+                  description: The type of payment source to tokenise.
+                  enum:
+                  - credit-card
+                  - bank-account
+                cardNumber:
+                  type: string
+                  description: '[Credit Card] The credit card number. (Required if tokenising a Credit
+                    Card)'
+                cvc:
+                  type: string
+                  description: '[Credit Card] The verification code found on the back of the credit card.
+                    (Required if tokenising a Credit Card)'
+                expiryMonth:
+                  type: integer
+                  description: '[Credit Card] The two digit expiry month. (Required if tokenising a Credit
+                    Card)'
+                  format: int32
+                expiryYear:
+                  type: integer
+                  description: '[Credit Card] The four-digit expiry year. (Required if tokenising a Credit
+                    Card)'
+                  format: int32
+                cardHolderName:
+                  type: string
+                  description: '[Credit Card] The name of the person who owns the credit card. (Required
+                    if tokenising a Credit Card)'
+                bankAccountName:
+                  type: string
+                  description: '[Bank Account] The name of the bank account. (Required if tokenising a
+                    Bank Account)'
+                bankAccountRouting:
+                  type: string
+                  description: '[Bank Account] The Routing number of the bank account. Referred to as
+                    BSB in Australia, normally the first 6 digits of a New Zealand account number. (Required
+                    if tokenising a Bank Account)'
+                bankAccountNumber:
+                  type: string
+                  description: '[Bank Account] The Bank account number not including the Routing number.
+                    (Required if tokenising a Bank Account)'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"token\": \"tkn_XXXXXXXXXXXXXXXXXXXXXX\",\n    \"cardHolderName\": \"\
+                    Ben Hotdog\",\n    \"displayCardNumber\": \"4242\",\n    \"expiryDate\": \"2022-12-01T00:00:00Z\"\
+                    ,\n    \"cardScheme\": \"visa\",\n    \"origin\": \"AU\"\n}"
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: tkn_XXXXXXXXXXXXXXXXXXXXXX
+                  cardHolderName:
+                    type: string
+                    example: Ben Hotdog
+                  displayCardNumber:
+                    type: string
+                    example: '4242'
+                  expiryDate:
+                    type: string
+                    example: '2022-12-01T00:00:00Z'
+                  cardScheme:
+                    type: string
+                    example: visa
+                  origin:
+                    type: string
+                    example: AU
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Invalid\
+                    \ publishable key: pk_test_XXXXXXXXX\",\n        \"attemptedValue\": null,\n     \
+                    \   \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n\
+                    \        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Invalid publishable key: pk_test_XXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+        '403':
+          description: '403'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      security: []
+      x-readme:
+        code-samples:
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/tokens\n -H \"Content-Type: application/json\"\
+            \ \n -d \"{\n    'publishableKey': 'pk_test_hjbdslfkjhb8789oplrblsdf8bl',\n    'sourceType':\
+            \ 'credit-card',\n    'cardNumber': '4242424242424242',\n    'cvc\": '123',\n    'expiryMonth':\
+            \ 12,\n    'expiryYear': 2022,\n    'cardHolderName': 'Ben Hotdog'\n\t\t}\""
+          name: credit-card
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/tokens\n -H \"Content-Type: application/json\"\
+            \ \n -d \"{\n    'publishableKey': 'pk_test_hjbdslfkjhb8789oplrblsdf8bl',\n    'sourceType':\
+            \ 'bank-account',\n    'bankAccountName': 'Ben Hotdog',\n    'bankAccountRoutingNumber\":\
+            \ '001001',\n    'bankAccountNumber': '001001001'\n\t\t}\""
+          name: bank-account
+        samples-languages:
+        - curl
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

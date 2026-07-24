@@ -1,0 +1,2212 @@
+openapi: 3.1.0
+info:
+  title: pinch-api-payments
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /payments/nonce:
+    post:
+      summary: Check Payment Nonce
+      description: ''
+      operationId: check-payment-nonce
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - nonce
+              properties:
+                nonce:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Nonce Exists:
+                  value: "{\n    \"isNonceReplay\": true,\n    \"nonce\": \"fdb06000-9d3f-4738-ab45-d8d9c7984e93\"\
+                    ,\n    \"data\": {\n        \"id\": \"pmt_XXXXXXXXXXXXXX\",\n        \"attemptId\"\
+                    : \"att_XXXXXXXXX\",\n        \"amount\": 1000,\n        \"currency\": \"AUD\",\n\
+                    \        \"description\": \"Quis molestias labore incidunt voluptate repellat magni\
+                    \ recusandae et.\",\n        \"applicationFee\": 0,\n        \"totalFee\": 55,\n \
+                    \       \"isSurcharged\": false,\n        \"sourceType\": \"credit-card\",\n     \
+                    \   \"transactionDate\": \"2021-05-14T00:49:55.7510577Z\",\n        \"status\": \"\
+                    approved\",\n        \"estimatedTransferDate\": \"2021-05-18\",\n        \"actualTransferDate\"\
+                    : null,\n        \"payer\": {\n            \"id\": \"pyr_XXXXXXXXXXXXXX\",\n     \
+                    \       \"firstName\": \"Alex\",\n            \"lastName\": \"Fadel\",\n         \
+                    \   \"emailAddress\": \"Willis_Wyman@example.com\",\n            \"mobileNumber\"\
+                    : null,\n            \"streetAddress\": null,\n            \"suburb\": null,\n   \
+                    \         \"postcode\": null,\n            \"state\": null,\n            \"country\"\
+                    : null,\n            \"companyName\": null,\n            \"companyRegistrationNumber\"\
+                    : null,\n            \"metadata\": null\n        },\n        \"subscription\": null,\n\
+                    \        \"attempts\": [\n            {\n                \"id\": \"att_XXXXXXXX\"\
+                    ,\n                \"amount\": 1000,\n                \"currency\": \"AUD\",\n   \
+                    \             \"convertedAmount\": null,\n                \"conversionRate\": null,\n\
+                    \                \"convertedCurrency\": null,\n                \"estimatedSettlementDate\"\
+                    : \"2021-05-18T00:00:00\",\n                \"isSurcharged\": false,\n           \
+                    \     \"transactionDate\": \"2021-05-14T00:49:55.7510577Z\",\n                \"estimatedTransferDate\"\
+                    : \"2021-05-18\",\n                \"actualTransferDate\": null,\n               \
+                    \ \"source\": null,\n                \"dishonour\": null,\n                \"settlement\"\
+                    : null,\n                \"fees\": {\n                    \"transactionFee\": 55,\n\
+                    \                    \"applicationFee\": 0,\n                    \"totalFee\": 55,\n\
+                    \                    \"currency\": \"AUD\",\n                    \"taxRate\": 0.1,\n\
+                    \                    \"convertedTransactionFee\": null,\n                    \"convertedApplicationFee\"\
+                    : null,\n                    \"convertedTotalFee\": null,\n                    \"\
+                    convertedCurrency\": null,\n                    \"conversionRate\": null\n       \
+                    \         },\n                \"status\": \"approved\"\n            }\n        ],\n\
+                    \        \"refunds\": [],\n        \"metadata\": null,\n        \"nonce\": \"fdb06000-9d3f-4738-ab45-d8d9c7984e93\"\
+                    \n    }\n}"
+                Nonce Doesn't Exist:
+                  value: "{\n    \"isNonceReplay\": false,\n    \"nonce\": \"test456\",\n    \"data\"\
+                    : null\n}"
+              schema:
+                oneOf:
+                - title: Nonce Exists
+                  type: object
+                  properties:
+                    isNonceReplay:
+                      type: boolean
+                      example: true
+                    nonce:
+                      type: string
+                      example: fdb06000-9d3f-4738-ab45-d8d9c7984e93
+                    data:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pmt_XXXXXXXXXXXXXX
+                        attemptId:
+                          type: string
+                          example: att_XXXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1000
+                        currency:
+                          type: string
+                          example: AUD
+                        description:
+                          type: string
+                          example: Quis molestias labore incidunt voluptate repellat magni recusandae
+                            et.
+                        applicationFee:
+                          type: integer
+                          example: 0
+                        totalFee:
+                          type: integer
+                          example: 55
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                        sourceType:
+                          type: string
+                          example: credit-card
+                        transactionDate:
+                          type: string
+                          example: '2021-05-14T00:49:55.7510577Z'
+                        status:
+                          type: string
+                          example: approved
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-05-18'
+                        actualTransferDate: {}
+                        payer:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pyr_XXXXXXXXXXXXXX
+                            firstName:
+                              type: string
+                              example: Alex
+                            lastName:
+                              type: string
+                              example: Fadel
+                            emailAddress:
+                              type: string
+                              example: Willis_Wyman@example.com
+                            mobileNumber: {}
+                            streetAddress: {}
+                            suburb: {}
+                            postcode: {}
+                            state: {}
+                            country: {}
+                            companyName: {}
+                            companyRegistrationNumber: {}
+                            metadata: {}
+                        subscription: {}
+                        attempts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: att_XXXXXXXX
+                              amount:
+                                type: integer
+                                example: 1000
+                              currency:
+                                type: string
+                                example: AUD
+                              convertedAmount: {}
+                              conversionRate: {}
+                              convertedCurrency: {}
+                              estimatedSettlementDate:
+                                type: string
+                                example: '2021-05-18T00:00:00'
+                              isSurcharged:
+                                type: boolean
+                                example: false
+                              transactionDate:
+                                type: string
+                                example: '2021-05-14T00:49:55.7510577Z'
+                              estimatedTransferDate:
+                                type: string
+                                example: '2021-05-18'
+                              actualTransferDate: {}
+                              source: {}
+                              dishonour: {}
+                              settlement: {}
+                              fees:
+                                type: object
+                                properties:
+                                  transactionFee:
+                                    type: integer
+                                    example: 55
+                                  applicationFee:
+                                    type: integer
+                                    example: 0
+                                  totalFee:
+                                    type: integer
+                                    example: 55
+                                  currency:
+                                    type: string
+                                    example: AUD
+                                  taxRate:
+                                    type: number
+                                    example: 0.1
+                                  convertedTransactionFee: {}
+                                  convertedApplicationFee: {}
+                                  convertedTotalFee: {}
+                                  convertedCurrency: {}
+                                  conversionRate: {}
+                              status:
+                                type: string
+                                example: approved
+                        refunds:
+                          type: array
+                        metadata: {}
+                        nonce:
+                          type: string
+                          example: fdb06000-9d3f-4738-ab45-d8d9c7984e93
+                - title: Nonce Doesn't Exist
+                  type: object
+                  properties:
+                    isNonceReplay:
+                      type: boolean
+                      example: false
+                    nonce:
+                      type: string
+                      example: test456
+                    data: {}
+      deprecated: false
+  /payments/{id}:
+    delete:
+      summary: Delete payment
+      description: ''
+      operationId: delete-payment
+      parameters:
+      - name: id
+        in: path
+        description: Payment Id in pmt_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: You will receive a 200 OK with no body
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errorMessages\": [\n        {\n            \"propertyName\": \"paymentId\"\
+                    ,\n            \"errorMessage\": \"Payment with id: pmt_XXXXXXXXXXXXXX not found\"\
+                    ,\n            \"attemptedValue\": null,\n            \"customState\": null,\n   \
+                    \         \"severity\": 0,\n            \"errorCode\": null,\n            \"formattedMessageArguments\"\
+                    : null,\n            \"formattedMessagePlaceholderValues\": null,\n            \"\
+                    resourceName\": null\n        }\n    ],\n    \"successful\": false\n}"
+              schema:
+                type: object
+                properties:
+                  errorMessages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        propertyName:
+                          type: string
+                          example: paymentId
+                        errorMessage:
+                          type: string
+                          example: 'Payment with id: pmt_XXXXXXXXXXXXXX not found'
+                        attemptedValue: {}
+                        customState: {}
+                        severity:
+                          type: integer
+                          example: 0
+                        errorCode: {}
+                        formattedMessageArguments: {}
+                        formattedMessagePlaceholderValues: {}
+                        resourceName: {}
+                  successful:
+                    type: boolean
+                    example: false
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: 'await api.Payment.Delete(id);
+
+            '
+        samples-languages:
+        - csharp
+    get:
+      summary: Get Payment
+      description: ''
+      operationId: get-payment
+      parameters:
+      - name: id
+        in: path
+        description: Payment Id in pmt_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\"\
+                    ,\n    \"amount\": 1000,\n    \"currency\": \"AUD\",\n    \"description\": \"asdfasdf\"\
+                    ,\n    \"applicationFee\": 0,\n    \"totalFee\": 40,\n    \"isSurcharged\": false,\n\
+                    \    \"sourceType\": \"bank-account\",\n    \"transactionDate\": \"2021-04-25T14:00:00.0000000Z\"\
+                    ,\n    \"status\": \"scheduled\",\n    \"estimatedTransferDate\": \"2021-04-30\",\n\
+                    \    \"actualTransferDate\": null,\n    \"payer\": {\n        \"id\": \"pyr_XXXXXXXXXXXXXX\"\
+                    ,\n        \"firstName\": \"Test\",\n        \"lastName\": \"WebSample3\",\n     \
+                    \   \"emailAddress\": \"testwebsample@mailinator.com\",\n        \"mobileNumber\"\
+                    : \"0400000000\",\n        \"streetAddress\": \"123 Fake st\",\n        \"suburb\"\
+                    : \"Teneriffe\",\n        \"postcode\": \"4005\",\n        \"state\": \"QLD\",\n \
+                    \       \"country\": \"Australia\",\n        \"companyName\": \"Test Company\",\n\
+                    \        \"companyRegistrationNumber\": \"112233\",\n        \"metadata\": null\n\
+                    \    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n           \
+                    \ \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1000,\n            \"currency\"\
+                    : \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\"\
+                    : null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\"\
+                    : \"2021-04-30T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\"\
+                    : \"2021-04-25T14:00:00.0000000Z\",\n            \"estimatedTransferDate\": \"2021-04-30\"\
+                    ,\n            \"actualTransferDate\": null,\n            \"source\": {\n        \
+                    \        \"id\": \"src_vn4HGQxUhn2v3T\",\n                \"sourceType\": \"bank-account\"\
+                    ,\n                \"bankAccountNumber\": \"000000000\",\n                \"bankAccountBsb\"\
+                    : \"000000\",\n                \"bankAccountName\": \"Example Name\",\n          \
+                    \      \"creditCardToken\": null,\n                \"cardHolderName\": null,\n   \
+                    \             \"expiryDate\": null,\n                \"displayCardNumber\": null,\n\
+                    \                \"cardScheme\": null,\n                \"origin\": \"AU\",\n    \
+                    \            \"funding\": null\n            },\n            \"dishonour\": null,\n\
+                    \            \"settlement\": null,\n            \"fees\": {\n                \"transactionFee\"\
+                    : 40,\n                \"applicationFee\": 0,\n                \"totalFee\": 40,\n\
+                    \                \"currency\": \"AUD\",\n                \"taxRate\": 0.1,\n     \
+                    \           \"convertedTransactionFee\": null,\n                \"convertedApplicationFee\"\
+                    : null,\n                \"convertedTotalFee\": null,\n                \"convertedCurrency\"\
+                    : null,\n                \"conversionRate\": null\n            },\n            \"\
+                    status\": \"scheduled\"\n        }\n    ],\n    \"metadata\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  attemptId:
+                    type: string
+                    example: att_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1000
+                  currency:
+                    type: string
+                    example: AUD
+                  description:
+                    type: string
+                    example: asdfasdf
+                  applicationFee:
+                    type: integer
+                    example: 0
+                  totalFee:
+                    type: integer
+                    example: 40
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                  sourceType:
+                    type: string
+                    example: bank-account
+                  transactionDate:
+                    type: string
+                    example: '2021-04-25T14:00:00.0000000Z'
+                  status:
+                    type: string
+                    example: scheduled
+                  estimatedTransferDate:
+                    type: string
+                    example: '2021-04-30'
+                  actualTransferDate: {}
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Test
+                      lastName:
+                        type: string
+                        example: WebSample3
+                      emailAddress:
+                        type: string
+                        example: testwebsample@mailinator.com
+                      mobileNumber:
+                        type: string
+                        example: '0400000000'
+                      streetAddress:
+                        type: string
+                        example: 123 Fake st
+                      suburb:
+                        type: string
+                        example: Teneriffe
+                      postcode:
+                        type: string
+                        example: '4005'
+                      state:
+                        type: string
+                        example: QLD
+                      country:
+                        type: string
+                        example: Australia
+                      companyName:
+                        type: string
+                        example: Test Company
+                      companyRegistrationNumber:
+                        type: string
+                        example: '112233'
+                      metadata: {}
+                  subscription: {}
+                  attempts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1000
+                        currency:
+                          type: string
+                          example: AUD
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        estimatedSettlementDate:
+                          type: string
+                          example: '2021-04-30T00:00:00'
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                        transactionDate:
+                          type: string
+                          example: '2021-04-25T14:00:00.0000000Z'
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-04-30'
+                        actualTransferDate: {}
+                        source:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: src_vn4HGQxUhn2v3T
+                            sourceType:
+                              type: string
+                              example: bank-account
+                            bankAccountNumber:
+                              type: string
+                              example: '000000000'
+                            bankAccountBsb:
+                              type: string
+                              example: '000000'
+                            bankAccountName:
+                              type: string
+                              example: Example Name
+                            creditCardToken: {}
+                            cardHolderName: {}
+                            expiryDate: {}
+                            displayCardNumber: {}
+                            cardScheme: {}
+                            origin:
+                              type: string
+                              example: AU
+                            funding: {}
+                        dishonour: {}
+                        settlement: {}
+                        fees:
+                          type: object
+                          properties:
+                            transactionFee:
+                              type: integer
+                              example: 40
+                            applicationFee:
+                              type: integer
+                              example: 0
+                            totalFee:
+                              type: integer
+                              example: 40
+                            currency:
+                              type: string
+                              example: AUD
+                            taxRate:
+                              type: number
+                              example: 0.1
+                            convertedTransactionFee: {}
+                            convertedApplicationFee: {}
+                            convertedTotalFee: {}
+                            convertedCurrency: {}
+                            conversionRate: {}
+                        status:
+                          type: string
+                          example: scheduled
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var payment = await api.Payment.Get(id);
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payments/{id} \n -H \"Authorization: Bearer ...\""
+        samples-languages:
+        - csharp
+        - curl
+  /payments/payer/{id}:
+    get:
+      summary: List Payments for Payer
+      description: ''
+      operationId: list-payments-for-payer
+      parameters:
+      - name: id
+        in: path
+        description: Payment Id in pyr_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"id\": \"pmt_XXXXXXXXXXXXXX\",\n        \"attemptId\": \"\
+                    att_XXXXXXXX\",\n        \"amount\": 1245,\n        \"currency\": \"AUD\",\n     \
+                    \   \"description\": \"A lovely bunch of coconuts.\",\n        \"applicationFee\"\
+                    : 0,\n        \"totalFee\": 42,\n        \"isSurcharged\": false,\n        \"sourceType\"\
+                    : \"bank-account\",\n        \"transactionDate\": \"2021-05-04T14:00:00.0000000Z\"\
+                    ,\n        \"status\": \"scheduled\",\n        \"estimatedTransferDate\": \"2021-05-11\"\
+                    ,\n        \"actualTransferDate\": null,\n        \"payer\": {\n            \"id\"\
+                    : \"pyr_XXXXXXXXXXXXXX\",\n            \"firstName\": \"Test\",\n            \"lastName\"\
+                    : \"Payer\",\n            \"emailAddress\": \"test.payer@mailinator.com\",\n     \
+                    \       \"mobileNumber\": null,\n            \"streetAddress\": null,\n          \
+                    \  \"suburb\": null,\n            \"postcode\": null,\n            \"state\": null,\n\
+                    \            \"country\": null,\n            \"companyName\": null,\n            \"\
+                    companyRegistrationNumber\": null,\n            \"metadata\": null\n        },\n \
+                    \       \"subscription\": null,\n        \"attempts\": [\n            {\n        \
+                    \        \"id\": \"att_XXXXXXXX\",\n                \"amount\": 1245,\n          \
+                    \      \"currency\": \"AUD\",\n                \"convertedAmount\": null,\n      \
+                    \          \"conversionRate\": null,\n                \"convertedCurrency\": null,\n\
+                    \                \"estimatedSettlementDate\": \"2021-05-11T00:00:00\",\n         \
+                    \       \"isSurcharged\": false,\n                \"transactionDate\": \"2021-05-04T14:00:00.0000000Z\"\
+                    ,\n                \"estimatedTransferDate\": \"2021-05-11\",\n                \"\
+                    actualTransferDate\": null,\n                \"source\": {\n                    \"\
+                    id\": \"src_XXXXXXXXXXXXXX\",\n                    \"sourceType\": \"bank-account\"\
+                    ,\n                    \"bankAccountNumber\": \"000000000\",\n                   \
+                    \ \"bankAccountBsb\": \"040000\",\n                    \"bankAccountName\": \"Test\
+                    \ Account\",\n                    \"creditCardToken\": null,\n                   \
+                    \ \"cardHolderName\": null,\n                    \"expiryDate\": null,\n         \
+                    \           \"displayCardNumber\": null,\n                    \"cardScheme\": null,\n\
+                    \                    \"origin\": \"AU\"\n                },\n                \"dishonour\"\
+                    : null,\n                \"settlement\": null,\n                \"fees\": {\n    \
+                    \                \"transactionFee\": 42,\n                    \"applicationFee\":\
+                    \ 0,\n                    \"totalFee\": 42,\n                    \"currency\": \"\
+                    AUD\",\n                    \"taxRate\": 0.1,\n                    \"convertedTransactionFee\"\
+                    : null,\n                    \"convertedApplicationFee\": null,\n                \
+                    \    \"convertedTotalFee\": null,\n                    \"convertedCurrency\": null,\n\
+                    \                    \"conversionRate\": null\n                },\n              \
+                    \  \"status\": \"scheduled\"\n            }\n        ],\n        \"metadata\": null\n\
+                    \    },\n    {\n        \"id\": \"pmt_XXXXXXXXXXXXXX\",\n        \"attemptId\": \"\
+                    att_XXXXXXXX\",\n        \"amount\": 1245,\n        \"currency\": \"AUD\",\n     \
+                    \   \"description\": \"A sweet new hat\",\n        \"applicationFee\": 0,\n      \
+                    \  \"totalFee\": 61,\n        \"isSurcharged\": false,\n        \"sourceType\": \"\
+                    credit-card\",\n        \"transactionDate\": \"2021-04-19T05:43:01.2642435Z\",\n \
+                    \       \"status\": \"approved\",\n        \"estimatedTransferDate\": \"2021-04-21\"\
+                    ,\n        \"actualTransferDate\": null,\n        \"payer\": {\n            \"id\"\
+                    : \"pyr_XXXXXXXXXXXXXX\",\n            \"firstName\": \"Test\",\n            \"lastName\"\
+                    : \"Payer\",\n            \"emailAddress\": \"test.payer@mailinator.com\",\n     \
+                    \       \"mobileNumber\": null,\n            \"streetAddress\": null,\n          \
+                    \  \"suburb\": null,\n            \"postcode\": null,\n            \"state\": null,\n\
+                    \            \"country\": null,\n            \"companyName\": null,\n            \"\
+                    companyRegistrationNumber\": null,\n            \"metadata\": null\n        },\n \
+                    \       \"subscription\": null,\n        \"attempts\": [\n            {\n        \
+                    \        \"id\": \"att_XXXXXXXX\",\n                \"amount\": 1245,\n          \
+                    \      \"currency\": \"AUD\",\n                \"convertedAmount\": null,\n      \
+                    \          \"conversionRate\": null,\n                \"convertedCurrency\": null,\n\
+                    \                \"estimatedSettlementDate\": \"2021-04-21T00:00:00\",\n         \
+                    \       \"isSurcharged\": false,\n                \"transactionDate\": \"2021-04-19T05:43:01.2642435Z\"\
+                    ,\n                \"estimatedTransferDate\": \"2021-04-21\",\n                \"\
+                    actualTransferDate\": null,\n                \"source\": {\n                    \"\
+                    id\": \"src_XXXXXXXXXXXXXX\",\n                    \"sourceType\": \"credit-card\"\
+                    ,\n                    \"bankAccountNumber\": null,\n                    \"bankAccountBsb\"\
+                    : null,\n                    \"bankAccountName\": null,\n                    \"creditCardToken\"\
+                    : \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n                    \"cardHolderName\"\
+                    : \"Ben Hotdog\",\n                    \"expiryDate\": \"2022-12-01T00:00:00\",\n\
+                    \                    \"displayCardNumber\": \"4242\",\n                    \"cardScheme\"\
+                    : \"visa\",\n                    \"origin\": \"AU\"\n                },\n        \
+                    \        \"dishonour\": null,\n                \"settlement\": null,\n           \
+                    \     \"fees\": {\n                    \"transactionFee\": 61,\n                 \
+                    \   \"applicationFee\": 0,\n                    \"totalFee\": 61,\n              \
+                    \      \"currency\": \"AUD\",\n                    \"taxRate\": 0.1,\n           \
+                    \         \"convertedTransactionFee\": null,\n                    \"convertedApplicationFee\"\
+                    : null,\n                    \"convertedTotalFee\": null,\n                    \"\
+                    convertedCurrency\": null,\n                    \"conversionRate\": null\n       \
+                    \         },\n                \"status\": \"approved\"\n            }\n        ],\n\
+                    \        \"metadata\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: pmt_XXXXXXXXXXXXXX
+                    attemptId:
+                      type: string
+                      example: att_XXXXXXXX
+                    amount:
+                      type: integer
+                      example: 1245
+                    currency:
+                      type: string
+                      example: AUD
+                    description:
+                      type: string
+                      example: A lovely bunch of coconuts.
+                    applicationFee:
+                      type: integer
+                      example: 0
+                    totalFee:
+                      type: integer
+                      example: 42
+                    isSurcharged:
+                      type: boolean
+                      example: false
+                    sourceType:
+                      type: string
+                      example: bank-account
+                    transactionDate:
+                      type: string
+                      example: '2021-05-04T14:00:00.0000000Z'
+                    status:
+                      type: string
+                      example: scheduled
+                    estimatedTransferDate:
+                      type: string
+                      example: '2021-05-11'
+                    actualTransferDate: {}
+                    payer:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pyr_XXXXXXXXXXXXXX
+                        firstName:
+                          type: string
+                          example: Test
+                        lastName:
+                          type: string
+                          example: Payer
+                        emailAddress:
+                          type: string
+                          example: test.payer@mailinator.com
+                        mobileNumber: {}
+                        streetAddress: {}
+                        suburb: {}
+                        postcode: {}
+                        state: {}
+                        country: {}
+                        companyName: {}
+                        companyRegistrationNumber: {}
+                        metadata: {}
+                    subscription: {}
+                    attempts:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: att_XXXXXXXX
+                          amount:
+                            type: integer
+                            example: 1245
+                          currency:
+                            type: string
+                            example: AUD
+                          convertedAmount: {}
+                          conversionRate: {}
+                          convertedCurrency: {}
+                          estimatedSettlementDate:
+                            type: string
+                            example: '2021-05-11T00:00:00'
+                          isSurcharged:
+                            type: boolean
+                            example: false
+                          transactionDate:
+                            type: string
+                            example: '2021-05-04T14:00:00.0000000Z'
+                          estimatedTransferDate:
+                            type: string
+                            example: '2021-05-11'
+                          actualTransferDate: {}
+                          source:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: src_XXXXXXXXXXXXXX
+                              sourceType:
+                                type: string
+                                example: bank-account
+                              bankAccountNumber:
+                                type: string
+                                example: '000000000'
+                              bankAccountBsb:
+                                type: string
+                                example: '040000'
+                              bankAccountName:
+                                type: string
+                                example: Test Account
+                              creditCardToken: {}
+                              cardHolderName: {}
+                              expiryDate: {}
+                              displayCardNumber: {}
+                              cardScheme: {}
+                              origin:
+                                type: string
+                                example: AU
+                          dishonour: {}
+                          settlement: {}
+                          fees:
+                            type: object
+                            properties:
+                              transactionFee:
+                                type: integer
+                                example: 42
+                              applicationFee:
+                                type: integer
+                                example: 0
+                              totalFee:
+                                type: integer
+                                example: 42
+                              currency:
+                                type: string
+                                example: AUD
+                              taxRate:
+                                type: number
+                                example: 0.1
+                              convertedTransactionFee: {}
+                              convertedApplicationFee: {}
+                              convertedTotalFee: {}
+                              convertedCurrency: {}
+                              conversionRate: {}
+                          status:
+                            type: string
+                            example: scheduled
+                    metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"payerId\",\n        \"errorMessage\":\
+                    \ \"Could not find a payer with ID: pyr_XXXXXXXXXXXXXX\",\n        \"attemptedValue\"\
+                    : null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\"\
+                    : null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: payerId
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a payer with ID: pyr_XXXXXXXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: 'var payments = await api.Payment.GetForPayer(id);
+
+            '
+        - language: curl
+          code: "curl --request GET \\\n  --url https://api.getpinch.com.au/test/payments/payer/id"
+        samples-languages:
+        - csharp
+        - curl
+  /payments/processed:
+    get:
+      summary: List Payments - Processed
+      description: ''
+      operationId: list-processed-payments
+      parameters:
+      - name: page
+        in: query
+        description: The current page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: startDate
+        in: query
+        description: Filter on Transaction Date
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        description: Filter on Transaction Date
+        schema:
+          type: string
+          format: date
+      - name: filter
+        in: query
+        description: A payment Id (`pmt_`) or an Attempt Id (`att_`)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 2,\n    \"data\": [\n        {\n            \"id\": \"pmt_XXXXXXXXXXXXXX\",\n  \
+                    \          \"attemptId\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n     \
+                    \       \"currency\": \"AUD\",\n            \"description\": \"A sweet new hat\",\n\
+                    \            \"applicationFee\": 0,\n            \"totalFee\": 61,\n            \"\
+                    isSurcharged\": false,\n            \"sourceType\": \"credit-card\",\n           \
+                    \ \"transactionDate\": \"2021-04-19T05:43:01.2642435Z\",\n            \"status\":\
+                    \ \"approved\",\n            \"estimatedTransferDate\": \"2021-04-21T00:00:00\",\n\
+                    \            \"payer\": {\n                \"id\": \"pyr_XXXXXXXXXXXXXX\",\n     \
+                    \           \"firstName\": \"XXXXXX\",\n                \"lastName\": \"XXXXXX\",\n\
+                    \                \"emailAddress\": \"XXXXXX.XXXXXX@mailinator.com\",\n           \
+                    \     \"mobileNumber\": null,\n                \"streetAddress\": null,\n        \
+                    \        \"suburb\": null,\n                \"postcode\": null,\n                \"\
+                    state\": null,\n                \"country\": null,\n                \"companyName\"\
+                    : null,\n                \"companyRegistrationNumber\": null,\n                \"\
+                    metadata\": null\n            },\n            \"subscription\": null,\n          \
+                    \  \"metadata\": null\n        },\n        {\n            \"id\": \"pmt_XXXXXXXXXXXXXX\"\
+                    ,\n            \"attemptId\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n \
+                    \           \"currency\": \"AUD\",\n            \"description\": \"A sweet new hat\"\
+                    ,\n            \"applicationFee\": 0,\n            \"totalFee\": 61,\n           \
+                    \ \"isSurcharged\": false,\n            \"sourceType\": \"credit-card\",\n       \
+                    \     \"transactionDate\": \"2021-04-19T05:20:54.4601157Z\",\n            \"status\"\
+                    : \"approved\",\n            \"estimatedTransferDate\": \"2021-04-21T00:00:00\",\n\
+                    \            \"payer\": {\n                \"id\": \"pyr_XXXXXXXXXXXXXX\",\n     \
+                    \           \"firstName\": \"Ben\",\n                \"lastName\": \"Hotdog\",\n \
+                    \               \"emailAddress\": \"ben.hotdog@mailinator.com\",\n               \
+                    \ \"mobileNumber\": null,\n                \"streetAddress\": null,\n            \
+                    \    \"suburb\": null,\n                \"postcode\": null,\n                \"state\"\
+                    : null,\n                \"country\": null,\n                \"companyName\": null,\n\
+                    \                \"companyRegistrationNumber\": null,\n                \"metadata\"\
+                    : null\n            },\n            \"subscription\": null,\n            \"metadata\"\
+                    : null\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                  pageSize:
+                    type: integer
+                    example: 50
+                  totalPages:
+                    type: integer
+                    example: 1
+                  totalItems:
+                    type: integer
+                    example: 2
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pmt_XXXXXXXXXXXXXX
+                        attemptId:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                        currency:
+                          type: string
+                          example: AUD
+                        description:
+                          type: string
+                          example: A sweet new hat
+                        applicationFee:
+                          type: integer
+                          example: 0
+                        totalFee:
+                          type: integer
+                          example: 61
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                        sourceType:
+                          type: string
+                          example: credit-card
+                        transactionDate:
+                          type: string
+                          example: '2021-04-19T05:43:01.2642435Z'
+                        status:
+                          type: string
+                          example: approved
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-04-21T00:00:00'
+                        payer:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pyr_XXXXXXXXXXXXXX
+                            firstName:
+                              type: string
+                              example: XXXXXX
+                            lastName:
+                              type: string
+                              example: XXXXXX
+                            emailAddress:
+                              type: string
+                              example: XXXXXX.XXXXXX@mailinator.com
+                            mobileNumber: {}
+                            streetAddress: {}
+                            suburb: {}
+                            postcode: {}
+                            state: {}
+                            country: {}
+                            companyName: {}
+                            companyRegistrationNumber: {}
+                            metadata: {}
+                        subscription: {}
+                        metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: 'var result = await api.Payment.GetProcessed();
+
+            var payments = result.Data;'
+        - language: curl
+          code: "curl --request GET \\\n  --url https://api.getpinch.com.au/test/payments/processed"
+        samples-languages:
+        - csharp
+        - curl
+  /payments/scheduled:
+    get:
+      summary: List Payments - Scheduled
+      description: ''
+      operationId: list-scheduled-payments
+      parameters:
+      - name: page
+        in: query
+        description: The current page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\"\
+                    : 1,\n    \"data\": [\n        {\n            \"id\": \"pmt_XXXXXXXXXXXXXX\",\n  \
+                    \          \"attemptId\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n     \
+                    \       \"currency\": \"AUD\",\n            \"description\": \"A lovely bunch of coconuts.\"\
+                    ,\n            \"applicationFee\": 0,\n            \"totalFee\": 42,\n           \
+                    \ \"isSurcharged\": false,\n            \"sourceType\": \"bank-account\",\n      \
+                    \      \"transactionDate\": \"2021-05-04T14:00:00.0000000Z\",\n            \"status\"\
+                    : \"scheduled\",\n            \"estimatedTransferDate\": \"2021-05-11T00:00:00\",\n\
+                    \            \"payer\": {\n                \"id\": \"pyr_XXXXXX\",\n             \
+                    \   \"firstName\": \"Test\",\n                \"lastName\": \"Payer\",\n         \
+                    \       \"emailAddress\": \"test.payer@mailinator.com\",\n                \"mobileNumber\"\
+                    : null,\n                \"streetAddress\": null,\n                \"suburb\": null,\n\
+                    \                \"postcode\": null,\n                \"state\": null,\n         \
+                    \       \"country\": null,\n                \"companyName\": null,\n             \
+                    \   \"companyRegistrationNumber\": null,\n                \"metadata\": null\n   \
+                    \         },\n            \"subscription\": null,\n            \"metadata\": null\n\
+                    \        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                  pageSize:
+                    type: integer
+                    example: 50
+                  totalPages:
+                    type: integer
+                    example: 1
+                  totalItems:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pmt_XXXXXXXXXXXXXX
+                        attemptId:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                        currency:
+                          type: string
+                          example: AUD
+                        description:
+                          type: string
+                          example: A lovely bunch of coconuts.
+                        applicationFee:
+                          type: integer
+                          example: 0
+                        totalFee:
+                          type: integer
+                          example: 42
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                        sourceType:
+                          type: string
+                          example: bank-account
+                        transactionDate:
+                          type: string
+                          example: '2021-05-04T14:00:00.0000000Z'
+                        status:
+                          type: string
+                          example: scheduled
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-05-11T00:00:00'
+                        payer:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: pyr_XXXXXX
+                            firstName:
+                              type: string
+                              example: Test
+                            lastName:
+                              type: string
+                              example: Payer
+                            emailAddress:
+                              type: string
+                              example: test.payer@mailinator.com
+                            mobileNumber: {}
+                            streetAddress: {}
+                            suburb: {}
+                            postcode: {}
+                            state: {}
+                            country: {}
+                            companyName: {}
+                            companyRegistrationNumber: {}
+                            metadata: {}
+                        subscription: {}
+                        metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: 'var result = await api.Payment.GetScheduled();
+
+            var payments = result.Data;'
+        - language: curl
+          code: "curl --request GET \\\n  --url https://api.getpinch.com.au/test/payments/scheduled"
+        samples-languages:
+        - csharp
+        - curl
+  /payments/realtime:
+    post:
+      summary: Create Realtime Payment
+      description: ''
+      operationId: realtime-payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payerId:
+                  type: string
+                  description: The Payer ID to use, if you're executing this payment against an existing
+                    payer.
+                fullName:
+                  type: string
+                  description: Use Full Name, or First Name and Last Name
+                firstName:
+                  type: string
+                  description: Use Full Name, or First Name and Last Name
+                lastName:
+                  type: string
+                  description: Use Full Name, or First Name and Last Name
+                email:
+                  type: string
+                  description: The email address of the payer
+                mobileNumber:
+                  type: string
+                  description: A non-international Australian 10-digit mobile number
+                amount:
+                  type: integer
+                  description: The payment amount in cents
+                  format: int32
+                applicationFee:
+                  type: integer
+                  description: Optional additional fee (in cents) that goes to the parent merchant (Managed
+                    Merchants Only)
+                  format: int32
+                description:
+                  type: string
+                  description: An optional description for the payment. Will be visible to the payer.
+                    Must be less than 1000 characters.
+                sourceId:
+                  type: string
+                  description: Specify an existing payment source to use for this transaction. If empty,
+                    the default will be used. If you are creating a new source, use the creditCardToken
+                    field instead.
+                token:
+                  type: string
+                  description: The credit card or bank account token created by the capture script. See
+                    the Guide for more info.
+                surcharge:
+                  type: array
+                  description: A list of source types to surcharge (Pass on the fees to the customer).
+                    eg. ['bank-account', 'credit-card']
+                  items:
+                    type: string
+                nonce:
+                  type: array
+                  description: Optional. A nonce is a one-time-use reference that represents a unique
+                    payment. Used to prevent double submissions of payments. If left empty all submissions
+                    will be treated as unique. Can be a string or array of strings. Each nonce must not
+                    exceed 250 characters and the length of all nonces must not exceed 4000 characters.
+                  items:
+                    type: string
+                metadata:
+                  type: string
+                  description: Free text field that you can use to store state against certain entities.
+                    Can be used for accounting integration, see [Metadata](https://docs.getpinch.com.au/docs/metadata)
+              required:
+              - amount
+            examples:
+              Request Example:
+                value:
+                  fullName: Ben Hotdog
+                  email: ben.hotdog@mailinator.com
+                  amount: '1245'
+                  description: A sweet new hat
+                  token: tkn_dk9GpnBk2vIlSbxsOZ8Vk0FwCQBVeABk
+      responses:
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\"\
+                    ,\n    \"amount\": 1245,\n    \"currency\": \"AUD\",\n    \"description\": \"A sweet\
+                    \ new hat\",\n    \"applicationFee\": 0,\n    \"totalFee\": 61,\n    \"isSurcharged\"\
+                    : false,\n    \"sourceType\": \"credit-card\",\n    \"transactionDate\": \"2021-04-19T05:20:54.4601157Z\"\
+                    ,\n    \"status\": \"approved\",\n    \"estimatedTransferDate\": \"2021-04-21\",\n\
+                    \    \"actualTransferDate\": null,\n    \"payer\": {\n        \"id\": \"pyr_XXXXXXXXXXXXXX\"\
+                    ,\n        \"firstName\": \"Ben\",\n        \"lastName\": \"Hotdog\",\n        \"\
+                    emailAddress\": \"ben.hotdog@mailinator.com\",\n        \"mobileNumber\": null,\n\
+                    \        \"streetAddress\": null,\n        \"suburb\": null,\n        \"postcode\"\
+                    : null,\n        \"state\": null,\n        \"country\": null,\n        \"companyName\"\
+                    : null,\n        \"companyRegistrationNumber\": null,\n        \"metadata\": null\n\
+                    \    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n           \
+                    \ \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n            \"currency\"\
+                    : \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\"\
+                    : null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\"\
+                    : \"2021-04-21T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\"\
+                    : \"2021-04-19T05:20:54.4601157Z\",\n            \"estimatedTransferDate\": \"2021-04-21\"\
+                    ,\n            \"actualTransferDate\": null,\n            \"source\": {\n        \
+                    \        \"id\": \"src_XXXXXXXXXXXXXX\",\n                \"sourceType\": \"credit-card\"\
+                    ,\n                \"bankAccountNumber\": null,\n                \"bankAccountBsb\"\
+                    : null,\n                \"bankAccountName\": null,\n                \"creditCardToken\"\
+                    : \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n                \"cardHolderName\": \"Ben\
+                    \ Hotdog\",\n                \"expiryDate\": \"2022-12-01T00:00:00\",\n          \
+                    \      \"displayCardNumber\": \"4242\",\n                \"cardScheme\": \"visa\"\
+                    ,\n                \"origin\": \"AU\"\n            },\n            \"dishonour\":\
+                    \ null,\n            \"settlement\": null,\n            \"fees\": {\n            \
+                    \    \"transactionFee\": 61,\n                \"applicationFee\": 0,\n           \
+                    \     \"totalFee\": 61,\n                \"currency\": \"AUD\",\n                \"\
+                    taxRate\": 0.1,\n                \"convertedTransactionFee\": null,\n            \
+                    \    \"convertedApplicationFee\": null,\n                \"convertedTotalFee\": null,\n\
+                    \                \"convertedCurrency\": null,\n                \"conversionRate\"\
+                    : null\n            },\n            \"status\": \"approved\"\n        }\n    ],\n\
+                    \    \"metadata\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  attemptId:
+                    type: string
+                    example: att_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1245
+                  currency:
+                    type: string
+                    example: AUD
+                  description:
+                    type: string
+                    example: A sweet new hat
+                  applicationFee:
+                    type: integer
+                    example: 0
+                  totalFee:
+                    type: integer
+                    example: 61
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                  sourceType:
+                    type: string
+                    example: credit-card
+                  transactionDate:
+                    type: string
+                    example: '2021-04-19T05:20:54.4601157Z'
+                  status:
+                    type: string
+                    example: approved
+                  estimatedTransferDate:
+                    type: string
+                    example: '2021-04-21'
+                  actualTransferDate: {}
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Ben
+                      lastName:
+                        type: string
+                        example: Hotdog
+                      emailAddress:
+                        type: string
+                        example: ben.hotdog@mailinator.com
+                      mobileNumber: {}
+                      streetAddress: {}
+                      suburb: {}
+                      postcode: {}
+                      state: {}
+                      country: {}
+                      companyName: {}
+                      companyRegistrationNumber: {}
+                      metadata: {}
+                  subscription: {}
+                  attempts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                        currency:
+                          type: string
+                          example: AUD
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        estimatedSettlementDate:
+                          type: string
+                          example: '2021-04-21T00:00:00'
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                        transactionDate:
+                          type: string
+                          example: '2021-04-19T05:20:54.4601157Z'
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-04-21'
+                        actualTransferDate: {}
+                        source:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: src_XXXXXXXXXXXXXX
+                            sourceType:
+                              type: string
+                              example: credit-card
+                            bankAccountNumber: {}
+                            bankAccountBsb: {}
+                            bankAccountName: {}
+                            creditCardToken:
+                              type: string
+                              example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                            cardHolderName:
+                              type: string
+                              example: Ben Hotdog
+                            expiryDate:
+                              type: string
+                              example: '2022-12-01T00:00:00'
+                            displayCardNumber:
+                              type: string
+                              example: '4242'
+                            cardScheme:
+                              type: string
+                              example: visa
+                            origin:
+                              type: string
+                              example: AU
+                        dishonour: {}
+                        settlement: {}
+                        fees:
+                          type: object
+                          properties:
+                            transactionFee:
+                              type: integer
+                              example: 61
+                            applicationFee:
+                              type: integer
+                              example: 0
+                            totalFee:
+                              type: integer
+                              example: 61
+                            currency:
+                              type: string
+                              example: AUD
+                            taxRate:
+                              type: number
+                              example: 0.1
+                            convertedTransactionFee: {}
+                            convertedApplicationFee: {}
+                            convertedTotalFee: {}
+                            convertedCurrency: {}
+                            conversionRate: {}
+                        status:
+                          type: string
+                          example: approved
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: "var result = await api.Payment.ExecuteRealtime(new RealtimePaymentSaveOptions()\n{\n\
+            \    FullName = \"Ben Hotdog\",\n    Email = \"ben.hotdog@mailinator.com\",\n    Token = \"\
+            tkn_b78d0293rn798ydb9287e6t7f987b3\",\n    Amount = 1245,                \n    Description\
+            \ = \"A sweet new hat\",\n  \tSurcharge = new List<string>() \n    {\n      \"bank-account\"\
+            ,\n      \"credit-card\"\n    }\n});"
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payments/realtime \n -H \"Authorization: Bearer\
+            \ ...\" \n -H \"Content-Type: application/json\" \n -d \"{\n    'fullName': 'Ben Hotdog',\n\
+            \    'email': 'ben.hotdog@mailinator.com',\n    'amount': 1245,\n    'description': 'A sweet\
+            \ new hat',\n    'token': 'tkn_dk9GpnBk2vIlSbxsOZ8Vk0FwCQBVeABk'\n}\""
+        samples-languages:
+        - csharp
+        - curl
+  /payments:
+    post:
+      summary: Create or Update Payment
+      description: Create or Update a Scheduled Payment
+      operationId: save-payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - payerId
+              - amount
+              - transactionDate
+              properties:
+                id:
+                  type: string
+                  description: If you include an ID this endpoint will update, otherwise it create a new
+                    payment
+                payerId:
+                  type: string
+                  description: The ID of the payer in pyr_XXXXXXXXXXXXXX format
+                amount:
+                  type: integer
+                  description: The payment amount in cents
+                  format: int32
+                transactionDate:
+                  type: string
+                  description: The date to attempt the transaction
+                  format: date
+                description:
+                  type: string
+                  description: An optional description for the payment. Will be visible to the payer.
+                    Must be less than 1000 characters.
+                nonce:
+                  type: array
+                  description: Optional. A nonce is a one-time-use reference that represents a unique
+                    payment. Used to prevent double submissions of payments. If left empty all submissions
+                    will be treated as unique. Can be a string or array of strings. Each nonce must not
+                    exceed 250 characters and the length of all nonces must not exceed 4000 characters.
+                  items:
+                    type: string
+                sourceId:
+                  type: string
+                  description: Optional. The ID of the payment Source you want to use. If omitted, the
+                    first valid source will be used.
+                surcharge:
+                  type: array
+                  description: A list of source types to surcharge (Pass on the fees to the customer).
+                    eg. ['bank-account', 'credit-card']
+                  items:
+                    type: string
+                applicationFee:
+                  type: integer
+                  description: Optional additional fee (in cents) that goes to the parent merchant (Managed
+                    Merchants Only)
+                  format: int32
+            examples:
+              Request Example:
+                value:
+                  payerId: pyr_dLCdmrOmXKwuWH
+                  amount: 1245
+                  transactionDate: '2017-05-05'
+                  description: A lovely bunch of coconuts.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\"\
+                    ,\n    \"amount\": 1245,\n    \"currency\": \"AUD\",\n    \"description\": \"A lovely\
+                    \ bunch of coconuts.\",\n    \"applicationFee\": 0,\n    \"totalFee\": 42,\n    \"\
+                    isSurcharged\": false,\n    \"sourceType\": \"bank-account\",\n    \"transactionDate\"\
+                    : \"2021-05-19T14:00:00.0000000Z\",\n    \"status\": \"scheduled\",\n    \"estimatedTransferDate\"\
+                    : \"2021-05-26\",\n    \"actualTransferDate\": null,\n    \"payer\": {\n        \"\
+                    id\": \"pyr_XXXXXXXXXXXXXX\",\n        \"firstName\": \"Test\",\n        \"lastName\"\
+                    : \"WebSample3\",\n        \"emailAddress\": \"testwebsample@mailinator.com\",\n \
+                    \       \"mobileNumber\": \"0400000000\",\n        \"streetAddress\": \"123 Fake st\"\
+                    ,\n        \"suburb\": \"Teneriffe\",\n        \"postcode\": \"4005\",\n        \"\
+                    state\": \"QLD\",\n        \"country\": \"Australia\",\n        \"companyName\": \"\
+                    Test Company\",\n        \"companyRegistrationNumber\": \"111111\",\n        \"metadata\"\
+                    : null\n    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n    \
+                    \        \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n            \"\
+                    currency\": \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\"\
+                    : null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\"\
+                    : \"2021-05-26T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\"\
+                    : \"2021-05-19T14:00:00.0000000Z\",\n            \"estimatedTransferDate\": \"2021-05-26\"\
+                    ,\n            \"actualTransferDate\": null,\n            \"source\": {\n        \
+                    \        \"id\": \"src_XXXXXXXXXXXXXX\",\n                \"sourceType\": \"bank-account\"\
+                    ,\n                \"bankAccountNumber\": \"000000000\",\n                \"bankAccountBsb\"\
+                    : \"000000\",\n                \"bankAccountName\": \"Example Name\",\n          \
+                    \      \"creditCardToken\": null,\n                \"cardHolderName\": null,\n   \
+                    \             \"expiryDate\": null,\n                \"displayCardNumber\": null,\n\
+                    \                \"cardScheme\": null,\n                \"origin\": \"AU\",\n    \
+                    \            \"funding\": null\n            },\n            \"dishonour\": null,\n\
+                    \            \"settlement\": null,\n            \"fees\": {\n                \"transactionFee\"\
+                    : 42,\n                \"applicationFee\": 0,\n                \"totalFee\": 42,\n\
+                    \                \"currency\": \"AUD\",\n                \"taxRate\": 0.1,\n     \
+                    \           \"convertedTransactionFee\": null,\n                \"convertedApplicationFee\"\
+                    : null,\n                \"convertedTotalFee\": null,\n                \"convertedCurrency\"\
+                    : null,\n                \"conversionRate\": null\n            },\n            \"\
+                    status\": \"scheduled\"\n        }\n    ],\n    \"metadata\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  attemptId:
+                    type: string
+                    example: att_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1245
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  description:
+                    type: string
+                    example: A lovely bunch of coconuts.
+                  applicationFee:
+                    type: integer
+                    example: 0
+                    default: 0
+                  totalFee:
+                    type: integer
+                    example: 42
+                    default: 0
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                    default: true
+                  sourceType:
+                    type: string
+                    example: bank-account
+                  transactionDate:
+                    type: string
+                    example: '2021-05-19T14:00:00.0000000Z'
+                  status:
+                    type: string
+                    example: scheduled
+                  estimatedTransferDate:
+                    type: string
+                    example: '2021-05-26'
+                  actualTransferDate: {}
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Test
+                      lastName:
+                        type: string
+                        example: WebSample3
+                      emailAddress:
+                        type: string
+                        example: testwebsample@mailinator.com
+                      mobileNumber:
+                        type: string
+                        example: '0400000000'
+                      streetAddress:
+                        type: string
+                        example: 123 Fake st
+                      suburb:
+                        type: string
+                        example: Teneriffe
+                      postcode:
+                        type: string
+                        example: '4005'
+                      state:
+                        type: string
+                        example: QLD
+                      country:
+                        type: string
+                        example: Australia
+                      companyName:
+                        type: string
+                        example: Test Company
+                      companyRegistrationNumber:
+                        type: string
+                        example: '111111'
+                      metadata: {}
+                  subscription: {}
+                  attempts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                          default: 0
+                        currency:
+                          type: string
+                          example: AUD
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        estimatedSettlementDate:
+                          type: string
+                          example: '2021-05-26T00:00:00'
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                          default: true
+                        transactionDate:
+                          type: string
+                          example: '2021-05-19T14:00:00.0000000Z'
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-05-26'
+                        actualTransferDate: {}
+                        source:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: src_XXXXXXXXXXXXXX
+                            sourceType:
+                              type: string
+                              example: bank-account
+                            bankAccountNumber:
+                              type: string
+                              example: '000000000'
+                            bankAccountBsb:
+                              type: string
+                              example: '000000'
+                            bankAccountName:
+                              type: string
+                              example: Example Name
+                            creditCardToken: {}
+                            cardHolderName: {}
+                            expiryDate: {}
+                            displayCardNumber: {}
+                            cardScheme: {}
+                            origin:
+                              type: string
+                              example: AU
+                            funding: {}
+                        dishonour: {}
+                        settlement: {}
+                        fees:
+                          type: object
+                          properties:
+                            transactionFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            applicationFee:
+                              type: integer
+                              example: 0
+                              default: 0
+                            totalFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            currency:
+                              type: string
+                              example: AUD
+                            taxRate:
+                              type: number
+                              example: 0.1
+                              default: 0
+                            convertedTransactionFee: {}
+                            convertedApplicationFee: {}
+                            convertedTotalFee: {}
+                            convertedCurrency: {}
+                            conversionRate: {}
+                        status:
+                          type: string
+                          example: scheduled
+                  metadata: {}
+        '201':
+          description: '201'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\"\
+                    ,\n    \"amount\": 1245,\n    \"currency\": \"AUD\",\n    \"description\": \"A lovely\
+                    \ bunch of coconuts.\",\n    \"applicationFee\": 0,\n    \"totalFee\": 42,\n    \"\
+                    isSurcharged\": false,\n    \"sourceType\": \"bank-account\",\n    \"transactionDate\"\
+                    : \"2021-05-04T14:00:00.0000000Z\",\n    \"status\": \"scheduled\",\n    \"estimatedTransferDate\"\
+                    : \"2021-05-11\",\n    \"actualTransferDate\": null,\n    \"payer\": {\n        \"\
+                    id\": \"pyr_XXXXXXXXXXXXXX\",\n        \"firstName\": \"Test\",\n        \"lastName\"\
+                    : \"WebSample3\",\n        \"emailAddress\": \"testwebsample@mailinator.com\",\n \
+                    \       \"mobileNumber\": \"0400000000\",\n        \"streetAddress\": \"123 Fake st\"\
+                    ,\n        \"suburb\": \"Teneriffe\",\n        \"postcode\": \"4005\",\n        \"\
+                    state\": \"QLD\",\n        \"country\": \"Australia\",\n        \"companyName\": \"\
+                    Test Company\",\n        \"companyRegistrationNumber\": \"111111\",\n        \"metadata\"\
+                    : null\n    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n    \
+                    \        \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n            \"\
+                    currency\": \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\"\
+                    : null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\"\
+                    : \"2021-05-11T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\"\
+                    : \"2021-05-04T14:00:00.0000000Z\",\n            \"estimatedTransferDate\": \"2021-05-11\"\
+                    ,\n            \"actualTransferDate\": null,\n            \"source\": {\n        \
+                    \        \"id\": \"src_XXXXXXXXXXXXXX\",\n                \"sourceType\": \"bank-account\"\
+                    ,\n                \"bankAccountNumber\": \"000000000\",\n                \"bankAccountBsb\"\
+                    : \"000000\",\n                \"bankAccountName\": \"Example Name\",\n          \
+                    \      \"creditCardToken\": null,\n                \"cardHolderName\": null,\n   \
+                    \             \"expiryDate\": null,\n                \"displayCardNumber\": null,\n\
+                    \                \"cardScheme\": null,\n                \"origin\": \"AU\",\n    \
+                    \            \"funding\": null\n            },\n            \"dishonour\": null,\n\
+                    \            \"settlement\": null,\n            \"fees\": {\n                \"transactionFee\"\
+                    : 42,\n                \"applicationFee\": 0,\n                \"totalFee\": 42,\n\
+                    \                \"currency\": \"AUD\",\n                \"taxRate\": 0.1,\n     \
+                    \           \"convertedTransactionFee\": null,\n                \"convertedApplicationFee\"\
+                    : null,\n                \"convertedTotalFee\": null,\n                \"convertedCurrency\"\
+                    : null,\n                \"conversionRate\": null\n            },\n            \"\
+                    status\": \"scheduled\"\n        }\n    ],\n    \"metadata\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  attemptId:
+                    type: string
+                    example: att_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1245
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  description:
+                    type: string
+                    example: A lovely bunch of coconuts.
+                  applicationFee:
+                    type: integer
+                    example: 0
+                    default: 0
+                  totalFee:
+                    type: integer
+                    example: 42
+                    default: 0
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                    default: true
+                  sourceType:
+                    type: string
+                    example: bank-account
+                  transactionDate:
+                    type: string
+                    example: '2021-05-04T14:00:00.0000000Z'
+                  status:
+                    type: string
+                    example: scheduled
+                  estimatedTransferDate:
+                    type: string
+                    example: '2021-05-11'
+                  actualTransferDate: {}
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Test
+                      lastName:
+                        type: string
+                        example: WebSample3
+                      emailAddress:
+                        type: string
+                        example: testwebsample@mailinator.com
+                      mobileNumber:
+                        type: string
+                        example: '0400000000'
+                      streetAddress:
+                        type: string
+                        example: 123 Fake st
+                      suburb:
+                        type: string
+                        example: Teneriffe
+                      postcode:
+                        type: string
+                        example: '4005'
+                      state:
+                        type: string
+                        example: QLD
+                      country:
+                        type: string
+                        example: Australia
+                      companyName:
+                        type: string
+                        example: Test Company
+                      companyRegistrationNumber:
+                        type: string
+                        example: '111111'
+                      metadata: {}
+                  subscription: {}
+                  attempts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                          default: 0
+                        currency:
+                          type: string
+                          example: AUD
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        estimatedSettlementDate:
+                          type: string
+                          example: '2021-05-11T00:00:00'
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                          default: true
+                        transactionDate:
+                          type: string
+                          example: '2021-05-04T14:00:00.0000000Z'
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-05-11'
+                        actualTransferDate: {}
+                        source:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: src_XXXXXXXXXXXXXX
+                            sourceType:
+                              type: string
+                              example: bank-account
+                            bankAccountNumber:
+                              type: string
+                              example: '000000000'
+                            bankAccountBsb:
+                              type: string
+                              example: '000000'
+                            bankAccountName:
+                              type: string
+                              example: Example Name
+                            creditCardToken: {}
+                            cardHolderName: {}
+                            expiryDate: {}
+                            displayCardNumber: {}
+                            cardScheme: {}
+                            origin:
+                              type: string
+                              example: AU
+                            funding: {}
+                        dishonour: {}
+                        settlement: {}
+                        fees:
+                          type: object
+                          properties:
+                            transactionFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            applicationFee:
+                              type: integer
+                              example: 0
+                              default: 0
+                            totalFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            currency:
+                              type: string
+                              example: AUD
+                            taxRate:
+                              type: number
+                              example: 0.1
+                              default: 0
+                            convertedTransactionFee: {}
+                            convertedApplicationFee: {}
+                            convertedTotalFee: {}
+                            convertedCurrency: {}
+                            conversionRate: {}
+                        status:
+                          type: string
+                          example: scheduled
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"PayerId\",\n        \"errorMessage\":\
+                    \ \"Can't find payer with Id: pyr_XXXXXXX\",\n        \"attemptedValue\": null,\n\
+                    \        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\":\
+                    \ null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\"\
+                    : null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: PayerId
+                    errorMessage:
+                      type: string
+                      example: 'Can''t find payer with Id: pyr_XXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Nonce Replay:
+                  value: "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\"\
+                    ,\n    \"amount\": 1245,\n    \"currency\": \"AUD\",\n    \"description\": \"A lovely\
+                    \ bunch of coconuts.\",\n    \"applicationFee\": 0,\n    \"totalFee\": 42,\n    \"\
+                    isSurcharged\": false,\n    \"sourceType\": \"bank-account\",\n    \"transactionDate\"\
+                    : \"2021-05-04T14:00:00.0000000Z\",\n    \"status\": \"scheduled\",\n    \"estimatedTransferDate\"\
+                    : \"2021-05-11\",\n    \"actualTransferDate\": null,\n    \"payer\": {\n        \"\
+                    id\": \"pyr_XXXXXXXXXXXXXX\",\n        \"firstName\": \"Test\",\n        \"lastName\"\
+                    : \"WebSample3\",\n        \"emailAddress\": \"testwebsample@mailinator.com\",\n \
+                    \       \"mobileNumber\": \"0400000000\",\n        \"streetAddress\": \"123 Fake st\"\
+                    ,\n        \"suburb\": \"Teneriffe\",\n        \"postcode\": \"4005\",\n        \"\
+                    state\": \"QLD\",\n        \"country\": \"Australia\",\n        \"companyName\": \"\
+                    Test Company\",\n        \"companyRegistrationNumber\": \"111111\",\n        \"metadata\"\
+                    : null\n    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n    \
+                    \        \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n            \"\
+                    currency\": \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\"\
+                    : null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\"\
+                    : \"2021-05-11T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\"\
+                    : \"2021-05-04T14:00:00.0000000Z\",\n            \"estimatedTransferDate\": \"2021-05-11\"\
+                    ,\n            \"actualTransferDate\": null,\n            \"source\": {\n        \
+                    \        \"id\": \"src_XXXXXXXXXXXXXX\",\n                \"sourceType\": \"bank-account\"\
+                    ,\n                \"bankAccountNumber\": \"000000000\",\n                \"bankAccountBsb\"\
+                    : \"000000\",\n                \"bankAccountName\": \"Example Name\",\n          \
+                    \      \"creditCardToken\": null,\n                \"cardHolderName\": null,\n   \
+                    \             \"expiryDate\": null,\n                \"displayCardNumber\": null,\n\
+                    \                \"cardScheme\": null,\n                \"origin\": \"AU\",\n    \
+                    \            \"funding\": null\n            },\n            \"dishonour\": null,\n\
+                    \            \"settlement\": null,\n            \"fees\": {\n                \"transactionFee\"\
+                    : 42,\n                \"applicationFee\": 0,\n                \"totalFee\": 42,\n\
+                    \                \"currency\": \"AUD\",\n                \"taxRate\": 0.1,\n     \
+                    \           \"convertedTransactionFee\": null,\n                \"convertedApplicationFee\"\
+                    : null,\n                \"convertedTotalFee\": null,\n                \"convertedCurrency\"\
+                    : null,\n                \"conversionRate\": null\n            },\n            \"\
+                    status\": \"scheduled\"\n        }\n    ],\n    \"metadata\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  attemptId:
+                    type: string
+                    example: att_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1245
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  description:
+                    type: string
+                    example: A lovely bunch of coconuts.
+                  applicationFee:
+                    type: integer
+                    example: 0
+                    default: 0
+                  totalFee:
+                    type: integer
+                    example: 42
+                    default: 0
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                    default: true
+                  sourceType:
+                    type: string
+                    example: bank-account
+                  transactionDate:
+                    type: string
+                    example: '2021-05-04T14:00:00.0000000Z'
+                  status:
+                    type: string
+                    example: scheduled
+                  estimatedTransferDate:
+                    type: string
+                    example: '2021-05-11'
+                  actualTransferDate: {}
+                  payer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        example: Test
+                      lastName:
+                        type: string
+                        example: WebSample3
+                      emailAddress:
+                        type: string
+                        example: testwebsample@mailinator.com
+                      mobileNumber:
+                        type: string
+                        example: '0400000000'
+                      streetAddress:
+                        type: string
+                        example: 123 Fake st
+                      suburb:
+                        type: string
+                        example: Teneriffe
+                      postcode:
+                        type: string
+                        example: '4005'
+                      state:
+                        type: string
+                        example: QLD
+                      country:
+                        type: string
+                        example: Australia
+                      companyName:
+                        type: string
+                        example: Test Company
+                      companyRegistrationNumber:
+                        type: string
+                        example: '111111'
+                      metadata: {}
+                  subscription: {}
+                  attempts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: att_XXXXXXXX
+                        amount:
+                          type: integer
+                          example: 1245
+                          default: 0
+                        currency:
+                          type: string
+                          example: AUD
+                        convertedAmount: {}
+                        conversionRate: {}
+                        convertedCurrency: {}
+                        estimatedSettlementDate:
+                          type: string
+                          example: '2021-05-11T00:00:00'
+                        isSurcharged:
+                          type: boolean
+                          example: false
+                          default: true
+                        transactionDate:
+                          type: string
+                          example: '2021-05-04T14:00:00.0000000Z'
+                        estimatedTransferDate:
+                          type: string
+                          example: '2021-05-11'
+                        actualTransferDate: {}
+                        source:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: src_XXXXXXXXXXXXXX
+                            sourceType:
+                              type: string
+                              example: bank-account
+                            bankAccountNumber:
+                              type: string
+                              example: '000000000'
+                            bankAccountBsb:
+                              type: string
+                              example: '000000'
+                            bankAccountName:
+                              type: string
+                              example: Example Name
+                            creditCardToken: {}
+                            cardHolderName: {}
+                            expiryDate: {}
+                            displayCardNumber: {}
+                            cardScheme: {}
+                            origin:
+                              type: string
+                              example: AU
+                            funding: {}
+                        dishonour: {}
+                        settlement: {}
+                        fees:
+                          type: object
+                          properties:
+                            transactionFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            applicationFee:
+                              type: integer
+                              example: 0
+                              default: 0
+                            totalFee:
+                              type: integer
+                              example: 42
+                              default: 0
+                            currency:
+                              type: string
+                              example: AUD
+                            taxRate:
+                              type: number
+                              example: 0.1
+                              default: 0
+                            convertedTransactionFee: {}
+                            convertedApplicationFee: {}
+                            convertedTotalFee: {}
+                            convertedCurrency: {}
+                            conversionRate: {}
+                        status:
+                          type: string
+                          example: scheduled
+                  metadata: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: "var result = await api.Payment.Save(new PaymentSaveOptions()\n{\n    PayerId = \"pyr_dLCdmrOmXKwuWH\"\
+            ,\n    TransactionDate = \"2017-05-05\",\n    Amount = 1245,\n    Description = \"A lovely\
+            \ bunch of coconuts.\",\n  \tSurcharge = new List<string>()\n    {\n      \"bank-account\"\
+            ,\n      \"credit-card\"\n    }\n});"
+        - language: curl
+          code: "curl https://api.getpinch.com.au/test/payments \n -H \"Authorization: Bearer ...\" \n\
+            \ -H \"Content-Type: application/json\" \n -d \"{\n\t'payerId':'pyr_dLCdmrOmXKwuWH',\n\t'amount':\
+            \ 1245,\n\t'transactionDate': '2017-05-05',\n  'description': 'A lovely bunch of coconuts.'\n\
+            }\""
+        samples-languages:
+        - csharp
+        - curl
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

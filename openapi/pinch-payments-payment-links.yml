@@ -1,0 +1,524 @@
+openapi: 3.1.0
+info:
+  title: pinch-api-payment-links
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+paths:
+  /payment-links:
+    post:
+      summary: Create Payment Link
+      description: ''
+      operationId: create-payment-link
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - amount
+              - payerId
+              - description
+              - allowedPaymentMethods
+              - returnUrl
+              properties:
+                amount:
+                  type: integer
+                  description: The amount to be paid through the Payment link
+                  format: int64
+                payerId:
+                  type: string
+                  description: Id of a Payer to create a Payment link for.
+                description:
+                  type: string
+                  description: The description of the payment, shown on the payment page.
+                currency:
+                  type: string
+                  description: Currency to take payment in (Will default to Merchant currency if not specified)
+                linkExpiryDate:
+                  type: string
+                  description: DateTime for the Payment Link to expire
+                  format: date
+                allowedPaymentMethods:
+                  type: array
+                  description: List of Payment Methods that can be used to take Payment. (Options are
+                    `credit-card` and `bank-account`)
+                  items:
+                    type: string
+                surchargePaymentMethods:
+                  type: array
+                  description: Payment methods that a surcharge should be applied to when used. (Options
+                    are `credit-card` and `bank-account`)
+                  items:
+                    type: string
+                returnUrl:
+                  type: string
+                  description: Url to redirect the user to once the payment has been completed. Parameters
+                    for `paymentLinkId` and `paymentId` will be added to redirected url.
+                metadata:
+                  type: string
+                  description: Metadata is a free text field that you can use to store state against the
+                    Payment Link object, once Payment is complete the metadata will be passed onto the
+                    Payment object.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    id: plk_XXXXXXXXXXXXXX
+                    merchantId: mch_XXXXXXXXXXXXXX
+                    amountInCents: 1200
+                    currency: AUD
+                    linkExpiryDate: null
+                    description: Pinch Credit Card Australia Payment Merchant
+                    url: https://pay.getpinch.com.au/pay/plk_XXXXXXXXXXXXXX
+                    returnUrl: https://getpinch.com.au/
+                    metadata: null
+                    surchargePaymentMethods: []
+                    allowedPaymentMethods:
+                    - credit-card
+                    payer:
+                      id: pyr_XXXXXXXXXXXXXX
+                      firstName: John
+                      lastName: Smith
+                      companyName: null
+                      email: test@test.com
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The identifier of the Payment Link (string identifier starting with `plk_`)
+                  merchantId:
+                    type: string
+                    description: The identifier of the Merchant for the Payment Link (string identifier
+                      starting with `mch_`)
+                  amount:
+                    type: integer
+                    description: The amount to be paid through the Payment link
+                    format: int64
+                  url:
+                    type: string
+                    description: The Url of the Payment Link to make payment from
+                  payer:
+                    type: object
+                    description: ''
+                    properties:
+                      id:
+                        type: string
+                        description: The identifier of the Payer this Payment Link is associated with
+                          (string identifier starting with `pyr_`)
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        description: First name of the Payer associated with this Payment Link
+                      lastName:
+                        type: string
+                        description: Last name of the Payer associated with this Payment Link
+                      companyName:
+                        type: string
+                        description: Company name of the Payer associated with this Payment Link
+                      email:
+                        type: string
+                        description: Email address of the Payer associated with this Payment Link
+                  description:
+                    type: string
+                    description: The description of the payment, shown on the payment page.
+                  currency:
+                    type: string
+                    description: Currency to take payment in for the Payment Link
+                  linkExpiryDate:
+                    type: string
+                    description: DateTime for the Payment Link to expire
+                    format: date
+                  surchargePaymentMethods:
+                    type: array
+                    description: Payment methods that a surcharge should be applied to when used.
+                    items:
+                      type: string
+                  allowedPaymentMethods:
+                    type: array
+                    description: List of Payment Methods that can be used to take Payment. (Options are
+                      `credit-card` and `bank-account`))
+                    items:
+                      type: string
+                  returnUrl:
+                    type: string
+                    description: Url to redirect the user to once the payment has been completed. Parameters
+                      for PaymentLinkId and PaymentId will be added to redirected url.
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      summary: Get Payment Links
+      description: ''
+      operationId: get-payment-links
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: The current page of results
+                  pageSize:
+                    type: integer
+                    description: The number of items per page
+                  totalPage:
+                    type: integer
+                    description: The total number of pages available
+                  totalItems:
+                    type: integer
+                    description: The total number of items available
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                          description: The identifier of the Payment Link (string identifier starting
+                            with `plk_`)
+                        merchantId:
+                          type: string
+                          description: The identifier of the Merchant for the Payment Link (string identifier
+                            starting with `mch_`)
+                        amount:
+                          type: integer
+                          description: The amount to be paid through the Payment link
+                          format: int64
+                        url:
+                          type: string
+                          description: The Url of the Payment Link to make payment from
+                        payer:
+                          type: object
+                          description: ''
+                          properties:
+                            id:
+                              type: string
+                              description: The identifier of the Payer this Payment Link is associated
+                                with (string identifier starting with `pyr_`)
+                              example: pyr_XXXXXXXXXXXXXX
+                            firstName:
+                              type: string
+                              description: First name of the Payer associated with this Payment Link
+                            lastName:
+                              type: string
+                              description: Last name of the Payer associated with this Payment Link
+                            companyName:
+                              type: string
+                              description: Company name of the Payer associated with this Payment Link
+                            email:
+                              type: string
+                              description: Email address of the Payer associated with this Payment Link
+                        description:
+                          type: string
+                          description: The description of the payment, shown on the payment page.
+                        currency:
+                          type: string
+                          description: Currency to take payment in for the Payment Link
+                        linkExpiryDate:
+                          type: string
+                          description: DateTime for the Payment Link to expire
+                          format: date
+                        surchargePaymentMethods:
+                          type: array
+                          description: Payment methods that a surcharge should be applied to when used.
+                          items:
+                            type: string
+                        allowedPaymentMethods:
+                          type: array
+                          description: List of Payment Methods that can be used to take Payment. (Options
+                            are `credit-card` and `bank-account`))
+                          items:
+                            type: string
+                        returnUrl:
+                          type: string
+                          description: Url to redirect the user to once the payment has been completed.
+                            Parameters for PaymentLinkId and PaymentId will be added to redirected url.
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: number
+          default: '1'
+        description: Page number to return
+      - in: query
+        name: pageSize
+        schema:
+          type: number
+          default: '50'
+        description: Number of items to return per page
+  /payment-links/{id}:
+    delete:
+      summary: Delete Payment Link
+      description: ''
+      operationId: delete-payment-link
+      parameters:
+      - name: id
+        in: path
+        description: Payment Link Id (string identifier starting with `plk_`)
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+    get:
+      summary: Get Payment Link
+      description: ''
+      operationId: get-payment-link
+      parameters:
+      - name: id
+        in: path
+        description: Payment Link Id (string identifier starting with `plk_`)
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The identifier of the Payment Link (string identifier starting with `plk_`)
+                  merchantId:
+                    type: string
+                    description: The identifier of the Merchant for the Payment Link (string identifier
+                      starting with `mch_`)
+                  amountInCents:
+                    type: integer
+                    description: The amount to be paid through the Payment link
+                    format: int64
+                  url:
+                    type: string
+                    description: The Url of the Payment Link to make payment from
+                  payer:
+                    type: object
+                    description: ''
+                    properties:
+                      id:
+                        type: string
+                        description: The identifier of the Payer this Payment Link is associated with
+                          (string identifier starting with `pyr_`)
+                        example: pyr_XXXXXXXXXXXXXX
+                      firstName:
+                        type: string
+                        description: First name of the Payer associated with this Payment Link
+                      lastName:
+                        type: string
+                        description: Last name of the Payer associated with this Payment Link
+                      companyName:
+                        type: string
+                        description: Company name of the Payer associated with this Payment Link
+                      email:
+                        type: string
+                        description: Email address of the Payer associated with this Payment Link
+                  description:
+                    type: string
+                    description: The description of the payment, shown on the payment page.
+                  currency:
+                    type: string
+                    description: Currency to take payment in for the Payment Link
+                  linkExpiryDate:
+                    type: string
+                    description: DateTime for the Payment Link to expire
+                    format: date
+                  surchargePaymentMethods:
+                    type: array
+                    description: Payment methods that a surcharge should be applied to when used.
+                    items:
+                      type: string
+                  allowedPaymentMethods:
+                    type: array
+                    description: List of Payment Methods that can be used to take Payment. (Options are
+                      `credit-card` and `bank-account`))
+                    items:
+                      type: string
+                  returnUrl:
+                    type: string
+                    description: Url to redirect the user to once the payment has been completed. Parameters
+                      for PaymentLinkId and PaymentId will be added to redirected url.
+                  metadata:
+                    type: string
+                    description: Metadata is a free text field that you can use to store state against
+                      the Payment Link object, once Payment is complete the metadata will be passed onto
+                      the Payment object.
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /payment-links/payer/{payerId}:
+    get:
+      summary: Get Payment Links by Payer
+      description: ''
+      operationId: get-payment-links-by-payer
+      parameters:
+      - in: path
+        name: payerId
+        schema:
+          type: string
+        required: true
+        description: Id of the payer to get Payment Links for (string identifier starting with **pyr_**)
+      - in: query
+        name: page
+        schema:
+          type: number
+          default: '1'
+        description: Page number to return results for.
+      - in: query
+        name: pageSize
+        schema:
+          type: number
+          default: '50'
+        description: Number of items to return per page
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: The current page of results
+                  pageSize:
+                    type: integer
+                    description: The number of items per page
+                  totalPage:
+                    type: integer
+                    description: The total number of pages available
+                  totalItems:
+                    type: integer
+                    description: The total number of items available
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                          description: The identifier of the Payment Link (string identifier starting
+                            with `plk_`)
+                        merchantId:
+                          type: string
+                          description: The identifier of the Merchant for the Payment Link (string identifier
+                            starting with `mch_`)
+                        amount:
+                          type: integer
+                          description: The amount to be paid through the Payment link
+                          format: int64
+                        url:
+                          type: string
+                          description: The Url of the Payment Link to make payment from
+                        payer:
+                          type: object
+                          description: ''
+                          properties:
+                            id:
+                              type: string
+                              description: The identifier of the Payer this Payment Link is associated
+                                with (string identifier starting with `pyr_`)
+                              example: pyr_XXXXXXXXXXXXXX
+                            firstName:
+                              type: string
+                              description: First name of the Payer associated with this Payment Link
+                            lastName:
+                              type: string
+                              description: Last name of the Payer associated with this Payment Link
+                            companyName:
+                              type: string
+                              description: Company name of the Payer associated with this Payment Link
+                            email:
+                              type: string
+                              description: Email address of the Payer associated with this Payment Link
+                        description:
+                          type: string
+                          description: The description of the payment, shown on the payment page.
+                        currency:
+                          type: string
+                          description: Currency to take payment in for the Payment Link
+                        linkExpiryDate:
+                          type: string
+                          description: DateTime for the Payment Link to expire
+                          format: date
+                        surchargePaymentMethods:
+                          type: array
+                          description: Payment methods that a surcharge should be applied to when used.
+                          items:
+                            type: string
+                        allowedPaymentMethods:
+                          type: array
+                          description: List of Payment Methods that can be used to take Payment. (Options
+                            are `credit-card` and `bank-account`))
+                          items:
+                            type: string
+                        returnUrl:
+                          type: string
+                          description: Url to redirect the user to once the payment has been completed.
+                            Parameters for PaymentLinkId and PaymentId will be added to redirected url.
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

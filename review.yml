@@ -1,0 +1,169 @@
+aid: pinch-payments
+name: Pinch Payments
+review:
+  question: Does Pinch Payments publish a real developer portal and downloadable API specifications?
+  answer: true
+  date: '2026-07-24'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Pinch Payments is API-native. It runs a public, ReadMe-hosted developer
+    portal at https://docs.getpinch.com.au/ (HTTP 200) with guides, a full API
+    reference and a live explorer, plus an AI-ready surface: an llms.txt index
+    (https://docs.getpinch.com.au/llms.txt, 200) and a docs MCP server at
+    https://docs.getpinch.com.au/mcp exposing OpenAPI tools (list-endpoints,
+    get-endpoint, search-specs, execute-request, list-specs).
+    The API is REST/JSON over HTTPS. Its home market is Australia (Brisbane HQ)
+    with New Zealand coverage; settlement is AUD/NZD, and money movement is
+    Australian direct debit (bank BSB/account) plus card schemes (Visa,
+    Mastercard, Amex). It is not a scheme/NPP rail operator itself, so there is
+    no ISO 20022 / FAPI / mTLS posture to model; auth is application-level OAuth2.
+    Rather than one downloadable openapi.json at a static path (the common
+    /openapi.json, /swagger.json, /v1/openapi.json probes all returned 404, and
+    the api host root https://api.getpinch.com.au/ returns 401), Pinch's ReadMe
+    project serves the OpenAPI as ten separate product specifications, each
+    embedded verbatim as an OpenAPI 3.1 block on its reference pages
+    (https://docs.getpinch.com.au/reference/<op>.md). All ten were harvested and
+    saved to openapi/, one file per product spec, assembled verbatim from those
+    per-endpoint fragments (no endpoints, params, or schemas invented).
+  developerPortal:
+    url: https://docs.getpinch.com.au/
+    httpStatus: 200
+    confirmed: true
+    platform: ReadMe (refactored) — live API explorer, llms.txt, docs MCP server
+  homeMarket: Australia (Brisbane HQ); also New Zealand
+  authModel:
+    scheme: OAuth2 client-credentials
+    detail: |
+      POST https://auth.getpinch.com.au/connect/token with HTTP Basic
+      (merchant ID as username, secret key as password), grant_type=client_credentials,
+      scope=api1, returns a short-lived (3600s) Bearer JWT (token_type=Bearer).
+      The JWT is then sent as Authorization: Bearer against the Pinch API.
+    wellKnown:
+      openidConfiguration: https://api.getpinch.com.au/.well-known/openid-configuration (404)
+      oauthAuthorizationServer: https://api.getpinch.com.au/.well-known/oauth-authorization-server (404)
+  webhooks:
+    present: true
+    detail: |
+      Full webhook CRUD (openapi/pinch-payments-webhooks.yml) plus a documented
+      event catalog (https://docs.getpinch.com.au/docs/events, /reference/list-all-events).
+      Events cover payer-created, payment success/failure, direct-debit bank
+      results, and subscription lifecycle. No AsyncAPI is published.
+  postman:
+    present: true
+    url: https://github.com/PinchPayments/postman-pinch-api
+    collection: Pinch API v2020.1.postman_collection.json (Postman schema v2.1.0, 12 folders)
+  sdks:
+    dotnet: https://github.com/PinchPayments/Pinch.SDK
+  noCode:
+    - Zapier (https://github.com/PinchPayments/zapier-pinch-api)
+    - n8n (https://github.com/PinchPayments/n8n-nodes-pinch)
+    - viaSocket
+  graphql: none
+  grpc: none
+  ratesAndSchemes: |
+    Card schemes: Visa, Mastercard, American Express. Bank rail: Australian
+    direct debit (BSB + account number). No published ISO 20022 message specs,
+    no NPP/PayTo direct scheme documentation, no mTLS/FAPI — Pinch consumes the
+    rails as a payment facilitator, it does not operate them.
+transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.getpinch.com.au
+    documented: true
+    note: Test mode base https://api.getpinch.com.au/test and live mode base https://api.getpinch.com.au/live; the api host root returns 401 (auth required).
+  - protocol: REST
+    scheme: https
+    baseURL: https://auth.getpinch.com.au
+    documented: true
+    note: OAuth2 token endpoint /connect/token.
+  - protocol: Webhooks
+    scheme: https
+    documented: true
+    note: Merchant-registered HTTPS callbacks for Pinch events; no AsyncAPI published.
+specsHarvested:
+  method: |
+    Pinch's ReadMe reference pages each embed a complete, verbatim OpenAPI 3.1
+    definition for that operation under an "# OpenAPI definition" JSON block.
+    All 57 reference pages were fetched from the llms.txt index; 56 carried an
+    OpenAPI block (things-to-know is a concept page). Operations were grouped by
+    info.title into the provider's ten product specs and each operation object
+    was merged verbatim into one document per product. Servers, security scheme
+    (sec0), and security blocks were carried through as published.
+  fetchDate: '2026-07-24'
+  count: 10
+  files:
+    - path: openapi/pinch-payments-core.yml
+      title: pinch-api
+      paths: 14
+      operations: 19
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-payments.yml
+      title: pinch-api-payments
+      paths: 7
+      operations: 8
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-payers.yml
+      title: pinch-api-payers
+      paths: 4
+      operations: 6
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-payment-links.yml
+      title: pinch-api-payment-links
+      paths: 3
+      operations: 5
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-merchants.yml
+      title: pinch-api-merchants
+      paths: 3
+      operations: 4
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-webhooks.yml
+      title: pinch-api-webhooks
+      paths: 2
+      operations: 4
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-contacts.yml
+      title: pinch-api-contacts
+      paths: 2
+      operations: 4
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-transfers.yml
+      title: pinch-api-transfers
+      paths: 3
+      operations: 3
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-merchant-financial-data.yml
+      title: pinch-api-merchant-financial-data
+      paths: 2
+      operations: 2
+      source: https://docs.getpinch.com.au/reference/*.md
+    - path: openapi/pinch-payments-authentication.yml
+      title: authentication-api
+      paths: 1
+      operations: 1
+      source: https://docs.getpinch.com.au/reference/tokens.md
+sources:
+  - url: https://getpinch.com.au/
+    type: Website
+    httpStatus: 200
+  - url: https://docs.getpinch.com.au/
+    type: DeveloperPortal
+    httpStatus: 200
+  - url: https://docs.getpinch.com.au/llms.txt
+    type: Documentation
+    httpStatus: 200
+    note: Machine-readable index of all guide + reference pages.
+  - url: https://docs.getpinch.com.au/reference/things-to-know
+    type: APIReference
+    httpStatus: 200
+  - url: https://status.getpinch.com.au/
+    type: StatusPage
+    httpStatus: 200
+  - url: https://github.com/PinchPayments
+    type: GitHubOrganization
+    note: Pinch.SDK (.NET), postman-pinch-api, zapier-pinch-api, n8n-nodes-pinch.
+  - url: https://api.getpinch.com.au/
+    type: API
+    httpStatus: 401
+    note: Auth required — confirms a live API host, not a static site.

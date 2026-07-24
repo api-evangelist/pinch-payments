@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: authentication-api
+  version: '2020.1'
+servers:
+- url: https://auth.getpinch.com.au
+security:
+- sec0: []
+paths:
+  /connect/token:
+    post:
+      summary: Authentication
+      description: ''
+      operationId: tokens
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - scope
+              properties:
+                grant_type:
+                  type: string
+                  description: The grant type being requested. In this case we're using our client_credentials
+                    to identify ourselves. **Must be set to "client_credentials"**
+                  default: client_credentials
+                scope:
+                  type: string
+                  description: Specifically requesting access to the api. This will probably change in
+                    future. **Must be set to "api1"**
+                  default: api1
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6IkRCNzgxNjc5NjYxOTE0Qjc1MzlCRTAyMEVFOUM0RjY4ODA1NzlGODYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIyM2dXZVdZWkZMZFRtLUFnN3B4UGFJQlhuNFkifQ.eyJuYmYiOjE0NjkxMDgxMjEsImV4cCI6MTQ2OTExMTcyMSwiaXNzIjoiaHR0cHM6Ly9waW5jaC1hdXRoNC5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6Imh0dHBzOi8vcGluY2gtYXV0aDQuYXp1cmV3ZWJzaXRlcy5uZXQvcmVzb3VyY2VzIiwiY2xpZW50X2lkIjoibWNoXzFRMkZka0FFdjNHcW53IiwidGVzdF9zdWJtZXJjaGFudF9pZCI6IjEiLCJsaXZlX3N1Ym1lcmNoYW50X2lkIjoiMiIsInNjb3BlIjoiYXBpMSJ9.iArv1xKDbN-ZiDMWbH4_rUqF7KdF0PYDWm7y_aNhNDzJelHKVfF62N-OuGog6yAo0XTv2FrwABkzZG0kCuzyR_FTbxCsQz4mUO7d8AXNYNVPv4CHeGlnwIpJJwDGRrD-ufdapDsD07kXFpI11s-SX4xrqlBjjyMYI-9ghMipDZgD7CA2jX00wJSgofOKGRRiBm1-lmYo3X8sGEHP-dF7CRM1s_shrX33rMB0FHHvKooEFAbA6tA2SOEHOLVlh1C6q6zX8lGsy1AqyS0dI3avflk-A1Ez047tA472I4F73yxhPjna8ihVFNpRWasBYRBkud4jDWyPrLIsW2QTUwBIhw\"\
+                    ,\n    \"expires_in\": 3600,\n    \"token_type\": \"Bearer\"\n}"
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJhbGciOiJSUzI1NiIsImtpZCI6IkRCNzgxNjc5NjYxOTE0Qjc1MzlCRTAyMEVFOUM0RjY4ODA1NzlGODYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIyM2dXZVdZWkZMZFRtLUFnN3B4UGFJQlhuNFkifQ.eyJuYmYiOjE0NjkxMDgxMjEsImV4cCI6MTQ2OTExMTcyMSwiaXNzIjoiaHR0cHM6Ly9waW5jaC1hdXRoNC5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6Imh0dHBzOi8vcGluY2gtYXV0aDQuYXp1cmV3ZWJzaXRlcy5uZXQvcmVzb3VyY2VzIiwiY2xpZW50X2lkIjoibWNoXzFRMkZka0FFdjNHcW53IiwidGVzdF9zdWJtZXJjaGFudF9pZCI6IjEiLCJsaXZlX3N1Ym1lcmNoYW50X2lkIjoiMiIsInNjb3BlIjoiYXBpMSJ9.iArv1xKDbN-ZiDMWbH4_rUqF7KdF0PYDWm7y_aNhNDzJelHKVfF62N-OuGog6yAo0XTv2FrwABkzZG0kCuzyR_FTbxCsQz4mUO7d8AXNYNVPv4CHeGlnwIpJJwDGRrD-ufdapDsD07kXFpI11s-SX4xrqlBjjyMYI-9ghMipDZgD7CA2jX00wJSgofOKGRRiBm1-lmYo3X8sGEHP-dF7CRM1s_shrX33rMB0FHHvKooEFAbA6tA2SOEHOLVlh1C6q6zX8lGsy1AqyS0dI3avflk-A1Ez047tA472I4F73yxhPjna8ihVFNpRWasBYRBkud4jDWyPrLIsW2QTUwBIhw
+                  expires_in:
+                    type: integer
+                    example: 3600
+                    default: 0
+                  token_type:
+                    type: string
+                    example: Bearer
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"invalid_...\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_...
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var api = new PinchApi("[Test Merchant ID]", "[Test Secret Key]");
+        - language: curl
+          code: "curl https://auth.getpinch.com.au/connect/token \\\n -u mch_1Q2FdkAEv3Gqnw:sk_3fR400N3DF6AlHESSff668j5bANVhGa9\
+            \ \\\n -d grant_type=client_credentials \\\n -d scope=api1"
+        samples-languages:
+        - csharp
+        - curl
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
