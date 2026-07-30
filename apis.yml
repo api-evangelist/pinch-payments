@@ -199,6 +199,8 @@ apis:
   - type: APIReference
     url: https://docs.getpinch.com.au/reference/tokens
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/pinch-payments/overview
 - type: OAuthScopes
   url: scopes/pinch-payments-scopes.yml
 - type: AgenticAccess
