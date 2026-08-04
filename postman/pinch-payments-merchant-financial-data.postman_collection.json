@@ -1,0 +1,216 @@
+{
+  "info": {
+    "_postman_id": "dab6c0cd-2e1e-4344-a1bf-1d9d40c707b5",
+    "name": "pinch-api-merchant-financial-data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:32.000Z",
+    "updatedAt": "2026-07-28T02:36:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dab6c0cd-2e1e-4344-a1bf-1d9d40c707b5"
+  },
+  "item": [
+    {
+      "name": "merchant-financial-data",
+      "item": [
+        {
+          "name": "current",
+          "item": [
+            {
+              "name": "Get Current Merchant Financial Data",
+              "id": "0605dfc9-fec7-4adc-bbc7-51651b5f1ce2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchant-financial-data/current",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchant-financial-data",
+                    "current"
+                  ]
+                },
+                "description": "Returns the current (most recent) merchant financial data record"
+              },
+              "response": [
+                {
+                  "id": "27c37caf-37de-47a0-9f48-b758c4e4ee19",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchant-financial-data/current",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchant-financial-data",
+                        "current"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+                  "createdAt": "2026-07-28T02:36:32.000Z",
+                  "updatedAt": "2026-07-28T02:36:32.000Z",
+                  "uid": "35240-27c37caf-37de-47a0-9f48-b758c4e4ee19"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:32.000Z",
+              "updatedAt": "2026-07-28T02:36:32.000Z",
+              "uid": "35240-0605dfc9-fec7-4adc-bbc7-51651b5f1ce2"
+            }
+          ],
+          "id": "2b8b2197-72d7-40d4-82f4-cd5b44617839",
+          "createdAt": "2026-07-28T02:36:32.000Z",
+          "updatedAt": "2026-07-28T02:36:32.000Z",
+          "uid": "35240-2b8b2197-72d7-40d4-82f4-cd5b44617839"
+        },
+        {
+          "name": "Save Merchant Financial Data",
+          "id": "6f960d46-fc4e-432a-ba88-397617895cf1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/merchant-financial-data",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "merchant-financial-data"
+              ]
+            },
+            "description": "Creates or updates merchant financial data"
+          },
+          "response": [
+            {
+              "id": "881dee18-3475-4ee4-b325-d459faa175b4",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/merchant-financial-data",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchant-financial-data"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+              "createdAt": "2026-07-28T02:36:32.000Z",
+              "updatedAt": "2026-07-28T02:36:32.000Z",
+              "uid": "35240-881dee18-3475-4ee4-b325-d459faa175b4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:32.000Z",
+          "updatedAt": "2026-07-28T02:36:32.000Z",
+          "uid": "35240-6f960d46-fc4e-432a-ba88-397617895cf1"
+        }
+      ],
+      "id": "979abc63-e3fa-4704-b9c0-2e0567aa6a0c",
+      "createdAt": "2026-07-28T02:36:32.000Z",
+      "updatedAt": "2026-07-28T02:36:32.000Z",
+      "uid": "35240-979abc63-e3fa-4704-b9c0-2e0567aa6a0c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}

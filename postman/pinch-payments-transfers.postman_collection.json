@@ -1,0 +1,517 @@
+{
+  "info": {
+    "_postman_id": "af6d8d6d-74c7-4455-b0a4-afecbc721830",
+    "name": "pinch-api-transfers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:31.000Z",
+    "updatedAt": "2026-07-28T02:36:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af6d8d6d-74c7-4455-b0a4-afecbc721830"
+  },
+  "item": [
+    {
+      "name": "transfers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Transfer",
+              "id": "e56090ab-2e0b-4431-bcb0-ed4f8654c3f1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "22f1ce1a-40cb-4685-b844-5d5eb298fb71",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f6143fff-31b5-42f4-a5a6-78641398036a",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/transfers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transfers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"transferDate\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"totalFees\": \"<integer>\",\n  \"taxRate\": \"<number>\",\n  \"accountName\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"bsb\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"includedTax\": \"<integer>\",\n  \"summary\": [\n    {\n      \"name\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"gross\": \"<integer>\",\n      \"fees\": \"<integer>\",\n      \"total\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"gross\": \"<integer>\",\n      \"fees\": \"<integer>\",\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:31.000Z",
+                  "updatedAt": "2026-07-28T02:36:31.000Z",
+                  "uid": "35240-f6143fff-31b5-42f4-a5a6-78641398036a"
+                },
+                {
+                  "id": "73341ffe-3d4f-43da-8440-0205d5981c26",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/transfers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transfers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T02:36:31.000Z",
+                  "updatedAt": "2026-07-28T02:36:31.000Z",
+                  "uid": "35240-73341ffe-3d4f-43da-8440-0205d5981c26"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:31.000Z",
+              "updatedAt": "2026-07-28T02:36:31.000Z",
+              "uid": "35240-e56090ab-2e0b-4431-bcb0-ed4f8654c3f1"
+            }
+          ],
+          "id": "87df2b1a-400f-4ef6-830e-49c8dfaf1bc6",
+          "createdAt": "2026-07-28T02:36:31.000Z",
+          "updatedAt": "2026-07-28T02:36:31.000Z",
+          "uid": "35240-87df2b1a-400f-4ef6-830e-49c8dfaf1bc6"
+        },
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "List transfer line items",
+                  "id": "eac7ff7e-1814-44b8-9709-1fb373f277c0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/transfers/items/:id?page=1&pageSize=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transfers",
+                        "items",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "The current page",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "How many items to return for each page. Maximum 500.",
+                          "key": "pageSize",
+                          "value": "50"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "87d47b20-4fa0-4ac8-b826-67f0cf1e21f8",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3244d3c8-2178-4f46-bd5f-c2b825e0ab76",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/transfers/items/:id?page=1&pageSize=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "transfers",
+                            "items",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "The current page",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "How many items to return for each page. Maximum 500.",
+                              "key": "pageSize",
+                              "value": "50"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"totalItems\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"gross\": \"<integer>\",\n      \"fees\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"total\": \"<integer>\",\n      \"metadata\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"gross\": \"<integer>\",\n      \"fees\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"total\": \"<integer>\",\n      \"metadata\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:36:31.000Z",
+                      "updatedAt": "2026-07-28T02:36:31.000Z",
+                      "uid": "35240-3244d3c8-2178-4f46-bd5f-c2b825e0ab76"
+                    },
+                    {
+                      "id": "2fd964d2-4065-4c9e-8842-e8393d2370b3",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/transfers/items/:id?page=1&pageSize=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "transfers",
+                            "items",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "The current page",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "How many items to return for each page. Maximum 500.",
+                              "key": "pageSize",
+                              "value": "50"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": \"<integer>\",\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": \"<integer>\",\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                      "createdAt": "2026-07-28T02:36:31.000Z",
+                      "updatedAt": "2026-07-28T02:36:31.000Z",
+                      "uid": "35240-2fd964d2-4065-4c9e-8842-e8393d2370b3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:31.000Z",
+                  "updatedAt": "2026-07-28T02:36:31.000Z",
+                  "uid": "35240-eac7ff7e-1814-44b8-9709-1fb373f277c0"
+                }
+              ],
+              "id": "30c7fd47-c754-4221-869d-017d6a652c27",
+              "createdAt": "2026-07-28T02:36:31.000Z",
+              "updatedAt": "2026-07-28T02:36:31.000Z",
+              "uid": "35240-30c7fd47-c754-4221-869d-017d6a652c27"
+            }
+          ],
+          "id": "11fd3e8d-6ef3-4e95-853b-7f68115371bf",
+          "createdAt": "2026-07-28T02:36:31.000Z",
+          "updatedAt": "2026-07-28T02:36:31.000Z",
+          "uid": "35240-11fd3e8d-6ef3-4e95-853b-7f68115371bf"
+        },
+        {
+          "name": "List all transfers",
+          "id": "345ecf74-1458-4fdc-b3ef-f646a8d9a06a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/transfers?page=1&pageSize=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transfers"
+              ],
+              "query": [
+                {
+                  "description": "The current page.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "How many items to return for each page. Maximum 500.",
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "970f9108-36e1-40a4-a67f-36e86293f553",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfers?page=1&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"transferDate\": \"<string>\",\n    \"amount\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"accountName\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"bsb\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"status\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"transferDate\": \"<string>\",\n    \"amount\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"accountName\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"bsb\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"status\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:36:31.000Z",
+              "updatedAt": "2026-07-28T02:36:31.000Z",
+              "uid": "35240-970f9108-36e1-40a4-a67f-36e86293f553"
+            },
+            {
+              "id": "4862a33e-6127-4f1d-957f-c538e5279aee",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfers?page=1&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T02:36:31.000Z",
+              "updatedAt": "2026-07-28T02:36:31.000Z",
+              "uid": "35240-4862a33e-6127-4f1d-957f-c538e5279aee"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:31.000Z",
+          "updatedAt": "2026-07-28T02:36:31.000Z",
+          "uid": "35240-345ecf74-1458-4fdc-b3ef-f646a8d9a06a"
+        }
+      ],
+      "id": "dd9c23a1-7572-4345-aa27-0aaeaa2019e3",
+      "createdAt": "2026-07-28T02:36:31.000Z",
+      "updatedAt": "2026-07-28T02:36:31.000Z",
+      "uid": "35240-dd9c23a1-7572-4345-aa27-0aaeaa2019e3"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}

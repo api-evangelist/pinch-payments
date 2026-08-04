@@ -1,0 +1,1383 @@
+{
+  "info": {
+    "_postman_id": "f5367b81-dbd7-4a57-aff9-1fb74458babe",
+    "name": "pinch-api-payments",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:02.000Z",
+    "updatedAt": "2026-07-28T02:36:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f5367b81-dbd7-4a57-aff9-1fb74458babe"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "nonce",
+          "item": [
+            {
+              "name": "Check Payment Nonce",
+              "id": "4bf3f5e9-2386-4aee-b352-e6d5922f6511",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nonce\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/nonce",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "nonce"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "469a967b-0066-4b5f-ba03-dfb1cd5bd68f",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"nonce\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/nonce",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "nonce"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"isNonceReplay\": \"<boolean>\",\n  \"nonce\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"attemptId\": \"<string>\",\n    \"amount\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"description\": \"<string>\",\n    \"applicationFee\": \"<integer>\",\n    \"totalFee\": \"<integer>\",\n    \"isSurcharged\": \"<boolean>\",\n    \"sourceType\": \"<string>\",\n    \"transactionDate\": \"<string>\",\n    \"status\": \"<string>\",\n    \"estimatedTransferDate\": \"<string>\",\n    \"actualTransferDate\": {},\n    \"payer\": {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"mobileNumber\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"companyName\": {},\n      \"companyRegistrationNumber\": {},\n      \"metadata\": {}\n    },\n    \"subscription\": {},\n    \"attempts\": [\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {},\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {},\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      }\n    ],\n    \"refunds\": \"<array>\",\n    \"metadata\": {},\n    \"nonce\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-469a967b-0066-4b5f-ba03-dfb1cd5bd68f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-4bf3f5e9-2386-4aee-b352-e6d5922f6511"
+            }
+          ],
+          "id": "b8dc8d22-7969-453c-a7d9-960c857a4bb8",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-b8dc8d22-7969-453c-a7d9-960c857a4bb8"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Delete payment",
+              "id": "4011def4-5ba0-47b1-a6d7-b6409b0922a1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "dc2aa38a-e636-4fb8-9105-4aa94fdb8cf0",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a0ea1f2b-a55b-418b-820e-933ee67c0cb8",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"You will receive a 200 OK with no body\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-a0ea1f2b-a55b-418b-820e-933ee67c0cb8"
+                },
+                {
+                  "id": "d16a8e83-490d-4474-a6c4-2998dbe4e14a",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorMessages\": [\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": \"<integer>\",\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    },\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": \"<integer>\",\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    }\n  ],\n  \"successful\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-d16a8e83-490d-4474-a6c4-2998dbe4e14a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-4011def4-5ba0-47b1-a6d7-b6409b0922a1"
+            },
+            {
+              "name": "Get Payment",
+              "id": "6aaebc49-ca00-4aa7-a178-d0e9b19ff962",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2d6f02ec-c1bb-43f5-84ab-a52f1c0ebc16",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "337da188-2265-4a13-a05e-ba0a96c570a2",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"attemptId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"totalFee\": \"<integer>\",\n  \"isSurcharged\": \"<boolean>\",\n  \"sourceType\": \"<string>\",\n  \"transactionDate\": \"<string>\",\n  \"status\": \"<string>\",\n  \"estimatedTransferDate\": \"<string>\",\n  \"actualTransferDate\": {},\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"mobileNumber\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"suburb\": \"<string>\",\n    \"postcode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyRegistrationNumber\": \"<string>\",\n    \"metadata\": {}\n  },\n  \"subscription\": {},\n  \"attempts\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": \"<integer>\",\n        \"applicationFee\": \"<integer>\",\n        \"totalFee\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"taxRate\": \"<number>\",\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": \"<integer>\",\n        \"applicationFee\": \"<integer>\",\n        \"totalFee\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"taxRate\": \"<number>\",\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    }\n  ],\n  \"metadata\": {}\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-337da188-2265-4a13-a05e-ba0a96c570a2"
+                },
+                {
+                  "id": "91864152-946c-4291-b74f-5c1e76e59e61",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-91864152-946c-4291-b74f-5c1e76e59e61"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-6aaebc49-ca00-4aa7-a178-d0e9b19ff962"
+            }
+          ],
+          "id": "664ae5e4-c0bb-4629-8c9b-37be5f1ae923",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-664ae5e4-c0bb-4629-8c9b-37be5f1ae923"
+        },
+        {
+          "name": "payer",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "List Payments for Payer",
+                  "id": "59942daa-064a-4460-8db8-1dfd2d870493",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/payer/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "payer",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f88e804b-0f23-4da9-855b-f0a76370e6f4",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Payment Id in pyr_XXXXXXXXXXXXXX format"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "dd8994c8-83d9-4a8e-bfdc-3ec951355268",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payer/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payer",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"attemptId\": \"<string>\",\n    \"amount\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"description\": \"<string>\",\n    \"applicationFee\": \"<integer>\",\n    \"totalFee\": \"<integer>\",\n    \"isSurcharged\": \"<boolean>\",\n    \"sourceType\": \"<string>\",\n    \"transactionDate\": \"<string>\",\n    \"status\": \"<string>\",\n    \"estimatedTransferDate\": \"<string>\",\n    \"actualTransferDate\": {},\n    \"payer\": {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"mobileNumber\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"companyName\": {},\n      \"companyRegistrationNumber\": {},\n      \"metadata\": {}\n    },\n    \"subscription\": {},\n    \"attempts\": [\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {\n          \"id\": \"<string>\",\n          \"sourceType\": \"<string>\",\n          \"bankAccountNumber\": \"<string>\",\n          \"bankAccountBsb\": \"<string>\",\n          \"bankAccountName\": \"<string>\",\n          \"creditCardToken\": {},\n          \"cardHolderName\": {},\n          \"expiryDate\": {},\n          \"displayCardNumber\": {},\n          \"cardScheme\": {},\n          \"origin\": \"<string>\"\n        },\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {\n          \"id\": \"<string>\",\n          \"sourceType\": \"<string>\",\n          \"bankAccountNumber\": \"<string>\",\n          \"bankAccountBsb\": \"<string>\",\n          \"bankAccountName\": \"<string>\",\n          \"creditCardToken\": {},\n          \"cardHolderName\": {},\n          \"expiryDate\": {},\n          \"displayCardNumber\": {},\n          \"cardScheme\": {},\n          \"origin\": \"<string>\"\n        },\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      }\n    ],\n    \"metadata\": {}\n  },\n  {\n    \"id\": \"<string>\",\n    \"attemptId\": \"<string>\",\n    \"amount\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"description\": \"<string>\",\n    \"applicationFee\": \"<integer>\",\n    \"totalFee\": \"<integer>\",\n    \"isSurcharged\": \"<boolean>\",\n    \"sourceType\": \"<string>\",\n    \"transactionDate\": \"<string>\",\n    \"status\": \"<string>\",\n    \"estimatedTransferDate\": \"<string>\",\n    \"actualTransferDate\": {},\n    \"payer\": {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"mobileNumber\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"companyName\": {},\n      \"companyRegistrationNumber\": {},\n      \"metadata\": {}\n    },\n    \"subscription\": {},\n    \"attempts\": [\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {\n          \"id\": \"<string>\",\n          \"sourceType\": \"<string>\",\n          \"bankAccountNumber\": \"<string>\",\n          \"bankAccountBsb\": \"<string>\",\n          \"bankAccountName\": \"<string>\",\n          \"creditCardToken\": {},\n          \"cardHolderName\": {},\n          \"expiryDate\": {},\n          \"displayCardNumber\": {},\n          \"cardScheme\": {},\n          \"origin\": \"<string>\"\n        },\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"convertedAmount\": {},\n        \"conversionRate\": {},\n        \"convertedCurrency\": {},\n        \"estimatedSettlementDate\": \"<string>\",\n        \"isSurcharged\": \"<boolean>\",\n        \"transactionDate\": \"<string>\",\n        \"estimatedTransferDate\": \"<string>\",\n        \"actualTransferDate\": {},\n        \"source\": {\n          \"id\": \"<string>\",\n          \"sourceType\": \"<string>\",\n          \"bankAccountNumber\": \"<string>\",\n          \"bankAccountBsb\": \"<string>\",\n          \"bankAccountName\": \"<string>\",\n          \"creditCardToken\": {},\n          \"cardHolderName\": {},\n          \"expiryDate\": {},\n          \"displayCardNumber\": {},\n          \"cardScheme\": {},\n          \"origin\": \"<string>\"\n        },\n        \"dishonour\": {},\n        \"settlement\": {},\n        \"fees\": {\n          \"transactionFee\": \"<integer>\",\n          \"applicationFee\": \"<integer>\",\n          \"totalFee\": \"<integer>\",\n          \"currency\": \"<string>\",\n          \"taxRate\": \"<number>\",\n          \"convertedTransactionFee\": {},\n          \"convertedApplicationFee\": {},\n          \"convertedTotalFee\": {},\n          \"convertedCurrency\": {},\n          \"conversionRate\": {}\n        },\n        \"status\": \"<string>\"\n      }\n    ],\n    \"metadata\": {}\n  }\n]",
+                      "createdAt": "2026-07-28T02:36:03.000Z",
+                      "updatedAt": "2026-07-28T02:36:03.000Z",
+                      "uid": "35240-dd8994c8-83d9-4a8e-bfdc-3ec951355268"
+                    },
+                    {
+                      "id": "24590678-5ae9-44f0-aa3a-0dd0e76b0509",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/payer/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "payer",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": \"<integer>\",\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": \"<integer>\",\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                      "createdAt": "2026-07-28T02:36:03.000Z",
+                      "updatedAt": "2026-07-28T02:36:03.000Z",
+                      "uid": "35240-24590678-5ae9-44f0-aa3a-0dd0e76b0509"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-59942daa-064a-4460-8db8-1dfd2d870493"
+                }
+              ],
+              "id": "2c67184f-ccc3-4147-b61c-d29d2184ebb2",
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-2c67184f-ccc3-4147-b61c-d29d2184ebb2"
+            }
+          ],
+          "id": "bcb3469c-31da-4a67-9d8d-ad66e0e4b0ff",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-bcb3469c-31da-4a67-9d8d-ad66e0e4b0ff"
+        },
+        {
+          "name": "processed",
+          "item": [
+            {
+              "name": "List Payments - Processed",
+              "id": "092b2154-d024-422e-b5b9-12521ec0e6bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/processed?page=1&pageSize=50&startDate=<date>&endDate=<date>&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "processed"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Filter on Transaction Date",
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter on Transaction Date",
+                      "key": "endDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A payment Id (`pmt_`) or an Attempt Id (`att_`)",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9c4f6987-bc0b-4123-96ac-863a7eb3ff44",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/processed?page=1&pageSize=50&startDate=<date>&endDate=<date>&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "processed"
+                      ],
+                      "query": [
+                        {
+                          "description": "The current page",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "How many items to return for each page. Maximum 500.",
+                          "key": "pageSize",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Filter on Transaction Date",
+                          "key": "startDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filter on Transaction Date",
+                          "key": "endDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "A payment Id (`pmt_`) or an Attempt Id (`att_`)",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"totalItems\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"attemptId\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"applicationFee\": \"<integer>\",\n      \"totalFee\": \"<integer>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"sourceType\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"status\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"emailAddress\": \"<string>\",\n        \"mobileNumber\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"companyName\": {},\n        \"companyRegistrationNumber\": {},\n        \"metadata\": {}\n      },\n      \"subscription\": {},\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"attemptId\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"applicationFee\": \"<integer>\",\n      \"totalFee\": \"<integer>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"sourceType\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"status\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"emailAddress\": \"<string>\",\n        \"mobileNumber\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"companyName\": {},\n        \"companyRegistrationNumber\": {},\n        \"metadata\": {}\n      },\n      \"subscription\": {},\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-9c4f6987-bc0b-4123-96ac-863a7eb3ff44"
+                },
+                {
+                  "id": "74602c88-4303-4fff-8e2e-3bacd53e1054",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/processed?page=1&pageSize=50&startDate=<date>&endDate=<date>&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "processed"
+                      ],
+                      "query": [
+                        {
+                          "description": "The current page",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "How many items to return for each page. Maximum 500.",
+                          "key": "pageSize",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Filter on Transaction Date",
+                          "key": "startDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filter on Transaction Date",
+                          "key": "endDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "A payment Id (`pmt_`) or an Attempt Id (`att_`)",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-74602c88-4303-4fff-8e2e-3bacd53e1054"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-092b2154-d024-422e-b5b9-12521ec0e6bb"
+            }
+          ],
+          "id": "6f0f7b10-e8aa-428a-8908-c53e205839c3",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-6f0f7b10-e8aa-428a-8908-c53e205839c3"
+        },
+        {
+          "name": "scheduled",
+          "item": [
+            {
+              "name": "List Payments - Scheduled",
+              "id": "65bca948-2567-43e3-8036-e0a34dc95029",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/scheduled?page=1&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "scheduled"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "54ad9cf0-b413-49f9-afbb-292a9334a695",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/scheduled?page=1&pageSize=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "scheduled"
+                      ],
+                      "query": [
+                        {
+                          "description": "The current page",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "How many items to return for each page. Maximum 500.",
+                          "key": "pageSize",
+                          "value": "50"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"totalItems\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"attemptId\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"applicationFee\": \"<integer>\",\n      \"totalFee\": \"<integer>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"sourceType\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"status\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"emailAddress\": \"<string>\",\n        \"mobileNumber\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"companyName\": {},\n        \"companyRegistrationNumber\": {},\n        \"metadata\": {}\n      },\n      \"subscription\": {},\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"attemptId\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"description\": \"<string>\",\n      \"applicationFee\": \"<integer>\",\n      \"totalFee\": \"<integer>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"sourceType\": \"<string>\",\n      \"transactionDate\": \"<string>\",\n      \"status\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"emailAddress\": \"<string>\",\n        \"mobileNumber\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"companyName\": {},\n        \"companyRegistrationNumber\": {},\n        \"metadata\": {}\n      },\n      \"subscription\": {},\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-54ad9cf0-b413-49f9-afbb-292a9334a695"
+                },
+                {
+                  "id": "1603175b-b47f-4881-9d49-59654a091a18",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/scheduled?page=1&pageSize=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "scheduled"
+                      ],
+                      "query": [
+                        {
+                          "description": "The current page",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "How many items to return for each page. Maximum 500.",
+                          "key": "pageSize",
+                          "value": "50"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-1603175b-b47f-4881-9d49-59654a091a18"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-65bca948-2567-43e3-8036-e0a34dc95029"
+            }
+          ],
+          "id": "9ec8a3d0-cbea-4371-9af9-d9d462dabb67",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-9ec8a3d0-cbea-4371-9af9-d9d462dabb67"
+        },
+        {
+          "name": "realtime",
+          "item": [
+            {
+              "name": "Create Realtime Payment",
+              "id": "d82e302f-6a36-4671-a6f0-c17f183d5850",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<integer>\",\n  \"payerId\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"token\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/realtime",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "realtime"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "cb103ec6-b684-41ff-b77e-c42d71eb10ba",
+                  "name": "201",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"payerId\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"token\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/realtime",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "realtime"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"attemptId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"totalFee\": \"<integer>\",\n  \"isSurcharged\": \"<boolean>\",\n  \"sourceType\": \"<string>\",\n  \"transactionDate\": \"<string>\",\n  \"status\": \"<string>\",\n  \"estimatedTransferDate\": \"<string>\",\n  \"actualTransferDate\": {},\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"mobileNumber\": {},\n    \"streetAddress\": {},\n    \"suburb\": {},\n    \"postcode\": {},\n    \"state\": {},\n    \"country\": {},\n    \"companyName\": {},\n    \"companyRegistrationNumber\": {},\n    \"metadata\": {}\n  },\n  \"subscription\": {},\n  \"attempts\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": {},\n        \"bankAccountBsb\": {},\n        \"bankAccountName\": {},\n        \"creditCardToken\": \"<string>\",\n        \"cardHolderName\": \"<string>\",\n        \"expiryDate\": \"<string>\",\n        \"displayCardNumber\": \"<string>\",\n        \"cardScheme\": \"<string>\",\n        \"origin\": \"<string>\"\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": \"<integer>\",\n        \"applicationFee\": \"<integer>\",\n        \"totalFee\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"taxRate\": \"<number>\",\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": \"<boolean>\",\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": {},\n        \"bankAccountBsb\": {},\n        \"bankAccountName\": {},\n        \"creditCardToken\": \"<string>\",\n        \"cardHolderName\": \"<string>\",\n        \"expiryDate\": \"<string>\",\n        \"displayCardNumber\": \"<string>\",\n        \"cardScheme\": \"<string>\",\n        \"origin\": \"<string>\"\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": \"<integer>\",\n        \"applicationFee\": \"<integer>\",\n        \"totalFee\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"taxRate\": \"<number>\",\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    }\n  ],\n  \"metadata\": {}\n}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-cb103ec6-b684-41ff-b77e-c42d71eb10ba"
+                },
+                {
+                  "id": "814df1a6-a3a1-4e3b-b060-b7905f7dd55e",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"payerId\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"token\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/realtime",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "realtime"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:03.000Z",
+                  "updatedAt": "2026-07-28T02:36:03.000Z",
+                  "uid": "35240-814df1a6-a3a1-4e3b-b060-b7905f7dd55e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-d82e302f-6a36-4671-a6f0-c17f183d5850"
+            }
+          ],
+          "id": "b03bbfe1-139b-491b-9043-48158539b765",
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-b03bbfe1-139b-491b-9043-48158539b765"
+        },
+        {
+          "name": "Create or Update Payment",
+          "id": "78e6c40c-af92-4759-a5b8-d2429da54b05",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ]
+            },
+            "description": "Create or Update a Scheduled Payment"
+          },
+          "response": [
+            {
+              "id": "edbc9701-4b04-4399-8b51-c9117d51129b",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"attemptId\": \"<string>\",\n  \"amount\": 0,\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"applicationFee\": 0,\n  \"totalFee\": 0,\n  \"isSurcharged\": true,\n  \"sourceType\": \"<string>\",\n  \"transactionDate\": \"<string>\",\n  \"status\": \"<string>\",\n  \"estimatedTransferDate\": \"<string>\",\n  \"actualTransferDate\": {},\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"mobileNumber\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"suburb\": \"<string>\",\n    \"postcode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyRegistrationNumber\": \"<string>\",\n    \"metadata\": {}\n  },\n  \"subscription\": {},\n  \"attempts\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    }\n  ],\n  \"metadata\": {}\n}",
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-edbc9701-4b04-4399-8b51-c9117d51129b"
+            },
+            {
+              "id": "54bf6f8f-2b3a-456b-94d6-e7e056b09c27",
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"attemptId\": \"<string>\",\n  \"amount\": 0,\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"applicationFee\": 0,\n  \"totalFee\": 0,\n  \"isSurcharged\": true,\n  \"sourceType\": \"<string>\",\n  \"transactionDate\": \"<string>\",\n  \"status\": \"<string>\",\n  \"estimatedTransferDate\": \"<string>\",\n  \"actualTransferDate\": {},\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"mobileNumber\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"suburb\": \"<string>\",\n    \"postcode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyRegistrationNumber\": \"<string>\",\n    \"metadata\": {}\n  },\n  \"subscription\": {},\n  \"attempts\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    }\n  ],\n  \"metadata\": {}\n}",
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-54bf6f8f-2b3a-456b-94d6-e7e056b09c27"
+            },
+            {
+              "id": "d7e23a22-e7a6-49d0-8cf0-faa76ea6a406",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-d7e23a22-e7a6-49d0-8cf0-faa76ea6a406"
+            },
+            {
+              "id": "5d2e87ab-8fce-4ae3-8624-36dbacbb1d91",
+              "name": "403",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"attemptId\": \"<string>\",\n  \"amount\": 0,\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"applicationFee\": 0,\n  \"totalFee\": 0,\n  \"isSurcharged\": true,\n  \"sourceType\": \"<string>\",\n  \"transactionDate\": \"<string>\",\n  \"status\": \"<string>\",\n  \"estimatedTransferDate\": \"<string>\",\n  \"actualTransferDate\": {},\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"emailAddress\": \"<string>\",\n    \"mobileNumber\": \"<string>\",\n    \"streetAddress\": \"<string>\",\n    \"suburb\": \"<string>\",\n    \"postcode\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyRegistrationNumber\": \"<string>\",\n    \"metadata\": {}\n  },\n  \"subscription\": {},\n  \"attempts\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": 0,\n      \"currency\": \"<string>\",\n      \"convertedAmount\": {},\n      \"conversionRate\": {},\n      \"convertedCurrency\": {},\n      \"estimatedSettlementDate\": \"<string>\",\n      \"isSurcharged\": true,\n      \"transactionDate\": \"<string>\",\n      \"estimatedTransferDate\": \"<string>\",\n      \"actualTransferDate\": {},\n      \"source\": {\n        \"id\": \"<string>\",\n        \"sourceType\": \"<string>\",\n        \"bankAccountNumber\": \"<string>\",\n        \"bankAccountBsb\": \"<string>\",\n        \"bankAccountName\": \"<string>\",\n        \"creditCardToken\": {},\n        \"cardHolderName\": {},\n        \"expiryDate\": {},\n        \"displayCardNumber\": {},\n        \"cardScheme\": {},\n        \"origin\": \"<string>\",\n        \"funding\": {}\n      },\n      \"dishonour\": {},\n      \"settlement\": {},\n      \"fees\": {\n        \"transactionFee\": 0,\n        \"applicationFee\": 0,\n        \"totalFee\": 0,\n        \"currency\": \"<string>\",\n        \"taxRate\": 0,\n        \"convertedTransactionFee\": {},\n        \"convertedApplicationFee\": {},\n        \"convertedTotalFee\": {},\n        \"convertedCurrency\": {},\n        \"conversionRate\": {}\n      },\n      \"status\": \"<string>\"\n    }\n  ],\n  \"metadata\": {}\n}",
+              "createdAt": "2026-07-28T02:36:03.000Z",
+              "updatedAt": "2026-07-28T02:36:03.000Z",
+              "uid": "35240-5d2e87ab-8fce-4ae3-8624-36dbacbb1d91"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:03.000Z",
+          "updatedAt": "2026-07-28T02:36:03.000Z",
+          "uid": "35240-78e6c40c-af92-4759-a5b8-d2429da54b05"
+        }
+      ],
+      "id": "2db84119-20e8-4f97-a9c0-0dc8016dfff4",
+      "createdAt": "2026-07-28T02:36:03.000Z",
+      "updatedAt": "2026-07-28T02:36:03.000Z",
+      "uid": "35240-2db84119-20e8-4f97-a9c0-0dc8016dfff4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}

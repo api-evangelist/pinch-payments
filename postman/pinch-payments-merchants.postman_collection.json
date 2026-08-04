@@ -1,0 +1,653 @@
+{
+  "info": {
+    "_postman_id": "18f0283c-4487-417d-b4bf-0c6a53303b45",
+    "name": "pinch-api-merchants",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:13.000Z",
+    "updatedAt": "2026-07-28T02:36:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-18f0283c-4487-417d-b4bf-0c6a53303b45"
+  },
+  "item": [
+    {
+      "name": "merchants",
+      "item": [
+        {
+          "name": "managed",
+          "item": [
+            {
+              "name": "Create Managed Merchant",
+              "id": "394d326f-15fc-4ebd-9d0f-7836d4b6dab9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ],\n  \"ipAddress\": \"<string>\",\n  \"userAgent\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"merchantIdentifiers\": [\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"cybersource\"\n    },\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"fiserv\"\n    }\n  ],\n  \"reportingIdentifier\": \"<string>\",\n  \"timeZone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/managed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    "managed"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3a5b8b83-3353-4d60-934d-39e858c6a675",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ],\n  \"ipAddress\": \"<string>\",\n  \"userAgent\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"merchantIdentifiers\": [\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"cybersource\"\n    },\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"fiserv\"\n    }\n  ],\n  \"reportingIdentifier\": \"<string>\",\n  \"timeZone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/managed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "managed"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"testMerchantId\": \"<string>\",\n  \"testOnlyMerchant\": true,\n  \"companyName\": \"<string>\",\n  \"legalEntityName\": {},\n  \"companyEmail\": \"<string>\",\n  \"companyPhone\": {},\n  \"companyWebsiteUrl\": {},\n  \"companyRegistrationNumber\": {},\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": {},\n  \"suburb\": {},\n  \"state\": {},\n  \"postcode\": {},\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"createdDateUtc\": \"<string>\",\n  \"natureOfBusiness\": {},\n  \"organisationType\": \"<string>\",\n  \"compliance\": {\n    \"merchantNotes\": \"<string>\",\n    \"propertyErrors\": {},\n    \"complianceOfficerNotes\": {},\n    \"status\": \"<string>\",\n    \"submissionDate\": \"<string>\",\n    \"decisionDate\": {},\n    \"liveEnabled\": true,\n    \"transactionsEnabled\": true,\n    \"settlementsEnabled\": true\n  },\n  \"contacts\": [\n    {\n      \"id\": \"<string>\",\n      \"isPrimaryContact\": true,\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"dob\": {},\n      \"governmentNumberSupplied\": true,\n      \"contactType\": \"<string>\",\n      \"ownership\": {},\n      \"jobTitle\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"isPrimaryContact\": true,\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"dob\": {},\n      \"governmentNumberSupplied\": true,\n      \"contactType\": \"<string>\",\n      \"ownership\": {},\n      \"jobTitle\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-3a5b8b83-3353-4d60-934d-39e858c6a675"
+                },
+                {
+                  "id": "d846615b-f668-41be-898c-a4525b6988eb",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ],\n  \"ipAddress\": \"<string>\",\n  \"userAgent\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"merchantIdentifiers\": [\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"cybersource\"\n    },\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"fiserv\"\n    }\n  ],\n  \"reportingIdentifier\": \"<string>\",\n  \"timeZone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/managed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "managed"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": \"<string>\",\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": \"<string>\",\n    \"formattedMessageArguments\": \"<array>\",\n    \"formattedMessagePlaceholderValues\": {\n      \"PropertyName\": \"<string>\",\n      \"PropertyValue\": \"<string>\"\n    },\n    \"resourceName\": \"<string>\"\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": \"<string>\",\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": \"<string>\",\n    \"formattedMessageArguments\": \"<array>\",\n    \"formattedMessagePlaceholderValues\": {\n      \"PropertyName\": \"<string>\",\n      \"PropertyValue\": \"<string>\"\n    },\n    \"resourceName\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-d846615b-f668-41be-898c-a4525b6988eb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:14.000Z",
+              "updatedAt": "2026-07-28T02:36:14.000Z",
+              "uid": "35240-394d326f-15fc-4ebd-9d0f-7836d4b6dab9"
+            },
+            {
+              "name": "List Managed Merchants",
+              "id": "4e3451df-20e8-485f-a721-f1deb551b2da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/managed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    "managed"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2e60afcd-2dca-43c5-a55b-9eadc9c0b9f8",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/managed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "managed"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"testMerchantId\": \"<string>\",\n    \"testOnlyMerchant\": true,\n    \"companyName\": \"<string>\",\n    \"legalEntityName\": {},\n    \"companyEmail\": \"<string>\",\n    \"companyPhone\": {},\n    \"companyWebsiteUrl\": {},\n    \"companyRegistrationNumber\": {},\n    \"bankAccountRoutingNumber\": \"<string>\",\n    \"bankAccountNumber\": \"<string>\",\n    \"bankAccountName\": \"<string>\",\n    \"streetAddress\": {},\n    \"suburb\": {},\n    \"state\": {},\n    \"postcode\": {},\n    \"country\": \"<string>\",\n    \"bankStatementLabel\": \"<string>\",\n    \"createdDateUtc\": \"<string>\",\n    \"natureOfBusiness\": {},\n    \"organisationType\": \"<string>\",\n    \"compliance\": {\n      \"merchantNotes\": \"<string>\",\n      \"propertyErrors\": {},\n      \"complianceOfficerNotes\": {},\n      \"status\": \"<string>\",\n      \"submissionDate\": \"<string>\",\n      \"decisionDate\": {},\n      \"liveEnabled\": true,\n      \"transactionsEnabled\": true,\n      \"settlementsEnabled\": true\n    },\n    \"contacts\": [\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumberSupplied\": true,\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {}\n      },\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumberSupplied\": true,\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {}\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"testMerchantId\": \"<string>\",\n    \"testOnlyMerchant\": true,\n    \"companyName\": \"<string>\",\n    \"legalEntityName\": {},\n    \"companyEmail\": \"<string>\",\n    \"companyPhone\": {},\n    \"companyWebsiteUrl\": {},\n    \"companyRegistrationNumber\": {},\n    \"bankAccountRoutingNumber\": \"<string>\",\n    \"bankAccountNumber\": \"<string>\",\n    \"bankAccountName\": \"<string>\",\n    \"streetAddress\": {},\n    \"suburb\": {},\n    \"state\": {},\n    \"postcode\": {},\n    \"country\": \"<string>\",\n    \"bankStatementLabel\": \"<string>\",\n    \"createdDateUtc\": \"<string>\",\n    \"natureOfBusiness\": {},\n    \"organisationType\": \"<string>\",\n    \"compliance\": {\n      \"merchantNotes\": \"<string>\",\n      \"propertyErrors\": {},\n      \"complianceOfficerNotes\": {},\n      \"status\": \"<string>\",\n      \"submissionDate\": \"<string>\",\n      \"decisionDate\": {},\n      \"liveEnabled\": true,\n      \"transactionsEnabled\": true,\n      \"settlementsEnabled\": true\n    },\n    \"contacts\": [\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumberSupplied\": true,\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {}\n      },\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumberSupplied\": true,\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {}\n      }\n    ]\n  }\n]",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-2e60afcd-2dca-43c5-a55b-9eadc9c0b9f8"
+                },
+                {
+                  "id": "d262f397-626a-4e17-a0bb-a2ebda97197a",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/managed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "managed"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-d262f397-626a-4e17-a0bb-a2ebda97197a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:14.000Z",
+              "updatedAt": "2026-07-28T02:36:14.000Z",
+              "uid": "35240-4e3451df-20e8-485f-a721-f1deb551b2da"
+            }
+          ],
+          "id": "a8ff6e43-95f0-4033-aedb-fd12c723edb3",
+          "createdAt": "2026-07-28T02:36:14.000Z",
+          "updatedAt": "2026-07-28T02:36:14.000Z",
+          "uid": "35240-a8ff6e43-95f0-4033-aedb-fd12c723edb3"
+        },
+        {
+          "name": "update",
+          "item": [
+            {
+              "name": "Update Merchant",
+              "id": "ed4f2bb0-271b-4cb3-8b3c-5f22ef129a58",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"shareholder\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    "update"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0a19b10a-75a8-4687-80ba-c26c4c78e3e0",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"shareholder\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "update"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"testMerchantId\": \"<string>\",\n  \"testOnlyMerchant\": true,\n  \"companyName\": \"<string>\",\n  \"legalEntityName\": {},\n  \"companyEmail\": \"<string>\",\n  \"companyPhone\": {},\n  \"companyWebsiteUrl\": {},\n  \"companyRegistrationNumber\": {},\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": {},\n  \"suburb\": {},\n  \"state\": {},\n  \"postcode\": {},\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"createdDateUtc\": \"<string>\",\n  \"logoUrl\": {},\n  \"natureOfBusiness\": {},\n  \"organisationType\": \"<string>\",\n  \"compliance\": {\n    \"merchantNotes\": \"<string>\",\n    \"propertyErrors\": {},\n    \"complianceOfficerNotes\": {},\n    \"status\": \"<string>\",\n    \"submissionDate\": \"<string>\",\n    \"decisionDate\": {},\n    \"liveEnabled\": true,\n    \"transactionsEnabled\": true,\n    \"settlementsEnabled\": true\n  },\n  \"contacts\": [\n    {\n      \"id\": \"<string>\",\n      \"isPrimaryContact\": true,\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"dob\": {},\n      \"governmentNumberSupplied\": true,\n      \"contactType\": \"<string>\",\n      \"ownership\": {},\n      \"jobTitle\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"isPrimaryContact\": true,\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": {},\n      \"streetAddress\": {},\n      \"suburb\": {},\n      \"postcode\": {},\n      \"state\": {},\n      \"country\": {},\n      \"dob\": {},\n      \"governmentNumberSupplied\": true,\n      \"contactType\": \"<string>\",\n      \"ownership\": {},\n      \"jobTitle\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-0a19b10a-75a8-4687-80ba-c26c4c78e3e0"
+                },
+                {
+                  "id": "68ec9578-7be8-4d37-9c0a-5886ba3b77a9",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"shareholder\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"owner\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "update"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": 0,\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    },\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": 0,\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    }\n  ],\n  \"inlineErrors\": {\n    \"companyName\": \"<string>\",\n    \"legalEntityName\": {},\n    \"companyEmail\": \"<string>\",\n    \"companyPhone\": {},\n    \"companyWebsiteUrl\": {},\n    \"companyRegistrationNumber\": {},\n    \"bankAccountRoutingNumber\": {},\n    \"bankAccountNumber\": {},\n    \"bankAccountName\": {},\n    \"streetAddress\": {},\n    \"suburb\": {},\n    \"state\": {},\n    \"postcode\": {},\n    \"bankStatementLabel\": \"<string>\",\n    \"natureOfBusiness\": {},\n    \"organisationType\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"contacts\": [\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumber\": {},\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {},\n        \"errors\": \"<array>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"isPrimaryContact\": true,\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": {},\n        \"streetAddress\": {},\n        \"suburb\": {},\n        \"postcode\": {},\n        \"state\": {},\n        \"country\": {},\n        \"dob\": {},\n        \"governmentNumber\": {},\n        \"contactType\": \"<string>\",\n        \"ownership\": {},\n        \"jobTitle\": {},\n        \"errors\": \"<array>\"\n      }\n    ],\n    \"errors\": \"<array>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-68ec9578-7be8-4d37-9c0a-5886ba3b77a9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:14.000Z",
+              "updatedAt": "2026-07-28T02:36:14.000Z",
+              "uid": "35240-ed4f2bb0-271b-4cb3-8b3c-5f22ef129a58"
+            }
+          ],
+          "id": "ad704c86-51fb-476a-9ab5-e784daaa9c99",
+          "createdAt": "2026-07-28T02:36:14.000Z",
+          "updatedAt": "2026-07-28T02:36:14.000Z",
+          "uid": "35240-ad704c86-51fb-476a-9ab5-e784daaa9c99"
+        },
+        {
+          "name": "documents",
+          "item": [
+            {
+              "name": "Upload Document",
+              "id": "fa27aa02-fbd8-4205-95bb-af89aa69ee23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"additional-verification\",\n  \"ContactId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/documents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    "documents"
+                  ]
+                },
+                "description": "Upload a document for merchant compliance"
+              },
+              "response": [
+                {
+                  "id": "eca9cce0-a31a-4d5c-a35f-0f363f47d148",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"additional-verification\",\n  \"ContactId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/documents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "documents"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"documentType\": \"<string>\",\n  \"filename\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-eca9cce0-a31a-4d5c-a35f-0f363f47d148"
+                },
+                {
+                  "id": "343eb222-333c-4d9c-bc7a-b8fab63c2e6c",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"additional-verification\",\n  \"ContactId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/documents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        "documents"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": 0,\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    },\n    {\n      \"propertyName\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"attemptedValue\": {},\n      \"customState\": {},\n      \"severity\": 0,\n      \"errorCode\": {},\n      \"formattedMessageArguments\": {},\n      \"formattedMessagePlaceholderValues\": {},\n      \"resourceName\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:14.000Z",
+                  "updatedAt": "2026-07-28T02:36:14.000Z",
+                  "uid": "35240-343eb222-333c-4d9c-bc7a-b8fab63c2e6c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:14.000Z",
+              "updatedAt": "2026-07-28T02:36:14.000Z",
+              "uid": "35240-fa27aa02-fbd8-4205-95bb-af89aa69ee23"
+            }
+          ],
+          "id": "9c10a7f3-9ae1-433d-8473-113a37e68195",
+          "createdAt": "2026-07-28T02:36:14.000Z",
+          "updatedAt": "2026-07-28T02:36:14.000Z",
+          "uid": "35240-9c10a7f3-9ae1-433d-8473-113a37e68195"
+        }
+      ],
+      "id": "40864511-c191-4cf6-8ab5-1f14d11d9e95",
+      "createdAt": "2026-07-28T02:36:14.000Z",
+      "updatedAt": "2026-07-28T02:36:14.000Z",
+      "uid": "35240-40864511-c191-4cf6-8ab5-1f14d11d9e95"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}

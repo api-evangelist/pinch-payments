@@ -1,0 +1,693 @@
+{
+  "info": {
+    "_postman_id": "2e8cee0f-1def-4fe2-bb18-46422121cc5c",
+    "name": "pinch-api-payment-links",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:12.000Z",
+    "updatedAt": "2026-07-28T02:36:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2e8cee0f-1def-4fe2-bb18-46422121cc5c"
+  },
+  "item": [
+    {
+      "name": "payment-links",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Delete Payment Link",
+              "id": "73fac3e5-6a9a-4b3e-a205-0410d66f51b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payment-links/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment-links",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c5b40935-07a0-45b4-92ae-34ca826531ca",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payment Link Id (string identifier starting with `plk_`)"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "920a9d71-59b8-43bb-b1a9-3d25be5948e9",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payment-links/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment-links",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:13.000Z",
+                  "updatedAt": "2026-07-28T02:36:13.000Z",
+                  "uid": "35240-920a9d71-59b8-43bb-b1a9-3d25be5948e9"
+                },
+                {
+                  "id": "c54a8da6-5385-4435-8f32-34152482024a",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payment-links/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment-links",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:13.000Z",
+                  "updatedAt": "2026-07-28T02:36:13.000Z",
+                  "uid": "35240-c54a8da6-5385-4435-8f32-34152482024a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:12.000Z",
+              "updatedAt": "2026-07-28T02:36:12.000Z",
+              "uid": "35240-73fac3e5-6a9a-4b3e-a205-0410d66f51b2"
+            },
+            {
+              "name": "Get Payment Link",
+              "id": "63b44843-f498-4511-9217-d0a75213d7cc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payment-links/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment-links",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2c9a30d6-6ac3-41d4-a91d-de62ee86d775",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payment Link Id (string identifier starting with `plk_`)"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "120a3fac-b95d-4ce7-9b41-71590bdb3b86",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payment-links/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment-links",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"merchantId\": \"<string>\",\n  \"amountInCents\": \"<long>\",\n  \"url\": \"<string>\",\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"linkExpiryDate\": \"<date>\",\n  \"surchargePaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allowedPaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUrl\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:36:13.000Z",
+                  "updatedAt": "2026-07-28T02:36:13.000Z",
+                  "uid": "35240-120a3fac-b95d-4ce7-9b41-71590bdb3b86"
+                },
+                {
+                  "id": "987851f9-609d-477c-aecd-06890324e743",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payment-links/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment-links",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:13.000Z",
+                  "updatedAt": "2026-07-28T02:36:13.000Z",
+                  "uid": "35240-987851f9-609d-477c-aecd-06890324e743"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:12.000Z",
+              "updatedAt": "2026-07-28T02:36:12.000Z",
+              "uid": "35240-63b44843-f498-4511-9217-d0a75213d7cc"
+            }
+          ],
+          "id": "3e4ab5b8-7323-44ac-b454-5d626186376b",
+          "createdAt": "2026-07-28T02:36:12.000Z",
+          "updatedAt": "2026-07-28T02:36:12.000Z",
+          "uid": "35240-3e4ab5b8-7323-44ac-b454-5d626186376b"
+        },
+        {
+          "name": "payer",
+          "item": [
+            {
+              "name": "{payerId}",
+              "item": [
+                {
+                  "name": "Get Payment Links by Payer",
+                  "id": "cd5f8a0b-2cf3-41f5-86bf-331067aa4b1a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payment-links/payer/:payerId?page=1&pageSize=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment-links",
+                        "payer",
+                        ":payerId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number to return results for.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of items to return per page",
+                          "key": "pageSize",
+                          "value": "50"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2fe94949-fbe0-4bbf-ae52-3d7b799a8711",
+                          "key": "payerId",
+                          "value": "<string>",
+                          "description": "(Required) Id of the payer to get Payment Links for (string identifier starting with **pyr_**)"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "00386f54-3a32-4c87-9fe4-c93c4d150bc3",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payment-links/payer/:payerId?page=1&pageSize=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment-links",
+                            "payer",
+                            ":payerId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to return results for.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items to return per page",
+                              "key": "pageSize",
+                              "value": "50"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "payerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalPage\": \"<integer>\",\n  \"totalItems\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"merchantId\": \"<string>\",\n      \"amount\": \"<long>\",\n      \"url\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"linkExpiryDate\": \"<date>\",\n      \"surchargePaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedPaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"returnUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"merchantId\": \"<string>\",\n      \"amount\": \"<long>\",\n      \"url\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"linkExpiryDate\": \"<date>\",\n      \"surchargePaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedPaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"returnUrl\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:36:13.000Z",
+                      "updatedAt": "2026-07-28T02:36:13.000Z",
+                      "uid": "35240-00386f54-3a32-4c87-9fe4-c93c4d150bc3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:12.000Z",
+                  "updatedAt": "2026-07-28T02:36:12.000Z",
+                  "uid": "35240-cd5f8a0b-2cf3-41f5-86bf-331067aa4b1a"
+                }
+              ],
+              "id": "b1683f80-3437-40fd-b65e-cfb6201769ac",
+              "createdAt": "2026-07-28T02:36:12.000Z",
+              "updatedAt": "2026-07-28T02:36:12.000Z",
+              "uid": "35240-b1683f80-3437-40fd-b65e-cfb6201769ac"
+            }
+          ],
+          "id": "ca1d66ae-8f8f-4363-96e3-bd5613cd95a2",
+          "createdAt": "2026-07-28T02:36:12.000Z",
+          "updatedAt": "2026-07-28T02:36:12.000Z",
+          "uid": "35240-ca1d66ae-8f8f-4363-96e3-bd5613cd95a2"
+        },
+        {
+          "name": "Create Payment Link",
+          "id": "0327de25-02bf-490d-9802-718739e02ead",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<long>\",\n  \"payerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allowedPaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUrl\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"linkExpiryDate\": \"<date>\",\n  \"surchargePaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payment-links",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payment-links"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e2d4fb02-1a27-446e-8a52-acedc529e9bb",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<long>\",\n  \"payerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allowedPaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUrl\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"linkExpiryDate\": \"<date>\",\n  \"surchargePaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payment-links",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment-links"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"merchantId\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"url\": \"<string>\",\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"linkExpiryDate\": \"<date>\",\n  \"surchargePaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allowedPaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUrl\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:36:13.000Z",
+              "updatedAt": "2026-07-28T02:36:13.000Z",
+              "uid": "35240-e2d4fb02-1a27-446e-8a52-acedc529e9bb"
+            },
+            {
+              "id": "9ec14115-e7ec-45e9-bda8-fbd21e0f0332",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<long>\",\n  \"payerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allowedPaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUrl\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"linkExpiryDate\": \"<date>\",\n  \"surchargePaymentMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payment-links",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment-links"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T02:36:13.000Z",
+              "updatedAt": "2026-07-28T02:36:13.000Z",
+              "uid": "35240-9ec14115-e7ec-45e9-bda8-fbd21e0f0332"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:12.000Z",
+          "updatedAt": "2026-07-28T02:36:12.000Z",
+          "uid": "35240-0327de25-02bf-490d-9802-718739e02ead"
+        },
+        {
+          "name": "Get Payment Links",
+          "id": "a4d0c9ce-a4a9-4fd4-b365-a7ebda7b8bdc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payment-links?page=1&pageSize=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payment-links"
+              ],
+              "query": [
+                {
+                  "description": "Page number to return",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of items to return per page",
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e98fb18b-4547-47b5-a3fa-fe10860a232c",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payment-links?page=1&pageSize=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment-links"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number to return",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items to return per page",
+                      "key": "pageSize",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalPage\": \"<integer>\",\n  \"totalItems\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"merchantId\": \"<string>\",\n      \"amount\": \"<long>\",\n      \"url\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"linkExpiryDate\": \"<date>\",\n      \"surchargePaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedPaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"returnUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"merchantId\": \"<string>\",\n      \"amount\": \"<long>\",\n      \"url\": \"<string>\",\n      \"payer\": {\n        \"id\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"linkExpiryDate\": \"<date>\",\n      \"surchargePaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedPaymentMethods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"returnUrl\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:36:13.000Z",
+              "updatedAt": "2026-07-28T02:36:13.000Z",
+              "uid": "35240-e98fb18b-4547-47b5-a3fa-fe10860a232c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:12.000Z",
+          "updatedAt": "2026-07-28T02:36:12.000Z",
+          "uid": "35240-a4d0c9ce-a4a9-4fd4-b365-a7ebda7b8bdc"
+        }
+      ],
+      "id": "a57b6dee-bd33-4dcc-ac1e-6652897e3c49",
+      "createdAt": "2026-07-28T02:36:12.000Z",
+      "updatedAt": "2026-07-28T02:36:12.000Z",
+      "uid": "35240-a57b6dee-bd33-4dcc-ac1e-6652897e3c49"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}

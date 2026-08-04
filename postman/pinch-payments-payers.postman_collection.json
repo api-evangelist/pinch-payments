@@ -1,0 +1,1039 @@
+{
+  "info": {
+    "_postman_id": "a09c75a3-8cf0-4294-a8b5-49f4191042fc",
+    "name": "pinch-api-payers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:05.000Z",
+    "updatedAt": "2026-07-28T02:36:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a09c75a3-8cf0-4294-a8b5-49f4191042fc"
+  },
+  "item": [
+    {
+      "name": "payers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "sources",
+              "item": [
+                {
+                  "name": "{sourceId}",
+                  "item": [
+                    {
+                      "name": "Delete Payment Source",
+                      "id": "7ecb0a99-dd80-407d-ab80-c7706029b5c5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payers/:id/sources/:sourceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payers",
+                            ":id",
+                            "sources",
+                            ":sourceId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "00ecdb92-4847-4cb2-ba8e-ba025a053f1c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                            },
+                            {
+                              "id": "1a867e96-7e75-4f80-8496-9b5276749aec",
+                              "key": "sourceId",
+                              "value": "<string>",
+                              "description": "(Required) Source Id in src_XXXXXXXXXXXXXX format"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "eb6d905e-2a4a-4659-b4aa-19d9a81f4bc5",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payers/:id/sources/:sourceId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payers",
+                                ":id",
+                                "sources",
+                                ":sourceId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "sourceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"You will get a 200 OK without any body.\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:06.000Z",
+                          "updatedAt": "2026-07-28T02:36:06.000Z",
+                          "uid": "35240-eb6d905e-2a4a-4659-b4aa-19d9a81f4bc5"
+                        },
+                        {
+                          "id": "86bd5baa-e4f9-4c0f-955d-ba0dcde27e16",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payers/:id/sources/:sourceId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payers",
+                                ":id",
+                                "sources",
+                                ":sourceId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "sourceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                          "createdAt": "2026-07-28T02:36:06.000Z",
+                          "updatedAt": "2026-07-28T02:36:06.000Z",
+                          "uid": "35240-86bd5baa-e4f9-4c0f-955d-ba0dcde27e16"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:06.000Z",
+                      "updatedAt": "2026-07-28T02:36:06.000Z",
+                      "uid": "35240-7ecb0a99-dd80-407d-ab80-c7706029b5c5"
+                    }
+                  ],
+                  "id": "af4b33a6-f6ec-4f40-aabd-ed6e53c523b2",
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-af4b33a6-f6ec-4f40-aabd-ed6e53c523b2"
+                },
+                {
+                  "name": "Create Payment Source",
+                  "id": "740cc362-f876-405f-bb6d-62558f32858f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"sourceType\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountBsb\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ipAddress\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payers/:id/sources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payers",
+                        ":id",
+                        "sources"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3a6c14b2-762f-49bb-b652-73eaf849b85c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                        }
+                      ]
+                    },
+                    "description": "Payments sources are currently either a bank account or credit card"
+                  },
+                  "response": [
+                    {
+                      "id": "2fbfd8c2-8c04-44df-8b7b-6c79c654bff1",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sourceType\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountBsb\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ipAddress\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payers/:id/sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payers",
+                            ":id",
+                            "sources"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountBsb\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"creditCardToken\": {},\n  \"cardHolderName\": {},\n  \"expiryDate\": {},\n  \"displayCardNumber\": {},\n  \"cardScheme\": {},\n  \"origin\": \"<string>\",\n  \"funding\": {}\n}",
+                      "createdAt": "2026-07-28T02:36:06.000Z",
+                      "updatedAt": "2026-07-28T02:36:06.000Z",
+                      "uid": "35240-2fbfd8c2-8c04-44df-8b7b-6c79c654bff1"
+                    },
+                    {
+                      "id": "5e88ac17-2a42-4421-be64-967095424d28",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sourceType\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountBsb\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ipAddress\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payers/:id/sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payers",
+                            ":id",
+                            "sources"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                      "createdAt": "2026-07-28T02:36:06.000Z",
+                      "updatedAt": "2026-07-28T02:36:06.000Z",
+                      "uid": "35240-5e88ac17-2a42-4421-be64-967095424d28"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-740cc362-f876-405f-bb6d-62558f32858f"
+                }
+              ],
+              "id": "b328026d-0943-402f-ae16-d6ef669375e5",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-b328026d-0943-402f-ae16-d6ef669375e5"
+            },
+            {
+              "name": "Delete Payer",
+              "id": "3239a1c6-ec99-4384-9429-f81c7e1fd318",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "973c4015-a665-47c1-822a-8534bd49fb81",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3ba23051-9e46-409b-885a-d173fb0b0749",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"examples\": {\n    \"Result\": {\n      \"value\": \"You will get a 200 OK without any body.\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-3ba23051-9e46-409b-885a-d173fb0b0749"
+                },
+                {
+                  "id": "6b8668b9-c005-4c17-b9b2-b3ab600c0060",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": {},\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": {},\n    \"formattedMessageArguments\": {},\n    \"formattedMessagePlaceholderValues\": {},\n    \"resourceName\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-6b8668b9-c005-4c17-b9b2-b3ab600c0060"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-3239a1c6-ec99-4384-9429-f81c7e1fd318"
+            },
+            {
+              "name": "Get Payer",
+              "id": "6594e1f8-a188-4bbd-bd9a-06ac06e05f97",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2854ccf6-599d-4c1a-8da2-81f3a3b1289f",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXX format"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c7e6c0e8-7297-450e-84ce-e35f332150ce",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"metadata\": {},\n  \"sources\": [\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": \"<string>\",\n      \"bankAccountBsb\": \"<string>\",\n      \"bankAccountName\": \"<string>\",\n      \"token\": \"<string>\",\n      \"cardHolderName\": {},\n      \"expiryDate\": {},\n      \"displayCardNumber\": \"<string>\",\n      \"cardScheme\": {},\n      \"origin\": \"<string>\",\n      \"funding\": {},\n      \"isAuthorised\": true,\n      \"supportsRealtime\": true\n    },\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": \"<string>\",\n      \"bankAccountBsb\": \"<string>\",\n      \"bankAccountName\": \"<string>\",\n      \"token\": \"<string>\",\n      \"cardHolderName\": {},\n      \"expiryDate\": {},\n      \"displayCardNumber\": \"<string>\",\n      \"cardScheme\": {},\n      \"origin\": \"<string>\",\n      \"funding\": {},\n      \"isAuthorised\": true,\n      \"supportsRealtime\": true\n    }\n  ],\n  \"agreements\": [\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-c7e6c0e8-7297-450e-84ce-e35f332150ce"
+                },
+                {
+                  "id": "f0a6a95a-464b-4b92-a0ba-989c603b1e11",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:36:06.000Z",
+                  "updatedAt": "2026-07-28T02:36:06.000Z",
+                  "uid": "35240-f0a6a95a-464b-4b92-a0ba-989c603b1e11"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-6594e1f8-a188-4bbd-bd9a-06ac06e05f97"
+            }
+          ],
+          "id": "4457aefc-186a-4568-a379-172632a2f96a",
+          "createdAt": "2026-07-28T02:36:06.000Z",
+          "updatedAt": "2026-07-28T02:36:06.000Z",
+          "uid": "35240-4457aefc-186a-4568-a379-172632a2f96a"
+        },
+        {
+          "name": "List Payers",
+          "id": "c2047be4-c684-40ec-934d-1d7fd47d29b9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payers?page=1&pageSize=50&filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payers"
+              ],
+              "query": [
+                {
+                  "description": "The current page.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "How many items to return for each page. Maximum 500.",
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "description": "Optional string filter to search for payers by Name or Email address",
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d91311a9-e2bc-42c5-9aa9-5dc4f9dd2812",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payers?page=1&pageSize=50&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Optional string filter to search for payers by Name or Email address",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"page\": 0,\n  \"pageSize\": 0,\n  \"totalPages\": 0,\n  \"totalItems\": 0,\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"mobileNumber\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"mobileNumber\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-d91311a9-e2bc-42c5-9aa9-5dc4f9dd2812"
+            },
+            {
+              "id": "d8c8f974-f3a8-49e3-be55-1d137ac7cc08",
+              "name": "400",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payers?page=1&pageSize=50&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The current page.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "How many items to return for each page. Maximum 500.",
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Optional string filter to search for payers by Name or Email address",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-d8c8f974-f3a8-49e3-be55-1d137ac7cc08"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:06.000Z",
+          "updatedAt": "2026-07-28T02:36:06.000Z",
+          "uid": "35240-c2047be4-c684-40ec-934d-1d7fd47d29b9"
+        },
+        {
+          "name": "Create or Update Payer",
+          "id": "bfb7dfd1-832b-41ba-9435-de05041361f1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"credit-card\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payers"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4ff74c8a-92eb-4698-acd8-46753b88da5e",
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"credit-card\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"metadata\": {},\n  \"sources\": [\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": {},\n      \"bankAccountBsb\": {},\n      \"bankAccountName\": {},\n      \"creditCardToken\": \"<string>\",\n      \"cardHolderName\": \"<string>\",\n      \"expiryDate\": \"<string>\",\n      \"displayCardNumber\": \"<string>\",\n      \"cardScheme\": \"<string>\",\n      \"origin\": \"<string>\",\n      \"funding\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": {},\n      \"bankAccountBsb\": {},\n      \"bankAccountName\": {},\n      \"creditCardToken\": \"<string>\",\n      \"cardHolderName\": \"<string>\",\n      \"expiryDate\": \"<string>\",\n      \"displayCardNumber\": \"<string>\",\n      \"cardScheme\": \"<string>\",\n      \"origin\": \"<string>\",\n      \"funding\": \"<string>\"\n    }\n  ],\n  \"agreements\": [\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-4ff74c8a-92eb-4698-acd8-46753b88da5e"
+            },
+            {
+              "id": "21b2fb40-89f5-4158-a091-9353bb4f9e18",
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"credit-card\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"metadata\": {},\n  \"sources\": [\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": \"<string>\",\n      \"bankAccountBsb\": \"<string>\",\n      \"bankAccountName\": \"<string>\",\n      \"creditCardToken\": {},\n      \"cardHolderName\": {},\n      \"expiryDate\": {},\n      \"displayCardNumber\": {},\n      \"cardScheme\": {},\n      \"origin\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"bankAccountNumber\": \"<string>\",\n      \"bankAccountBsb\": \"<string>\",\n      \"bankAccountName\": \"<string>\",\n      \"creditCardToken\": {},\n      \"cardHolderName\": {},\n      \"expiryDate\": {},\n      \"displayCardNumber\": {},\n      \"cardScheme\": {},\n      \"origin\": \"<string>\"\n    }\n  ],\n  \"agreements\": [\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"anonymousViewToken\": \"<string>\",\n      \"agreementDateUtc\": \"<string>\",\n      \"confirmedDateUtc\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-21b2fb40-89f5-4158-a091-9353bb4f9e18"
+            },
+            {
+              "id": "3d5bea0a-07cc-4753-bd19-b28dd726935f",
+              "name": "400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"credit-card\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payers"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": \"<string>\",\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": \"<string>\",\n    \"formattedMessageArguments\": \"<array>\",\n    \"formattedMessagePlaceholderValues\": {\n      \"PropertyName\": \"<string>\",\n      \"PropertyValue\": \"<string>\"\n    },\n    \"resourceName\": {}\n  },\n  {\n    \"propertyName\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"attemptedValue\": \"<string>\",\n    \"customState\": {},\n    \"severity\": 0,\n    \"errorCode\": \"<string>\",\n    \"formattedMessageArguments\": \"<array>\",\n    \"formattedMessagePlaceholderValues\": {\n      \"PropertyName\": \"<string>\",\n      \"PropertyValue\": \"<string>\"\n    },\n    \"resourceName\": {}\n  }\n]",
+              "createdAt": "2026-07-28T02:36:06.000Z",
+              "updatedAt": "2026-07-28T02:36:06.000Z",
+              "uid": "35240-3d5bea0a-07cc-4753-bd19-b28dd726935f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:06.000Z",
+          "updatedAt": "2026-07-28T02:36:06.000Z",
+          "uid": "35240-bfb7dfd1-832b-41ba-9435-de05041361f1"
+        }
+      ],
+      "id": "93cd5ada-56fa-4a50-ae83-769a04570d6e",
+      "createdAt": "2026-07-28T02:36:06.000Z",
+      "updatedAt": "2026-07-28T02:36:06.000Z",
+      "uid": "35240-93cd5ada-56fa-4a50-ae83-769a04570d6e"
+    }
+  ],
+  "auth": {
+    "type": "oauth2"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.getpinch.com.au/test"
+    }
+  ]
+}
