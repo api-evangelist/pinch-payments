@@ -29,7 +29,7 @@ tags:
 - New Zealand
 created: '2026-07-24'
 modified: '2026-07-24'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: pinch-payments:pinch-payments-core
   name: Pinch Core API
