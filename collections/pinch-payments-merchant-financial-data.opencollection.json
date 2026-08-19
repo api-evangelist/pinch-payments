@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-merchant-financial-data",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Current Merchant Financial Data",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/merchant-financial-data/current"
+      },
+      "docs": "Returns the current (most recent) merchant financial data record"
+    },
+    {
+      "info": {
+        "name": "Save Merchant Financial Data",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/merchant-financial-data",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates or updates merchant financial data"
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-payments",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Check Payment Nonce",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payments/nonce",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Check Payment Nonce"
+    },
+    {
+      "info": {
+        "name": "Get Payment",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payments/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payment Id in pmt_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Payment"
+    },
+    {
+      "info": {
+        "name": "Delete payment",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/payments/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payment Id in pmt_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Delete payment"
+    },
+    {
+      "info": {
+        "name": "List Payments for Payer",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payments/payer/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payment Id in pyr_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "List Payments for Payer"
+    },
+    {
+      "info": {
+        "name": "List Payments - Processed",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payments/processed",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          },
+          {
+            "name": "startDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter on Transaction Date"
+          },
+          {
+            "name": "endDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter on Transaction Date"
+          },
+          {
+            "name": "filter",
+            "value": "",
+            "type": "query",
+            "description": "A payment Id (`pmt_`) or an Attempt Id (`att_`)"
+          }
+        ]
+      },
+      "docs": "List Payments - Processed"
+    },
+    {
+      "info": {
+        "name": "List Payments - Scheduled",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payments/scheduled",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          }
+        ]
+      },
+      "docs": "List Payments - Scheduled"
+    },
+    {
+      "info": {
+        "name": "Create Realtime Payment",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payments/realtime",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create Realtime Payment"
+    },
+    {
+      "info": {
+        "name": "Create or Update Payment",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payments",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or Update a Scheduled Payment"
+    }
+  ],
+  "bundled": true
+}

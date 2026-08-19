@@ -1,0 +1,1043 @@
+{
+  "item": [
+    {
+      "id": "73987412-77b6-415d-815a-0374e492d040",
+      "name": "Create Payment Source",
+      "request": {
+        "name": "Create Payment Source",
+        "description": {
+          "content": "Payments sources are currently either a bank account or credit card",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers",
+            ":id",
+            "sources"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceType\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountBsb\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ipAddress\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d96125fb-87c6-4140-8dac-eed14afb7aa5",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceType\": \"bank-account\",\n  \"bankAccountName\": \"Ben Hotdog\",\n  \"bankAccountBsb\": \"012-001\",\n  \"bankAccountNumber\": \"987654321\",\n  \"creditCardToken\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"src_XXXXXXXXXXXXXX \\\",\\n    \\\"sourceType\\\": \\\"bank-account\\\",\\n    \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n    \\\"bankAccountBsb\\\": \\\"000000\\\",\\n    \\\"bankAccountName\\\": \\\"Example Name\\\",\\n    \\\"creditCardToken\\\": null,\\n    \\\"cardHolderName\\\": null,\\n    \\\"expiryDate\\\": null,\\n    \\\"displayCardNumber\\\": null,\\n    \\\"cardScheme\\\": null,\\n    \\\"origin\\\": \\\"AU\\\",\\n    \\\"funding\\\": null\\n}\\n\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "2010dbbf-081e-4c82-80dd-15e279b10f56",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceType\": \"bank-account\",\n  \"bankAccountName\": \"Ben Hotdog\",\n  \"bankAccountBsb\": \"012-001\",\n  \"bankAccountNumber\": \"987654321\",\n  \"creditCardToken\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Payer with id: pyr_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b7244659-1e5b-478a-8709-d13fca2f78db",
+      "name": "Delete Payer",
+      "request": {
+        "name": "Delete Payer",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8cb85dbe-8547-447f-b342-591f9be365b4",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"You will get a 200 OK without any body.\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c85cbde5-4e7a-4f9c-86a0-e4a764ce55f4",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"payerId\\\",\\n        \\\"errorMessage\\\": \\\"Payer with id: pyr_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cdceaffa-0709-4119-b3f4-4cc19916c2ad",
+      "name": "Get Payer",
+      "request": {
+        "name": "Get Payer",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "bebd60b2-9fb8-4ac5-bdf8-28549ccae9b0",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n  \\\"firstName\\\": \\\"Fred\\\",\\n  \\\"lastName\\\": \\\"Hamburger\\\",\\n  \\\"emailAddress\\\": \\\"fred@mailinator.com\\\",\\n  \\\"mobileNumber\\\": \\\"0400000000\\\",\\n  \\\"streetAddress\\\": \\\"123 Main St\\\",\\n  \\\"suburb\\\": \\\"Brisbane\\\",\\n  \\\"postcode\\\": \\\"4000\\\",\\n  \\\"state\\\": \\\"QLD\\\",\\n  \\\"country\\\": \\\"Australia\\\",\\n  \\\"companyName\\\": \\\"Fred Incorporated\\\",\\n  \\\"companyRegistrationNumber\\\": \\\"64123456789\\\",\\n  \\\"metadata\\\": null,\\n  \\\"sources\\\": [\\n    {\\n      \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n      \\\"sourceType\\\": \\\"bank-account\\\",\\n      \\\"bankAccountNumber\\\": \\\"654654\\\",\\n      \\\"bankAccountBsb\\\": \\\"123456\\\",\\n      \\\"bankAccountName\\\": \\\"Fred Hamburger\\\",\\n      \\\"token\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n      \\\"cardHolderName\\\": null,\\n      \\\"expiryDate\\\": null,\\n      \\\"displayCardNumber\\\": \\\"4654\\\",\\n      \\\"cardScheme\\\": null,\\n      \\\"origin\\\": \\\"AU\\\",\\n      \\\"funding\\\": null,\\n      \\\"isAuthorised\\\": true,\\n      \\\"supportsRealtime\\\": false\\n    }\\n  ],\\n  \\\"agreements\\\": [\\n    {\\n      \\\"id\\\": \\\"agr_XXXXXXXXXXXXXX\\\",\\n      \\\"anonymousViewToken\\\": \\\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n      \\\"agreementDateUtc\\\": \\\"2017-04-18T10:01:53.0440599\\\",\\n      \\\"confirmedDateUtc\\\": null\\n    }\\n  ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "a12273d0-9137-4f76-86b0-0bd98bd7c4e8",
+          "name": "404",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2f9be7fd-03fe-4ce3-ad0b-24411acb95c4",
+      "name": "Delete Payment Source",
+      "request": {
+        "name": "Delete Payment Source",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers",
+            ":id",
+            "sources",
+            ":sourceId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "sourceId",
+              "description": "(Required) Source Id in src_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "afc13bbf-d276-4464-bb7b-afeeea63ac05",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id",
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) Source Id in src_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"You will get a 200 OK without any body.\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "46da2c2a-084a-49c7-a774-8e234331fe7f",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers",
+                ":id",
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payer Id in pyr_XXXXXXXXXXXXXX format"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) Source Id in src_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"sourceId\\\",\\n        \\\"errorMessage\\\": \\\"Source with id: src_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2b3547d8-9ce4-47dd-afdb-0e0f7f412b48",
+      "name": "List Payers",
+      "request": {
+        "name": "List Payers",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page."
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            },
+            {
+              "disabled": false,
+              "key": "filter",
+              "value": "<string>",
+              "description": "Optional string filter to search for payers by Name or Email address"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b0f0ae1c-f81e-426f-bfaa-e43209c40702",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"page\\\": 1,\\n  \\\"pageSize\\\": 50,\\n  \\\"totalPages\\\": 1,\\n  \\\"totalItems\\\": 3,\\n  \\\"data\\\": [\\n    {\\n      \\\"id\\\": \\\"pyr_4xdOSXNYZPCtSp\\\",\\n      \\\"firstName\\\": \\\"Ben\\\",\\n      \\\"lastName\\\": \\\"Test 7\\\",\\n      \\\"emailAddress\\\": \\\"bentest7@mailinator.com\\\",\\n      \\\"mobileNumber\\\": null\\n    },\\n    {\\n      \\\"id\\\": \\\"pyr_k9lFmPe5WZ2KxE\\\",\\n      \\\"firstName\\\": \\\"Ben\\\",\\n      \\\"lastName\\\": \\\"Test 4\\\",\\n      \\\"emailAddress\\\": \\\"bentest4@mailinator.com\\\",\\n      \\\"mobileNumber\\\": null\\n    },\\n    {\\n      \\\"id\\\": \\\"pyr_d4gecz4zpa2dJa\\\",\\n      \\\"firstName\\\": \\\"Ben\\\",\\n      \\\"lastName\\\": \\\"Test 6\\\",\\n      \\\"emailAddress\\\": \\\"bentest6@mailinator.com\\\",\\n      \\\"mobileNumber\\\": null\\n    }\\n  ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b0687a32-1874-4dd9-92bf-d7a78d1c1047",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d9c20a1f-4a9d-4613-b245-66b0293f1db4",
+      "name": "Create or Update Payer",
+      "request": {
+        "name": "Create or Update Payer",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"<string>\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "81cfbe5a-2d24-4729-8a2d-ace5ddef878c",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"<string>\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n    \\\"firstName\\\": \\\"Test\\\",\\n    \\\"lastName\\\": \\\"WebSample3\\\",\\n    \\\"emailAddress\\\": \\\"testwebsample@mailinator.com\\\",\\n    \\\"mobileNumber\\\": \\\"0400000000\\\",\\n    \\\"streetAddress\\\": \\\"123 Fake st\\\",\\n    \\\"suburb\\\": \\\"Teneriffe\\\",\\n    \\\"postcode\\\": \\\"4005\\\",\\n    \\\"state\\\": \\\"QLD\\\",\\n    \\\"country\\\": \\\"Australia\\\",\\n    \\\"companyName\\\": \\\"Test Company\\\",\\n    \\\"companyRegistrationNumber\\\": \\\"111111\\\",\\n    \\\"metadata\\\": null,\\n    \\\"sources\\\": [\\n        {\\n            \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n            \\\"sourceType\\\": \\\"credit-card\\\",\\n            \\\"bankAccountNumber\\\": null,\\n            \\\"bankAccountBsb\\\": null,\\n            \\\"bankAccountName\\\": null,\\n            \\\"creditCardToken\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n            \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n            \\\"expiryDate\\\": \\\"2022-12-01T00:00:00\\\",\\n            \\\"displayCardNumber\\\": \\\"4242\\\",\\n            \\\"cardScheme\\\": \\\"visa\\\",\\n            \\\"origin\\\": \\\"AU\\\",\\n            \\\"funding\\\": \\\"credit\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n            \\\"sourceType\\\": \\\"bank-account\\\",\\n            \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n            \\\"bankAccountBsb\\\": \\\"000000\\\",\\n            \\\"bankAccountName\\\": \\\"Example Name\\\",\\n            \\\"creditCardToken\\\": null,\\n            \\\"cardHolderName\\\": null,\\n            \\\"expiryDate\\\": null,\\n            \\\"displayCardNumber\\\": null,\\n            \\\"cardScheme\\\": null,\\n            \\\"origin\\\": \\\"AU\\\",\\n            \\\"funding\\\": null\\n        }\\n    ],\\n    \\\"agreements\\\": [\\n        {\\n            \\\"id\\\": \\\"agr_XXXXXXXXXXXXXX\\\",\\n            \\\"anonymousViewToken\\\": \\\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n            \\\"agreementDateUtc\\\": \\\"2021-04-29T05:30:44.0094217Z\\\",\\n            \\\"confirmedDateUtc\\\": \\\"2021-04-29T05:30:44.076392Z\\\",\\n            \\\"status\\\": \\\"active\\\"\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "5d0e480d-2976-4f65-975d-c6200a517140",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"<string>\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{\n    \"id\": \"pyr_XXXXXXXXXXXXXX\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"WebSample3\",\n    \"emailAddress\": \"testwebsample@mailinator.com\",\n    \"mobileNumber\": \"0400000000\",\n    \"streetAddress\": \"123 Fake st\",\n    \"suburb\": \"Teneriffe\",\n    \"postcode\": \"4005\",\n    \"state\": \"QLD\",\n    \"country\": \"Australia\",\n    \"companyName\": \"Test Company\",\n    \"companyRegistrationNumber\": \"112233\",\n    \"metadata\": null,\n    \"sources\": [\n        {\n            \"id\": \"src_XXXXXXXXXXXXXX\",\n            \"sourceType\": \"bank-account\",\n            \"bankAccountNumber\": \"000000000\",\n            \"bankAccountBsb\": \"000000\",\n            \"bankAccountName\": \"Example Name\",\n            \"creditCardToken\": null,\n            \"cardHolderName\": null,\n            \"expiryDate\": null,\n            \"displayCardNumber\": null,\n            \"cardScheme\": null,\n            \"origin\": \"AU\"\n        }\n    ],\n    \"agreements\": [\n        {\n            \"id\": \"agr_XXXXXXXXXXXXXX\",\n            \"anonymousViewToken\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n            \"agreementDateUtc\": \"2021-04-16T04:28:04.2957723Z\",\n            \"confirmedDateUtc\": \"2021-04-16T04:28:04.3152653Z\",\n            \"status\": \"active\"\n        }\n    ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "4921fe7f-a7d0-4a23-805f-afabd9d87347",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"id\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"source\": {\n    \"sourceType\": \"<string>\",\n    \"token\": \"<string>\",\n    \"ipAddress\": \"<string>\"\n  },\n  \"companyName\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"metadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"MobileNumber\\\",\\n        \\\"errorMessage\\\": \\\"Mobile number must be a valid Australian number without international codes.\\\",\\n        \\\"attemptedValue\\\": \\\"0000000000\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"MobileNumberValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Mobile Number\\\",\\n            \\\"PropertyValue\\\": \\\"0000000000\\\"\\n        },\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "9eaa7222-c28e-4a0b-94c0-7ac08334d313",
+    "name": "pinch-api-payers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2895 @@
+{
+  "item": [
+    {
+      "id": "eb2364c1-1279-47fa-89b0-fefd8dabe177",
+      "name": "Calculate Fees",
+      "request": {
+        "name": "Calculate Fees",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "fees",
+            "calculate"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"token\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"applicationFee\": \"<long>\",\n  \"currency\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ae619769-682e-4855-9c71-429c3b572bd6",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "fees",
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"applicationFee\": \"<long>\",\n  \"currency\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"amount\\\": 100,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"netAmount\\\": 67,\\n    \\\"isSurcharged\\\": false,\\n    \\\"convertedAmount\\\": null,\\n    \\\"convertedCurrency\\\": null,\\n    \\\"convertedNetAmount\\\": null,\\n    \\\"fees\\\": {\\n        \\\"transactionFee\\\": 33,\\n        \\\"applicationFee\\\": 0,\\n        \\\"totalFee\\\": 33,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"taxRate\\\": 0.1,\\n        \\\"convertedTransactionFee\\\": null,\\n        \\\"convertedApplicationFee\\\": null,\\n        \\\"convertedTotalFee\\\": null,\\n        \\\"convertedCurrency\\\": null,\\n        \\\"conversionRate\\\": null\\n    },\\n    \\\"source\\\": {\\n        \\\"id\\\": null,\\n        \\\"sourceType\\\": \\\"credit-card\\\",\\n        \\\"bankAccountNumber\\\": null,\\n        \\\"bankAccountBsb\\\": null,\\n        \\\"bankAccountName\\\": null,\\n        \\\"creditCardToken\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n        \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n        \\\"expiryDate\\\": \\\"2022-12-01T00:00:00\\\",\\n        \\\"displayCardNumber\\\": \\\"4242\\\",\\n        \\\"cardScheme\\\": \\\"visa\\\",\\n        \\\"origin\\\": \\\"AU\\\",\\n        \\\"funding\\\": \\\"credit\\\"\\n    },\\n    \\\"feeSchedule\\\": {\\n        \\\"destinationZone\\\": \\\"AU\\\",\\n        \\\"originZone\\\": \\\"AU\\\",\\n        \\\"feeScheme\\\": \\\"visa-master\\\",\\n        \\\"percentageFee\\\": 0.025,\\n        \\\"fixedFee\\\": 30,\\n        \\\"cap\\\": 0,\\n        \\\"dishonourFee\\\": 0,\\n        \\\"disputeFee\\\": 3500\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "f093e4dd-948e-44da-b82b-ff2d34a454ab",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "fees",
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"applicationFee\": \"<long>\",\n  \"currency\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"You must supply one of either: Token, SourceId, SourceType\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d9175944-248a-4d9c-a602-f1779321e1dd",
+      "name": "get plans-planid-calculated-payments",
+      "request": {
+        "name": "get plans-planid-calculated-payments",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "plans",
+            ":planId",
+            "calculated-payments"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "startDate",
+              "value": "<dateTime>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "totalAmount",
+              "value": "<number>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "planId",
+              "description": "(Required) Plan Id to calculate Payments for (string identifier starting with *pln_*)"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e3432af1-e181-4b59-83c6-2567fe56e7c2",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans",
+                ":planId",
+                "calculated-payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "totalAmount",
+                  "value": "<number>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "planId",
+                  "description": "(Required) Plan Id to calculate Payments for (string identifier starting with *pln_*)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e18c9986-3f92-4b7f-b13a-6e82529f06a4",
+      "name": "Cancel Subscription",
+      "request": {
+        "name": "Cancel Subscription",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "subscriptions",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a3db8b2c-0ab9-46a1-abc8-94ac071d38e4",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[no body]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e28b13ae-0330-4410-b147-b69da585db8b",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"errorMessages\\\": [\\n        {\\n            \\\"propertyName\\\": \\\"\\\",\\n            \\\"errorMessage\\\": \\\"Could not find subscription with id: sub_XXXXXXXXXXXXXX\\\",\\n            \\\"attemptedValue\\\": null,\\n            \\\"customState\\\": null,\\n            \\\"severity\\\": 0,\\n            \\\"errorCode\\\": null,\\n            \\\"formattedMessageArguments\\\": null,\\n            \\\"formattedMessagePlaceholderValues\\\": null,\\n            \\\"resourceName\\\": null\\n        }\\n    ],\\n    \\\"successful\\\": false\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "794bbf37-6bdc-4579-8e3f-7bfae5948084",
+      "name": "Get Subscription",
+      "request": {
+        "name": "Get Subscription",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "subscriptions",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c2235e8d-5c5a-4f18-9283-2389caafbb3b",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"sub_XXXXXXXXXXXXXX\\\",\\n    \\\"payer\\\": {\\n        \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"firstName\\\": \\\"Ben\\\",\\n        \\\"lastName\\\": \\\"Hotdog\\\",\\n        \\\"emailAddress\\\": \\\"ben.hotdog@mailinator.com\\\",\\n        \\\"mobileNumber\\\": null,\\n        \\\"streetAddress\\\": null,\\n        \\\"suburb\\\": null,\\n        \\\"postcode\\\": null,\\n        \\\"state\\\": null,\\n        \\\"country\\\": null,\\n        \\\"companyName\\\": null,\\n        \\\"companyRegistrationNumber\\\": null,\\n        \\\"metadata\\\": null\\n    },\\n    \\\"planId\\\": \\\"pln_XXXXXXXXXXXXXX\\\",\\n    \\\"planName\\\": \\\"25% Deposit with 10% Monthly\\\",\\n    \\\"status\\\": \\\"active\\\",\\n    \\\"startDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\",\\n    \\\"freePeriods\\\": [\\n        {\\n            \\\"startDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\",\\n            \\\"durationOffset\\\": 1,\\n            \\\"durationInterval\\\": \\\"months\\\",\\n            \\\"metadata\\\": \\\"\\\"\\n        }\\n    ],\\n    \\\"fixedPayments\\\": [\\n        {\\n            \\\"amount\\\": 25000,\\n            \\\"description\\\": \\\"Upfront deposit\\\",\\n            \\\"cancelPlanOnFailure\\\": true,\\n            \\\"metadata\\\": null,\\n            \\\"transactionDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\"\\n        }\\n    ],\\n    \\\"recurringPayment\\\": {\\n        \\\"amount\\\": 10000,\\n        \\\"endAfterNumberOfPayments\\\": null,\\n        \\\"endAfterTotalAmount\\\": null,\\n        \\\"frequencyInterval\\\": \\\"months\\\",\\n        \\\"frequencyOffset\\\": 1,\\n        \\\"description\\\": \\\"Monthly Repayment\\\",\\n        \\\"cancelPlanOnFailure\\\": false,\\n        \\\"metadata\\\": null,\\n        \\\"endAfterDate\\\": null,\\n        \\\"startDate\\\": \\\"2021-06-21T14:00:00.0000000Z\\\"\\n    },\\n    \\\"totalAmount\\\": 100000,\\n    \\\"metadata\\\": \\\"\\\",\\n    \\\"surcharge\\\": [\\n        \\\"bank-account\\\",\\n        \\\"credit-card\\\"\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7ffc78d4-7b54-42ea-805f-fb7a10f48f57",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Subscription Id in sub_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"SubscriptionId\\\",\\n        \\\"errorMessage\\\": \\\"Subscription Id sub_XXXXXXXXXXXXXX not found.\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "24a19583-2958-4178-8665-8ee8fcbd45cc",
+      "name": "Check Refund Nonce",
+      "request": {
+        "name": "Check Refund Nonce",
+        "description": {
+          "content": "Check if a Nonce has already been added",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "refunds",
+            "nonce"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nonce\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "42bc32bd-22b1-462c-9128-005db1344f0a",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds",
+                "nonce"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nonce\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"isNonceReplay\\\": true,\\n    \\\"nonce\\\": \\\"test1234\\\",\\n    \\\"data\\\": {\\n        \\\"id\\\": \\\"ref_XGPRRXNZ\\\",\\n        \\\"amount\\\": 100,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"refundFeeCharged\\\": 0,\\n        \\\"requestedDate\\\": \\\"2021-05-11T02:29:56.6079210Z\\\",\\n        \\\"submittedDate\\\": null,\\n        \\\"completedDate\\\": null,\\n        \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n        \\\"notes\\\": null,\\n        \\\"convertedAmount\\\": null,\\n        \\\"conversionRate\\\": null,\\n        \\\"convertedCurrency\\\": null,\\n        \\\"isGross\\\": false,\\n        \\\"status\\\": \\\"requested\\\",\\n        \\\"paymentId\\\": null,\\n        \\\"transferId\\\": null,\\n        \\\"refundedFees\\\": null,\\n        \\\"nonce\\\": \\\"test1234\\\"\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7799c72d-8592-4e9d-8ce1-a781767f8d73",
+      "name": "Create a Refund",
+      "request": {
+        "name": "Create a Refund",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "refunds"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"reason\": \"<string>\",\n  \"nonce\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d18d911d-3fa6-4a66-b5bd-968ff507cab0",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": \"pmt_XXXXXXXXXXXXXX\",\n  \"amount\": 1000,\n  \"reason\": \"Requested by Payer\",\n  \"nonce\": \"unique-string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"ref_995DGQ38\\\",\\n    \\\"amount\\\": 100,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"refundFeeCharged\\\": 0,\\n    \\\"requestedDate\\\": \\\"2021-05-14T00:08:11.7803470Z\\\",\\n    \\\"submittedDate\\\": null,\\n    \\\"completedDate\\\": null,\\n    \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n    \\\"notes\\\": null,\\n    \\\"convertedAmount\\\": null,\\n    \\\"conversionRate\\\": null,\\n    \\\"convertedCurrency\\\": null,\\n    \\\"isGross\\\": false,\\n    \\\"status\\\": \\\"requested\\\",\\n    \\\"paymentId\\\": null,\\n    \\\"transferId\\\": null,\\n    \\\"refundedFees\\\": null,\\n    \\\"nonce\\\": \\\"5781b2f0-9a09-4579-bbb8-eea734633b13\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d97b1f7a-58d9-4a94-b5f8-ce4a957013e7",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": \"pmt_XXXXXXXXXXXXXX\",\n  \"amount\": 1000,\n  \"reason\": \"Requested by Payer\",\n  \"nonce\": \"unique-string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a payment with ID: pmt_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "450c0f5b-ba4e-48a1-b189-57eea7a1001b",
+          "name": "403",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": \"pmt_XXXXXXXXXXXXXX\",\n  \"amount\": 1000,\n  \"reason\": \"Requested by Payer\",\n  \"nonce\": \"unique-string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"isNonceReplay\\\": true,\\n    \\\"nonce\\\": \\\"5781b2f0-9a09-4579-bbb8-eea734633b13\\\",\\n    \\\"data\\\": {\\n        \\\"id\\\": \\\"ref_995DGQ38\\\",\\n        \\\"amount\\\": 100,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"refundFeeCharged\\\": 0,\\n        \\\"requestedDate\\\": \\\"2021-05-14T00:08:11.7803470Z\\\",\\n        \\\"submittedDate\\\": null,\\n        \\\"completedDate\\\": null,\\n        \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n        \\\"notes\\\": null,\\n        \\\"convertedAmount\\\": null,\\n        \\\"conversionRate\\\": null,\\n        \\\"convertedCurrency\\\": null,\\n        \\\"isGross\\\": false,\\n        \\\"status\\\": \\\"requested\\\",\\n        \\\"paymentId\\\": null,\\n        \\\"transferId\\\": null,\\n        \\\"refundedFees\\\": null,\\n        \\\"nonce\\\": \\\"5781b2f0-9a09-4579-bbb8-eea734633b13\\\"\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d31739d9-37a8-4952-8628-19b5850cfeae",
+      "name": "List Refunds",
+      "request": {
+        "name": "List Refunds",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "refunds"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            },
+            {
+              "disabled": false,
+              "key": "startDate",
+              "value": "<date>"
+            },
+            {
+              "disabled": false,
+              "key": "endDate",
+              "value": "<date>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ff89e0ea-3f3b-46e0-a148-5397bbaf0bec",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 6,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-14T05:22:00.0980330Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"duplicate transaction\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": null\\n        },\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 100,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-11T02:29:56.6079210Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": \\\"test1234\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 100,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-11T01:08:37.2754508Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": \\\"test123\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 100,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-11T01:08:34.2568023Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": \\\"test123\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 1000,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-11T01:07:58.5216275Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": \\\"test123\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n            \\\"amount\\\": 1000,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"refundFeeCharged\\\": 0,\\n            \\\"requestedDate\\\": \\\"2021-05-11T00:00:41.6762465Z\\\",\\n            \\\"completedDate\\\": null,\\n            \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n            \\\"notes\\\": null,\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"isGross\\\": false,\\n            \\\"status\\\": \\\"requested\\\",\\n            \\\"transferId\\\": null,\\n            \\\"refundedFees\\\": null,\\n            \\\"nonce\\\": \\\"0e44d18b-8b69-4b9f-8736-bdd86a9e4aea\\\"\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "dc7c993e-1c54-407f-a2e8-1f9dad6cf43e",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "51c9e67d-4caa-43f0-a98e-62c5afc3bbd8",
+      "name": "Create Subscription",
+      "request": {
+        "name": "Create Subscription",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "subscriptions"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"planId\": \"<string>\",\n  \"payerId\": \"<string>\",\n  \"totalAmount\": \"<integer>\",\n  \"startDate\": \"<date>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "b654adf9-dff3-47a4-89c9-f5e97c886059",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planId\": \"pln_ZW7iySHhEZwldh\",\n  \"payerId\": \"pyr_vliHRkOJIHvN6b\",\n  \"totalAmount\": 100000,\n  \"startDate\": \"2020-05-22\",\n  \"surcharge\": [\n    \"bank-account\",\n    \"credit-card\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\": \\\"sub_ICbooeBtI7YE5I\\\",\\n  \\\"payer\\\": {\\n    \\\"id\\\": \\\"pyr_vliHRkOJIHvN6b\\\",\\n    \\\"firstName\\\": \\\"New\\\",\\n    \\\"lastName\\\": \\\"Payer 3\\\",\\n    \\\"emailAddress\\\": \\\"np3@mailinator.com\\\",\\n    \\\"mobileNumber\\\": null\\n  },\\n  \\\"planId\\\": \\\"pln_ZW7iySHhEZwldh\\\",\\n  \\\"planName\\\": \\\"25% Deposit with 10% Monthly\\\",\\n  \\\"status\\\": \\\"active\\\",\\n  \\\"startDate\\\": \\\"2020-05-21T14:00:00.0000000Z\\\",\\n  \\\"freePeriods\\\": [],\\n  \\\"fixedPayments\\\": [{\\n    \\\"amount\\\": 25000,\\n    \\\"description\\\": \\\"Upfront deposit\\\",\\n    \\\"cancelPlanOnFailure\\\": true,\\n    \\\"metadata\\\": null,\\n    \\\"transactionDate\\\": \\\"2020-05-21T14:00:00.0000000Z\\\"\\n  }],\\n  \\\"recurringPayment\\\": {\\n    \\\"amount\\\": 10000,\\n    \\\"endAfterNumberOfPayments\\\": null,\\n    \\\"endAfterTotalAmount\\\": null,\\n    \\\"frequencyInterval\\\": \\\"months\\\",\\n    \\\"frequencyOffset\\\": 1,\\n    \\\"description\\\": \\\"Monthly Repayment\\\",\\n    \\\"cancelPlanOnFailure\\\": false,\\n    \\\"metadata\\\": null,\\n    \\\"endAfterDate\\\": null,\\n    \\\"startDate\\\": \\\"2020-06-21T14:00:00.0000000Z\\\"\\n  },\\n  \\\"totalAmount\\\": 100000,\\n  \\\"metadata\\\": null,\\n  \\\"surcharge\\\": [\\\"bank-account\\\",\\\"credit-card\\\"]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "9997442e-2577-459d-856b-cc13602ecf37",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planId\": \"pln_ZW7iySHhEZwldh\",\n  \"payerId\": \"pyr_vliHRkOJIHvN6b\",\n  \"totalAmount\": 100000,\n  \"startDate\": \"2020-05-22\",\n  \"surcharge\": [\n    \"bank-account\",\n    \"credit-card\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a plan with id: pln_XXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4d0b521e-dece-40c3-abab-daafa40ac81d",
+      "name": "List Subscriptions",
+      "request": {
+        "name": "List Subscriptions",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "subscriptions"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c09761e4-aab6-4d60-bcdb-9e15d905e581",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 1,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"sub_\\\",\\n            \\\"payer\\\": {\\n                \\\"id\\\": \\\"pyr_\\\",\\n                \\\"firstName\\\": \\\"Ben\\\",\\n                \\\"lastName\\\": \\\"Hotdog\\\",\\n                \\\"emailAddress\\\": \\\"ben.hotdog@mailinator.com\\\",\\n                \\\"mobileNumber\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"companyName\\\": null,\\n                \\\"companyRegistrationNumber\\\": null,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"planId\\\": \\\"pln_rp0JFLx6qYaPGS\\\",\\n            \\\"planName\\\": \\\"25% Deposit with 10% Monthly\\\",\\n            \\\"status\\\": \\\"active\\\",\\n            \\\"startDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\",\\n            \\\"freePeriods\\\": [\\n                {\\n                    \\\"startDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\",\\n                    \\\"durationOffset\\\": 1,\\n                    \\\"durationInterval\\\": \\\"months\\\",\\n                    \\\"metadata\\\": \\\"\\\"\\n                }\\n            ],\\n            \\\"fixedPayments\\\": [\\n                {\\n                    \\\"amount\\\": 25000,\\n                    \\\"description\\\": \\\"Upfront deposit\\\",\\n                    \\\"cancelPlanOnFailure\\\": true,\\n                    \\\"metadata\\\": null,\\n                    \\\"transactionDate\\\": \\\"2021-05-21T14:00:00.0000000Z\\\"\\n                }\\n            ],\\n            \\\"recurringPayment\\\": {\\n                \\\"amount\\\": 10000,\\n                \\\"endAfterNumberOfPayments\\\": null,\\n                \\\"endAfterTotalAmount\\\": null,\\n                \\\"frequencyInterval\\\": \\\"months\\\",\\n                \\\"frequencyOffset\\\": 1,\\n                \\\"description\\\": \\\"Monthly Repayment\\\",\\n                \\\"cancelPlanOnFailure\\\": false,\\n                \\\"metadata\\\": null,\\n                \\\"endAfterDate\\\": null,\\n                \\\"startDate\\\": \\\"2021-06-21T14:00:00.0000000Z\\\"\\n            },\\n            \\\"totalAmount\\\": 100000,\\n            \\\"metadata\\\": \\\"\\\",\\n            \\\"surcharge\\\": [\\n                \\\"bank-account\\\",\\n                \\\"credit-card\\\"\\n            ]\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e7f77c94-1de0-4874-af0d-eb3ae02d4fbc",
+      "name": "Delete Plan",
+      "request": {
+        "name": "Delete Plan",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "plans",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "757bf5c1-12df-46f5-b441-fe5d1271d11b",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[no body]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6bcac15a-46a3-4dd8-b016-21c0a1d3bf84",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"id\\\",\\n        \\\"errorMessage\\\": \\\"Plan with id: pln_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e939143f-4c23-4638-9a9a-4a73780d56d3",
+      "name": "Get Plan",
+      "request": {
+        "name": "Get Plan",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "plans",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4e4d939e-ca0d-4ac2-91f3-dea681f37947",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\":\\\"pln_ZW7iySHhEZwldh\\\",\\n  \\\"name\\\":\\\"25% Deposit with 10% Monthly\\\",\\n  \\\"fixedPayments\\\":[\\n    {\\n      \\\"amountInCents\\\":null,\\n      \\\"amountPercentage\\\":0.25,\\n      \\\"description\\\":\\\"Upfront deposit\\\",\\n      \\\"scheduledDateOffset\\\":0,\\n      \\\"scheduledDateInterval\\\":\\\"days\\\",\\n      \\\"cancelPlanOnFailure\\\":true,\\n      \\\"metadata\\\":null\\n    }\\n  ],\\n  \\\"recurringPayment\\\":{\\n    \\\"amountInCents\\\":null,\\n    \\\"amountPercentage\\\":0.1,\\n    \\\"description\\\":\\\"Monthly Repayment\\\",\\n    \\\"startDateOffset\\\":1,\\n    \\\"startDateInterval\\\":\\\"months\\\",\\n    \\\"frequencyOffset\\\":1,\\n    \\\"frequencyInterval\\\":\\\"months\\\",\\n    \\\"endType\\\":\\\"subscription-fully-paid\\\",\\n    \\\"endDateOffset\\\":null,\\n    \\\"endDateInterval\\\":null,\\n    \\\"endAfterNumberOfPayments\\\":null,\\n    \\\"endAfterTotalAmount\\\":null,\\n    \\\"cancelPlanOnFailure\\\":false,\\n    \\\"metadata\\\":null\\n  },\\n  \\\"subscriberCount\\\":0,\\n  \\\"requiresTotalAmount\\\":true,\\n  \\\"metadata\\\":null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d224d327-ebcb-42fe-9d5d-c87d43f31c4a",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Plan Id in pln_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a plan with id: pln_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ac8e1938-d61e-483f-b707-84a599433535",
+      "name": "Get Event",
+      "request": {
+        "name": "Get Event",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "events",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Event Id in evt_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "073f4f72-a7e6-4f69-b162-15cd3134c483",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Event Id in evt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"evt_XXXXXXXXXXXXXX\\\",\\n    \\\"type\\\": \\\"realtime-payment\\\",\\n    \\\"eventDate\\\": \\\"2021-04-26T07:15:53.0251702\\\",\\n    \\\"metadata\\\": {\\n        \\\"status\\\": \\\"approved\\\",\\n        \\\"amount\\\": 1000\\n    },\\n    \\\"data\\\": {\\n        \\\"payment\\\": {\\n            \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n            \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1000,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"description\\\": \\\"test\\\",\\n            \\\"applicationFee\\\": 0,\\n            \\\"totalFee\\\": 55,\\n            \\\"isSurcharged\\\": false,\\n            \\\"sourceType\\\": \\\"credit-card\\\",\\n            \\\"transactionDate\\\": \\\"2021-04-26T07:15:52.8507613Z\\\",\\n            \\\"status\\\": \\\"approved\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-04-29\\\",\\n            \\\"actualTransferDate\\\": null,\\n            \\\"payer\\\": {\\n                \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n                \\\"firstName\\\": \\\"Test\\\",\\n                \\\"lastName\\\": \\\"Person\\\",\\n                \\\"emailAddress\\\": \\\"test.person@mailinator.com\\\",\\n                \\\"mobileNumber\\\": \\\"\\\",\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"companyName\\\": null,\\n                \\\"companyRegistrationNumber\\\": null,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscription\\\": null,\\n            \\\"attempts\\\": [\\n                {\\n                    \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n                    \\\"amount\\\": 1000,\\n                    \\\"currency\\\": \\\"AUD\\\",\\n                    \\\"convertedAmount\\\": null,\\n                    \\\"conversionRate\\\": null,\\n                    \\\"convertedCurrency\\\": null,\\n                    \\\"estimatedSettlementDate\\\": \\\"2021-04-29T00:00:00\\\",\\n                    \\\"isSurcharged\\\": false,\\n                    \\\"transactionDate\\\": \\\"2021-04-26T07:15:52.8507613Z\\\",\\n                    \\\"estimatedTransferDate\\\": \\\"2021-04-29\\\",\\n                    \\\"actualTransferDate\\\": null,\\n                    \\\"source\\\": {\\n                        \\\"id\\\": \\\"src_M489Kvi8INwmRo\\\",\\n                        \\\"sourceType\\\": \\\"credit-card\\\",\\n                        \\\"bankAccountNumber\\\": null,\\n                        \\\"bankAccountBsb\\\": null,\\n                        \\\"bankAccountName\\\": null,\\n                        \\\"creditCardToken\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n                        \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n                        \\\"expiryDate\\\": \\\"2022-12-01T00:00:00\\\",\\n                        \\\"displayCardNumber\\\": \\\"4242\\\",\\n                        \\\"cardScheme\\\": \\\"visa\\\",\\n                        \\\"origin\\\": \\\"AU\\\",\\n                        \\\"funding\\\": \\\"credit\\\"\\n                    },\\n                    \\\"dishonour\\\": null,\\n                    \\\"settlement\\\": null,\\n                    \\\"fees\\\": {\\n                        \\\"transactionFee\\\": 55,\\n                        \\\"applicationFee\\\": 0,\\n                        \\\"totalFee\\\": 55,\\n                        \\\"currency\\\": \\\"AUD\\\",\\n                        \\\"taxRate\\\": 0.1,\\n                        \\\"convertedTransactionFee\\\": null,\\n                        \\\"convertedApplicationFee\\\": null,\\n                        \\\"convertedTotalFee\\\": null,\\n                        \\\"convertedCurrency\\\": null,\\n                        \\\"conversionRate\\\": null\\n                    },\\n                    \\\"status\\\": \\\"approved\\\"\\n                }\\n            ],\\n            \\\"metadata\\\": null\\n        }\\n    },\\n    \\\"webhooks\\\": []\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "5af2a95b-3be6-4954-a693-2121767dddec",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Event Id in evt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ecf3bb28-8e8b-4006-a22a-8c3af5c1b745",
+      "name": "Get Fees",
+      "request": {
+        "name": "Get Fees",
+        "description": {
+          "content": "Get the current fee schedule for a merchant.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "fees"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "88d5a9da-20e5-4afa-8294-475cba2e6c22",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "fees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"effectiveDateUtc\\\": \\\"2024-11-11T02:19:02.7549843+00:00\\\",\\n    \\\"feeScheduleLines\\\": [\\n        {\\n            \\\"destinationZone\\\": \\\"AU\\\",\\n            \\\"originZone\\\": \\\"AU\\\",\\n            \\\"feeScheme\\\": \\\"direct-debit\\\",\\n            \\\"percentageFee\\\": 0.0100,\\n            \\\"fixedFee\\\": 30,\\n            \\\"cap\\\": 500,\\n            \\\"dishonourFee\\\": 500,\\n            \\\"disputeFee\\\": 2500,\\n            \\\"refundFeeFixed\\\": 0,\\n            \\\"feePresence\\\": \\\"any\\\",\\n            \\\"feeFunding\\\": \\\"any\\\",\\n            \\\"taxRate\\\": 0.1000\\n        },\\n        {\\n            \\\"destinationZone\\\": \\\"AU\\\",\\n            \\\"originZone\\\": \\\"AU\\\",\\n            \\\"feeScheme\\\": \\\"visa-master\\\",\\n            \\\"percentageFee\\\": 0.0195,\\n            \\\"fixedFee\\\": 30,\\n            \\\"cap\\\": 0,\\n            \\\"dishonourFee\\\": 0,\\n            \\\"disputeFee\\\": 3500,\\n            \\\"refundFeeFixed\\\": 0,\\n            \\\"feePresence\\\": \\\"any\\\",\\n            \\\"feeFunding\\\": \\\"any\\\",\\n            \\\"taxRate\\\": 0.1000\\n        },\\n        {\\n            \\\"destinationZone\\\": \\\"AU\\\",\\n            \\\"originZone\\\": \\\"AU\\\",\\n            \\\"feeScheme\\\": \\\"amex\\\",\\n            \\\"percentageFee\\\": 0.0250,\\n            \\\"fixedFee\\\": 30,\\n            \\\"cap\\\": 0,\\n            \\\"dishonourFee\\\": 0,\\n            \\\"disputeFee\\\": 3500,\\n            \\\"refundFeeFixed\\\": 0,\\n            \\\"feePresence\\\": \\\"any\\\",\\n            \\\"feeFunding\\\": \\\"any\\\",\\n            \\\"taxRate\\\": 0.1000\\n        },\\n        {\\n            \\\"destinationZone\\\": \\\"AU\\\",\\n            \\\"originZone\\\": \\\"INTL\\\",\\n            \\\"feeScheme\\\": \\\"visa-master\\\",\\n            \\\"percentageFee\\\": 0.0390,\\n            \\\"fixedFee\\\": 30,\\n            \\\"cap\\\": 0,\\n            \\\"dishonourFee\\\": 0,\\n            \\\"disputeFee\\\": 3500,\\n            \\\"refundFeeFixed\\\": 0,\\n            \\\"feePresence\\\": \\\"any\\\",\\n            \\\"feeFunding\\\": \\\"any\\\",\\n            \\\"taxRate\\\": 0.1000\\n        },\\n        {\\n            \\\"destinationZone\\\": \\\"AU\\\",\\n            \\\"originZone\\\": \\\"INTL\\\",\\n            \\\"feeScheme\\\": \\\"amex\\\",\\n            \\\"percentageFee\\\": 0.0390,\\n            \\\"fixedFee\\\": 30,\\n            \\\"cap\\\": 0,\\n            \\\"dishonourFee\\\": 0,\\n            \\\"disputeFee\\\": 3500,\\n            \\\"refundFeeFixed\\\": 0,\\n            \\\"feePresence\\\": \\\"any\\\",\\n            \\\"feeFunding\\\": \\\"any\\\",\\n            \\\"taxRate\\\": 0.1000\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "59a74501-feca-47cc-b399-2a93df1cea2e",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "fees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e09b4ce0-ea4a-4cbc-a1c0-d80bd5a98a1e",
+      "name": "Get Refund",
+      "request": {
+        "name": "Get Refund",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "refund",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Refund Id in ref_XXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e22a5e87-2134-4b43-a053-13d1191c40d8",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refund",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Refund Id in ref_XXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"paymentId\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n    \\\"transfer\\\": null,\\n    \\\"id\\\": \\\"ref_XXXXXXXX\\\",\\n    \\\"amount\\\": 1000,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"refundFeeCharged\\\": 0,\\n    \\\"requestedDate\\\": \\\"2021-05-13T07:25:38.2930268Z\\\",\\n    \\\"completedDate\\\": null,\\n    \\\"reasonForRefund\\\": \\\"Requested by Payer\\\",\\n    \\\"notes\\\": null,\\n    \\\"convertedAmount\\\": null,\\n    \\\"conversionRate\\\": null,\\n    \\\"convertedCurrency\\\": null,\\n    \\\"isGross\\\": false,\\n    \\\"status\\\": \\\"requested\\\",\\n    \\\"transferId\\\": null,\\n    \\\"refundedFees\\\": null,\\n    \\\"nonce\\\": \\\"354c3c8e-ddd6-4bdc-8d27-ee5d2dacb9fe\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6b299f5a-19c8-40a7-ade3-85e4b973f900",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refund",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Refund Id in ref_XXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"refundId\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a Refund with Id: ref_XXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bf6b88ff-775f-4cd4-8039-7f6695aa6364",
+      "name": "Health",
+      "request": {
+        "name": "Health",
+        "description": {
+          "content": "Endpoint to check the health of an auth token",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "health",
+            "auth"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "48e9c543-3daf-4abd-9ab7-526cfbcf91ef",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "health",
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7955abca-45d4-4b37-81a5-813d0447f7d5",
+          "name": "404",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "health",
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6aca9afd-401e-4c46-8cea-1384521f1a65",
+      "name": "List all events",
+      "request": {
+        "name": "List all events",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "events"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page."
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            },
+            {
+              "disabled": false,
+              "key": "startDate",
+              "value": "<date>"
+            },
+            {
+              "disabled": false,
+              "key": "endDate",
+              "value": "<date>"
+            },
+            {
+              "disabled": false,
+              "key": "eventType",
+              "value": "<string>",
+              "description": "If you wish to filter by a single event type, eg payment-created"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c65bf30d-c26d-405b-8972-4bb27d5b5af3",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "eventType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 27,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"evt_XXXX78\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:52.2322638\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 5158\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_XXXXZyCnCMGf\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:52.1636637\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_9kDXXXXBKFVq7\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:52.1097666\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_E7XXXXppYM\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:52.0472423\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_XXXXTgtYr\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:51.9966838\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_zN0XXXXrrcQ\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:51.9504904\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_YbvBXXXXWHxa\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:51.8988614\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_ZXXXXUzB\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:51.8491774\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 10287\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_DsXXXXJ3Q\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-21T00:05:51.7326694\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 25671\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_f2UXXXXvT8v\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:54:26.3388387\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_wYXtXXXXKE\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:54:26.2838371\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_8X4tXXXX4k\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:54:26.2278341\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_pLqXXXX3be\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:54:26.0846335\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_WmMWlXXXXCW\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:54:26.0220359\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_VLe5XXXXzQu\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:49:51.5979763\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_inMXXXX7RW\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:49:51.5438939\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_mXXXXdT\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:49:51.4902632\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_Xc5XXXX00vA\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:49:51.4326831\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_RXXXXtlG\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-20T23:49:51.31054\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 20543\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_YyRI7XXXXFA\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-19T07:14:14.7784695\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 1245\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_6XXXXXXXN6E\\\",\\n            \\\"type\\\": \\\"payer-updated\\\",\\n            \\\"eventDate\\\": \\\"2021-04-19T06:10:18.0038503\\\",\\n            \\\"metadata\\\": {\\n                \\\"payerName\\\": \\\"Test Payer\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_iFXXXXIS60\\\",\\n            \\\"type\\\": \\\"realtime-payment\\\",\\n            \\\"eventDate\\\": \\\"2021-04-19T05:43:01.3059479\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"approved\\\",\\n                \\\"amount\\\": 1245\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_kWXXXXMRy\\\",\\n            \\\"type\\\": \\\"realtime-payment\\\",\\n            \\\"eventDate\\\": \\\"2021-04-19T05:20:54.5339604\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"approved\\\",\\n                \\\"amount\\\": 1245\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_c2XXXXdB\\\",\\n            \\\"type\\\": \\\"payment-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-19T04:19:00.1411315\\\",\\n            \\\"metadata\\\": {\\n                \\\"status\\\": \\\"scheduled\\\",\\n                \\\"amount\\\": 1245\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_OXXXXoF7i\\\",\\n            \\\"type\\\": \\\"payer-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-16T04:28:04.3426884\\\",\\n            \\\"metadata\\\": {\\n                \\\"payerName\\\": \\\"Test WebSample3\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_7XXXXPD5R\\\",\\n            \\\"type\\\": \\\"payer-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-16T02:56:38.7232261\\\",\\n            \\\"metadata\\\": {\\n                \\\"payerName\\\": \\\"Test WebSample3\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": \\\"evt_fg5XXXXY77\\\",\\n            \\\"type\\\": \\\"payer-created\\\",\\n            \\\"eventDate\\\": \\\"2021-04-16T02:25:54.2549967\\\",\\n            \\\"metadata\\\": {\\n                \\\"payerName\\\": \\\"Another Payer\\\"\\n            }\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e644c6e0-fd57-4740-a3f9-6973b3a9d860",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "eventType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "3fa5d6f1-24cb-4b1a-9a07-9d9c8433f503",
+      "name": "List Plans",
+      "request": {
+        "name": "List Plans",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "plans"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page."
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "60870faa-b898-4216-85cf-5c1bcfdd96e6",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 3,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"pln_XXXXXX\\\",\\n            \\\"name\\\": \\\"20% Deposit with 20% Monthly\\\",\\n            \\\"freePeriods\\\": [\\n                {\\n                    \\\"startDateOffset\\\": 1,\\n                    \\\"startDateInterval\\\": \\\"days\\\",\\n                    \\\"durationOffset\\\": 1,\\n                    \\\"durationInterval\\\": \\\"months\\\",\\n                    \\\"metadata\\\": \\\"\\\"\\n                }\\n            ],\\n            \\\"fixedPayments\\\": [\\n                {\\n                    \\\"amountInCents\\\": null,\\n                    \\\"amountPercentage\\\": 0.2,\\n                    \\\"description\\\": \\\"Upfront deposit\\\",\\n                    \\\"scheduledDateOffset\\\": 0,\\n                    \\\"scheduledDateInterval\\\": \\\"days\\\",\\n                    \\\"cancelPlanOnFailure\\\": true,\\n                    \\\"metadata\\\": null\\n                }\\n            ],\\n            \\\"recurringPayment\\\": {\\n                \\\"amountInCents\\\": null,\\n                \\\"amountPercentage\\\": 0.2,\\n                \\\"description\\\": \\\"Monthly Repayment\\\",\\n                \\\"startDateOffset\\\": 1,\\n                \\\"startDateInterval\\\": \\\"months\\\",\\n                \\\"frequencyOffset\\\": 1,\\n                \\\"frequencyInterval\\\": \\\"months\\\",\\n                \\\"endType\\\": \\\"subscription-fully-paid\\\",\\n                \\\"endDateOffset\\\": null,\\n                \\\"endDateInterval\\\": null,\\n                \\\"endAfterNumberOfPayments\\\": null,\\n                \\\"endAfterTotalAmount\\\": null,\\n                \\\"cancelPlanOnFailure\\\": false,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscriberCount\\\": 0,\\n            \\\"requiresTotalAmount\\\": true,\\n            \\\"metadata\\\": \\\"\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"pln_XXXXXX2\\\",\\n            \\\"name\\\": \\\"20% Deposit with 20% Monthly\\\",\\n            \\\"freePeriods\\\": [\\n                {\\n                    \\\"startDateOffset\\\": 1,\\n                    \\\"startDateInterval\\\": \\\"days\\\",\\n                    \\\"durationOffset\\\": 1,\\n                    \\\"durationInterval\\\": \\\"months\\\",\\n                    \\\"metadata\\\": \\\"\\\"\\n                }\\n            ],\\n            \\\"fixedPayments\\\": [\\n                {\\n                    \\\"amountInCents\\\": null,\\n                    \\\"amountPercentage\\\": 0.2,\\n                    \\\"description\\\": \\\"Upfront deposit\\\",\\n                    \\\"scheduledDateOffset\\\": 0,\\n                    \\\"scheduledDateInterval\\\": \\\"days\\\",\\n                    \\\"cancelPlanOnFailure\\\": true,\\n                    \\\"metadata\\\": null\\n                }\\n            ],\\n            \\\"recurringPayment\\\": {\\n                \\\"amountInCents\\\": null,\\n                \\\"amountPercentage\\\": 0.2,\\n                \\\"description\\\": \\\"Monthly Repayment\\\",\\n                \\\"startDateOffset\\\": 1,\\n                \\\"startDateInterval\\\": \\\"months\\\",\\n                \\\"frequencyOffset\\\": 1,\\n                \\\"frequencyInterval\\\": \\\"months\\\",\\n                \\\"endType\\\": \\\"subscription-fully-paid\\\",\\n                \\\"endDateOffset\\\": null,\\n                \\\"endDateInterval\\\": null,\\n                \\\"endAfterNumberOfPayments\\\": null,\\n                \\\"endAfterTotalAmount\\\": null,\\n                \\\"cancelPlanOnFailure\\\": false,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscriberCount\\\": 0,\\n            \\\"requiresTotalAmount\\\": true,\\n            \\\"metadata\\\": \\\"\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"pln_XXXXXX3\\\",\\n            \\\"name\\\": \\\"25% Deposit with 10% Monthly\\\",\\n            \\\"freePeriods\\\": [\\n                {\\n                    \\\"startDateOffset\\\": 1,\\n                    \\\"startDateInterval\\\": \\\"days\\\",\\n                    \\\"durationOffset\\\": 1,\\n                    \\\"durationInterval\\\": \\\"months\\\",\\n                    \\\"metadata\\\": \\\"\\\"\\n                }\\n            ],\\n            \\\"fixedPayments\\\": [\\n                {\\n                    \\\"amountInCents\\\": null,\\n                    \\\"amountPercentage\\\": 0.25,\\n                    \\\"description\\\": \\\"Upfront deposit\\\",\\n                    \\\"scheduledDateOffset\\\": 0,\\n                    \\\"scheduledDateInterval\\\": \\\"days\\\",\\n                    \\\"cancelPlanOnFailure\\\": true,\\n                    \\\"metadata\\\": null\\n                }\\n            ],\\n            \\\"recurringPayment\\\": {\\n                \\\"amountInCents\\\": null,\\n                \\\"amountPercentage\\\": 0.1,\\n                \\\"description\\\": \\\"Monthly Repayment\\\",\\n                \\\"startDateOffset\\\": 1,\\n                \\\"startDateInterval\\\": \\\"months\\\",\\n                \\\"frequencyOffset\\\": 1,\\n                \\\"frequencyInterval\\\": \\\"months\\\",\\n                \\\"endType\\\": \\\"subscription-fully-paid\\\",\\n                \\\"endDateOffset\\\": null,\\n                \\\"endDateInterval\\\": null,\\n                \\\"endAfterNumberOfPayments\\\": null,\\n                \\\"endAfterTotalAmount\\\": null,\\n                \\\"cancelPlanOnFailure\\\": false,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscriberCount\\\": 0,\\n            \\\"requiresTotalAmount\\\": true,\\n            \\\"metadata\\\": \\\"\\\"\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7fef9e3a-d5d1-481e-b04f-646c1f90cc1d",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b3386639-e18f-4f0e-816a-52841518e726",
+      "name": "Create or Update Plan",
+      "request": {
+        "name": "Create or Update Plan",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "plans"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"freePeriods\": [\n    {\n      \"startDateOffset\": \"<integer>\",\n      \"startDateInterval\": \"<string>\",\n      \"durationOffset\": \"<integer>\",\n      \"durationInterval\": \"<string>\",\n      \"metadata\": \"<string>\"\n    },\n    {\n      \"startDateOffset\": \"<integer>\",\n      \"startDateInterval\": \"<string>\",\n      \"durationOffset\": \"<integer>\",\n      \"durationInterval\": \"<string>\",\n      \"metadata\": \"<string>\"\n    }\n  ],\n  \"fixedPayments\": [\n    {\n      \"amountInCents\": \"<long>\",\n      \"amountPercentage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"scheduledDateOffset\": \"<integer>\",\n      \"scheduledDateInterval\": \"<string>\",\n      \"cancelPlanOnFailure\": \"<boolean>\",\n      \"metadata\": \"<string>\"\n    },\n    {\n      \"amountInCents\": \"<long>\",\n      \"amountPercentage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"scheduledDateOffset\": \"<integer>\",\n      \"scheduledDateInterval\": \"<string>\",\n      \"cancelPlanOnFailure\": \"<boolean>\",\n      \"metadata\": \"<string>\"\n    }\n  ],\n  \"recurringPayment\": {\n    \"amountInCents\": \"<long>\",\n    \"amountPercentage\": \"<double>\",\n    \"description\": \"<string>\",\n    \"startDateOffset\": 0,\n    \"startDateInterval\": \"<string>\",\n    \"frequencyOffset\": \"<integer>\",\n    \"frequencyInterval\": \"<string>\",\n    \"endType\": \"<string>\",\n    \"endDateOffset\": \"<integer>\",\n    \"endDateInterval\": \"<string>\",\n    \"endAfterNumberOfPayments\": \"<integer>\",\n    \"endAfterTotalAmount\": \"<long>\",\n    \"cancelPlanOnFailure\": \"<boolean>\",\n    \"metadata\": \"<string>\"\n  },\n  \"metadata\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "41ca6f9d-cbd0-4209-8a58-a7467c1f7b66",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"25% Deposit with 10% Monthly\",\n  \"fixedPayments\": [\n    {\n      \"amountInCents\": null,\n      \"amountPercentage\": 0.25,\n      \"description\": \"Upfront deposit\",\n      \"cancelPlanOnFailure\": true,\n      \"scheduledDateInterval\": \"days\",\n      \"scheduledDateOffset\": 0\n    }\n  ],\n  \"recurringPayment\": {\n    \"amountInCents\": null,\n    \"amountPercentage\": 0.1,\n    \"description\": \"Monthly Repayment\",\n    \"cancelPlanOnFailure\": false,\n    \"startDateInterval\": \"months\",\n    \"startDateOffset\": 1,\n    \"endDateInterval\": null,\n    \"endDateOffset\": null,\n    \"frequencyInterval\": \"months\",\n    \"frequencyOffset\": 1,\n    \"endAfterNumberOfPayments\": null,\n    \"endAfterTotalAmount\": null,\n    \"endType\": \"subscription-fully-paid\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\":\\\"pln_ZW7iySHhEZwldh\\\",\\n  \\\"name\\\":\\\"25% Deposit with 10% Monthly\\\",\\n  \\\"fixedPayments\\\":[\\n    {\\n      \\\"amountInCents\\\":null,\\n      \\\"amountPercentage\\\":0.25,\\n      \\\"description\\\":\\\"Upfront deposit\\\",\\n      \\\"scheduledDateOffset\\\":0,\\n      \\\"scheduledDateInterval\\\":\\\"days\\\",\\n      \\\"cancelPlanOnFailure\\\":true,\\n      \\\"metadata\\\":null\\n    }\\n  ],\\n  \\\"recurringPayment\\\":{\\n    \\\"amountInCents\\\":null,\\n    \\\"amountPercentage\\\":0.1,\\n    \\\"description\\\":\\\"Monthly Repayment\\\",\\n    \\\"startDateOffset\\\":1,\\n    \\\"startDateInterval\\\":\\\"months\\\",\\n    \\\"frequencyOffset\\\":1,\\n    \\\"frequencyInterval\\\":\\\"months\\\",\\n    \\\"endType\\\":\\\"subscription-fully-paid\\\",\\n    \\\"endDateOffset\\\":null,\\n    \\\"endDateInterval\\\":null,\\n    \\\"endAfterNumberOfPayments\\\":null,\\n    \\\"endAfterTotalAmount\\\":null,\\n    \\\"cancelPlanOnFailure\\\":false,\\n    \\\"metadata\\\":null\\n  },\\n  \\\"subscriberCount\\\":0,\\n  \\\"requiresTotalAmount\\\":true,\\n  \\\"metadata\\\":null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7c710f75-0bec-47ec-9f04-f893291e9a92",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"25% Deposit with 10% Monthly\",\n  \"fixedPayments\": [\n    {\n      \"amountInCents\": null,\n      \"amountPercentage\": 0.25,\n      \"description\": \"Upfront deposit\",\n      \"cancelPlanOnFailure\": true,\n      \"scheduledDateInterval\": \"days\",\n      \"scheduledDateOffset\": 0\n    }\n  ],\n  \"recurringPayment\": {\n    \"amountInCents\": null,\n    \"amountPercentage\": 0.1,\n    \"description\": \"Monthly Repayment\",\n    \"cancelPlanOnFailure\": false,\n    \"startDateInterval\": \"months\",\n    \"startDateOffset\": 1,\n    \"endDateInterval\": null,\n    \"endDateOffset\": null,\n    \"frequencyInterval\": \"months\",\n    \"frequencyOffset\": 1,\n    \"endAfterNumberOfPayments\": null,\n    \"endAfterTotalAmount\": null,\n    \"endType\": \"subscription-fully-paid\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\":\\\"pln_ZW7iySHhEZwldh\\\",\\n  \\\"name\\\":\\\"25% Deposit with 10% Monthly\\\",\\n  \\\"fixedPayments\\\":[\\n    {\\n      \\\"amountInCents\\\":null,\\n      \\\"amountPercentage\\\":0.25,\\n      \\\"description\\\":\\\"Upfront deposit\\\",\\n      \\\"scheduledDateOffset\\\":0,\\n      \\\"scheduledDateInterval\\\":\\\"days\\\",\\n      \\\"cancelPlanOnFailure\\\":true,\\n      \\\"metadata\\\":null\\n    }\\n  ],\\n  \\\"recurringPayment\\\":{\\n    \\\"amountInCents\\\":null,\\n    \\\"amountPercentage\\\":0.1,\\n    \\\"description\\\":\\\"Monthly Repayment\\\",\\n    \\\"startDateOffset\\\":1,\\n    \\\"startDateInterval\\\":\\\"months\\\",\\n    \\\"frequencyOffset\\\":1,\\n    \\\"frequencyInterval\\\":\\\"months\\\",\\n    \\\"endType\\\":\\\"subscription-fully-paid\\\",\\n    \\\"endDateOffset\\\":null,\\n    \\\"endDateInterval\\\":null,\\n    \\\"endAfterNumberOfPayments\\\":null,\\n    \\\"endAfterTotalAmount\\\":null,\\n    \\\"cancelPlanOnFailure\\\":false,\\n    \\\"metadata\\\":null\\n  },\\n  \\\"subscriberCount\\\":0,\\n  \\\"requiresTotalAmount\\\":true,\\n  \\\"metadata\\\":null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6afa82fd-6195-42e4-99b5-a6f19157fda0",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"25% Deposit with 10% Monthly\",\n  \"fixedPayments\": [\n    {\n      \"amountInCents\": null,\n      \"amountPercentage\": 0.25,\n      \"description\": \"Upfront deposit\",\n      \"cancelPlanOnFailure\": true,\n      \"scheduledDateInterval\": \"days\",\n      \"scheduledDateOffset\": 0\n    }\n  ],\n  \"recurringPayment\": {\n    \"amountInCents\": null,\n    \"amountPercentage\": 0.1,\n    \"description\": \"Monthly Repayment\",\n    \"cancelPlanOnFailure\": false,\n    \"startDateInterval\": \"months\",\n    \"startDateOffset\": 1,\n    \"endDateInterval\": null,\n    \"endDateOffset\": null,\n    \"frequencyInterval\": \"months\",\n    \"frequencyOffset\": 1,\n    \"endAfterNumberOfPayments\": null,\n    \"endAfterTotalAmount\": null,\n    \"endType\": \"subscription-fully-paid\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"errors\\\": [\\n        {\\n            \\\"propertyName\\\": \\\"ScheduledDateOffset\\\",\\n            \\\"errorMessage\\\": \\\"'Scheduled Date Offset' must be between 0 and 9999. You entered -500.\\\",\\n            \\\"attemptedValue\\\": -500,\\n            \\\"customState\\\": null,\\n            \\\"severity\\\": 0,\\n            \\\"errorCode\\\": \\\"InclusiveBetweenValidator\\\",\\n            \\\"formattedMessageArguments\\\": [],\\n            \\\"formattedMessagePlaceholderValues\\\": {\\n                \\\"From\\\": 0,\\n                \\\"To\\\": 9999,\\n                \\\"Value\\\": -500,\\n                \\\"PropertyName\\\": \\\"Scheduled Date Offset\\\",\\n                \\\"PropertyValue\\\": -500\\n            },\\n            \\\"resourceName\\\": \\\"InclusiveBetweenValidator\\\"\\n        }\\n    ],\\n    \\\"inlineErrors\\\": {\\n        \\\"id\\\": \\\"\\\",\\n        \\\"name\\\": \\\"20% Deposit with 20% Monthly\\\",\\n        \\\"metadata\\\": \\\"\\\",\\n        \\\"freePeriods\\\": [],\\n        \\\"fixedPayments\\\": [\\n            {\\n                \\\"amountInCents\\\": null,\\n                \\\"amountPercentage\\\": 0.2,\\n                \\\"description\\\": \\\"Upfront deposit\\\",\\n                \\\"scheduledDateOffset\\\": -500,\\n                \\\"scheduledDateInterval\\\": \\\"days\\\",\\n                \\\"cancelPlanOnFailure\\\": true,\\n                \\\"metadata\\\": null,\\n                \\\"errors\\\": [\\n                    {\\n                        \\\"propertyName\\\": \\\"ScheduledDateOffset\\\",\\n                        \\\"errorMessage\\\": \\\"'Scheduled Date Offset' must be between 0 and 9999. You entered -500.\\\",\\n                        \\\"attemptedValue\\\": -500,\\n                        \\\"customState\\\": null,\\n                        \\\"severity\\\": 0,\\n                        \\\"errorCode\\\": \\\"InclusiveBetweenValidator\\\",\\n                        \\\"formattedMessageArguments\\\": [],\\n                        \\\"formattedMessagePlaceholderValues\\\": {\\n                            \\\"From\\\": 0,\\n                            \\\"To\\\": 9999,\\n                            \\\"Value\\\": -500,\\n                            \\\"PropertyName\\\": \\\"Scheduled Date Offset\\\",\\n                            \\\"PropertyValue\\\": -500\\n                        },\\n                        \\\"resourceName\\\": \\\"InclusiveBetweenValidator\\\"\\n                    }\\n                ]\\n            }\\n        ],\\n        \\\"recurringPayment\\\": {\\n            \\\"amountInCents\\\": null,\\n            \\\"amountPercentage\\\": 0.2,\\n            \\\"description\\\": \\\"Monthly Repayment\\\",\\n            \\\"startDateOffset\\\": 1,\\n            \\\"startDateInterval\\\": \\\"months\\\",\\n            \\\"frequencyOffset\\\": 1,\\n            \\\"frequencyInterval\\\": \\\"months\\\",\\n            \\\"endType\\\": \\\"subscription-fully-paid\\\",\\n            \\\"endDateOffset\\\": null,\\n            \\\"endDateInterval\\\": null,\\n            \\\"endAfterNumberOfPayments\\\": null,\\n            \\\"endAfterTotalAmount\\\": null,\\n            \\\"cancelPlanOnFailure\\\": false,\\n            \\\"metadata\\\": null,\\n            \\\"errors\\\": []\\n        },\\n        \\\"errors\\\": []\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "912f39a3-c54b-4049-bec8-60f98ef9047d",
+      "name": "Tokenise Payment Source",
+      "request": {
+        "name": "Tokenise Payment Source",
+        "description": {
+          "content": "Safely submit credit card or bank account details to our servers in exchange for a token that can be used in future.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "tokens"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"publishableKey\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"cvc\": \"<string>\",\n  \"expiryMonth\": \"<integer>\",\n  \"expiryYear\": \"<integer>\",\n  \"cardHolderName\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"bankAccountRouting\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "c70d32c2-8316-4dd4-914b-8402e0d1eacd",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publishableKey\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"cvc\": \"<string>\",\n  \"expiryMonth\": \"<integer>\",\n  \"expiryYear\": \"<integer>\",\n  \"cardHolderName\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"bankAccountRouting\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"token\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXX\\\",\\n    \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n    \\\"displayCardNumber\\\": \\\"4242\\\",\\n    \\\"expiryDate\\\": \\\"2022-12-01T00:00:00Z\\\",\\n    \\\"cardScheme\\\": \\\"visa\\\",\\n    \\\"origin\\\": \\\"AU\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "871dcd0c-3c75-4007-ada8-ebaeb052f933",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publishableKey\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"cvc\": \"<string>\",\n  \"expiryMonth\": \"<integer>\",\n  \"expiryYear\": \"<integer>\",\n  \"cardHolderName\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"bankAccountRouting\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Invalid publishable key: pk_test_XXXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "dd96d81e-5a2e-485d-8976-92403c76b189",
+          "name": "403",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publishableKey\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"cvc\": \"<string>\",\n  \"expiryMonth\": \"<integer>\",\n  \"expiryYear\": \"<integer>\",\n  \"cardHolderName\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"bankAccountRouting\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "ea4a0b3e-88ba-4720-ab07-b1c5e04f9300",
+    "name": "pinch-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

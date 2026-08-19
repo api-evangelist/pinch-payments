@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "20f3b6c5-dcc6-4f84-82a3-b5b0166b6d9d",
+      "name": "Get Current Merchant Financial Data",
+      "request": {
+        "name": "Get Current Merchant Financial Data",
+        "description": {
+          "content": "Returns the current (most recent) merchant financial data record",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchant-financial-data",
+            "current"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "502f4e07-5503-4238-b6e3-ac36a0c1cba4",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchant-financial-data",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"currency\": \"string\",\n  \"totalAnnualBusinessTurnover\": 8996,\n  \"totalAnnualCardSales\": 154,\n  \"averageTicketOrSalesAmount\": 8997,\n  \"captureMethod\": \"string\",\n  \"isDepositRequired\": false,\n  \"depositPercentage\": 5049.344667832184,\n  \"averageDeliveryTimeframe\": 1529,\n  \"hasRecurringTransactions\": false,\n  \"motoPercentage\": 654.8376354872265,\n  \"inStorePercentage\": 1607.5731259357474,\n  \"internetPercentage\": 6532.9080177174255,\n  \"percentageDeliveredIn0Days\": 76.43648630554,\n  \"percentageDeliveredIn7Days\": 6596.956402051982,\n  \"percentageDeliveredIn14Days\": 2068.5930147499876,\n  \"percentageDeliveredIn30Days\": 4501.421879353533,\n  \"percentageDeliveredInOver30Days\": 5529.162793153906,\n  \"percentageMagSwiped\": 9376.112297794214,\n  \"percentageKeyedManually\": 6626.105051712954,\n  \"percentageChipEnabled\": 8820.04652127253\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6968c425-2d5a-4197-9f83-0d3b50bc0a64",
+      "name": "Save Merchant Financial Data",
+      "request": {
+        "name": "Save Merchant Financial Data",
+        "description": {
+          "content": "Creates or updates merchant financial data",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchant-financial-data"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "5d7b577e-9ae3-4ba0-9b19-70b2dbaa5a37",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchant-financial-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"totalAnnualBusinessTurnover\": \"<long>\",\n  \"totalAnnualCardSales\": \"<long>\",\n  \"averageTicketOrSalesAmount\": \"<long>\",\n  \"captureMethod\": \"<string>\",\n  \"isDepositRequired\": \"<boolean>\",\n  \"depositPercentage\": \"<double>\",\n  \"averageDeliveryTimeframe\": \"<integer>\",\n  \"hasRecurringTransactions\": \"<boolean>\",\n  \"motoPercentage\": \"<double>\",\n  \"inStorePercentage\": \"<double>\",\n  \"internetPercentage\": \"<double>\",\n  \"percentageDeliveredIn0Days\": \"<double>\",\n  \"percentageDeliveredIn7Days\": \"<double>\",\n  \"percentageDeliveredIn14Days\": \"<double>\",\n  \"percentageDeliveredIn30Days\": \"<double>\",\n  \"percentageDeliveredInOver30Days\": \"<double>\",\n  \"percentageMagSwiped\": \"<double>\",\n  \"percentageKeyedManually\": \"<double>\",\n  \"percentageChipEnabled\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"currency\": \"string\",\n  \"totalAnnualBusinessTurnover\": 8996,\n  \"totalAnnualCardSales\": 154,\n  \"averageTicketOrSalesAmount\": 8997,\n  \"captureMethod\": \"string\",\n  \"isDepositRequired\": false,\n  \"depositPercentage\": 5049.344667832184,\n  \"averageDeliveryTimeframe\": 1529,\n  \"hasRecurringTransactions\": false,\n  \"motoPercentage\": 654.8376354872265,\n  \"inStorePercentage\": 1607.5731259357474,\n  \"internetPercentage\": 6532.9080177174255,\n  \"percentageDeliveredIn0Days\": 76.43648630554,\n  \"percentageDeliveredIn7Days\": 6596.956402051982,\n  \"percentageDeliveredIn14Days\": 2068.5930147499876,\n  \"percentageDeliveredIn30Days\": 4501.421879353533,\n  \"percentageDeliveredInOver30Days\": 5529.162793153906,\n  \"percentageMagSwiped\": 9376.112297794214,\n  \"percentageKeyedManually\": 6626.105051712954,\n  \"percentageChipEnabled\": 8820.04652127253\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "93e2e8bc-5384-4dea-8bc8-09ccf8735566",
+    "name": "pinch-api-merchant-financial-data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

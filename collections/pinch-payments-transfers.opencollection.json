@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-transfers",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Transfer",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/transfers/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Transfer Id in tra_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Transfer"
+    },
+    {
+      "info": {
+        "name": "List all transfers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/transfers",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page."
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          }
+        ]
+      },
+      "docs": "List all transfers"
+    },
+    {
+      "info": {
+        "name": "List transfer line items",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/transfers/items/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Transfer Id in tra_XXXXXXXXXXXXXX format"
+          },
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          }
+        ]
+      },
+      "docs": "List transfer line items"
+    }
+  ],
+  "bundled": true
+}

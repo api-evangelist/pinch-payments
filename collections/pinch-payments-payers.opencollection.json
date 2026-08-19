@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-payers",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Create Payment Source",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payers/:id/sources",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payer Id in pyr_XXXXXXXXXXXXXX format"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Payments sources are currently either a bank account or credit card"
+    },
+    {
+      "info": {
+        "name": "Get Payer",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payers/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payer Id in pyr_XXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Payer"
+    },
+    {
+      "info": {
+        "name": "Delete Payer",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/payers/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payer Id in pyr_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Delete Payer"
+    },
+    {
+      "info": {
+        "name": "Delete Payment Source",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/payers/:id/sources/:sourceId",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payer Id in pyr_XXXXXXXXXXXXXX format"
+          },
+          {
+            "name": "sourceId",
+            "value": "",
+            "type": "path",
+            "description": "Source Id in src_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Delete Payment Source"
+    },
+    {
+      "info": {
+        "name": "List Payers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payers",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page."
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          },
+          {
+            "name": "filter",
+            "value": "",
+            "type": "query",
+            "description": "Optional string filter to search for payers by Name or Email address"
+          }
+        ]
+      },
+      "docs": "List Payers"
+    },
+    {
+      "info": {
+        "name": "Create or Update Payer",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payers",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or Update Payer"
+    }
+  ],
+  "bundled": true
+}

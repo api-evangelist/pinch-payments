@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-webhooks",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List Webhooks",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/webhooks"
+      },
+      "docs": "List Webhooks"
+    },
+    {
+      "info": {
+        "name": "Create or Update Webhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/webhooks",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or Update Webhook"
+    },
+    {
+      "info": {
+        "name": "Get Webhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/webhooks/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Webhook Id in wbk_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Webhook"
+    },
+    {
+      "info": {
+        "name": "Delete Webhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/webhooks/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Webhook Id in wbk_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Delete Webhook"
+    }
+  ],
+  "bundled": true
+}

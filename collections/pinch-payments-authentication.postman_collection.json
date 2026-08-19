@@ -1,0 +1,223 @@
+{
+  "item": [
+    {
+      "id": "e4a3f816-1534-4d41-8d6b-08bbe7b91e18",
+      "name": "Authentication",
+      "request": {
+        "name": "Authentication",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "connect",
+            "token"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "grant_type",
+              "value": "client_credentials",
+              "description": "(Required) The grant type being requested. In this case we're using our client_credentials to identify ourselves. **Must be set to \"client_credentials\"**"
+            },
+            {
+              "disabled": false,
+              "key": "scope",
+              "value": "api1",
+              "description": "(Required) Specifically requesting access to the api. This will probably change in future. **Must be set to \"api1\"**"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "07b0062e-4b30-48d2-8f34-2d60a208758c",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "connect",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) The grant type being requested. In this case we're using our client_credentials to identify ourselves. **Must be set to \"client_credentials\"**",
+                    "type": "text/plain"
+                  },
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Specifically requesting access to the api. This will probably change in future. **Must be set to \"api1\"**",
+                    "type": "text/plain"
+                  },
+                  "key": "scope",
+                  "value": "api1"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"access_token\\\": \\\"eyJhbGciOiJSUzI1NiIsImtpZCI6IkRCNzgxNjc5NjYxOTE0Qjc1MzlCRTAyMEVFOUM0RjY4ODA1NzlGODYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIyM2dXZVdZWkZMZFRtLUFnN3B4UGFJQlhuNFkifQ.eyJuYmYiOjE0NjkxMDgxMjEsImV4cCI6MTQ2OTExMTcyMSwiaXNzIjoiaHR0cHM6Ly9waW5jaC1hdXRoNC5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6Imh0dHBzOi8vcGluY2gtYXV0aDQuYXp1cmV3ZWJzaXRlcy5uZXQvcmVzb3VyY2VzIiwiY2xpZW50X2lkIjoibWNoXzFRMkZka0FFdjNHcW53IiwidGVzdF9zdWJtZXJjaGFudF9pZCI6IjEiLCJsaXZlX3N1Ym1lcmNoYW50X2lkIjoiMiIsInNjb3BlIjoiYXBpMSJ9.iArv1xKDbN-ZiDMWbH4_rUqF7KdF0PYDWm7y_aNhNDzJelHKVfF62N-OuGog6yAo0XTv2FrwABkzZG0kCuzyR_FTbxCsQz4mUO7d8AXNYNVPv4CHeGlnwIpJJwDGRrD-ufdapDsD07kXFpI11s-SX4xrqlBjjyMYI-9ghMipDZgD7CA2jX00wJSgofOKGRRiBm1-lmYo3X8sGEHP-dF7CRM1s_shrX33rMB0FHHvKooEFAbA6tA2SOEHOLVlh1C6q6zX8lGsy1AqyS0dI3avflk-A1Ez047tA472I4F73yxhPjna8ihVFNpRWasBYRBkud4jDWyPrLIsW2QTUwBIhw\\\",\\n    \\\"expires_in\\\": 3600,\\n    \\\"token_type\\\": \\\"Bearer\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "3fb83e00-f609-429d-9bc6-a577d2afa5a9",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "connect",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) The grant type being requested. In this case we're using our client_credentials to identify ourselves. **Must be set to \"client_credentials\"**",
+                    "type": "text/plain"
+                  },
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Specifically requesting access to the api. This will probably change in future. **Must be set to \"api1\"**",
+                    "type": "text/plain"
+                  },
+                  "key": "scope",
+                  "value": "api1"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"error\\\": \\\"invalid_...\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://auth.getpinch.com.au",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dc3a850f-c4bb-4833-b4a1-c33645b318bd",
+    "name": "authentication-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

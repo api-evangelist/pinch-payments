@@ -1,0 +1,637 @@
+{
+  "item": [
+    {
+      "id": "56b9c645-08ce-4617-9b8b-059738bab25b",
+      "name": "Delete Contact",
+      "request": {
+        "name": "Delete Contact",
+        "description": {
+          "content": "Deletes a contact by ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "contacts",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) The contact identifier"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "89c4b72c-39bd-4252-8422-933f0b547b5b",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The contact identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6b66d15b-201f-4ea0-8b0e-41881e27ad22",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The contact identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"contactId\\\",\\n        \\\"errorMessage\\\": \\\"Contact with id: con_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "04d2f5fc-06c5-4cb9-bdf9-40a1553b66c9",
+      "name": "Get Contact",
+      "request": {
+        "name": "Get Contact",
+        "description": {
+          "content": "Retrieves a single contact by ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "contacts",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) The contact identifier (string identifier starting with `con_`)"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "31a3bf32-69b3-4093-bb44-b8c58e7c221c",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The contact identifier (string identifier starting with `con_`)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n    \\\"isPrimaryContact\\\": true,\\n    \\\"isUbo\\\": true,\\n    \\\"firstName\\\": \\\"John\\\",\\n    \\\"lastName\\\": \\\"Smith\\\",\\n    \\\"fullName\\\": \\\"John Smith\\\",\\n    \\\"email\\\": \\\"john.smith@example.com\\\",\\n    \\\"phone\\\": \\\"0412345678\\\",\\n    \\\"streetAddress\\\": \\\"123 Business St\\\",\\n    \\\"suburb\\\": \\\"Sydney\\\",\\n    \\\"postcode\\\": \\\"2000\\\",\\n    \\\"state\\\": \\\"NSW\\\",\\n    \\\"country\\\": \\\"Australia\\\",\\n    \\\"dob\\\": \\\"1980-05-15\\\",\\n    \\\"governmentNumberSupplied\\\": false,\\n    \\\"driversLicenseSupplied\\\": true,\\n    \\\"passportNumberSupplied\\\": false,\\n    \\\"contactType\\\": \\\"owner\\\",\\n    \\\"ownership\\\": 50.0,\\n    \\\"jobTitle\\\": \\\"CEO\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "1757139e-bf36-4983-9c7f-124200409a5a",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The contact identifier (string identifier starting with `con_`)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"id\\\",\\n        \\\"errorMessage\\\": \\\"Contact with id: con_XXXXXXXXXXXXXX not found\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "020102e3-0d5e-481a-bde5-32fd87ec2e05",
+      "name": "Get Contacts",
+      "request": {
+        "name": "Get Contacts",
+        "description": {
+          "content": "Retrieves a paginated list of contacts for the authenticated merchant.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "contacts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "Page number for pagination"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "Number of items per page (max 500)"
+            },
+            {
+              "disabled": false,
+              "key": "filter",
+              "value": "<string>",
+              "description": "Search filter"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7ae48a07-02e9-4a56-bfae-4d9420e60f31",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 2,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n            \\\"isPrimaryContact\\\": true,\\n            \\\"isUbo\\\": true,\\n            \\\"firstName\\\": \\\"John\\\",\\n            \\\"lastName\\\": \\\"Smith\\\",\\n            \\\"fullName\\\": \\\"John Smith\\\",\\n            \\\"email\\\": \\\"john.smith@example.com\\\",\\n            \\\"phone\\\": \\\"0412345678\\\",\\n            \\\"streetAddress\\\": \\\"123 Business St\\\",\\n            \\\"suburb\\\": \\\"Sydney\\\",\\n            \\\"postcode\\\": \\\"2000\\\",\\n            \\\"state\\\": \\\"NSW\\\",\\n            \\\"country\\\": \\\"Australia\\\",\\n            \\\"dob\\\": \\\"1980-05-15\\\",\\n            \\\"governmentNumberSupplied\\\": false,\\n            \\\"driversLicenseSupplied\\\": true,\\n            \\\"passportNumberSupplied\\\": false,\\n            \\\"contactType\\\": \\\"owner\\\",\\n            \\\"ownership\\\": 50.0,\\n            \\\"jobTitle\\\": \\\"CEO\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n            \\\"isPrimaryContact\\\": false,\\n            \\\"isUbo\\\": false,\\n            \\\"firstName\\\": \\\"Jane\\\",\\n            \\\"lastName\\\": \\\"Doe\\\",\\n            \\\"fullName\\\": \\\"Jane Doe\\\",\\n            \\\"email\\\": \\\"jane.doe@example.com\\\",\\n            \\\"phone\\\": \\\"0412345679\\\",\\n            \\\"streetAddress\\\": \\\"456 Corporate Ave\\\",\\n            \\\"suburb\\\": \\\"Melbourne\\\",\\n            \\\"postcode\\\": \\\"3000\\\",\\n            \\\"state\\\": \\\"VIC\\\",\\n            \\\"country\\\": \\\"Australia\\\",\\n            \\\"dob\\\": \\\"1985-08-20\\\",\\n            \\\"governmentNumberSupplied\\\": false,\\n            \\\"driversLicenseSupplied\\\": true,\\n            \\\"passportNumberSupplied\\\": false,\\n            \\\"contactType\\\": \\\"director\\\",\\n            \\\"ownership\\\": null,\\n            \\\"jobTitle\\\": \\\"CFO\\\"\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "38d4019c-28e6-4406-9157-018d48a1cf88",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"page\\\",\\n        \\\"errorMessage\\\": \\\"Page must be greater than 0.\\\",\\n        \\\"attemptedValue\\\": \\\"0\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"GreaterThanValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"page\\\",\\n            \\\"PropertyValue\\\": \\\"0\\\"\\n        },\\n        \\\"resourceName\\\": \\\"GreaterThanValidator\\\"\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f0d3f4c3-21e2-4415-869a-8ec9b0031400",
+      "name": "Create or Update Contact",
+      "request": {
+        "name": "Create or Update Contact",
+        "description": {
+          "content": "Creates a new contact or updates an existing one. If an `id` is provided in the request body, the contact will be updated; otherwise a new contact will be created.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "contacts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contactType\": \"<string>\",\n  \"id\": \"<string>\",\n  \"isPrimaryContact\": \"<boolean>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"dob\": \"<date>\",\n  \"governmentNumber\": \"<string>\",\n  \"passportNumber\": \"<string>\",\n  \"passportCountryCode\": \"<string>\",\n  \"driversLicenseNumber\": \"<string>\",\n  \"driversLicenseState\": \"<string>\",\n  \"driversLicenseCountryCode\": \"<string>\",\n  \"driversLicenseCardNumber\": \"<string>\",\n  \"driversLicenseExpiryDate\": \"<date>\",\n  \"ownership\": \"<double>\",\n  \"jobTitle\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "83131565-860a-42fb-8825-019051d452b4",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"phone\": 412345678,\n  \"streetAddress\": \"123 Business St\",\n  \"suburb\": \"Sydney\",\n  \"postcode\": \"2000\",\n  \"state\": \"NSW\",\n  \"country\": \"Australia\",\n  \"dob\": \"1980-05-15\",\n  \"isPrimaryContact\": true,\n  \"contactType\": \"owner\",\n  \"ownership\": 50,\n  \"jobTitle\": \"CEO\",\n  \"driversLicenseNumber\": \"12345678\",\n  \"driversLicenseState\": \"NSW\",\n  \"driversLicenseCountryCode\": \"AU\",\n  \"driversLicenseExpiryDate\": \"2025-12-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n    \\\"isPrimaryContact\\\": true,\\n    \\\"isUbo\\\": true,\\n    \\\"firstName\\\": \\\"John\\\",\\n    \\\"lastName\\\": \\\"Smith\\\",\\n    \\\"fullName\\\": \\\"John Smith\\\",\\n    \\\"email\\\": \\\"john.smith@example.com\\\",\\n    \\\"phone\\\": \\\"0412345678\\\",\\n    \\\"streetAddress\\\": \\\"123 Business St\\\",\\n    \\\"suburb\\\": \\\"Sydney\\\",\\n    \\\"postcode\\\": \\\"2000\\\",\\n    \\\"state\\\": \\\"NSW\\\",\\n    \\\"country\\\": \\\"Australia\\\",\\n    \\\"dob\\\": \\\"1980-05-15\\\",\\n    \\\"governmentNumberSupplied\\\": false,\\n    \\\"driversLicenseSupplied\\\": true,\\n    \\\"passportNumberSupplied\\\": false,\\n    \\\"contactType\\\": \\\"owner\\\",\\n    \\\"ownership\\\": 50.0,\\n    \\\"jobTitle\\\": \\\"CEO\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7f4ccc80-1c73-42dc-8e32-b55d7326fd9c",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"phone\": 412345678,\n  \"streetAddress\": \"123 Business St\",\n  \"suburb\": \"Sydney\",\n  \"postcode\": \"2000\",\n  \"state\": \"NSW\",\n  \"country\": \"Australia\",\n  \"dob\": \"1980-05-15\",\n  \"isPrimaryContact\": true,\n  \"contactType\": \"owner\",\n  \"ownership\": 50,\n  \"jobTitle\": \"CEO\",\n  \"driversLicenseNumber\": \"12345678\",\n  \"driversLicenseState\": \"NSW\",\n  \"driversLicenseCountryCode\": \"AU\",\n  \"driversLicenseExpiryDate\": \"2025-12-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"ContactType\\\",\\n        \\\"errorMessage\\\": \\\"'Contact Type' must not be empty.\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"NotEmptyValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Contact Type\\\",\\n            \\\"PropertyValue\\\": null\\n        },\\n        \\\"resourceName\\\": \\\"NotEmptyValidator\\\"\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "c346945f-1231-4d23-a50f-85200c0f6dc4",
+    "name": "pinch-api-contacts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

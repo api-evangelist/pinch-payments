@@ -1,0 +1,1330 @@
+{
+  "item": [
+    {
+      "id": "c34633b9-5e55-408d-9789-e7e27faf31e5",
+      "name": "Check Payment Nonce",
+      "request": {
+        "name": "Check Payment Nonce",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            "nonce"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nonce\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "b91668a1-e604-4c37-b777-9ce943dd96bf",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "nonce"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nonce\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"isNonceReplay\\\": true,\\n    \\\"nonce\\\": \\\"fdb06000-9d3f-4738-ab45-d8d9c7984e93\\\",\\n    \\\"data\\\": {\\n        \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptId\\\": \\\"att_XXXXXXXXX\\\",\\n        \\\"amount\\\": 1000,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"description\\\": \\\"Quis molestias labore incidunt voluptate repellat magni recusandae et.\\\",\\n        \\\"applicationFee\\\": 0,\\n        \\\"totalFee\\\": 55,\\n        \\\"isSurcharged\\\": false,\\n        \\\"sourceType\\\": \\\"credit-card\\\",\\n        \\\"transactionDate\\\": \\\"2021-05-14T00:49:55.7510577Z\\\",\\n        \\\"status\\\": \\\"approved\\\",\\n        \\\"estimatedTransferDate\\\": \\\"2021-05-18\\\",\\n        \\\"actualTransferDate\\\": null,\\n        \\\"payer\\\": {\\n            \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n            \\\"firstName\\\": \\\"Alex\\\",\\n            \\\"lastName\\\": \\\"Fadel\\\",\\n            \\\"emailAddress\\\": \\\"Willis_Wyman@example.com\\\",\\n            \\\"mobileNumber\\\": null,\\n            \\\"streetAddress\\\": null,\\n            \\\"suburb\\\": null,\\n            \\\"postcode\\\": null,\\n            \\\"state\\\": null,\\n            \\\"country\\\": null,\\n            \\\"companyName\\\": null,\\n            \\\"companyRegistrationNumber\\\": null,\\n            \\\"metadata\\\": null\\n        },\\n        \\\"subscription\\\": null,\\n        \\\"attempts\\\": [\\n            {\\n                \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n                \\\"amount\\\": 1000,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"convertedAmount\\\": null,\\n                \\\"conversionRate\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"estimatedSettlementDate\\\": \\\"2021-05-18T00:00:00\\\",\\n                \\\"isSurcharged\\\": false,\\n                \\\"transactionDate\\\": \\\"2021-05-14T00:49:55.7510577Z\\\",\\n                \\\"estimatedTransferDate\\\": \\\"2021-05-18\\\",\\n                \\\"actualTransferDate\\\": null,\\n                \\\"source\\\": null,\\n                \\\"dishonour\\\": null,\\n                \\\"settlement\\\": null,\\n                \\\"fees\\\": {\\n                    \\\"transactionFee\\\": 55,\\n                    \\\"applicationFee\\\": 0,\\n                    \\\"totalFee\\\": 55,\\n                    \\\"currency\\\": \\\"AUD\\\",\\n                    \\\"taxRate\\\": 0.1,\\n                    \\\"convertedTransactionFee\\\": null,\\n                    \\\"convertedApplicationFee\\\": null,\\n                    \\\"convertedTotalFee\\\": null,\\n                    \\\"convertedCurrency\\\": null,\\n                    \\\"conversionRate\\\": null\\n                },\\n                \\\"status\\\": \\\"approved\\\"\\n            }\\n        ],\\n        \\\"refunds\\\": [],\\n        \\\"metadata\\\": null,\\n        \\\"nonce\\\": \\\"fdb06000-9d3f-4738-ab45-d8d9c7984e93\\\"\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c5bef9e6-0842-434a-90fa-c758c60acd2d",
+      "name": "Delete payment",
+      "request": {
+        "name": "Delete payment",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "61b57e12-c45b-41ef-bce1-5e81beb1bca2",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"You will receive a 200 OK with no body\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "62ebd38a-dd00-4d0b-8360-17306fb2c5df",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"errorMessages\\\": [\\n        {\\n            \\\"propertyName\\\": \\\"paymentId\\\",\\n            \\\"errorMessage\\\": \\\"Payment with id: pmt_XXXXXXXXXXXXXX not found\\\",\\n            \\\"attemptedValue\\\": null,\\n            \\\"customState\\\": null,\\n            \\\"severity\\\": 0,\\n            \\\"errorCode\\\": null,\\n            \\\"formattedMessageArguments\\\": null,\\n            \\\"formattedMessagePlaceholderValues\\\": null,\\n            \\\"resourceName\\\": null\\n        }\\n    ],\\n    \\\"successful\\\": false\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "078929ca-0d92-4b20-b3cd-ab9b2776f89a",
+      "name": "Get Payment",
+      "request": {
+        "name": "Get Payment",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e3136670-bcec-47da-b9be-9bc5a746f4ca",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n    \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n    \\\"amount\\\": 1000,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"description\\\": \\\"asdfasdf\\\",\\n    \\\"applicationFee\\\": 0,\\n    \\\"totalFee\\\": 40,\\n    \\\"isSurcharged\\\": false,\\n    \\\"sourceType\\\": \\\"bank-account\\\",\\n    \\\"transactionDate\\\": \\\"2021-04-25T14:00:00.0000000Z\\\",\\n    \\\"status\\\": \\\"scheduled\\\",\\n    \\\"estimatedTransferDate\\\": \\\"2021-04-30\\\",\\n    \\\"actualTransferDate\\\": null,\\n    \\\"payer\\\": {\\n        \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"firstName\\\": \\\"Test\\\",\\n        \\\"lastName\\\": \\\"WebSample3\\\",\\n        \\\"emailAddress\\\": \\\"testwebsample@mailinator.com\\\",\\n        \\\"mobileNumber\\\": \\\"0400000000\\\",\\n        \\\"streetAddress\\\": \\\"123 Fake st\\\",\\n        \\\"suburb\\\": \\\"Teneriffe\\\",\\n        \\\"postcode\\\": \\\"4005\\\",\\n        \\\"state\\\": \\\"QLD\\\",\\n        \\\"country\\\": \\\"Australia\\\",\\n        \\\"companyName\\\": \\\"Test Company\\\",\\n        \\\"companyRegistrationNumber\\\": \\\"112233\\\",\\n        \\\"metadata\\\": null\\n    },\\n    \\\"subscription\\\": null,\\n    \\\"attempts\\\": [\\n        {\\n            \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1000,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"estimatedSettlementDate\\\": \\\"2021-04-30T00:00:00\\\",\\n            \\\"isSurcharged\\\": false,\\n            \\\"transactionDate\\\": \\\"2021-04-25T14:00:00.0000000Z\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-04-30\\\",\\n            \\\"actualTransferDate\\\": null,\\n            \\\"source\\\": {\\n                \\\"id\\\": \\\"src_vn4HGQxUhn2v3T\\\",\\n                \\\"sourceType\\\": \\\"bank-account\\\",\\n                \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n                \\\"bankAccountBsb\\\": \\\"000000\\\",\\n                \\\"bankAccountName\\\": \\\"Example Name\\\",\\n                \\\"creditCardToken\\\": null,\\n                \\\"cardHolderName\\\": null,\\n                \\\"expiryDate\\\": null,\\n                \\\"displayCardNumber\\\": null,\\n                \\\"cardScheme\\\": null,\\n                \\\"origin\\\": \\\"AU\\\",\\n                \\\"funding\\\": null\\n            },\\n            \\\"dishonour\\\": null,\\n            \\\"settlement\\\": null,\\n            \\\"fees\\\": {\\n                \\\"transactionFee\\\": 40,\\n                \\\"applicationFee\\\": 0,\\n                \\\"totalFee\\\": 40,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"taxRate\\\": 0.1,\\n                \\\"convertedTransactionFee\\\": null,\\n                \\\"convertedApplicationFee\\\": null,\\n                \\\"convertedTotalFee\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"conversionRate\\\": null\\n            },\\n            \\\"status\\\": \\\"scheduled\\\"\\n        }\\n    ],\\n    \\\"metadata\\\": null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "4a039b66-3400-4073-9e69-78ef579e4503",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pmt_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4bd9668d-371e-402b-a5cc-85c40a5ba142",
+      "name": "List Payments for Payer",
+      "request": {
+        "name": "List Payments for Payer",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            "payer",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Payment Id in pyr_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "dbeab2e1-66da-4470-94c7-7412bee5a999",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "payer",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n        \\\"amount\\\": 1245,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"description\\\": \\\"A lovely bunch of coconuts.\\\",\\n        \\\"applicationFee\\\": 0,\\n        \\\"totalFee\\\": 42,\\n        \\\"isSurcharged\\\": false,\\n        \\\"sourceType\\\": \\\"bank-account\\\",\\n        \\\"transactionDate\\\": \\\"2021-05-04T14:00:00.0000000Z\\\",\\n        \\\"status\\\": \\\"scheduled\\\",\\n        \\\"estimatedTransferDate\\\": \\\"2021-05-11\\\",\\n        \\\"actualTransferDate\\\": null,\\n        \\\"payer\\\": {\\n            \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n            \\\"firstName\\\": \\\"Test\\\",\\n            \\\"lastName\\\": \\\"Payer\\\",\\n            \\\"emailAddress\\\": \\\"test.payer@mailinator.com\\\",\\n            \\\"mobileNumber\\\": null,\\n            \\\"streetAddress\\\": null,\\n            \\\"suburb\\\": null,\\n            \\\"postcode\\\": null,\\n            \\\"state\\\": null,\\n            \\\"country\\\": null,\\n            \\\"companyName\\\": null,\\n            \\\"companyRegistrationNumber\\\": null,\\n            \\\"metadata\\\": null\\n        },\\n        \\\"subscription\\\": null,\\n        \\\"attempts\\\": [\\n            {\\n                \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n                \\\"amount\\\": 1245,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"convertedAmount\\\": null,\\n                \\\"conversionRate\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"estimatedSettlementDate\\\": \\\"2021-05-11T00:00:00\\\",\\n                \\\"isSurcharged\\\": false,\\n                \\\"transactionDate\\\": \\\"2021-05-04T14:00:00.0000000Z\\\",\\n                \\\"estimatedTransferDate\\\": \\\"2021-05-11\\\",\\n                \\\"actualTransferDate\\\": null,\\n                \\\"source\\\": {\\n                    \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n                    \\\"sourceType\\\": \\\"bank-account\\\",\\n                    \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n                    \\\"bankAccountBsb\\\": \\\"040000\\\",\\n                    \\\"bankAccountName\\\": \\\"Test Account\\\",\\n                    \\\"creditCardToken\\\": null,\\n                    \\\"cardHolderName\\\": null,\\n                    \\\"expiryDate\\\": null,\\n                    \\\"displayCardNumber\\\": null,\\n                    \\\"cardScheme\\\": null,\\n                    \\\"origin\\\": \\\"AU\\\"\\n                },\\n                \\\"dishonour\\\": null,\\n                \\\"settlement\\\": null,\\n                \\\"fees\\\": {\\n                    \\\"transactionFee\\\": 42,\\n                    \\\"applicationFee\\\": 0,\\n                    \\\"totalFee\\\": 42,\\n                    \\\"currency\\\": \\\"AUD\\\",\\n                    \\\"taxRate\\\": 0.1,\\n                    \\\"convertedTransactionFee\\\": null,\\n                    \\\"convertedApplicationFee\\\": null,\\n                    \\\"convertedTotalFee\\\": null,\\n                    \\\"convertedCurrency\\\": null,\\n                    \\\"conversionRate\\\": null\\n                },\\n                \\\"status\\\": \\\"scheduled\\\"\\n            }\\n        ],\\n        \\\"metadata\\\": null\\n    },\\n    {\\n        \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n        \\\"amount\\\": 1245,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"description\\\": \\\"A sweet new hat\\\",\\n        \\\"applicationFee\\\": 0,\\n        \\\"totalFee\\\": 61,\\n        \\\"isSurcharged\\\": false,\\n        \\\"sourceType\\\": \\\"credit-card\\\",\\n        \\\"transactionDate\\\": \\\"2021-04-19T05:43:01.2642435Z\\\",\\n        \\\"status\\\": \\\"approved\\\",\\n        \\\"estimatedTransferDate\\\": \\\"2021-04-21\\\",\\n        \\\"actualTransferDate\\\": null,\\n        \\\"payer\\\": {\\n            \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n            \\\"firstName\\\": \\\"Test\\\",\\n            \\\"lastName\\\": \\\"Payer\\\",\\n            \\\"emailAddress\\\": \\\"test.payer@mailinator.com\\\",\\n            \\\"mobileNumber\\\": null,\\n            \\\"streetAddress\\\": null,\\n            \\\"suburb\\\": null,\\n            \\\"postcode\\\": null,\\n            \\\"state\\\": null,\\n            \\\"country\\\": null,\\n            \\\"companyName\\\": null,\\n            \\\"companyRegistrationNumber\\\": null,\\n            \\\"metadata\\\": null\\n        },\\n        \\\"subscription\\\": null,\\n        \\\"attempts\\\": [\\n            {\\n                \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n                \\\"amount\\\": 1245,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"convertedAmount\\\": null,\\n                \\\"conversionRate\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"estimatedSettlementDate\\\": \\\"2021-04-21T00:00:00\\\",\\n                \\\"isSurcharged\\\": false,\\n                \\\"transactionDate\\\": \\\"2021-04-19T05:43:01.2642435Z\\\",\\n                \\\"estimatedTransferDate\\\": \\\"2021-04-21\\\",\\n                \\\"actualTransferDate\\\": null,\\n                \\\"source\\\": {\\n                    \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n                    \\\"sourceType\\\": \\\"credit-card\\\",\\n                    \\\"bankAccountNumber\\\": null,\\n                    \\\"bankAccountBsb\\\": null,\\n                    \\\"bankAccountName\\\": null,\\n                    \\\"creditCardToken\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n                    \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n                    \\\"expiryDate\\\": \\\"2022-12-01T00:00:00\\\",\\n                    \\\"displayCardNumber\\\": \\\"4242\\\",\\n                    \\\"cardScheme\\\": \\\"visa\\\",\\n                    \\\"origin\\\": \\\"AU\\\"\\n                },\\n                \\\"dishonour\\\": null,\\n                \\\"settlement\\\": null,\\n                \\\"fees\\\": {\\n                    \\\"transactionFee\\\": 61,\\n                    \\\"applicationFee\\\": 0,\\n                    \\\"totalFee\\\": 61,\\n                    \\\"currency\\\": \\\"AUD\\\",\\n                    \\\"taxRate\\\": 0.1,\\n                    \\\"convertedTransactionFee\\\": null,\\n                    \\\"convertedApplicationFee\\\": null,\\n                    \\\"convertedTotalFee\\\": null,\\n                    \\\"convertedCurrency\\\": null,\\n                    \\\"conversionRate\\\": null\\n                },\\n                \\\"status\\\": \\\"approved\\\"\\n            }\\n        ],\\n        \\\"metadata\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c77b9671-4972-4454-932b-2997fded09b0",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "payer",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payment Id in pyr_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"payerId\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a payer with ID: pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7787dbb1-dcfd-40ed-98d1-cc56894301e7",
+      "name": "List Payments - Processed",
+      "request": {
+        "name": "List Payments - Processed",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            "processed"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            },
+            {
+              "disabled": false,
+              "key": "startDate",
+              "value": "<date>",
+              "description": "Filter on Transaction Date"
+            },
+            {
+              "disabled": false,
+              "key": "endDate",
+              "value": "<date>",
+              "description": "Filter on Transaction Date"
+            },
+            {
+              "disabled": false,
+              "key": "filter",
+              "value": "<string>",
+              "description": "A payment Id (`pmt_`) or an Attempt Id (`att_`)"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7dfde8c7-1fbd-40d1-aed9-ae55f8e0dceb",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "processed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 2,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n            \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"description\\\": \\\"A sweet new hat\\\",\\n            \\\"applicationFee\\\": 0,\\n            \\\"totalFee\\\": 61,\\n            \\\"isSurcharged\\\": false,\\n            \\\"sourceType\\\": \\\"credit-card\\\",\\n            \\\"transactionDate\\\": \\\"2021-04-19T05:43:01.2642435Z\\\",\\n            \\\"status\\\": \\\"approved\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-04-21T00:00:00\\\",\\n            \\\"payer\\\": {\\n                \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n                \\\"firstName\\\": \\\"XXXXXX\\\",\\n                \\\"lastName\\\": \\\"XXXXXX\\\",\\n                \\\"emailAddress\\\": \\\"XXXXXX.XXXXXX@mailinator.com\\\",\\n                \\\"mobileNumber\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"companyName\\\": null,\\n                \\\"companyRegistrationNumber\\\": null,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscription\\\": null,\\n            \\\"metadata\\\": null\\n        },\\n        {\\n            \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n            \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"description\\\": \\\"A sweet new hat\\\",\\n            \\\"applicationFee\\\": 0,\\n            \\\"totalFee\\\": 61,\\n            \\\"isSurcharged\\\": false,\\n            \\\"sourceType\\\": \\\"credit-card\\\",\\n            \\\"transactionDate\\\": \\\"2021-04-19T05:20:54.4601157Z\\\",\\n            \\\"status\\\": \\\"approved\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-04-21T00:00:00\\\",\\n            \\\"payer\\\": {\\n                \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n                \\\"firstName\\\": \\\"Ben\\\",\\n                \\\"lastName\\\": \\\"Hotdog\\\",\\n                \\\"emailAddress\\\": \\\"ben.hotdog@mailinator.com\\\",\\n                \\\"mobileNumber\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"companyName\\\": null,\\n                \\\"companyRegistrationNumber\\\": null,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscription\\\": null,\\n            \\\"metadata\\\": null\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "fa7ccf22-dc63-43e6-97fa-ad42df3dd5bb",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "processed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "72a238bb-48e9-42d3-bdc0-d6e3e1b58b85",
+      "name": "List Payments - Scheduled",
+      "request": {
+        "name": "List Payments - Scheduled",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            "scheduled"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "19220cb6-bc98-49dc-a791-bfd4584521d1",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "scheduled"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 1,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n            \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"description\\\": \\\"A lovely bunch of coconuts.\\\",\\n            \\\"applicationFee\\\": 0,\\n            \\\"totalFee\\\": 42,\\n            \\\"isSurcharged\\\": false,\\n            \\\"sourceType\\\": \\\"bank-account\\\",\\n            \\\"transactionDate\\\": \\\"2021-05-04T14:00:00.0000000Z\\\",\\n            \\\"status\\\": \\\"scheduled\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-05-11T00:00:00\\\",\\n            \\\"payer\\\": {\\n                \\\"id\\\": \\\"pyr_XXXXXX\\\",\\n                \\\"firstName\\\": \\\"Test\\\",\\n                \\\"lastName\\\": \\\"Payer\\\",\\n                \\\"emailAddress\\\": \\\"test.payer@mailinator.com\\\",\\n                \\\"mobileNumber\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"companyName\\\": null,\\n                \\\"companyRegistrationNumber\\\": null,\\n                \\\"metadata\\\": null\\n            },\\n            \\\"subscription\\\": null,\\n            \\\"metadata\\\": null\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e6346d10-9499-4fd5-acf2-caa831e3e3de",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "scheduled"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "49093d2e-e5b3-4f78-8ae8-6f217ad1e556",
+      "name": "Create Realtime Payment",
+      "request": {
+        "name": "Create Realtime Payment",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments",
+            "realtime"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": \"<integer>\",\n  \"payerId\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"mobileNumber\": \"<string>\",\n  \"applicationFee\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"token\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "b84a0193-7f1f-441c-a652-65a5dba7c035",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "realtime"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Ben Hotdog\",\n  \"email\": \"ben.hotdog@mailinator.com\",\n  \"amount\": \"1245\",\n  \"description\": \"A sweet new hat\",\n  \"token\": \"tkn_dk9GpnBk2vIlSbxsOZ8Vk0FwCQBVeABk\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n    \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n    \\\"amount\\\": 1245,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"description\\\": \\\"A sweet new hat\\\",\\n    \\\"applicationFee\\\": 0,\\n    \\\"totalFee\\\": 61,\\n    \\\"isSurcharged\\\": false,\\n    \\\"sourceType\\\": \\\"credit-card\\\",\\n    \\\"transactionDate\\\": \\\"2021-04-19T05:20:54.4601157Z\\\",\\n    \\\"status\\\": \\\"approved\\\",\\n    \\\"estimatedTransferDate\\\": \\\"2021-04-21\\\",\\n    \\\"actualTransferDate\\\": null,\\n    \\\"payer\\\": {\\n        \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"firstName\\\": \\\"Ben\\\",\\n        \\\"lastName\\\": \\\"Hotdog\\\",\\n        \\\"emailAddress\\\": \\\"ben.hotdog@mailinator.com\\\",\\n        \\\"mobileNumber\\\": null,\\n        \\\"streetAddress\\\": null,\\n        \\\"suburb\\\": null,\\n        \\\"postcode\\\": null,\\n        \\\"state\\\": null,\\n        \\\"country\\\": null,\\n        \\\"companyName\\\": null,\\n        \\\"companyRegistrationNumber\\\": null,\\n        \\\"metadata\\\": null\\n    },\\n    \\\"subscription\\\": null,\\n    \\\"attempts\\\": [\\n        {\\n            \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"estimatedSettlementDate\\\": \\\"2021-04-21T00:00:00\\\",\\n            \\\"isSurcharged\\\": false,\\n            \\\"transactionDate\\\": \\\"2021-04-19T05:20:54.4601157Z\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-04-21\\\",\\n            \\\"actualTransferDate\\\": null,\\n            \\\"source\\\": {\\n                \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n                \\\"sourceType\\\": \\\"credit-card\\\",\\n                \\\"bankAccountNumber\\\": null,\\n                \\\"bankAccountBsb\\\": null,\\n                \\\"bankAccountName\\\": null,\\n                \\\"creditCardToken\\\": \\\"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\",\\n                \\\"cardHolderName\\\": \\\"Ben Hotdog\\\",\\n                \\\"expiryDate\\\": \\\"2022-12-01T00:00:00\\\",\\n                \\\"displayCardNumber\\\": \\\"4242\\\",\\n                \\\"cardScheme\\\": \\\"visa\\\",\\n                \\\"origin\\\": \\\"AU\\\"\\n            },\\n            \\\"dishonour\\\": null,\\n            \\\"settlement\\\": null,\\n            \\\"fees\\\": {\\n                \\\"transactionFee\\\": 61,\\n                \\\"applicationFee\\\": 0,\\n                \\\"totalFee\\\": 61,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"taxRate\\\": 0.1,\\n                \\\"convertedTransactionFee\\\": null,\\n                \\\"convertedApplicationFee\\\": null,\\n                \\\"convertedTotalFee\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"conversionRate\\\": null\\n            },\\n            \\\"status\\\": \\\"approved\\\"\\n        }\\n    ],\\n    \\\"metadata\\\": null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "fadc969f-5666-4a5d-9db6-a1acad536eed",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments",
+                "realtime"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Ben Hotdog\",\n  \"email\": \"ben.hotdog@mailinator.com\",\n  \"amount\": \"1245\",\n  \"description\": \"A sweet new hat\",\n  \"token\": \"tkn_dk9GpnBk2vIlSbxsOZ8Vk0FwCQBVeABk\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "fc25f6e1-2fcf-45eb-b057-ab082998d0be",
+      "name": "Create or Update Payment",
+      "request": {
+        "name": "Create or Update Payment",
+        "description": {
+          "content": "Create or Update a Scheduled Payment",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "payments"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"payerId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"transactionDate\": \"<date>\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nonce\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<string>\",\n  \"surcharge\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"applicationFee\": \"<integer>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2787f1e5-516f-4cce-a9c9-56eadd57f011",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerId\": \"pyr_dLCdmrOmXKwuWH\",\n  \"amount\": 1245,\n  \"transactionDate\": \"2017-05-05\",\n  \"description\": \"A lovely bunch of coconuts.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n    \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n    \\\"amount\\\": 1245,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"description\\\": \\\"A lovely bunch of coconuts.\\\",\\n    \\\"applicationFee\\\": 0,\\n    \\\"totalFee\\\": 42,\\n    \\\"isSurcharged\\\": false,\\n    \\\"sourceType\\\": \\\"bank-account\\\",\\n    \\\"transactionDate\\\": \\\"2021-05-19T14:00:00.0000000Z\\\",\\n    \\\"status\\\": \\\"scheduled\\\",\\n    \\\"estimatedTransferDate\\\": \\\"2021-05-26\\\",\\n    \\\"actualTransferDate\\\": null,\\n    \\\"payer\\\": {\\n        \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"firstName\\\": \\\"Test\\\",\\n        \\\"lastName\\\": \\\"WebSample3\\\",\\n        \\\"emailAddress\\\": \\\"testwebsample@mailinator.com\\\",\\n        \\\"mobileNumber\\\": \\\"0400000000\\\",\\n        \\\"streetAddress\\\": \\\"123 Fake st\\\",\\n        \\\"suburb\\\": \\\"Teneriffe\\\",\\n        \\\"postcode\\\": \\\"4005\\\",\\n        \\\"state\\\": \\\"QLD\\\",\\n        \\\"country\\\": \\\"Australia\\\",\\n        \\\"companyName\\\": \\\"Test Company\\\",\\n        \\\"companyRegistrationNumber\\\": \\\"111111\\\",\\n        \\\"metadata\\\": null\\n    },\\n    \\\"subscription\\\": null,\\n    \\\"attempts\\\": [\\n        {\\n            \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"estimatedSettlementDate\\\": \\\"2021-05-26T00:00:00\\\",\\n            \\\"isSurcharged\\\": false,\\n            \\\"transactionDate\\\": \\\"2021-05-19T14:00:00.0000000Z\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-05-26\\\",\\n            \\\"actualTransferDate\\\": null,\\n            \\\"source\\\": {\\n                \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n                \\\"sourceType\\\": \\\"bank-account\\\",\\n                \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n                \\\"bankAccountBsb\\\": \\\"000000\\\",\\n                \\\"bankAccountName\\\": \\\"Example Name\\\",\\n                \\\"creditCardToken\\\": null,\\n                \\\"cardHolderName\\\": null,\\n                \\\"expiryDate\\\": null,\\n                \\\"displayCardNumber\\\": null,\\n                \\\"cardScheme\\\": null,\\n                \\\"origin\\\": \\\"AU\\\",\\n                \\\"funding\\\": null\\n            },\\n            \\\"dishonour\\\": null,\\n            \\\"settlement\\\": null,\\n            \\\"fees\\\": {\\n                \\\"transactionFee\\\": 42,\\n                \\\"applicationFee\\\": 0,\\n                \\\"totalFee\\\": 42,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"taxRate\\\": 0.1,\\n                \\\"convertedTransactionFee\\\": null,\\n                \\\"convertedApplicationFee\\\": null,\\n                \\\"convertedTotalFee\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"conversionRate\\\": null\\n            },\\n            \\\"status\\\": \\\"scheduled\\\"\\n        }\\n    ],\\n    \\\"metadata\\\": null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "09005cd3-0087-41a1-978d-4cdb374dc52f",
+          "name": "201",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerId\": \"pyr_dLCdmrOmXKwuWH\",\n  \"amount\": 1245,\n  \"transactionDate\": \"2017-05-05\",\n  \"description\": \"A lovely bunch of coconuts.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{\n    \"id\": \"pmt_XXXXXXXXXXXXXX\",\n    \"attemptId\": \"att_XXXXXXXX\",\n    \"amount\": 1245,\n    \"currency\": \"AUD\",\n    \"description\": \"A lovely bunch of coconuts.\",\n    \"applicationFee\": 0,\n    \"totalFee\": 42,\n    \"isSurcharged\": false,\n    \"sourceType\": \"bank-account\",\n    \"transactionDate\": \"2021-05-04T14:00:00.0000000Z\",\n    \"status\": \"scheduled\",\n    \"estimatedTransferDate\": \"2021-05-11\",\n    \"actualTransferDate\": null,\n    \"payer\": {\n        \"id\": \"pyr_XXXXXXXXXXXXXX\",\n        \"firstName\": \"Test\",\n        \"lastName\": \"WebSample3\",\n        \"emailAddress\": \"testwebsample@mailinator.com\",\n        \"mobileNumber\": \"0400000000\",\n        \"streetAddress\": \"123 Fake st\",\n        \"suburb\": \"Teneriffe\",\n        \"postcode\": \"4005\",\n        \"state\": \"QLD\",\n        \"country\": \"Australia\",\n        \"companyName\": \"Test Company\",\n        \"companyRegistrationNumber\": \"111111\",\n        \"metadata\": null\n    },\n    \"subscription\": null,\n    \"attempts\": [\n        {\n            \"id\": \"att_XXXXXXXX\",\n            \"amount\": 1245,\n            \"currency\": \"AUD\",\n            \"convertedAmount\": null,\n            \"conversionRate\": null,\n            \"convertedCurrency\": null,\n            \"estimatedSettlementDate\": \"2021-05-11T00:00:00\",\n            \"isSurcharged\": false,\n            \"transactionDate\": \"2021-05-04T14:00:00.0000000Z\",\n            \"estimatedTransferDate\": \"2021-05-11\",\n            \"actualTransferDate\": null,\n            \"source\": {\n                \"id\": \"src_XXXXXXXXXXXXXX\",\n                \"sourceType\": \"bank-account\",\n                \"bankAccountNumber\": \"000000000\",\n                \"bankAccountBsb\": \"000000\",\n                \"bankAccountName\": \"Example Name\",\n                \"creditCardToken\": null,\n                \"cardHolderName\": null,\n                \"expiryDate\": null,\n                \"displayCardNumber\": null,\n                \"cardScheme\": null,\n                \"origin\": \"AU\",\n                \"funding\": null\n            },\n            \"dishonour\": null,\n            \"settlement\": null,\n            \"fees\": {\n                \"transactionFee\": 42,\n                \"applicationFee\": 0,\n                \"totalFee\": 42,\n                \"currency\": \"AUD\",\n                \"taxRate\": 0.1,\n                \"convertedTransactionFee\": null,\n                \"convertedApplicationFee\": null,\n                \"convertedTotalFee\": null,\n                \"convertedCurrency\": null,\n                \"conversionRate\": null\n            },\n            \"status\": \"scheduled\"\n        }\n    ],\n    \"metadata\": null\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "bab10e8b-e2db-4800-8716-d74d66645121",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerId\": \"pyr_dLCdmrOmXKwuWH\",\n  \"amount\": 1245,\n  \"transactionDate\": \"2017-05-05\",\n  \"description\": \"A lovely bunch of coconuts.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"PayerId\\\",\\n        \\\"errorMessage\\\": \\\"Can't find payer with Id: pyr_XXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "9ea98e2b-00aa-4c34-afcd-7e875380a319",
+          "name": "403",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerId\": \"pyr_dLCdmrOmXKwuWH\",\n  \"amount\": 1245,\n  \"transactionDate\": \"2017-05-05\",\n  \"description\": \"A lovely bunch of coconuts.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n    \\\"attemptId\\\": \\\"att_XXXXXXXX\\\",\\n    \\\"amount\\\": 1245,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"description\\\": \\\"A lovely bunch of coconuts.\\\",\\n    \\\"applicationFee\\\": 0,\\n    \\\"totalFee\\\": 42,\\n    \\\"isSurcharged\\\": false,\\n    \\\"sourceType\\\": \\\"bank-account\\\",\\n    \\\"transactionDate\\\": \\\"2021-05-04T14:00:00.0000000Z\\\",\\n    \\\"status\\\": \\\"scheduled\\\",\\n    \\\"estimatedTransferDate\\\": \\\"2021-05-11\\\",\\n    \\\"actualTransferDate\\\": null,\\n    \\\"payer\\\": {\\n        \\\"id\\\": \\\"pyr_XXXXXXXXXXXXXX\\\",\\n        \\\"firstName\\\": \\\"Test\\\",\\n        \\\"lastName\\\": \\\"WebSample3\\\",\\n        \\\"emailAddress\\\": \\\"testwebsample@mailinator.com\\\",\\n        \\\"mobileNumber\\\": \\\"0400000000\\\",\\n        \\\"streetAddress\\\": \\\"123 Fake st\\\",\\n        \\\"suburb\\\": \\\"Teneriffe\\\",\\n        \\\"postcode\\\": \\\"4005\\\",\\n        \\\"state\\\": \\\"QLD\\\",\\n        \\\"country\\\": \\\"Australia\\\",\\n        \\\"companyName\\\": \\\"Test Company\\\",\\n        \\\"companyRegistrationNumber\\\": \\\"111111\\\",\\n        \\\"metadata\\\": null\\n    },\\n    \\\"subscription\\\": null,\\n    \\\"attempts\\\": [\\n        {\\n            \\\"id\\\": \\\"att_XXXXXXXX\\\",\\n            \\\"amount\\\": 1245,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"convertedAmount\\\": null,\\n            \\\"conversionRate\\\": null,\\n            \\\"convertedCurrency\\\": null,\\n            \\\"estimatedSettlementDate\\\": \\\"2021-05-11T00:00:00\\\",\\n            \\\"isSurcharged\\\": false,\\n            \\\"transactionDate\\\": \\\"2021-05-04T14:00:00.0000000Z\\\",\\n            \\\"estimatedTransferDate\\\": \\\"2021-05-11\\\",\\n            \\\"actualTransferDate\\\": null,\\n            \\\"source\\\": {\\n                \\\"id\\\": \\\"src_XXXXXXXXXXXXXX\\\",\\n                \\\"sourceType\\\": \\\"bank-account\\\",\\n                \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n                \\\"bankAccountBsb\\\": \\\"000000\\\",\\n                \\\"bankAccountName\\\": \\\"Example Name\\\",\\n                \\\"creditCardToken\\\": null,\\n                \\\"cardHolderName\\\": null,\\n                \\\"expiryDate\\\": null,\\n                \\\"displayCardNumber\\\": null,\\n                \\\"cardScheme\\\": null,\\n                \\\"origin\\\": \\\"AU\\\",\\n                \\\"funding\\\": null\\n            },\\n            \\\"dishonour\\\": null,\\n            \\\"settlement\\\": null,\\n            \\\"fees\\\": {\\n                \\\"transactionFee\\\": 42,\\n                \\\"applicationFee\\\": 0,\\n                \\\"totalFee\\\": 42,\\n                \\\"currency\\\": \\\"AUD\\\",\\n                \\\"taxRate\\\": 0.1,\\n                \\\"convertedTransactionFee\\\": null,\\n                \\\"convertedApplicationFee\\\": null,\\n                \\\"convertedTotalFee\\\": null,\\n                \\\"convertedCurrency\\\": null,\\n                \\\"conversionRate\\\": null\\n            },\\n            \\\"status\\\": \\\"scheduled\\\"\\n        }\\n    ],\\n    \\\"metadata\\\": null\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "e82d1390-150f-4da3-a9d3-14352055aefd",
+    "name": "pinch-api-payments",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

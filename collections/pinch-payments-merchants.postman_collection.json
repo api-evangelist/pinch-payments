@@ -1,0 +1,620 @@
+{
+  "item": [
+    {
+      "id": "9c66134a-5cd0-4e4a-ba15-72900df7a7ef",
+      "name": "Create Managed Merchant",
+      "request": {
+        "name": "Create Managed Merchant",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchants",
+            "managed"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"<string>\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"<string>\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ],\n  \"ipAddress\": \"<string>\",\n  \"userAgent\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"merchantIdentifiers\": [\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"<string>\"\n    },\n    {\n      \"merchantIdentifier\": \"<string>\",\n      \"identityProvider\": \"<string>\"\n    }\n  ],\n  \"reportingIdentifier\": \"<string>\",\n  \"timeZone\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2da58650-00d2-4bf5-906a-1957639e5109",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "managed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"Test Managed Company\",\n  \"legalEntityName\": null,\n  \"companyEmail\": \"test.managed.company@mailinator.com\",\n  \"companyPhone\": null,\n  \"companyWebsiteUrl\": null,\n  \"companyRegistrationNumber\": null,\n  \"bankAccountRoutingNumber\": \"000000\",\n  \"bankAccountNumber\": \"000000000\",\n  \"bankAccountName\": \"Test Managed Account\",\n  \"streetAddress\": null,\n  \"suburb\": null,\n  \"state\": null,\n  \"postcode\": null,\n  \"country\": \"AU\",\n  \"bankStatementLabel\": \"\",\n  \"natureOfBusiness\": null,\n  \"organisationType\": \"\",\n  \"notes\": \"\",\n  \"contacts\": [\n    {\n      \"isPrimaryContact\": false,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\",\n      \"phone\": null,\n      \"streetAddress\": null,\n      \"suburb\": null,\n      \"postcode\": null,\n      \"state\": null,\n      \"country\": null,\n      \"dob\": null,\n      \"governmentNumberSupplied\": false,\n      \"contactType\": \"\",\n      \"ownership\": null,\n      \"jobTitle\": null\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"mch_XXXXXXX\\\",\\n    \\\"testMerchantId\\\": \\\"mch_test_XXXXX\\\",\\n    \\\"testOnlyMerchant\\\": true,\\n    \\\"companyName\\\": \\\"Test Managed Company\\\",\\n    \\\"legalEntityName\\\": null,\\n    \\\"companyEmail\\\": \\\"test.managed.company@mailinator.com\\\",\\n    \\\"companyPhone\\\": null,\\n    \\\"companyWebsiteUrl\\\": null,\\n    \\\"companyRegistrationNumber\\\": null,\\n    \\\"bankAccountRoutingNumber\\\": \\\"000000\\\",\\n    \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n    \\\"bankAccountName\\\": \\\"Test Managed Account\\\",\\n    \\\"streetAddress\\\": null,\\n    \\\"suburb\\\": null,\\n    \\\"state\\\": null,\\n    \\\"postcode\\\": null,\\n    \\\"country\\\": \\\"AU\\\",\\n    \\\"bankStatementLabel\\\": \\\"\\\",\\n    \\\"createdDateUtc\\\": \\\"2021-04-21T02:08:27.7128967Z\\\",\\n    \\\"natureOfBusiness\\\": null,\\n    \\\"organisationType\\\": \\\"\\\",\\n    \\\"compliance\\\": {\\n        \\\"merchantNotes\\\": \\\"New Merchant Created\\\",\\n        \\\"propertyErrors\\\": null,\\n        \\\"complianceOfficerNotes\\\": null,\\n        \\\"status\\\": \\\"new\\\",\\n        \\\"submissionDate\\\": \\\"2021-04-21T02:08:27.8146977Z\\\",\\n        \\\"decisionDate\\\": null,\\n        \\\"liveEnabled\\\": false,\\n        \\\"transactionsEnabled\\\": false,\\n        \\\"settlementsEnabled\\\": false\\n    },\\n    \\\"contacts\\\": [\\n        {\\n            \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n            \\\"isPrimaryContact\\\": true,\\n            \\\"firstName\\\": \\\"\\\",\\n            \\\"lastName\\\": \\\"\\\",\\n            \\\"email\\\": \\\"\\\",\\n            \\\"phone\\\": null,\\n            \\\"streetAddress\\\": null,\\n            \\\"suburb\\\": null,\\n            \\\"postcode\\\": null,\\n            \\\"state\\\": null,\\n            \\\"country\\\": null,\\n            \\\"dob\\\": null,\\n            \\\"governmentNumberSupplied\\\": false,\\n            \\\"contactType\\\": \\\"owner\\\",\\n            \\\"ownership\\\": null,\\n            \\\"jobTitle\\\": null\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b59bdc6f-9234-46e9-8be6-cffcd82c8b7a",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "managed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"Test Managed Company\",\n  \"legalEntityName\": null,\n  \"companyEmail\": \"test.managed.company@mailinator.com\",\n  \"companyPhone\": null,\n  \"companyWebsiteUrl\": null,\n  \"companyRegistrationNumber\": null,\n  \"bankAccountRoutingNumber\": \"000000\",\n  \"bankAccountNumber\": \"000000000\",\n  \"bankAccountName\": \"Test Managed Account\",\n  \"streetAddress\": null,\n  \"suburb\": null,\n  \"state\": null,\n  \"postcode\": null,\n  \"country\": \"AU\",\n  \"bankStatementLabel\": \"\",\n  \"natureOfBusiness\": null,\n  \"organisationType\": \"\",\n  \"notes\": \"\",\n  \"contacts\": [\n    {\n      \"isPrimaryContact\": false,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\",\n      \"phone\": null,\n      \"streetAddress\": null,\n      \"suburb\": null,\n      \"postcode\": null,\n      \"state\": null,\n      \"country\": null,\n      \"dob\": null,\n      \"governmentNumberSupplied\": false,\n      \"contactType\": \"\",\n      \"ownership\": null,\n      \"jobTitle\": null\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"CompanyName\\\",\\n        \\\"errorMessage\\\": \\\"'Company Name' must not be empty.\\\",\\n        \\\"attemptedValue\\\": \\\"\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"NotEmptyValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Company Name\\\",\\n            \\\"PropertyValue\\\": \\\"\\\"\\n        },\\n        \\\"resourceName\\\": \\\"NotEmptyValidator\\\"\\n    },\\n    {\\n        \\\"propertyName\\\": \\\"CompanyEmail\\\",\\n        \\\"errorMessage\\\": \\\"'Company Email' must not be empty.\\\",\\n        \\\"attemptedValue\\\": \\\"\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"NotEmptyValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Company Email\\\",\\n            \\\"PropertyValue\\\": \\\"\\\"\\n        },\\n        \\\"resourceName\\\": \\\"NotEmptyValidator\\\"\\n    },\\n    {\\n        \\\"propertyName\\\": \\\"CompanyEmail\\\",\\n        \\\"errorMessage\\\": \\\"'Company Email' is not a valid email address.\\\",\\n        \\\"attemptedValue\\\": \\\"\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"EmailValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Company Email\\\",\\n            \\\"PropertyValue\\\": \\\"\\\"\\n        },\\n        \\\"resourceName\\\": \\\"EmailValidator\\\"\\n    },\\n    {\\n        \\\"propertyName\\\": \\\"BankAccountRoutingNumber\\\",\\n        \\\"errorMessage\\\": \\\"'Bank Account Routing Number' must not be empty.\\\",\\n        \\\"attemptedValue\\\": \\\"\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"NotEmptyValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Bank Account Routing Number\\\",\\n            \\\"PropertyValue\\\": \\\"\\\"\\n        },\\n        \\\"resourceName\\\": \\\"NotEmptyValidator\\\"\\n    },\\n    {\\n        \\\"propertyName\\\": \\\"BankAccountNumber\\\",\\n        \\\"errorMessage\\\": \\\"'Bank Account Number' must not be empty.\\\",\\n        \\\"attemptedValue\\\": \\\"\\\",\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": \\\"NotEmptyValidator\\\",\\n        \\\"formattedMessageArguments\\\": [],\\n        \\\"formattedMessagePlaceholderValues\\\": {\\n            \\\"PropertyName\\\": \\\"Bank Account Number\\\",\\n            \\\"PropertyValue\\\": \\\"\\\"\\n        },\\n        \\\"resourceName\\\": \\\"NotEmptyValidator\\\"\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1f263726-4e19-4da5-bca6-c278cc998d2f",
+      "name": "List Managed Merchants",
+      "request": {
+        "name": "List Managed Merchants",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchants",
+            "managed"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0f0f14cb-4fe3-4327-bc3d-7d561cdb52a4",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "managed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"id\\\": \\\"mch_XXXXX\\\",\\n        \\\"testMerchantId\\\": \\\"mch_test_XXXX\\\",\\n        \\\"testOnlyMerchant\\\": true,\\n        \\\"companyName\\\": \\\"Test Managed Company\\\",\\n        \\\"legalEntityName\\\": null,\\n        \\\"companyEmail\\\": \\\"test.managed.company@mailinator.com\\\",\\n        \\\"companyPhone\\\": null,\\n        \\\"companyWebsiteUrl\\\": null,\\n        \\\"companyRegistrationNumber\\\": null,\\n        \\\"bankAccountRoutingNumber\\\": \\\"000000\\\",\\n        \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n        \\\"bankAccountName\\\": \\\"Test Managed Account\\\",\\n        \\\"streetAddress\\\": null,\\n        \\\"suburb\\\": null,\\n        \\\"state\\\": null,\\n        \\\"postcode\\\": null,\\n        \\\"country\\\": \\\"AU\\\",\\n        \\\"bankStatementLabel\\\": \\\"\\\",\\n        \\\"createdDateUtc\\\": \\\"2021-04-21T02:08:27.7128967\\\",\\n        \\\"natureOfBusiness\\\": null,\\n        \\\"organisationType\\\": \\\"\\\",\\n        \\\"compliance\\\": {\\n            \\\"merchantNotes\\\": \\\"New Merchant Created\\\",\\n            \\\"propertyErrors\\\": null,\\n            \\\"complianceOfficerNotes\\\": null,\\n            \\\"status\\\": \\\"new\\\",\\n            \\\"submissionDate\\\": \\\"2021-04-21T02:08:27.8146977Z\\\",\\n            \\\"decisionDate\\\": null,\\n            \\\"liveEnabled\\\": false,\\n            \\\"transactionsEnabled\\\": false,\\n            \\\"settlementsEnabled\\\": false\\n        },\\n        \\\"contacts\\\": [\\n            {\\n                \\\"id\\\": \\\"con_XXXXX\\\",\\n                \\\"isPrimaryContact\\\": true,\\n                \\\"firstName\\\": \\\"\\\",\\n                \\\"lastName\\\": \\\"\\\",\\n                \\\"email\\\": \\\"\\\",\\n                \\\"phone\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"dob\\\": null,\\n                \\\"governmentNumberSupplied\\\": false,\\n                \\\"contactType\\\": \\\"owner\\\",\\n                \\\"ownership\\\": null,\\n                \\\"jobTitle\\\": null\\n            }\\n        ]\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "66b77a38-a335-46e8-867d-e2616cafd25b",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "managed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "acda9b7b-b23d-4bf5-8576-df6801aa1b27",
+      "name": "Update Merchant",
+      "request": {
+        "name": "Update Merchant",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchants",
+            "update"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"<string>\",\n  \"companyEmail\": \"<string>\",\n  \"legalEntityName\": \"<string>\",\n  \"companyPhone\": \"<string>\",\n  \"companyWebsiteUrl\": \"<string>\",\n  \"companyRegistrationNumber\": \"<string>\",\n  \"bankAccountRoutingNumber\": \"<string>\",\n  \"bankAccountNumber\": \"<string>\",\n  \"bankAccountName\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"suburb\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"bankStatementLabel\": \"<string>\",\n  \"natureOfBusiness\": \"<string>\",\n  \"organisationType\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"contacts\": [\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"<string>\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"contactType\": \"<string>\",\n      \"isPrimaryContact\": \"<boolean>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"suburb\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"dob\": \"<date>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "4426b577-eeca-4fd4-8796-0b2b02b6377f",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"\",\n  \"legalEntityName\": null,\n  \"companyEmail\": \"\",\n  \"companyPhone\": null,\n  \"companyWebsiteUrl\": null,\n  \"companyRegistrationNumber\": null,\n  \"bankAccountRoutingNumber\": \"\",\n  \"bankAccountNumber\": \"\",\n  \"bankAccountName\": \"\",\n  \"streetAddress\": null,\n  \"suburb\": null,\n  \"state\": null,\n  \"postcode\": null,\n  \"country\": \"AU\",\n  \"bankStatementLabel\": \"\",\n  \"natureOfBusiness\": null,\n  \"organisationType\": \"\",\n  \"notes\": \"\",\n  \"contacts\": [\n    {\n      \"id\": \"con_\",\n      \"isPrimaryContact\": false,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\",\n      \"phone\": null,\n      \"streetAddress\": null,\n      \"suburb\": null,\n      \"postcode\": null,\n      \"state\": null,\n      \"country\": null,\n      \"dob\": null,\n      \"governmentNumberSupplied\": false,\n      \"contactType\": \"\",\n      \"ownership\": null,\n      \"jobTitle\": null\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"mch_XXXXXX\\\",\\n    \\\"testMerchantId\\\": \\\"mch_test_XXXXX\\\",\\n    \\\"testOnlyMerchant\\\": false,\\n    \\\"companyName\\\": \\\"Test Merchant 123\\\",\\n    \\\"legalEntityName\\\": null,\\n    \\\"companyEmail\\\": \\\"test.merchant@mailinator.com\\\",\\n    \\\"companyPhone\\\": null,\\n    \\\"companyWebsiteUrl\\\": null,\\n    \\\"companyRegistrationNumber\\\": null,\\n    \\\"bankAccountRoutingNumber\\\": \\\"000000\\\",\\n    \\\"bankAccountNumber\\\": \\\"000000000\\\",\\n    \\\"bankAccountName\\\": \\\"Test Bank Account\\\",\\n    \\\"streetAddress\\\": null,\\n    \\\"suburb\\\": null,\\n    \\\"state\\\": null,\\n    \\\"postcode\\\": null,\\n    \\\"country\\\": \\\"AU\\\",\\n    \\\"bankStatementLabel\\\": \\\"TEST MERCHANT\\\",\\n    \\\"createdDateUtc\\\": \\\"2021-04-14T00:30:18.226759\\\",\\n    \\\"logoUrl\\\": null,\\n    \\\"natureOfBusiness\\\": null,\\n    \\\"organisationType\\\": \\\"\\\",\\n    \\\"compliance\\\": {\\n        \\\"merchantNotes\\\": \\\"New Merchant Created\\\",\\n        \\\"propertyErrors\\\": null,\\n        \\\"complianceOfficerNotes\\\": null,\\n        \\\"status\\\": \\\"new\\\",\\n        \\\"submissionDate\\\": \\\"2021-04-14T00:30:18.8283947Z\\\",\\n        \\\"decisionDate\\\": null,\\n        \\\"liveEnabled\\\": false,\\n        \\\"transactionsEnabled\\\": false,\\n        \\\"settlementsEnabled\\\": false\\n    },\\n    \\\"contacts\\\": [\\n        {\\n            \\\"id\\\": \\\"con_XXXXXX\\\",\\n            \\\"isPrimaryContact\\\": true,\\n            \\\"firstName\\\": \\\"Test\\\",\\n            \\\"lastName\\\": \\\"Contact\\\",\\n            \\\"email\\\": \\\"test.contact@mailinator.com\\\",\\n            \\\"phone\\\": null,\\n            \\\"streetAddress\\\": null,\\n            \\\"suburb\\\": null,\\n            \\\"postcode\\\": null,\\n            \\\"state\\\": null,\\n            \\\"country\\\": null,\\n            \\\"dob\\\": null,\\n            \\\"governmentNumberSupplied\\\": false,\\n            \\\"contactType\\\": \\\"\\\",\\n            \\\"ownership\\\": null,\\n            \\\"jobTitle\\\": null\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "fd61a850-e074-4562-b52e-da14baf04a67",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"\",\n  \"legalEntityName\": null,\n  \"companyEmail\": \"\",\n  \"companyPhone\": null,\n  \"companyWebsiteUrl\": null,\n  \"companyRegistrationNumber\": null,\n  \"bankAccountRoutingNumber\": \"\",\n  \"bankAccountNumber\": \"\",\n  \"bankAccountName\": \"\",\n  \"streetAddress\": null,\n  \"suburb\": null,\n  \"state\": null,\n  \"postcode\": null,\n  \"country\": \"AU\",\n  \"bankStatementLabel\": \"\",\n  \"natureOfBusiness\": null,\n  \"organisationType\": \"\",\n  \"notes\": \"\",\n  \"contacts\": [\n    {\n      \"id\": \"con_\",\n      \"isPrimaryContact\": false,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\",\n      \"phone\": null,\n      \"streetAddress\": null,\n      \"suburb\": null,\n      \"postcode\": null,\n      \"state\": null,\n      \"country\": null,\n      \"dob\": null,\n      \"governmentNumberSupplied\": false,\n      \"contactType\": \"\",\n      \"ownership\": null,\n      \"jobTitle\": null\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"errors\\\": [\\n        {\\n            \\\"propertyName\\\": \\\"BankAccountRoutingNumber\\\",\\n            \\\"errorMessage\\\": \\\"Routing number is required\\\",\\n            \\\"attemptedValue\\\": null,\\n            \\\"customState\\\": null,\\n            \\\"severity\\\": 0,\\n            \\\"errorCode\\\": null,\\n            \\\"formattedMessageArguments\\\": null,\\n            \\\"formattedMessagePlaceholderValues\\\": null,\\n            \\\"resourceName\\\": null\\n        },\\n        {\\n            \\\"propertyName\\\": \\\"BankAccountNumber\\\",\\n            \\\"errorMessage\\\": \\\"Account number is required\\\",\\n            \\\"attemptedValue\\\": null,\\n            \\\"customState\\\": null,\\n            \\\"severity\\\": 0,\\n            \\\"errorCode\\\": null,\\n            \\\"formattedMessageArguments\\\": null,\\n            \\\"formattedMessagePlaceholderValues\\\": null,\\n            \\\"resourceName\\\": null\\n        }\\n    ],\\n    \\\"inlineErrors\\\": {\\n        \\\"companyName\\\": \\\"Test Merchant\\\",\\n        \\\"legalEntityName\\\": null,\\n        \\\"companyEmail\\\": \\\"test.merchant@mailinator.com\\\",\\n        \\\"companyPhone\\\": null,\\n        \\\"companyWebsiteUrl\\\": null,\\n        \\\"companyRegistrationNumber\\\": null,\\n        \\\"bankAccountRoutingNumber\\\": null,\\n        \\\"bankAccountNumber\\\": null,\\n        \\\"bankAccountName\\\": null,\\n        \\\"streetAddress\\\": null,\\n        \\\"suburb\\\": null,\\n        \\\"state\\\": null,\\n        \\\"postcode\\\": null,\\n        \\\"bankStatementLabel\\\": \\\"TEST MERCHANT\\\",\\n        \\\"natureOfBusiness\\\": null,\\n        \\\"organisationType\\\": \\\"\\\",\\n        \\\"notes\\\": \\\"\\\",\\n        \\\"contacts\\\": [\\n            {\\n                \\\"id\\\": \\\"con_XXXXXXXXXXXXXX\\\",\\n                \\\"isPrimaryContact\\\": false,\\n                \\\"firstName\\\": \\\"Test\\\",\\n                \\\"lastName\\\": \\\"Person\\\",\\n                \\\"email\\\": \\\"test.person@mailinator.com\\\",\\n                \\\"phone\\\": null,\\n                \\\"streetAddress\\\": null,\\n                \\\"suburb\\\": null,\\n                \\\"postcode\\\": null,\\n                \\\"state\\\": null,\\n                \\\"country\\\": null,\\n                \\\"dob\\\": null,\\n                \\\"governmentNumber\\\": null,\\n                \\\"contactType\\\": \\\"\\\",\\n                \\\"ownership\\\": null,\\n                \\\"jobTitle\\\": null,\\n                \\\"errors\\\": []\\n            }\\n        ],\\n        \\\"errors\\\": []\\n    }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9e8600b2-b321-41c6-8eea-4d24bbf18638",
+      "name": "Upload Document",
+      "request": {
+        "name": "Upload Document",
+        "description": {
+          "content": "Upload a document for merchant compliance",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "merchants",
+            "documents"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"<string>\",\n  \"ContactId\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "dcaaae80-129d-4ea9-88e2-ca87ea82f592",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "disabled": false,
+                "description": "multipart/form-data",
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"<string>\",\n  \"ContactId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"doc_2zhLd1MFzd0fM9\\\",\\n    \\\"documentType\\\": \\\"identity-document\\\",\\n    \\\"filename\\\": \\\"example.txt\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "f6e78b09-1a65-4d85-971e-40e236984a05",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "merchants",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "disabled": false,
+                "description": "multipart/form-data",
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"File\": \"<binary>\",\n  \"DocumentType\": \"<string>\",\n  \"ContactId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"errors\\\": [\\n        {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"File is not an authorised file type. Valid file types are: text/csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, text/html, image/jpeg, application/json, application/pdf, image/png, image/svg+xml, image/tiff, text/tab-separated-values, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/xml, application/zip\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n        },\\n      {\\n        \\\"propertyName\\\": \\\"\\\",\\n        \\\"errorMessage\\\": \\\"Document type is not valid. Valid document types are: identity-document, additional-verification, financial-document, business-registration\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n      }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "fe725797-a468-4d74-9b0e-9f45d527bac3",
+    "name": "pinch-api-merchants",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

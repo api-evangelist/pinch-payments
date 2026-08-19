@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-payment-links",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Payment Links",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payment-links",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "Page number to return"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "Number of items to return per page"
+          }
+        ]
+      },
+      "docs": "Get Payment Links"
+    },
+    {
+      "info": {
+        "name": "Create Payment Link",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/payment-links",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create Payment Link"
+    },
+    {
+      "info": {
+        "name": "Get Payment Link",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payment-links/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payment Link Id (string identifier starting with `plk_`)"
+          }
+        ]
+      },
+      "docs": "Get Payment Link"
+    },
+    {
+      "info": {
+        "name": "Delete Payment Link",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/payment-links/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Payment Link Id (string identifier starting with `plk_`)"
+          }
+        ]
+      },
+      "docs": "Delete Payment Link"
+    },
+    {
+      "info": {
+        "name": "Get Payment Links by Payer",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/payment-links/payer/:payerId",
+        "params": [
+          {
+            "name": "payerId",
+            "value": "",
+            "type": "path",
+            "description": "Id of the payer to get Payment Links for (string identifier starting with **pyr_**)"
+          },
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "Page number to return results for."
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "Number of items to return per page"
+          }
+        ]
+      },
+      "docs": "Get Payment Links by Payer"
+    }
+  ],
+  "bundled": true
+}

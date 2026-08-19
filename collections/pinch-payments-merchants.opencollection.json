@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-merchants",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List Managed Merchants",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/merchants/managed"
+      },
+      "docs": "List Managed Merchants"
+    },
+    {
+      "info": {
+        "name": "Create Managed Merchant",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/merchants/managed",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create Managed Merchant"
+    },
+    {
+      "info": {
+        "name": "Update Merchant",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/merchants/update",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update Merchant"
+    },
+    {
+      "info": {
+        "name": "Upload Document",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/merchants/documents",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Upload a document for merchant compliance"
+    }
+  ],
+  "bundled": true
+}

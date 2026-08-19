@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "authentication-api",
+    "version": "2020.1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://auth.getpinch.com.au/connect/token",
+        "body": {
+          "type": "form-urlencoded",
+          "data": [
+            {
+              "name": "grant_type",
+              "value": ""
+            },
+            {
+              "name": "scope",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "docs": "Authentication"
+    }
+  ],
+  "bundled": true
+}

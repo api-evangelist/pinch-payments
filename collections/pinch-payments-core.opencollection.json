@@ -1,0 +1,390 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calculate Fees",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/fees/calculate",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Calculate Fees"
+    },
+    {
+      "info": {
+        "name": "get_plans-planid-calculated-payments",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/plans/:planId/calculated-payments",
+        "params": [
+          {
+            "name": "planId",
+            "value": "",
+            "type": "path",
+            "description": "Plan Id to calculate Payments for (string identifier starting with *pln_*)"
+          },
+          {
+            "name": "startDate",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "totalAmount",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      }
+    },
+    {
+      "info": {
+        "name": "Get Subscription",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/subscriptions/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Subscription Id in sub_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Subscription"
+    },
+    {
+      "info": {
+        "name": "Cancel Subscription",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/subscriptions/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Subscription Id in sub_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Cancel Subscription"
+    },
+    {
+      "info": {
+        "name": "Check Refund Nonce",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/refunds/nonce",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Check if a Nonce has already been added"
+    },
+    {
+      "info": {
+        "name": "List Refunds",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/refunds",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          },
+          {
+            "name": "startDate",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "endDate",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List Refunds"
+    },
+    {
+      "info": {
+        "name": "Create a Refund",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/refunds",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a Refund"
+    },
+    {
+      "info": {
+        "name": "List Subscriptions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/subscriptions",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          }
+        ]
+      },
+      "docs": "List Subscriptions"
+    },
+    {
+      "info": {
+        "name": "Create Subscription",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/subscriptions",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create Subscription"
+    },
+    {
+      "info": {
+        "name": "Get Plan",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/plans/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Plan Id in pln_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Plan"
+    },
+    {
+      "info": {
+        "name": "Delete Plan",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/plans/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Plan Id in pln_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Delete Plan"
+    },
+    {
+      "info": {
+        "name": "Get Event",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/events/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Event Id in evt_XXXXXXXXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Event"
+    },
+    {
+      "info": {
+        "name": "Get Fees",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/fees"
+      },
+      "docs": "Get the current fee schedule for a merchant."
+    },
+    {
+      "info": {
+        "name": "Get Refund",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/refund/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Refund Id in ref_XXXXXXXX format"
+          }
+        ]
+      },
+      "docs": "Get Refund"
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/health/auth"
+      },
+      "docs": "Endpoint to check the health of an auth token"
+    },
+    {
+      "info": {
+        "name": "List all events",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/events",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page."
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          },
+          {
+            "name": "startDate",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "endDate",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "eventType",
+            "value": "",
+            "type": "query",
+            "description": "If you wish to filter by a single event type, eg payment-created"
+          }
+        ]
+      },
+      "docs": "List all events"
+    },
+    {
+      "info": {
+        "name": "List Plans",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/plans",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "The current page."
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "How many items to return for each page. Maximum 500."
+          }
+        ]
+      },
+      "docs": "List Plans"
+    },
+    {
+      "info": {
+        "name": "Create or Update Plan",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/plans",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or Update Plan"
+    },
+    {
+      "info": {
+        "name": "Tokenise Payment Source",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/tokens",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Safely submit credit card or bank account details to our servers in exchange for a token that can be used in future."
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,507 @@
+{
+  "item": [
+    {
+      "id": "32c503df-fe9a-4c95-9d13-b026f6013718",
+      "name": "Get Transfer",
+      "request": {
+        "name": "Get Transfer",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "transfers",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1be89264-f6bc-42e4-9e93-654d776347ae",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"id\\\": \\\"tra_XXXXXXXXXXXXXX\\\",\\n    \\\"transferDate\\\": \\\"2021-05-04T00:00:00\\\",\\n    \\\"amount\\\": 1850,\\n    \\\"currency\\\": \\\"AUD\\\",\\n    \\\"totalFees\\\": 150,\\n    \\\"taxRate\\\": 0.1,\\n    \\\"accountName\\\": \\\"Test Bank Account\\\",\\n    \\\"accountNumber\\\": \\\"000000000\\\",\\n    \\\"bsb\\\": \\\"000000\\\",\\n    \\\"reference\\\": \\\"tra_XXXXXXXXXXXXXX\\\",\\n    \\\"status\\\": \\\"complete\\\",\\n    \\\"type\\\": \\\"bank-account\\\",\\n    \\\"includedTax\\\": 14,\\n    \\\"summary\\\": [\\n        {\\n            \\\"name\\\": \\\"Settlements\\\",\\n            \\\"count\\\": 1,\\n            \\\"gross\\\": 2000,\\n            \\\"fees\\\": 50,\\n            \\\"total\\\": 1950\\n        },\\n        {\\n            \\\"name\\\": \\\"Dishonours\\\",\\n            \\\"count\\\": 0,\\n            \\\"gross\\\": 0,\\n            \\\"fees\\\": 0,\\n            \\\"total\\\": 0\\n        },\\n        {\\n            \\\"name\\\": \\\"Application Fees\\\",\\n            \\\"count\\\": 0,\\n            \\\"gross\\\": 0,\\n            \\\"fees\\\": 0,\\n            \\\"total\\\": 0\\n        },\\n        {\\n            \\\"name\\\": \\\"Transfer Fee\\\",\\n            \\\"count\\\": 1,\\n            \\\"gross\\\": 0,\\n            \\\"fees\\\": 100,\\n            \\\"total\\\": -100\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "0752c3b1-6246-4d61-a3ba-b3b365529dcd",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "[\n    {\n        \"propertyName\": \"transferId\",\n        \"errorMessage\": \"Could not find a transfer with ID: tra_XXXXXXXXXXXXXX \",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4c266a40-55ee-4c1d-8816-be866ca884a3",
+      "name": "List all transfers",
+      "request": {
+        "name": "List all transfers",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "transfers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page."
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5ddd6f0a-5e8c-4e0d-b950-be3669895e67",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"id\\\": \\\"tra_XXXXXXXXXXXXX\\\",\\n        \\\"transferDate\\\": \\\"2021-05-04T00:00:00\\\",\\n        \\\"amount\\\": 1850,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"accountName\\\": \\\"Test Bank Account\\\",\\n        \\\"accountNumber\\\": \\\"000000000\\\",\\n        \\\"bsb\\\": \\\"000000\\\",\\n        \\\"reference\\\": \\\"tra_XXXXXXXXXXXXX\\\",\\n        \\\"status\\\": \\\"complete\\\",\\n        \\\"type\\\": \\\"bank-account\\\"\\n    },\\n    {\\n        \\\"id\\\": \\\"tra_XXXXXXXXXXXXX\\\",\\n        \\\"transferDate\\\": \\\"2021-05-04T00:00:00\\\",\\n        \\\"amount\\\": 5233,\\n        \\\"currency\\\": \\\"AUD\\\",\\n        \\\"accountName\\\": \\\"Test Bank Account\\\",\\n        \\\"accountNumber\\\": \\\"000000000\\\",\\n        \\\"bsb\\\": \\\"000000\\\",\\n        \\\"reference\\\": \\\"tra_XXXXXXXXXXXXX\\\",\\n        \\\"status\\\": \\\"complete\\\",\\n        \\\"type\\\": \\\"credit-card\\\"\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "68cfb2a7-15e5-47e2-aafc-c34a03af7ae3",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e4ce8982-ab79-4114-9aaf-7d6922dc60c3",
+      "name": "List transfer line items",
+      "request": {
+        "name": "List transfer line items",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "transfers",
+            "items",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "1",
+              "description": "The current page"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "50",
+              "description": "How many items to return for each page. Maximum 500."
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6e51ba58-a7d2-4de4-a7dc-e4faa9d2c2d9",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers",
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"page\\\": 1,\\n    \\\"pageSize\\\": 50,\\n    \\\"totalPages\\\": 1,\\n    \\\"totalItems\\\": 1,\\n    \\\"data\\\": [\\n        {\\n            \\\"id\\\": \\\"pmt_XXXXXXXXXXXXXX\\\",\\n            \\\"type\\\": \\\"Settlement\\\",\\n            \\\"gross\\\": 2000,\\n            \\\"fees\\\": 50,\\n            \\\"currency\\\": \\\"AUD\\\",\\n            \\\"description\\\": \\\"this is also a line item\\\",\\n            \\\"transactionDate\\\": \\\"2021-05-04T00:00:00\\\",\\n            \\\"total\\\": 1950,\\n            \\\"metadata\\\": \\\"{\\n                \\\"TemplateId\\\": \\\"default\\\",\\n                \\\"AccountId\\\": null\\n            }\\\"\\n        }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "bda99f11-885f-4c6a-83a2-582aa55a6095",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transfers",
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transfer Id in tra_XXXXXXXXXXXXXX format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n    {\\n        \\\"propertyName\\\": \\\"transferId\\\",\\n        \\\"errorMessage\\\": \\\"Could not find a transfer with ID: tra_XXXXXXXXXXXXXX\\\",\\n        \\\"attemptedValue\\\": null,\\n        \\\"customState\\\": null,\\n        \\\"severity\\\": 0,\\n        \\\"errorCode\\\": null,\\n        \\\"formattedMessageArguments\\\": null,\\n        \\\"formattedMessagePlaceholderValues\\\": null,\\n        \\\"resourceName\\\": null\\n    }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getpinch.com.au/test",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": []
+  },
+  "info": {
+    "_postman_id": "c209add2-e2e4-4730-93c5-46caf9bec174",
+    "name": "pinch-api-transfers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

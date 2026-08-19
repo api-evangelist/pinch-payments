@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pinch-api-contacts",
+    "version": "2020.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Contact",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/contacts/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "The contact identifier (string identifier starting with `con_`)"
+          }
+        ]
+      },
+      "docs": "Retrieves a single contact by ID."
+    },
+    {
+      "info": {
+        "name": "Delete Contact",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.getpinch.com.au/test/contacts/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "The contact identifier"
+          }
+        ]
+      },
+      "docs": "Deletes a contact by ID."
+    },
+    {
+      "info": {
+        "name": "Get Contacts",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.getpinch.com.au/test/contacts",
+        "params": [
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "Page number for pagination"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query",
+            "description": "Number of items per page (max 500)"
+          },
+          {
+            "name": "filter",
+            "value": "",
+            "type": "query",
+            "description": "Search filter"
+          }
+        ]
+      },
+      "docs": "Retrieves a paginated list of contacts for the authenticated merchant."
+    },
+    {
+      "info": {
+        "name": "Create or Update Contact",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getpinch.com.au/test/contacts",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a new contact or updates an existing one. If an `id` is provided in the request body, the contact will be updated; otherwise a new contact will be created."
+    }
+  ],
+  "bundled": true
+}
