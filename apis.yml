@@ -22,6 +22,18 @@ tags:
 - Payment Processing
 - Direct Debit
 - Card Payments
+- Subscription
+- Billing
+- Payment Facilitator
+- Account-to-Account
+- New Zealand
+tags_raw:
+- Payments
+- Australia
+- Payment Gateway
+- Payment Processing
+- Direct Debit
+- Card Payments
 - Subscriptions
 - Billing
 - Payment Facilitator
@@ -39,6 +51,10 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
+  - Payments
+  - Subscription
+  - Refunds
+  tags_raw:
   - Payments
   - Subscriptions
   - Refunds
@@ -124,6 +140,9 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/create-or-update-webhook
   baseURL: https://api.getpinch.com.au
   tags:
+  - Webhook
+  - Event
+  tags_raw:
   - Webhooks
   - Events
   properties:
@@ -189,6 +208,8 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/tokens
   baseURL: https://auth.getpinch.com.au
   tags:
+  - Authentication
+  tags_raw:
   - Authentication
   - OAuth2
   properties:
