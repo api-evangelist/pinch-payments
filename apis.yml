@@ -14,6 +14,18 @@ description: 'Pinch Payments is an Australian, Brisbane-based payment orchestrat
   per-product OpenAPI 3.1 definitions, a published Postman collection, an official .NET SDK, Zapier/n8n/viaSocket
   no-code connectors, webhooks for real-time events, and an llms.txt + docs MCP server for AI-assisted
   integration.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Payments
