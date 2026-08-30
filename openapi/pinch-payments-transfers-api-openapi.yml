@@ -1,0 +1,349 @@
+openapi: 3.2.0
+info:
+  title: pinch-api Transfers API
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+- url: https://api.getpinch.com.au/live
+security:
+- sec0: []
+tags:
+- name: Transfers
+paths:
+  /transfers/{id}:
+    get:
+      summary: Get Transfer
+      description: ''
+      operationId: get-transfer
+      parameters:
+      - name: id
+        in: path
+        description: Transfer Id in tra_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"tra_XXXXXXXXXXXXXX\",\n    \"transferDate\": \"2021-05-04T00:00:00\",\n    \"amount\": 1850,\n    \"currency\": \"AUD\",\n    \"totalFees\": 150,\n    \"taxRate\": 0.1,\n    \"accountName\": \"Test Bank Account\",\n    \"accountNumber\": \"000000000\",\n    \"bsb\": \"000000\",\n    \"reference\": \"tra_XXXXXXXXXXXXXX\",\n    \"status\": \"complete\",\n    \"type\": \"bank-account\",\n    \"includedTax\": 14,\n    \"summary\": [\n        {\n            \"name\": \"Settlements\",\n            \"count\": 1,\n            \"gross\": 2000,\n            \"fees\": 50,\n            \"total\": 1950\n        },\n        {\n            \"name\": \"Dishonours\",\n            \"count\": 0,\n            \"gross\": 0,\n            \"fees\": 0,\n            \"total\": 0\n        },\n        {\n            \"name\": \"Application Fees\",\n            \"count\": 0,\n            \"gross\": 0,\n            \"fees\": 0,\n            \"total\": 0\n        },\n        {\n            \"name\": \"Transfer Fee\",\n            \"count\": 1,\n            \"gross\": 0,\n            \"fees\": 100,\n            \"total\": -100\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: tra_XXXXXXXXXXXXXX
+                    description: The Id of the Transfer (string identifier begining with *tra_*)
+                  transferDate:
+                    type: string
+                    example: '2021-05-04T00:00:00'
+                    description: The date the transfer took place (in the timezone of the merchant account)
+                  amount:
+                    type: integer
+                    example: 1850
+                  currency:
+                    type: string
+                    example: AUD
+                  totalFees:
+                    type: integer
+                    example: 150
+                  taxRate:
+                    type: number
+                    example: 0.1
+                  accountName:
+                    type: string
+                    example: Test Bank Account
+                  accountNumber:
+                    type: string
+                    example: '000000000'
+                  bsb:
+                    type: string
+                    example: '000000'
+                  reference:
+                    type: string
+                    example: tra_XXXXXXXXXXXXXX
+                  status:
+                    type: string
+                    example: complete
+                    description: The status of the Transfer (`processing`, `negative-balance`, `complete`, `pending-return`, `failed`, `failed-return`, `withheld`)
+                  type:
+                    type: string
+                    example: bank-account
+                    description: The type of payment rail that the Payments in this Transfer are for. (`bank-account` or `credit-card`)
+                  includedTax:
+                    type: integer
+                    example: 14
+                  summary:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Settlements
+                          description: The grouping type of items in the transfer. (`Settlements`, `Dishonours`, `Application Fees`, `Refunds`)
+                        count:
+                          type: integer
+                          example: 1
+                        gross:
+                          type: integer
+                          example: 2000
+                        fees:
+                          type: integer
+                          example: 50
+                        total:
+                          type: integer
+                          example: 1950
+        '400':
+          description: '400'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"transferId\",\n        \"errorMessage\": \"Could not find a transfer with ID: tra_XXXXXXXXXXXXXX \",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: transferId
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a transfer with ID: tra_XXXXXXXXXXXXXX '
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var transfer = await api.Transfer.Get(id);
+        samples-languages:
+        - csharp
+      tags:
+      - Transfers
+  /transfers:
+    get:
+      summary: List all transfers
+      description: ''
+      operationId: list-all-transfers
+      parameters:
+      - name: page
+        in: query
+        description: The current page.
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"id\": \"tra_XXXXXXXXXXXXX\",\n        \"transferDate\": \"2021-05-04T00:00:00\",\n        \"amount\": 1850,\n        \"currency\": \"AUD\",\n        \"accountName\": \"Test Bank Account\",\n        \"accountNumber\": \"000000000\",\n        \"bsb\": \"000000\",\n        \"reference\": \"tra_XXXXXXXXXXXXX\",\n        \"status\": \"complete\",\n        \"type\": \"bank-account\"\n    },\n    {\n        \"id\": \"tra_XXXXXXXXXXXXX\",\n        \"transferDate\": \"2021-05-04T00:00:00\",\n        \"amount\": 5233,\n        \"currency\": \"AUD\",\n        \"accountName\": \"Test Bank Account\",\n        \"accountNumber\": \"000000000\",\n        \"bsb\": \"000000\",\n        \"reference\": \"tra_XXXXXXXXXXXXX\",\n        \"status\": \"complete\",\n        \"type\": \"credit-card\"\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: tra_XXXXXXXXXXXXX
+                    transferDate:
+                      type: string
+                      example: '2021-05-04T00:00:00'
+                      description: The date the transfer took place (in the timezone of the merchant account)
+                    amount:
+                      type: integer
+                      example: 1850
+                    currency:
+                      type: string
+                      example: AUD
+                    accountName:
+                      type: string
+                      example: Test Bank Account
+                    accountNumber:
+                      type: string
+                      example: '000000000'
+                    bsb:
+                      type: string
+                      example: '000000'
+                    reference:
+                      type: string
+                      example: tra_XXXXXXXXXXXXX
+                    status:
+                      type: string
+                      example: complete
+                      description: The status of the Transfer (`processing`, `negative-balance`, `complete`, `pending-return`, `failed`, `failed-return`, `withheld`)
+                    type:
+                      type: string
+                      example: bank-account
+                      description: The type of payment rail that the Payments in this Transfer are for. (`bank-account` or `credit-card`)
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var transfers = await api.Transfer.GetTransfers();
+        samples-languages:
+        - csharp
+      tags:
+      - Transfers
+  /transfers/items/{id}:
+    get:
+      summary: List transfer line items
+      description: ''
+      operationId: list-transfer-line-items
+      parameters:
+      - name: id
+        in: path
+        description: Transfer Id in tra_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      - name: page
+        in: query
+        description: The current page
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\": 1,\n    \"data\": [\n        {\n            \"id\": \"pmt_XXXXXXXXXXXXXX\",\n            \"type\": \"Settlement\",\n            \"gross\": 2000,\n            \"fees\": 50,\n            \"currency\": \"AUD\",\n            \"description\": \"this is also a line item\",\n            \"transactionDate\": \"2021-05-04T00:00:00\",\n            \"total\": 1950,\n            \"metadata\": \"{\n                \"TemplateId\": \"default\",\n                \"AccountId\": null\n            }\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                  pageSize:
+                    type: integer
+                    example: 50
+                  totalPages:
+                    type: integer
+                    example: 1
+                  totalItems:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pmt_XXXXXXXXXXXXXX
+                        type:
+                          type: string
+                          example: Settlement
+                        gross:
+                          type: integer
+                          example: 2000
+                        fees:
+                          type: integer
+                          example: 50
+                        currency:
+                          type: string
+                          example: AUD
+                        description:
+                          type: string
+                          example: this is also a line item
+                        transactionDate:
+                          type: string
+                          example: '2021-05-04T00:00:00'
+                        total:
+                          type: integer
+                          example: 1950
+                        metadata:
+                          type: string
+                          example: "{\n    \"TemplateId\": \"default\",\n    \"AccountId\": null\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"transferId\",\n        \"errorMessage\": \"Could not find a transfer with ID: tra_XXXXXXXXXXXXXX\",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: transferId
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a transfer with ID: tra_XXXXXXXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: csharp
+          code: var lineItems = await api.Transfer.GetLineItemsAll(id);
+        samples-languages:
+        - csharp
+      tags:
+      - Transfers
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

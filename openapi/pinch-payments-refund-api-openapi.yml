@@ -1,0 +1,117 @@
+openapi: 3.2.0
+info:
+  title: pinch-api Refund API
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+tags:
+- name: Refund
+paths:
+  /refund/{id}:
+    get:
+      summary: Get Refund
+      description: ''
+      operationId: get-refund
+      parameters:
+      - name: id
+        in: path
+        description: Refund Id in ref_XXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"paymentId\": \"pmt_XXXXXXXXXXXXXX\",\n    \"transfer\": null,\n    \"id\": \"ref_XXXXXXXX\",\n    \"amount\": 1000,\n    \"currency\": \"AUD\",\n    \"refundFeeCharged\": 0,\n    \"requestedDate\": \"2021-05-13T07:25:38.2930268Z\",\n    \"completedDate\": null,\n    \"reasonForRefund\": \"Requested by Payer\",\n    \"notes\": null,\n    \"convertedAmount\": null,\n    \"conversionRate\": null,\n    \"convertedCurrency\": null,\n    \"isGross\": false,\n    \"status\": \"requested\",\n    \"transferId\": null,\n    \"refundedFees\": null,\n    \"nonce\": \"354c3c8e-ddd6-4bdc-8d27-ee5d2dacb9fe\"\n}"
+              schema:
+                type: object
+                properties:
+                  paymentId:
+                    type: string
+                    example: pmt_XXXXXXXXXXXXXX
+                  transfer: {}
+                  id:
+                    type: string
+                    example: ref_XXXXXXXX
+                  amount:
+                    type: integer
+                    example: 1000
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  refundFeeCharged:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requestedDate:
+                    type: string
+                    example: '2021-05-13T07:25:38.2930268Z'
+                  completedDate: {}
+                  reasonForRefund:
+                    type: string
+                    example: Requested by Payer
+                  notes: {}
+                  convertedAmount: {}
+                  conversionRate: {}
+                  convertedCurrency: {}
+                  isGross:
+                    type: boolean
+                    example: false
+                    default: true
+                  status:
+                    type: string
+                    example: requested
+                  transferId: {}
+                  refundedFees: {}
+                  nonce:
+                    type: string
+                    example: 354c3c8e-ddd6-4bdc-8d27-ee5d2dacb9fe
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"refundId\",\n        \"errorMessage\": \"Could not find a Refund with Id: ref_XXXXXXXX\",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: refundId
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a Refund with Id: ref_XXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      tags:
+      - Refund
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

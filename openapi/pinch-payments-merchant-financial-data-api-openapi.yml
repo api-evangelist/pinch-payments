@@ -1,0 +1,336 @@
+openapi: 3.2.0
+info:
+  title: pinch-api-merchant-financial-data Merchant Financial Data API
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+- url: https://api.getpinch.com.au/live
+security:
+- sec0: []
+tags:
+- name: Merchant Financial Data
+paths:
+  /merchant-financial-data/current:
+    get:
+      summary: Get Current Merchant Financial Data
+      description: Returns the current (most recent) merchant financial data record
+      operationId: getCurrentMerchantFinancialData
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  currency:
+                    type: string
+                    description: The currency code (e.g., AUD, USD)
+                  totalAnnualBusinessTurnover:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Total annual business turnover amount
+                  totalAnnualCardSales:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Total annual card sales amount
+                  averageTicketOrSalesAmount:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Average ticket or sales amount
+                  captureMethod:
+                    type: string
+                    description: The capture method (card-present or card-not-present)
+                  isDepositRequired:
+                    type: boolean
+                    nullable: true
+                    description: Indicates whether a deposit is required
+                  depositPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: The percentage of deposit required
+                  averageDeliveryTimeframe:
+                    type: integer
+                    format: int32
+                    nullable: true
+                    description: Average delivery timeframe in days
+                  hasRecurringTransactions:
+                    type: boolean
+                    nullable: true
+                    description: Indicates whether the merchant has recurring transactions
+                  motoPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Mail Order / Telephone Order percentage
+                  inStorePercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of in-store transactions
+                  internetPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of internet transactions
+                  percentageDeliveredIn0Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 0 days
+                  percentageDeliveredIn7Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 7 days
+                  percentageDeliveredIn14Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 14 days
+                  percentageDeliveredIn30Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 30 days
+                  percentageDeliveredInOver30Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in over 30 days
+                  percentageMagSwiped:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions using magnetic stripe (mag swiped)
+                  percentageKeyedManually:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions keyed manually
+                  percentageChipEnabled:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions using chip-enabled cards
+      tags:
+      - Merchant Financial Data
+  /merchant-financial-data:
+    post:
+      summary: Save Merchant Financial Data
+      description: Creates or updates merchant financial data
+      operationId: saveMerchantFinancialData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  nullable: true
+                totalAnnualBusinessTurnover:
+                  type: integer
+                  format: int64
+                  nullable: true
+                totalAnnualCardSales:
+                  type: integer
+                  format: int64
+                  nullable: true
+                averageTicketOrSalesAmount:
+                  type: integer
+                  format: int64
+                  nullable: true
+                captureMethod:
+                  type: string
+                  nullable: true
+                  description: Must be a valid CardPresence enum value
+                isDepositRequired:
+                  type: boolean
+                  nullable: true
+                depositPercentage:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: Must be less than 1 (100%) when IsDepositRequired is true
+                averageDeliveryTimeframe:
+                  type: integer
+                  format: int32
+                  nullable: true
+                  description: Must be ≤ 999
+                hasRecurringTransactions:
+                  type: boolean
+                  nullable: true
+                motoPercentage:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: Mail Order / Telephone Order percentage. MotoPercentage + InStorePercentage + InternetPercentage must equal 1 (100%)
+                inStorePercentage:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: MotoPercentage + InStorePercentage + InternetPercentage must equal 1 (100%)
+                internetPercentage:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: MotoPercentage + InStorePercentage + InternetPercentage must equal 1 (100%)
+                percentageDeliveredIn0Days:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All delivery percentages must sum to 1 (100%)
+                percentageDeliveredIn7Days:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All delivery percentages must sum to 1 (100%)
+                percentageDeliveredIn14Days:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All delivery percentages must sum to 1 (100%)
+                percentageDeliveredIn30Days:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All delivery percentages must sum to 1 (100%)
+                percentageDeliveredInOver30Days:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All delivery percentages must sum to 1 (100%)
+                percentageMagSwiped:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All card entry percentages must sum to 1 (100%) or all be 0
+                percentageKeyedManually:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All card entry percentages must sum to 1 (100%) or all be 0
+                percentageChipEnabled:
+                  type: number
+                  format: double
+                  nullable: true
+                  description: All card entry percentages must sum to 1 (100%) or all be 0
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  currency:
+                    type: string
+                    description: The currency code (e.g., AUD, USD)
+                  totalAnnualBusinessTurnover:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Total annual business turnover amount
+                  totalAnnualCardSales:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Total annual card sales amount
+                  averageTicketOrSalesAmount:
+                    type: integer
+                    format: int64
+                    nullable: true
+                    description: Average ticket or sales amount
+                  captureMethod:
+                    type: string
+                    description: The capture method (card-present or card-not-present)
+                  isDepositRequired:
+                    type: boolean
+                    nullable: true
+                    description: Indicates whether a deposit is required
+                  depositPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: The percentage of deposit required
+                  averageDeliveryTimeframe:
+                    type: integer
+                    format: int32
+                    nullable: true
+                    description: Average delivery timeframe in days
+                  hasRecurringTransactions:
+                    type: boolean
+                    nullable: true
+                    description: Indicates whether the merchant has recurring transactions
+                  motoPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Mail Order / Telephone Order percentage
+                  inStorePercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of in-store transactions
+                  internetPercentage:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of internet transactions
+                  percentageDeliveredIn0Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 0 days
+                  percentageDeliveredIn7Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 7 days
+                  percentageDeliveredIn14Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 14 days
+                  percentageDeliveredIn30Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in 30 days
+                  percentageDeliveredInOver30Days:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of goods/services delivered in over 30 days
+                  percentageMagSwiped:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions using magnetic stripe (mag swiped)
+                  percentageKeyedManually:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions keyed manually
+                  percentageChipEnabled:
+                    type: number
+                    format: double
+                    nullable: true
+                    description: Percentage of transactions using chip-enabled cards
+      tags:
+      - Merchant Financial Data
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}

@@ -1,0 +1,917 @@
+openapi: 3.2.0
+info:
+  title: pinch-api Plans API
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+tags:
+- name: Plans
+paths:
+  /plans/{planId}/calculated-payments:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: ''
+      parameters:
+      - in: path
+        name: planId
+        schema:
+          type: string
+        required: true
+        description: Plan Id to calculate Payments for (string identifier starting with *pln_*)
+      - in: query
+        name: startDate
+        schema:
+          type: string
+          format: date-time
+        required: true
+      - in: query
+        name: totalAmount
+        schema:
+          type: number
+      operationId: get_plans-planid-calculated-payments
+      tags:
+      - Plans
+  /plans/{id}:
+    delete:
+      summary: Delete Plan
+      description: ''
+      operationId: delete-plan
+      parameters:
+      - name: id
+        in: path
+        description: Plan Id in pln_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '[no body]'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"id\",\n        \"errorMessage\": \"Plan with id: pln_XXXXXXXXXXXXXX not found\",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: id
+                    errorMessage:
+                      type: string
+                      example: 'Plan with id: pln_XXXXXXXXXXXXXX not found'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      tags:
+      - Plans
+    get:
+      summary: Get Plan
+      description: ''
+      operationId: get-plan
+      parameters:
+      - name: id
+        in: path
+        description: Plan Id in pln_XXXXXXXXXXXXXX format
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\",\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\":0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\":0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\":null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\":1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\",\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\":null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n    \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"Could not find a plan with id: pln_XXXXXXXXXXXXXX\",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'Could not find a plan with id: pln_XXXXXXXXXXXXXX'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      tags:
+      - Plans
+  /plans:
+    get:
+      summary: List Plans
+      description: ''
+      operationId: list-plans
+      parameters:
+      - name: page
+        in: query
+        description: The current page.
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: pageSize
+        in: query
+        description: How many items to return for each page. Maximum 500.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"page\": 1,\n    \"pageSize\": 50,\n    \"totalPages\": 1,\n    \"totalItems\": 3,\n    \"data\": [\n        {\n            \"id\": \"pln_XXXXXX\",\n            \"name\": \"20% Deposit with 20% Monthly\",\n            \"freePeriods\": [\n                {\n                    \"startDateOffset\": 1,\n                    \"startDateInterval\": \"days\",\n                    \"durationOffset\": 1,\n                    \"durationInterval\": \"months\",\n                    \"metadata\": \"\"\n                }\n            ],\n            \"fixedPayments\": [\n                {\n                    \"amountInCents\": null,\n                    \"amountPercentage\": 0.2,\n                    \"description\": \"Upfront deposit\",\n                    \"scheduledDateOffset\": 0,\n                    \"scheduledDateInterval\": \"days\",\n                    \"cancelPlanOnFailure\": true,\n                    \"metadata\": null\n                }\n            ],\n            \"recurringPayment\": {\n                \"amountInCents\": null,\n                \"amountPercentage\": 0.2,\n                \"description\": \"Monthly Repayment\",\n                \"startDateOffset\": 1,\n                \"startDateInterval\": \"months\",\n                \"frequencyOffset\": 1,\n                \"frequencyInterval\": \"months\",\n                \"endType\": \"subscription-fully-paid\",\n                \"endDateOffset\": null,\n                \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\": null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\": false,\n                \"metadata\": null\n            },\n            \"subscriberCount\": 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n        },\n        {\n            \"id\": \"pln_XXXXXX2\",\n            \"name\": \"20% Deposit with 20% Monthly\",\n            \"freePeriods\": [\n                {\n                    \"startDateOffset\": 1,\n                    \"startDateInterval\": \"days\",\n                    \"durationOffset\": 1,\n                    \"durationInterval\": \"months\",\n                    \"metadata\": \"\"\n                }\n            ],\n            \"fixedPayments\": [\n                {\n                    \"amountInCents\": null,\n                    \"amountPercentage\": 0.2,\n                    \"description\": \"Upfront deposit\",\n                    \"scheduledDateOffset\": 0,\n                    \"scheduledDateInterval\": \"days\",\n                    \"cancelPlanOnFailure\": true,\n                    \"metadata\": null\n                }\n            ],\n            \"recurringPayment\": {\n                \"amountInCents\": null,\n                \"amountPercentage\": 0.2,\n                \"description\": \"Monthly Repayment\",\n                \"startDateOffset\": 1,\n                \"startDateInterval\": \"months\",\n                \"frequencyOffset\": 1,\n                \"frequencyInterval\": \"months\",\n                \"endType\": \"subscription-fully-paid\",\n                \"endDateOffset\": null,\n                \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\": null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\": false,\n                \"metadata\": null\n            },\n            \"subscriberCount\": 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n        },\n        {\n            \"id\": \"pln_XXXXXX3\",\n            \"name\": \"25% Deposit with 10% Monthly\",\n            \"freePeriods\": [\n                {\n                    \"startDateOffset\": 1,\n                    \"startDateInterval\": \"days\",\n                    \"durationOffset\": 1,\n                    \"durationInterval\": \"months\",\n                    \"metadata\": \"\"\n                }\n            ],\n            \"fixedPayments\": [\n                {\n                    \"amountInCents\": null,\n                    \"amountPercentage\": 0.25,\n                    \"description\": \"Upfront deposit\",\n                    \"scheduledDateOffset\": 0,\n                    \"scheduledDateInterval\": \"days\",\n                    \"cancelPlanOnFailure\": true,\n                    \"metadata\": null\n                }\n            ],\n            \"recurringPayment\": {\n                \"amountInCents\": null,\n                \"amountPercentage\": 0.1,\n                \"description\": \"Monthly Repayment\",\n                \"startDateOffset\": 1,\n                \"startDateInterval\": \"months\",\n                \"frequencyOffset\": 1,\n                \"frequencyInterval\": \"months\",\n                \"endType\": \"subscription-fully-paid\",\n                \"endDateOffset\": null,\n                \"endDateInterval\": null,\n                \"endAfterNumberOfPayments\": null,\n                \"endAfterTotalAmount\": null,\n                \"cancelPlanOnFailure\": false,\n                \"metadata\": null\n            },\n            \"subscriberCount\": 0,\n            \"requiresTotalAmount\": true,\n            \"metadata\": \"\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  pageSize:
+                    type: integer
+                    example: 50
+                    default: 0
+                  totalPages:
+                    type: integer
+                    example: 1
+                    default: 0
+                  totalItems:
+                    type: integer
+                    example: 3
+                    default: 0
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: pln_XXXXXX
+                        name:
+                          type: string
+                          example: 20% Deposit with 20% Monthly
+                        freePeriods:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startDateOffset:
+                                type: integer
+                                example: 1
+                                default: 0
+                              startDateInterval:
+                                type: string
+                                example: days
+                              durationOffset:
+                                type: integer
+                                example: 1
+                                default: 0
+                              durationInterval:
+                                type: string
+                                example: months
+                              metadata:
+                                type: string
+                                example: ''
+                        fixedPayments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              amountInCents: {}
+                              amountPercentage:
+                                type: number
+                                example: 0.2
+                                default: 0
+                              description:
+                                type: string
+                                example: Upfront deposit
+                              scheduledDateOffset:
+                                type: integer
+                                example: 0
+                                default: 0
+                              scheduledDateInterval:
+                                type: string
+                                example: days
+                              cancelPlanOnFailure:
+                                type: boolean
+                                example: true
+                                default: true
+                              metadata: {}
+                        recurringPayment:
+                          type: object
+                          properties:
+                            amountInCents: {}
+                            amountPercentage:
+                              type: number
+                              example: 0.2
+                              default: 0
+                            description:
+                              type: string
+                              example: Monthly Repayment
+                            startDateOffset:
+                              type: integer
+                              example: 1
+                              default: 0
+                            startDateInterval:
+                              type: string
+                              example: months
+                            frequencyOffset:
+                              type: integer
+                              example: 1
+                              default: 0
+                            frequencyInterval:
+                              type: string
+                              example: months
+                            endType:
+                              type: string
+                              example: subscription-fully-paid
+                            endDateOffset: {}
+                            endDateInterval: {}
+                            endAfterNumberOfPayments: {}
+                            endAfterTotalAmount: {}
+                            cancelPlanOnFailure:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata: {}
+                        subscriberCount:
+                          type: integer
+                          example: 0
+                          default: 0
+                        requiresTotalAmount:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata:
+                          type: string
+                          example: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Plans
+    post:
+      summary: Create or Update Plan
+      description: ''
+      operationId: save-plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: A label for the plan
+                freePeriods:
+                  type: array
+                  description: Optional. Schedule periods of time where no payments will be generated.
+                  items:
+                    type: object
+                    properties:
+                      startDateOffset:
+                        type: integer
+                        format: int32
+                      startDateInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      durationOffset:
+                        type: integer
+                        format: int32
+                      durationInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      metadata:
+                        type: string
+                fixedPayments:
+                  type: array
+                  description: Schedule any number of fixed point-in-time payments
+                  items:
+                    properties:
+                      amountInCents:
+                        type: integer
+                        format: int64
+                      amountPercentage:
+                        type: number
+                        format: double
+                      description:
+                        type: string
+                      scheduledDateOffset:
+                        type: integer
+                        format: int32
+                      scheduledDateInterval:
+                        type: string
+                        enum:
+                        - days
+                        - months
+                        - years
+                      cancelPlanOnFailure:
+                        type: boolean
+                      metadata:
+                        type: string
+                    type: object
+                recurringPayment:
+                  type: object
+                  description: Only one recurring payment can be created. Create multiple plans if you need more than one.
+                  properties:
+                    amountInCents:
+                      type: integer
+                      format: int64
+                    amountPercentage:
+                      type: number
+                      format: double
+                    description:
+                      type: string
+                    startDateOffset:
+                      type: integer
+                      default: 0
+                      format: int32
+                    startDateInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    frequencyOffset:
+                      type: integer
+                      format: int32
+                    frequencyInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    endType:
+                      type: string
+                      enum:
+                      - never
+                      - end-date
+                      - total-amount
+                      - number-of-payments
+                      - subscription-fully-paid
+                    endDateOffset:
+                      type: integer
+                      format: int32
+                    endDateInterval:
+                      type: string
+                      enum:
+                      - days
+                      - months
+                      - years
+                    endAfterNumberOfPayments:
+                      type: integer
+                      format: int32
+                    endAfterTotalAmount:
+                      type: integer
+                      format: int64
+                    cancelPlanOnFailure:
+                      type: boolean
+                    metadata:
+                      type: string
+                metadata:
+                  type: string
+                  description: A free field (JSON preferred) that will be added to each payment that is generated from this plan.
+            examples:
+              Request Example:
+                value:
+                  name: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                  - amountInCents: null
+                    amountPercentage: 0.25
+                    description: Upfront deposit
+                    cancelPlanOnFailure: true
+                    scheduledDateInterval: days
+                    scheduledDateOffset: 0
+                  recurringPayment:
+                    amountInCents: null
+                    amountPercentage: 0.1
+                    description: Monthly Repayment
+                    cancelPlanOnFailure: false
+                    startDateInterval: months
+                    startDateOffset: 1
+                    endDateInterval: null
+                    endDateOffset: null
+                    frequencyInterval: months
+                    frequencyOffset: 1
+                    endAfterNumberOfPayments: null
+                    endAfterTotalAmount: null
+                    endType: subscription-fully-paid
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\",\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\":0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\":0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\":null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\":1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\",\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\":null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n    \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\":\"pln_ZW7iySHhEZwldh\",\n  \"name\":\"25% Deposit with 10% Monthly\",\n  \"fixedPayments\":[\n    {\n      \"amountInCents\":null,\n      \"amountPercentage\":0.25,\n      \"description\":\"Upfront deposit\",\n      \"scheduledDateOffset\":0,\n      \"scheduledDateInterval\":\"days\",\n      \"cancelPlanOnFailure\":true,\n      \"metadata\":null\n    }\n  ],\n  \"recurringPayment\":{\n    \"amountInCents\":null,\n    \"amountPercentage\":0.1,\n    \"description\":\"Monthly Repayment\",\n    \"startDateOffset\":1,\n    \"startDateInterval\":\"months\",\n    \"frequencyOffset\":1,\n    \"frequencyInterval\":\"months\",\n    \"endType\":\"subscription-fully-paid\",\n    \"endDateOffset\":null,\n    \"endDateInterval\":null,\n    \"endAfterNumberOfPayments\":null,\n    \"endAfterTotalAmount\":null,\n    \"cancelPlanOnFailure\":false,\n    \"metadata\":null\n  },\n  \"subscriberCount\":0,\n  \"requiresTotalAmount\":true,\n  \"metadata\":null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: pln_ZW7iySHhEZwldh
+                  name:
+                    type: string
+                    example: 25% Deposit with 10% Monthly
+                  fixedPayments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amountInCents: {}
+                        amountPercentage:
+                          type: number
+                          example: 0.25
+                          default: 0
+                        description:
+                          type: string
+                          example: Upfront deposit
+                        scheduledDateOffset:
+                          type: integer
+                          example: 0
+                          default: 0
+                        scheduledDateInterval:
+                          type: string
+                          example: days
+                        cancelPlanOnFailure:
+                          type: boolean
+                          example: true
+                          default: true
+                        metadata: {}
+                  recurringPayment:
+                    type: object
+                    properties:
+                      amountInCents: {}
+                      amountPercentage:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      description:
+                        type: string
+                        example: Monthly Repayment
+                      startDateOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      startDateInterval:
+                        type: string
+                        example: months
+                      frequencyOffset:
+                        type: integer
+                        example: 1
+                        default: 0
+                      frequencyInterval:
+                        type: string
+                        example: months
+                      endType:
+                        type: string
+                        example: subscription-fully-paid
+                      endDateOffset: {}
+                      endDateInterval: {}
+                      endAfterNumberOfPayments: {}
+                      endAfterTotalAmount: {}
+                      cancelPlanOnFailure:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata: {}
+                  subscriberCount:
+                    type: integer
+                    example: 0
+                    default: 0
+                  requiresTotalAmount:
+                    type: boolean
+                    example: true
+                    default: true
+                  metadata: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"errors\": [\n        {\n            \"propertyName\": \"ScheduledDateOffset\",\n            \"errorMessage\": \"'Scheduled Date Offset' must be between 0 and 9999. You entered -500.\",\n            \"attemptedValue\": -500,\n            \"customState\": null,\n            \"severity\": 0,\n            \"errorCode\": \"InclusiveBetweenValidator\",\n            \"formattedMessageArguments\": [],\n            \"formattedMessagePlaceholderValues\": {\n                \"From\": 0,\n                \"To\": 9999,\n                \"Value\": -500,\n                \"PropertyName\": \"Scheduled Date Offset\",\n                \"PropertyValue\": -500\n            },\n            \"resourceName\": \"InclusiveBetweenValidator\"\n        }\n    ],\n    \"inlineErrors\": {\n        \"id\": \"\",\n        \"name\": \"20% Deposit with 20% Monthly\",\n        \"metadata\": \"\",\n        \"freePeriods\": [],\n        \"fixedPayments\": [\n            {\n                \"amountInCents\": null,\n                \"amountPercentage\": 0.2,\n                \"description\": \"Upfront deposit\",\n                \"scheduledDateOffset\": -500,\n                \"scheduledDateInterval\": \"days\",\n                \"cancelPlanOnFailure\": true,\n                \"metadata\": null,\n                \"errors\": [\n                    {\n                        \"propertyName\": \"ScheduledDateOffset\",\n                        \"errorMessage\": \"'Scheduled Date Offset' must be between 0 and 9999. You entered -500.\",\n                        \"attemptedValue\": -500,\n                        \"customState\": null,\n                        \"severity\": 0,\n                        \"errorCode\": \"InclusiveBetweenValidator\",\n                        \"formattedMessageArguments\": [],\n                        \"formattedMessagePlaceholderValues\": {\n                            \"From\": 0,\n                            \"To\": 9999,\n                            \"Value\": -500,\n                            \"PropertyName\": \"Scheduled Date Offset\",\n                            \"PropertyValue\": -500\n                        },\n                        \"resourceName\": \"InclusiveBetweenValidator\"\n                    }\n                ]\n            }\n        ],\n        \"recurringPayment\": {\n            \"amountInCents\": null,\n            \"amountPercentage\": 0.2,\n            \"description\": \"Monthly Repayment\",\n            \"startDateOffset\": 1,\n            \"startDateInterval\": \"months\",\n            \"frequencyOffset\": 1,\n            \"frequencyInterval\": \"months\",\n            \"endType\": \"subscription-fully-paid\",\n            \"endDateOffset\": null,\n            \"endDateInterval\": null,\n            \"endAfterNumberOfPayments\": null,\n            \"endAfterTotalAmount\": null,\n            \"cancelPlanOnFailure\": false,\n            \"metadata\": null,\n            \"errors\": []\n        },\n        \"errors\": []\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        propertyName:
+                          type: string
+                          example: ScheduledDateOffset
+                        errorMessage:
+                          type: string
+                          example: '''Scheduled Date Offset'' must be between 0 and 9999. You entered -500.'
+                        attemptedValue:
+                          type: integer
+                          example: -500
+                          default: 0
+                        customState: {}
+                        severity:
+                          type: integer
+                          example: 0
+                          default: 0
+                        errorCode:
+                          type: string
+                          example: InclusiveBetweenValidator
+                        formattedMessageArguments:
+                          type: array
+                        formattedMessagePlaceholderValues:
+                          type: object
+                          properties:
+                            From:
+                              type: integer
+                              example: 0
+                              default: 0
+                            To:
+                              type: integer
+                              example: 9999
+                              default: 0
+                            Value:
+                              type: integer
+                              example: -500
+                              default: 0
+                            PropertyName:
+                              type: string
+                              example: Scheduled Date Offset
+                            PropertyValue:
+                              type: integer
+                              example: -500
+                              default: 0
+                        resourceName:
+                          type: string
+                          example: InclusiveBetweenValidator
+                  inlineErrors:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: ''
+                      name:
+                        type: string
+                        example: 20% Deposit with 20% Monthly
+                      metadata:
+                        type: string
+                        example: ''
+                      freePeriods:
+                        type: array
+                      fixedPayments:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            amountInCents: {}
+                            amountPercentage:
+                              type: number
+                              example: 0.2
+                              default: 0
+                            description:
+                              type: string
+                              example: Upfront deposit
+                            scheduledDateOffset:
+                              type: integer
+                              example: -500
+                              default: 0
+                            scheduledDateInterval:
+                              type: string
+                              example: days
+                            cancelPlanOnFailure:
+                              type: boolean
+                              example: true
+                              default: true
+                            metadata: {}
+                            errors:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  propertyName:
+                                    type: string
+                                    example: ScheduledDateOffset
+                                  errorMessage:
+                                    type: string
+                                    example: '''Scheduled Date Offset'' must be between 0 and 9999. You entered -500.'
+                                  attemptedValue:
+                                    type: integer
+                                    example: -500
+                                    default: 0
+                                  customState: {}
+                                  severity:
+                                    type: integer
+                                    example: 0
+                                    default: 0
+                                  errorCode:
+                                    type: string
+                                    example: InclusiveBetweenValidator
+                                  formattedMessageArguments:
+                                    type: array
+                                  formattedMessagePlaceholderValues:
+                                    type: object
+                                    properties:
+                                      From:
+                                        type: integer
+                                        example: 0
+                                        default: 0
+                                      To:
+                                        type: integer
+                                        example: 9999
+                                        default: 0
+                                      Value:
+                                        type: integer
+                                        example: -500
+                                        default: 0
+                                      PropertyName:
+                                        type: string
+                                        example: Scheduled Date Offset
+                                      PropertyValue:
+                                        type: integer
+                                        example: -500
+                                        default: 0
+                                  resourceName:
+                                    type: string
+                                    example: InclusiveBetweenValidator
+                      recurringPayment:
+                        type: object
+                        properties:
+                          amountInCents: {}
+                          amountPercentage:
+                            type: number
+                            example: 0.2
+                            default: 0
+                          description:
+                            type: string
+                            example: Monthly Repayment
+                          startDateOffset:
+                            type: integer
+                            example: 1
+                            default: 0
+                          startDateInterval:
+                            type: string
+                            example: months
+                          frequencyOffset:
+                            type: integer
+                            example: 1
+                            default: 0
+                          frequencyInterval:
+                            type: string
+                            example: months
+                          endType:
+                            type: string
+                            example: subscription-fully-paid
+                          endDateOffset: {}
+                          endDateInterval: {}
+                          endAfterNumberOfPayments: {}
+                          endAfterTotalAmount: {}
+                          cancelPlanOnFailure:
+                            type: boolean
+                            example: false
+                            default: true
+                          metadata: {}
+                          errors:
+                            type: array
+                      errors:
+                        type: array
+      deprecated: false
+      tags:
+      - Plans
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true

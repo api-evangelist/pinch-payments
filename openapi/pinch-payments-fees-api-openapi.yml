@@ -1,0 +1,283 @@
+openapi: 3.2.0
+info:
+  title: pinch-api Fees API
+  version: '2020.1'
+servers:
+- url: https://api.getpinch.com.au/test
+security:
+- sec0: []
+tags:
+- name: Fees
+paths:
+  /fees/calculate:
+    post:
+      summary: Calculate Fees
+      description: ''
+      operationId: calculate-fees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token in tkn_XXXXXXXXXXXXXXXXXXXXXX format
+                sourceId:
+                  type: string
+                  description: Source Id in src_XXXXXXXXXXXXXX format
+                sourceType:
+                  type: string
+                amount:
+                  type: integer
+                  format: int64
+                applicationFee:
+                  type: integer
+                  format: int64
+                currency:
+                  type: string
+                surcharge:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"amount\": 100,\n    \"currency\": \"AUD\",\n    \"netAmount\": 67,\n    \"isSurcharged\": false,\n    \"convertedAmount\": null,\n    \"convertedCurrency\": null,\n    \"convertedNetAmount\": null,\n    \"fees\": {\n        \"transactionFee\": 33,\n        \"applicationFee\": 0,\n        \"totalFee\": 33,\n        \"currency\": \"AUD\",\n        \"taxRate\": 0.1,\n        \"convertedTransactionFee\": null,\n        \"convertedApplicationFee\": null,\n        \"convertedTotalFee\": null,\n        \"convertedCurrency\": null,\n        \"conversionRate\": null\n    },\n    \"source\": {\n        \"id\": null,\n        \"sourceType\": \"credit-card\",\n        \"bankAccountNumber\": null,\n        \"bankAccountBsb\": null,\n        \"bankAccountName\": null,\n        \"creditCardToken\": \"tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n        \"cardHolderName\": \"Ben Hotdog\",\n        \"expiryDate\": \"2022-12-01T00:00:00\",\n        \"displayCardNumber\": \"4242\",\n        \"cardScheme\": \"visa\",\n        \"origin\": \"AU\",\n        \"funding\": \"credit\"\n    },\n    \"feeSchedule\": {\n        \"destinationZone\": \"AU\",\n        \"originZone\": \"AU\",\n        \"feeScheme\": \"visa-master\",\n        \"percentageFee\": 0.025,\n        \"fixedFee\": 30,\n        \"cap\": 0,\n        \"dishonourFee\": 0,\n        \"disputeFee\": 3500\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  amount:
+                    type: integer
+                    example: 100
+                    default: 0
+                  currency:
+                    type: string
+                    example: AUD
+                  netAmount:
+                    type: integer
+                    example: 67
+                    default: 0
+                  isSurcharged:
+                    type: boolean
+                    example: false
+                    default: true
+                  convertedAmount: {}
+                  convertedCurrency: {}
+                  convertedNetAmount: {}
+                  fees:
+                    type: object
+                    properties:
+                      transactionFee:
+                        type: integer
+                        example: 33
+                        default: 0
+                      applicationFee:
+                        type: integer
+                        example: 0
+                        default: 0
+                      totalFee:
+                        type: integer
+                        example: 33
+                        default: 0
+                      currency:
+                        type: string
+                        example: AUD
+                      taxRate:
+                        type: number
+                        example: 0.1
+                        default: 0
+                      convertedTransactionFee: {}
+                      convertedApplicationFee: {}
+                      convertedTotalFee: {}
+                      convertedCurrency: {}
+                      conversionRate: {}
+                  source:
+                    type: object
+                    properties:
+                      id: {}
+                      sourceType:
+                        type: string
+                        example: credit-card
+                      bankAccountNumber: {}
+                      bankAccountBsb: {}
+                      bankAccountName: {}
+                      creditCardToken:
+                        type: string
+                        example: tkn_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                      cardHolderName:
+                        type: string
+                        example: Ben Hotdog
+                      expiryDate:
+                        type: string
+                        example: '2022-12-01T00:00:00'
+                      displayCardNumber:
+                        type: string
+                        example: '4242'
+                      cardScheme:
+                        type: string
+                        example: visa
+                      origin:
+                        type: string
+                        example: AU
+                      funding:
+                        type: string
+                        example: credit
+                  feeSchedule:
+                    type: object
+                    properties:
+                      destinationZone:
+                        type: string
+                        example: AU
+                      originZone:
+                        type: string
+                        example: AU
+                      feeScheme:
+                        type: string
+                        example: visa-master
+                      percentageFee:
+                        type: number
+                        example: 0.025
+                        default: 0
+                      fixedFee:
+                        type: integer
+                        example: 30
+                        default: 0
+                      cap:
+                        type: integer
+                        example: 0
+                        default: 0
+                      dishonourFee:
+                        type: integer
+                        example: 0
+                        default: 0
+                      disputeFee:
+                        type: integer
+                        example: 3500
+                        default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"propertyName\": \"\",\n        \"errorMessage\": \"You must supply one of either: Token, SourceId, SourceType\",\n        \"attemptedValue\": null,\n        \"customState\": null,\n        \"severity\": 0,\n        \"errorCode\": null,\n        \"formattedMessageArguments\": null,\n        \"formattedMessagePlaceholderValues\": null,\n        \"resourceName\": null\n    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyName:
+                      type: string
+                      example: ''
+                    errorMessage:
+                      type: string
+                      example: 'You must supply one of either: Token, SourceId, SourceType'
+                    attemptedValue: {}
+                    customState: {}
+                    severity:
+                      type: integer
+                      example: 0
+                      default: 0
+                    errorCode: {}
+                    formattedMessageArguments: {}
+                    formattedMessagePlaceholderValues: {}
+                    resourceName: {}
+      deprecated: false
+      tags:
+      - Fees
+  /fees:
+    get:
+      summary: Get Fees
+      description: Get the current fee schedule for a merchant.
+      operationId: get-fees
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"effectiveDateUtc\": \"2024-11-11T02:19:02.7549843+00:00\",\n    \"feeScheduleLines\": [\n        {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"AU\",\n            \"feeScheme\": \"direct-debit\",\n            \"percentageFee\": 0.0100,\n            \"fixedFee\": 30,\n            \"cap\": 500,\n            \"dishonourFee\": 500,\n            \"disputeFee\": 2500,\n            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"AU\",\n            \"feeScheme\": \"visa-master\",\n            \"percentageFee\": 0.0195,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"AU\",\n            \"feeScheme\": \"amex\",\n            \"percentageFee\": 0.0250,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"INTL\",\n            \"feeScheme\": \"visa-master\",\n            \"percentageFee\": 0.0390,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        },\n        {\n            \"destinationZone\": \"AU\",\n            \"originZone\": \"INTL\",\n            \"feeScheme\": \"amex\",\n            \"percentageFee\": 0.0390,\n            \"fixedFee\": 30,\n            \"cap\": 0,\n            \"dishonourFee\": 0,\n            \"disputeFee\": 3500,\n            \"refundFeeFixed\": 0,\n            \"feePresence\": \"any\",\n            \"feeFunding\": \"any\",\n            \"taxRate\": 0.1000\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  effectiveDateUtc:
+                    type: string
+                    example: '2024-11-11T02:19:02.7549843+00:00'
+                  feeScheduleLines:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        destinationZone:
+                          type: string
+                          example: AU
+                        originZone:
+                          type: string
+                          example: AU
+                        feeScheme:
+                          type: string
+                          example: direct-debit
+                        percentageFee:
+                          type: number
+                          example: 0.01
+                          default: 0
+                        fixedFee:
+                          type: integer
+                          example: 30
+                          default: 0
+                        cap:
+                          type: integer
+                          example: 500
+                          default: 0
+                        dishonourFee:
+                          type: integer
+                          example: 500
+                          default: 0
+                        disputeFee:
+                          type: integer
+                          example: 2500
+                          default: 0
+                        refundFeeFixed:
+                          type: integer
+                          example: 0
+                          default: 0
+                        feePresence:
+                          type: string
+                          example: any
+                        feeFunding:
+                          type: string
+                          example: any
+                        taxRate:
+                          type: number
+                          example: 0.1
+                          default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Fees
+components:
+  securitySchemes:
+    sec0:
+      type: oauth2
+      flows: {}
+x-readme:
+  headers:
+  - key: pinch-version
+    value: '2020.1'
+  explorer-enabled: true
+  proxy-enabled: true
