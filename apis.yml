@@ -153,6 +153,8 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -660,6 +662,8 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
@@ -798,6 +802,8 @@ apis:
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
