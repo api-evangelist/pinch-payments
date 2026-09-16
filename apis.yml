@@ -67,7 +67,7 @@ tags_raw:
 - Account-to-Account
 - New Zealand
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: pinch-payments:pinch-payments-connect-api
@@ -304,8 +304,8 @@ apis:
     url: https://docs.getpinch.com.au/reference/tokens
 - aid: pinch-payments:pinch-payments-merchant-financial-data-api
   name: Pinch Payments Merchant Financial Data API
-  description: >-
-    The Merchant Financial Data API from Pinch Payments — 2 operation(s) for merchant financial data.
+  description: The Merchant Financial Data API from Pinch Payments — 2 operation(s) for merchant financial
+    data.
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
   tags:
@@ -488,7 +488,7 @@ apis:
   - type: APIReference
     url: https://docs.getpinch.com.au/reference/tokens
 - aid: pinch-payments:pinch-payments-payments-api
-  name: Pinch Payments Payments API
+  name: Pinch Payments API
   description: The Payments API from Pinch Payments — 7 operation(s) for payments.
   humanURL: https://docs.getpinch.com.au/reference/things-to-know
   baseURL: https://api.getpinch.com.au
