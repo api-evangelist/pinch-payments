@@ -35,6 +35,8 @@ paths:
       operationId: get_plans-planid-calculated-payments
       tags:
       - Plans
+      summary: Get plans planid calculated payments
+      x-summary-source: derived
   /plans/{id}:
     delete:
       summary: Delete Plan
