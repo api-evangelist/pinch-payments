@@ -860,6 +860,9 @@ apis:
   - type: APIReference
     url: https://docs.getpinch.com.au/reference/tokens
 common:
+- type: CapabilityMap
+  url: capabilities/pinch-payments-capability-edges.yml
+  name: Pinch Payments Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/pinch-payments/overview
 - type: OAuthScopes
