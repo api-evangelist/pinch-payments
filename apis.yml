@@ -67,7 +67,7 @@ tags_raw:
 - Account-to-Account
 - New Zealand
 created: '2026-07-24'
-modified: '2026-09-16'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: pinch-payments:pinch-payments-connect-api
@@ -860,6 +860,8 @@ apis:
   - type: APIReference
     url: https://docs.getpinch.com.au/reference/tokens
 common:
+- url: https://getpinch.com.au/blog/rss.xml
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/pinch-payments-capability-edges.yml
   name: Pinch Payments Business Capability Map
