@@ -1,4 +1,4 @@
-# Pinch Payments (pinch-payments)
+# Pinch Payments
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,136 +64,176 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Pinch Payments is an Australian, Brisbane-based payment orchestration and payment-facilitator platform that automates invoice collection and receivables for service businesses, bookkeepers, and software platforms across Australia and New Zealand. It lets merchants accept direct debit (bank account) and card payments (Visa, Mastercard, American Express), build payment plans and subscriptions, tokenise payment sources client-side with CaptureJS, and reconcile settlements into Xero, QuickBooks, and MYOB. Its Glassbox / Managed Merchants product is a Payfac-as-a-Service seam with KYC, compliance, and sub-merchant onboarding for platforms and marketplaces.
+Pinch Payments is an Australian, Brisbane-based payment orchestration and payment-facilitator platform that automates invoice collection and receivables for service businesses, bookkeepers, and software platforms across Australia and New Zealand. Marketing itself as "Aussie-Made Payments Infrastructure," Pinch lets merchants accept direct debit (bank account) and card payments (Visa, Mastercard, American Express), build payment plans and subscriptions, tokenise payment sources client-side with its CaptureJS library, and reconcile settlements back into Xero, QuickBooks, and MYOB. Its Glassbox / Managed Merchants offering is a Payfac-as-a-Service seam with KYC, compliance, and sub-merchant onboarding for platforms acting as aggregators or marketplaces. Pinch is genuinely API-first: it ships a fully documented REST API (JSON, OAuth2 client-credentials auth), a ReadMe-hosted developer portal with a live API explorer, per-product OpenAPI 3.1 definitions, a published Postman collection, an official .NET SDK, Zapier/n8n/viaSocket no-code connectors, webhooks for real-time events, and an llms.txt + docs MCP server for AI-assisted integration.
 
-Pinch is genuinely API-first: a fully documented REST API (JSON, OAuth2 client-credentials auth), a ReadMe-hosted developer portal with a live explorer, per-product OpenAPI 3.1 definitions, a published Postman collection, an official .NET SDK, Zapier/n8n/viaSocket connectors, webhooks, and an llms.txt + docs MCP server for AI-assisted integration.
+**Areas:** Payments · Australia · Payment Gateway · Payment Processing · Direct Debit · Card Payments · Subscription · Billing · Payment Facilitator · Account-to-Account · New Zealand
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pinch-payments/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pinch-payments/refs/heads/main/apis.yml)
+## Pinch Payments on APIs.io
 
-## Tags
+Everything profiled for Pinch Payments is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pinch-payments/](https://apis.io/providers/pinch-payments/)** — or go straight to one of the APIs or properties below.
 
-- Payments
-- Australia
-- Payment Gateway
-- Payment Processing
-- Direct Debit
-- Card Payments
-- Subscriptions
-- Billing
-- Payment Facilitator
-- Account-to-Account
-- New Zealand
+### APIs (17)
 
-## Timestamps
+- [Pinch Payments Connect API](https://apis.io/apis/pinch-payments/pinch-payments-connect-api/) — The Connect API from Pinch Payments — 1 operation(s) for connect.
+- [Pinch Payments Contacts API](https://apis.io/apis/pinch-payments/pinch-payments-contacts-api/) — The Contacts API from Pinch Payments — 2 operation(s) for contacts.
+- [Pinch Payments Events API](https://apis.io/apis/pinch-payments/pinch-payments-events-api/) — The Events API from Pinch Payments — 2 operation(s) for events.
+- [Pinch Payments Fees API](https://apis.io/apis/pinch-payments/pinch-payments-fees-api/) — The Fees API from Pinch Payments — 2 operation(s) for fees.
+- [Pinch Payments Health API](https://apis.io/apis/pinch-payments/pinch-payments-health-api/) — The Health API from Pinch Payments — 1 operation(s) for health.
+- [Pinch Payments Merchant Financial Data API](https://apis.io/apis/pinch-payments/pinch-payments-merchant-financial-data-api/) — The Merchant Financial Data API from Pinch Payments — 2 operation(s) for merchant financial data.
+- [Pinch Payments Merchants API](https://apis.io/apis/pinch-payments/pinch-payments-merchants-api/) — The Merchants API from Pinch Payments — 3 operation(s) for merchants.
+- [Pinch Payments Payers API](https://apis.io/apis/pinch-payments/pinch-payments-payers-api/) — The Payers API from Pinch Payments — 4 operation(s) for payers.
+- [Pinch Payments Payment Links API](https://apis.io/apis/pinch-payments/pinch-payments-payment-links-api/) — The Payment Links API from Pinch Payments — 3 operation(s) for payment links.
+- [Pinch Payments API](https://apis.io/apis/pinch-payments/pinch-payments-payments-api/) — The Payments API from Pinch Payments — 7 operation(s) for payments.
+- [Pinch Payments Plans API](https://apis.io/apis/pinch-payments/pinch-payments-plans-api/) — The Plans API from Pinch Payments — 3 operation(s) for plans.
+- [Pinch Payments Refund API](https://apis.io/apis/pinch-payments/pinch-payments-refund-api/) — The Refund API from Pinch Payments — 1 operation(s) for refund.
+- [Pinch Payments Refunds API](https://apis.io/apis/pinch-payments/pinch-payments-refunds-api/) — The Refunds API from Pinch Payments — 2 operation(s) for refunds.
+- [Pinch Payments Subscriptions API](https://apis.io/apis/pinch-payments/pinch-payments-subscriptions-api/) — The Subscriptions API from Pinch Payments — 2 operation(s) for subscriptions.
+- [Pinch Payments Tokens API](https://apis.io/apis/pinch-payments/pinch-payments-tokens-api/) — The Tokens API from Pinch Payments — 1 operation(s) for tokens.
+- [Pinch Payments Transfers API](https://apis.io/apis/pinch-payments/pinch-payments-transfers-api/) — The Transfers API from Pinch Payments — 3 operation(s) for transfers.
+- [Pinch Payments Webhooks API](https://apis.io/apis/pinch-payments/pinch-payments-webhooks-api/) — The Webhooks API from Pinch Payments — 2 operation(s) for webhooks.
 
-- **Created:** 2026-07-24
-- **Modified:** 2026-07-24
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Pinch Core API
+#### AsyncAPI (1)
 
-Core Pinch REST API covering scheduled and realtime payments, plans and subscriptions, refunds, fees, events, and health (14 paths / 19 operations).
+Event-driven and webhook contracts.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/things-to-know](https://docs.getpinch.com.au/reference/things-to-know)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-core.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/pinch-payments-api-core-concepts)
+- [Pinch Payments Webhooks](https://apis.io/asyncapis/pinch-payments/pinch-payments-webhooks/)
 
-### Pinch Payments API
+#### MCP servers (1)
 
-Create/update scheduled payments, take realtime card payments, retrieve/list payments, check payment nonces, delete payments (7 paths / 8 operations).
+Model Context Protocol servers that expose the API to agents.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/save-payment](https://docs.getpinch.com.au/reference/save-payment)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-payments.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/credit-card-payments)
+- [Pinch API Docs MCP](https://apis.io/servers/pinch-payments/pinch-api-docs-mcp/)
 
-### Pinch Payers API
+#### Agentic access (1)
 
-Manage payer records and payment sources (bank account or credit card) plus client-side tokenisation (4 paths / 6 operations).
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/save-payer](https://docs.getpinch.com.au/reference/save-payer)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-payers.yml)
+- [Pinch Payments Agentic Access](https://apis.io/agentic-access/pinch-payments/pinch-payments-agentic-access/)
 
-### Pinch Payment Links API
+#### Collections (20)
 
-Generate hosted payment pages and share them via email, SMS, or chat with no frontend work (3 paths / 5 operations).
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/create-payment-link](https://docs.getpinch.com.au/reference/create-payment-link)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-payment-links.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/payment-links)
+- [authentication-api](https://apis.io/collections/pinch-payments/open-pinch-payments-authentication/)
+- [pinch-api-contacts](https://apis.io/collections/pinch-payments/open-pinch-payments-contacts/)
+- [pinch-api](https://apis.io/collections/pinch-payments/open-pinch-payments-core/)
+- [pinch-api-merchant-financial-data](https://apis.io/collections/pinch-payments/open-pinch-payments-merchant-financial-data/)
+- [pinch-api-merchants](https://apis.io/collections/pinch-payments/open-pinch-payments-merchants/)
+- [pinch-api-payers](https://apis.io/collections/pinch-payments/open-pinch-payments-payers/)
+- [pinch-api-payment-links](https://apis.io/collections/pinch-payments/open-pinch-payments-payment-links/)
+- [pinch-api-payments](https://apis.io/collections/pinch-payments/open-pinch-payments-payments/)
+- [pinch-api-transfers](https://apis.io/collections/pinch-payments/open-pinch-payments-transfers/)
+- [pinch-api-webhooks](https://apis.io/collections/pinch-payments/open-pinch-payments-webhooks/)
+- [authentication-api](https://apis.io/collections/pinch-payments/postman-pinch-payments-authentication/)
+- [pinch-api-contacts](https://apis.io/collections/pinch-payments/postman-pinch-payments-contacts/)
+- [pinch-api](https://apis.io/collections/pinch-payments/postman-pinch-payments-core/)
+- [pinch-api-merchant-financial-data](https://apis.io/collections/pinch-payments/postman-pinch-payments-merchant-financial-data/)
+- [pinch-api-merchants](https://apis.io/collections/pinch-payments/postman-pinch-payments-merchants/)
+- [pinch-api-payers](https://apis.io/collections/pinch-payments/postman-pinch-payments-payers/)
+- [pinch-api-payment-links](https://apis.io/collections/pinch-payments/postman-pinch-payments-payment-links/)
+- [pinch-api-payments](https://apis.io/collections/pinch-payments/postman-pinch-payments-payments/)
+- [pinch-api-transfers](https://apis.io/collections/pinch-payments/postman-pinch-payments-transfers/)
+- [pinch-api-webhooks](https://apis.io/collections/pinch-payments/postman-pinch-payments-webhooks/)
 
-### Pinch Merchants API
+#### Overlays (10)
 
-Payfac-as-a-Service / Managed Merchants — create sub-merchant accounts, update merchant details, list managed merchants, upload compliance documents (3 paths / 4 operations).
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/create-managed-merchant](https://docs.getpinch.com.au/reference/create-managed-merchant)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-merchants.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/managed-merchants)
+- [Pinch Payments Authentication Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-authentication-overlay/)
+- [Pinch Payments Contacts Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-contacts-overlay/)
+- [Pinch Payments Core Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-core-overlay/)
+- [Pinch Payments Merchant Financial Data Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-merchant-financial-data-overlay/)
+- [Pinch Payments Merchants Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-merchants-overlay/)
+- [Pinch Payments Payers Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-payers-overlay/)
+- [Pinch Payments Payment Links Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-payment-links-overlay/)
+- [Pinch Payments Payments Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-payments-overlay/)
+- [Pinch Payments Transfers Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-transfers-overlay/)
+- [Pinch Payments Webhooks Overlay](https://apis.io/overlays/pinch-payments/pinch-payments-webhooks-overlay/)
 
-### Pinch Webhooks API
+#### Security (2)
 
-Configure webhooks for real-time event notifications; create/update, list, retrieve, delete webhooks (2 paths / 4 operations).
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/create-or-update-webhook](https://docs.getpinch.com.au/reference/create-or-update-webhook)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-webhooks.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/webhooks)
+- [Pinch Payments Authentication](https://apis.io/security/pinch-payments/pinch-payments-authentication/)
+- [Pinch Payments Domain Security](https://apis.io/security/pinch-payments/pinch-payments-domain-security/)
 
-### Pinch Contacts API
+#### OAuth scopes (1)
 
-Manage contact records for the authenticated merchant (2 paths / 4 operations).
+The permissions the API asks for.
 
-- **Human URL:** [https://docs.getpinch.com.au/reference/save-contact](https://docs.getpinch.com.au/reference/save-contact)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-contacts.yml)
+- [Pinch Payments Scopes](https://apis.io/scopes/pinch-payments/pinch-payments-scopes/)
 
-### Pinch Transfers API
+## Where to find this API
 
-Reconcile settlements — list transfers, retrieve a transfer, list its line items back to payments (3 paths / 3 operations).
-
-- **Human URL:** [https://docs.getpinch.com.au/reference/list-all-transfers](https://docs.getpinch.com.au/reference/list-all-transfers)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-transfers.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/transfers-in-pinch-payments)
-
-### Pinch Merchant Financial Data API
-
-Retrieve and save merchant financial data used in compliance and onboarding (2 paths / 2 operations).
-
-- **Human URL:** [https://docs.getpinch.com.au/reference/getcurrentmerchantfinancialdata](https://docs.getpinch.com.au/reference/getcurrentmerchantfinancialdata)
-- **Base URL:** `https://api.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-merchant-financial-data.yml)
-
-### Pinch Authentication API
-
-OAuth2 client-credentials token endpoint — POST /connect/token with HTTP Basic (merchant ID + secret key) and scope `api1` to obtain a short-lived Bearer JWT.
-
-- **Human URL:** [https://docs.getpinch.com.au/reference/tokens](https://docs.getpinch.com.au/reference/tokens)
-- **Base URL:** `https://auth.getpinch.com.au`
-- [OpenAPI](openapi/pinch-payments-authentication.yml)
-- [Documentation](https://docs.getpinch.com.au/docs/application-authentication)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://getpinch.com.au/)
-- [Developer Portal](https://docs.getpinch.com.au/)
-- [Getting Started](https://docs.getpinch.com.au/docs/get-started-with-the-pinch-api)
-- [GitHub Organization](https://github.com/PinchPayments)
-- [Postman Collection](https://github.com/PinchPayments/postman-pinch-api)
-- [Status Page](https://status.getpinch.com.au/)
+- [Documentation](https://docs.getpinch.com.au/)
+- [Getting started](https://docs.getpinch.com.au/docs/get-started-with-the-pinch-api)
+- [API reference](https://docs.getpinch.com.au/reference/things-to-know)
 - [Pricing](https://getpinch.com.au/pricing)
+- [Sign up](https://app.getpinch.com.au/register)
 - [Blog](https://getpinch.com.au/blog)
-- [Help Center](https://helpdesk.getpinch.com.au/)
-- [Sign Up](https://app.getpinch.com.au/register)
-- [Terms of Service](https://getpinch.com.au/Legal/Terms/)
-- [Privacy Policy](https://getpinch.com.au/Legal/Privacy/)
+- [Terms of service](https://getpinch.com.au/Legal/Terms/)
+- [Privacy policy](https://getpinch.com.au/Legal/Privacy/)
+- [GitHub](https://github.com/PinchPayments)
+- [Status](https://status.getpinch.com.au/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 52.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 76.7 |
+| Contract quality | 53.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 46.1 |
+| Developer ergonomics | 62.5 |
+| Access clarity | 44.7 |
+
+**Agent readiness 40.4** — agent-native
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 31.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pinch-payments/](https://apis.io/providers/pinch-payments/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pinch Payments: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pinch-payments/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
